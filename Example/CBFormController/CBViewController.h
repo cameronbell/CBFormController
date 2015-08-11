@@ -7,7 +7,8 @@
 //
 
 @import UIKit;
+#import "CBFormController.h"
 
-@interface CBViewController : UIViewController
+@interface CBViewController : CBFormController
 
 @end

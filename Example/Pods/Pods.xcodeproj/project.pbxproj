@@ -1,0 +1,939 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03298C443755F8C33E7B6A06594F5FD5 /* CBText.h in Headers */ = {isa = PBXBuildFile; fileRef = B34F34E6D55D5DA0DB1B4CF5F0D7F660 /* CBText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		039567E357D9DEE6A84C84FD7C0DF696 /* Pods-CBFormController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5AE5ABAFD72423B4009DA9C2086417 /* Pods-CBFormController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11A24DA3920C4A670706E9BFBB194BD2 /* CBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B198ED89E85F6A1A1E2C6A6FDDE5B6 /* CBSwitch.m */; };
+		1575C70AC5732EFFCFAEF3BCD82FF57A /* Pods-CBFormController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0139AD430A788BFEBFE9E1DBDF3421 /* Pods-CBFormController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CEFF13283D4D3E9E30F3BD28F8FD477 /* CBCell+CellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = 586055F8FB836F1BFF95070A9D189898 /* CBCell+CellSet1.m */; };
+		2717B1E03D78A3022230667AF141626F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7929F0B5945A8080A0C461295AC88E62 /* Foundation.framework */; };
+		2A76BB861B3FD7EFA99C8C910E5492EE /* CBCellSet1Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 4127D69B14CD98B1D5055B7390C946BC /* CBCellSet1Text.m */; };
+		301EC428C66ADA5B5C2BF2603BC39E6F /* CBCellSet2.m in Sources */ = {isa = PBXBuildFile; fileRef = DD699DDB428DC7BDC47D69D1DB36C455 /* CBCellSet2.m */; };
+		3F2291151B799A0C0003ABC5 /* NSObject+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2291131B799A0C0003ABC5 /* NSObject+Equals.h */; };
+		3F2291161B799A0C0003ABC5 /* NSObject+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2291141B799A0C0003ABC5 /* NSObject+Equals.m */; };
+		3F2291191B79A0000003ABC5 /* NSString+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2291171B79A0000003ABC5 /* NSString+Equals.h */; };
+		3F22911A1B79A0000003ABC5 /* NSString+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2291181B79A0000003ABC5 /* NSString+Equals.m */; };
+		3F22911D1B79A08D0003ABC5 /* NSNumber+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F22911B1B79A08D0003ABC5 /* NSNumber+Equals.h */; };
+		3F22911E1B79A08D0003ABC5 /* NSNumber+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F22911C1B79A08D0003ABC5 /* NSNumber+Equals.m */; };
+		3F2291211B7A6D1E0003ABC5 /* CBCell+CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F22911F1B7A6D1E0003ABC5 /* CBCell+CBCellSet1.h */; };
+		3F2291221B7A6D1E0003ABC5 /* CBCell+CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2291201B7A6D1E0003ABC5 /* CBCell+CBCellSet1.m */; };
+		43205F6B4D6DF61F4CFC50CCAD4EF0A6 /* CBFormController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C0A31E852C1CAA8350EED4A6F4355C3 /* CBFormController.bundle */; };
+		58499099981E0F2F03A2966755952066 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7929F0B5945A8080A0C461295AC88E62 /* Foundation.framework */; };
+		5A3D83005918A512835F22EDD928BCBE /* CBCellSet1Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B73458431CF573D94CD2DABA5F7E1A /* CBCellSet1Switch.m */; };
+		60C602F28E01E15BBEBEEAFB95F12682 /* CBCellSet2.h in Headers */ = {isa = PBXBuildFile; fileRef = 066893EEAC76588A6C561C9CD473845F /* CBCellSet2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64FB48E7CD5133AB4A6227AFAFDA3BC5 /* CBCellSet1Text.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F0644BEE9FADD4BD63EDA4F771EA5C /* CBCellSet1Text.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6695004B196259A69316836B1CEBD4CF /* Pods-CBFormController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F25D026184525EFC4CC038016F387768 /* Pods-CBFormController_Example-dummy.m */; };
+		6A9528ECE5A623E6356249C8F7F0279D /* CBFormItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 50DD9C2A3A1D62C510E7FD59931432CD /* CBFormItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B3EDB5B9A460F3B0B29C16C850801D0 /* CBSwitchCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D17B61894661893AAB8E5ACCA8AEF83C /* CBSwitchCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E5EBB43D5A30EF3FF783BA46AEE93BB /* CBCellSet1Switch.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D4502B9EE8F5C72E797102080C8FBA /* CBCellSet1Switch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		862DD418E025D07B6E68863F9E3D5F02 /* CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F753A6D86FBE103F426EF73EAF0DD65 /* CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88E0B59DC0FC2C35628AF74059CD61C4 /* CBCellSet1Text.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0225E90CE71F45872DF103C425F453DC /* CBCellSet1Text.xib */; };
+		8A7955BA2B24AA11801E370559BEEA02 /* CBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CB4B9618B9F3617A46788F6EE66798 /* CBCell.m */; };
+		8FCCE76B59B08CBC5C089378C5C89D16 /* CBFormController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B84E770298DEABB887BDAC5289F3F2 /* CBFormController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A094EB5E044DCE40EB347F5D287422A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7929F0B5945A8080A0C461295AC88E62 /* Foundation.framework */; };
+		A13400B44829B311AFBBE2562F2526F2 /* CBSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73D5134BAFFF643F8B5A027B7BBEBA /* CBSwitchCell.m */; };
+		A650FA16FDECB831EF3B5170D441432E /* CBFormItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DC24A9E45E4C7683C5BE32740EA2F81A /* CBFormItem.m */; };
+		AADBB5F79A4BD59D76CB9DC72C26415C /* CBCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7895578ECE6143D614D0E15CF15AA794 /* CBCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF95EDF31B8570FFE3FD51569BF6142 /* CBTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C73FC8B29945DAF19398ACB6F1D4C2B /* CBTextCell.m */; };
+		B0281A6E566811293CC4A4E74334E3F5 /* CBText.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06294C68F8591F77DAC1A47C91445C /* CBText.m */; };
+		B2BE032C72D4E9640ED95963B704FE3A /* CBFormController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C501566FFC29580E01DB43CEE4788796 /* CBFormController-dummy.m */; };
+		B325DBA648D738F197E6AC37895D4188 /* CBTextCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F9568174811C12E41E35E489E3EFE6B1 /* CBTextCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3BA2EFB5667AC6F4EEFF4137BE11DB7 /* CBCellSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ACE5B5F375D6CCDE05BCE24D8028DE8 /* CBCellSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF337E07B3B0541485588B154FCFE445 /* CBFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = 702734B0E6DDCD25B34D821958C861F7 /* CBFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA03140F2C1A88F5283E650320FAB233 /* CBCellSet1Switch.xib in Resources */ = {isa = PBXBuildFile; fileRef = B593BA9D71F43CC39CCC0A427C96D21C /* CBCellSet1Switch.xib */; };
+		D39AC19128E14222E57FE5C42F5DBA33 /* CBFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22930C7532AD80A16DE88D5809A7CCD /* CBFormController.m */; };
+		D564BD552ABF699BC4AF2F23016FCF7B /* CBSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = F76A8124D3D98BAC7DC96EA8215ACE8E /* CBSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6411DAE04BCA82BAB8E085BDFF4A8AE /* CBCellSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E3BDB61C04F33C5D463259502ECECB /* CBCellSet.m */; };
+		ED36935071DD0E8311C0755E3CBAFF03 /* Pods-CBFormController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 104DBA47C6E63627415217E9250D0C0B /* Pods-CBFormController_Tests-dummy.m */; };
+		F0DCFCBFB752AC7C3EAFC9F4A8C5BA5C /* CBCell+CellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 25814F16CBE4E2E068448B6ECD257FFC /* CBCell+CellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F24969C1F0434F1124F39578CEFF2A89 /* CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EECA8BBD64DA2975500FAEDD556DF5 /* CBCellSet1.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D817AF0AE09A6272544CAC174175784 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 177F15886DE642407689FF10E553A82A;
+			remoteInfo = "CBFormController-CBFormController";
+		};
+		CD3B82E00E7771A3E5C076B330CA4062 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08E55923D33F455410804AD17F55DFF7;
+			remoteInfo = CBFormController;
+		};
+		D108683A1BB3A46E490857160C5B96F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08E55923D33F455410804AD17F55DFF7;
+			remoteInfo = CBFormController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0225E90CE71F45872DF103C425F453DC /* CBCellSet1Text.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Text.xib; sourceTree = "<group>"; };
+		066893EEAC76588A6C561C9CD473845F /* CBCellSet2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet2.h; sourceTree = "<group>"; };
+		0E5AE5ABAFD72423B4009DA9C2086417 /* Pods-CBFormController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CBFormController_Example-umbrella.h"; sourceTree = "<group>"; };
+		104DBA47C6E63627415217E9250D0C0B /* Pods-CBFormController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBFormController_Tests-dummy.m"; sourceTree = "<group>"; };
+		1C0A31E852C1CAA8350EED4A6F4355C3 /* CBFormController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBFormController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D33C76775323AAF0BAB5295B0824EEA /* CBFormController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBFormController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25814F16CBE4E2E068448B6ECD257FFC /* CBCell+CellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCell+CellSet1.h"; sourceTree = "<group>"; };
+		2B077499B54CEF40201CA3A00ECD4468 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35367D407BB83A110CA54677DC192FFF /* Pods-CBFormController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		37DD1358AA66BF69BC4F4D67D903A319 /* Pods-CBFormController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBFormController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3A06294C68F8591F77DAC1A47C91445C /* CBText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBText.m; sourceTree = "<group>"; };
+		3F2291131B799A0C0003ABC5 /* NSObject+Equals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Equals.h"; sourceTree = "<group>"; };
+		3F2291141B799A0C0003ABC5 /* NSObject+Equals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Equals.m"; sourceTree = "<group>"; };
+		3F2291171B79A0000003ABC5 /* NSString+Equals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Equals.h"; sourceTree = "<group>"; };
+		3F2291181B79A0000003ABC5 /* NSString+Equals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Equals.m"; sourceTree = "<group>"; };
+		3F22911B1B79A08D0003ABC5 /* NSNumber+Equals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Equals.h"; sourceTree = "<group>"; };
+		3F22911C1B79A08D0003ABC5 /* NSNumber+Equals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Equals.m"; sourceTree = "<group>"; };
+		3F22911F1B7A6D1E0003ABC5 /* CBCell+CBCellSet1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBCell+CBCellSet1.h"; sourceTree = "<group>"; };
+		3F2291201B7A6D1E0003ABC5 /* CBCell+CBCellSet1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBCell+CBCellSet1.m"; sourceTree = "<group>"; };
+		4127D69B14CD98B1D5055B7390C946BC /* CBCellSet1Text.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Text.m; sourceTree = "<group>"; };
+		456E31D1A9F180D084BE7B13F89F2E96 /* Pods-CBFormController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBFormController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		50DD9C2A3A1D62C510E7FD59931432CD /* CBFormItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBFormItem.h; sourceTree = "<group>"; };
+		586055F8FB836F1BFF95070A9D189898 /* CBCell+CellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCell+CellSet1.m"; sourceTree = "<group>"; };
+		61F8023C86F1766253A1020A22697A07 /* Pods_CBFormController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBFormController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		645E9A9ED1AAD43EF559AF6112F4D749 /* Pods-CBFormController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Example-resources.sh"; sourceTree = "<group>"; };
+		6ACE5B5F375D6CCDE05BCE24D8028DE8 /* CBCellSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet.h; sourceTree = "<group>"; };
+		6E0139AD430A788BFEBFE9E1DBDF3421 /* Pods-CBFormController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CBFormController_Tests-umbrella.h"; sourceTree = "<group>"; };
+		6F753A6D86FBE103F426EF73EAF0DD65 /* CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1.h; sourceTree = "<group>"; };
+		702734B0E6DDCD25B34D821958C861F7 /* CBFormController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBFormController.h; sourceTree = "<group>"; };
+		7243CEAF9B4DF39C92F1B003C462846B /* Pods-CBFormController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		72B73458431CF573D94CD2DABA5F7E1A /* CBCellSet1Switch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Switch.m; sourceTree = "<group>"; };
+		73B198ED89E85F6A1A1E2C6A6FDDE5B6 /* CBSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBSwitch.m; sourceTree = "<group>"; };
+		77D4502B9EE8F5C72E797102080C8FBA /* CBCellSet1Switch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Switch.h; sourceTree = "<group>"; };
+		7895578ECE6143D614D0E15CF15AA794 /* CBCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCell.h; sourceTree = "<group>"; };
+		7929F0B5945A8080A0C461295AC88E62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8C73FC8B29945DAF19398ACB6F1D4C2B /* CBTextCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBTextCell.m; sourceTree = "<group>"; };
+		8F285BDD810BB6E503C37EBF532FC3E1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9998F3FEA63ED7530ECB6C4B88EB4DD6 /* Pods-CBFormController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBFormController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		99C8AC7D9E4E4EA557EA641AB7956115 /* Pods-CBFormController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CBFormController_Example.modulemap"; sourceTree = "<group>"; };
+		9A73D5134BAFFF643F8B5A027B7BBEBA /* CBSwitchCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBSwitchCell.m; sourceTree = "<group>"; };
+		9CD5F2D2CD76C1089D3029B66A89758A /* Pods_CBFormController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBFormController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F00FB41DEA45AB5957C5D9430DCA2B7 /* Pods-CBFormController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CBFormController_Tests.modulemap"; sourceTree = "<group>"; };
+		A3B84E770298DEABB887BDAC5289F3F2 /* CBFormController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormController-umbrella.h"; sourceTree = "<group>"; };
+		AC742D659432143BF0F8410AC4C00702 /* Pods-CBFormController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B14305637C0A7E637142A6DB8D1E20D6 /* Pods-CBFormController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B22930C7532AD80A16DE88D5809A7CCD /* CBFormController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBFormController.m; sourceTree = "<group>"; };
+		B34F34E6D55D5DA0DB1B4CF5F0D7F660 /* CBText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBText.h; sourceTree = "<group>"; };
+		B449F5171FA164A068BB5F8745BAD991 /* CBFormController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CBFormController.modulemap; sourceTree = "<group>"; };
+		B593BA9D71F43CC39CCC0A427C96D21C /* CBCellSet1Switch.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Switch.xib; sourceTree = "<group>"; };
+		B84D64ADA8F9DF68BCEB4111066BA569 /* Pods-CBFormController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Tests-resources.sh"; sourceTree = "<group>"; };
+		BDF3575C63EF520CF259FF6ED397A582 /* CBFormController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CBFormController.xcconfig; sourceTree = "<group>"; };
+		C1E3BDB61C04F33C5D463259502ECECB /* CBCellSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet.m; sourceTree = "<group>"; };
+		C2CE8BEDF0A9D53A230668B619DA0602 /* Pods-CBFormController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Example-frameworks.sh"; sourceTree = "<group>"; };
+		C501566FFC29580E01DB43CEE4788796 /* CBFormController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBFormController-dummy.m"; sourceTree = "<group>"; };
+		C88113A79685B4EFEE7BAD12896829F7 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D0D16DCDBBE6834ED9B64C3B64CFA184 /* CBFormController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CBFormController-Private.xcconfig"; sourceTree = "<group>"; };
+		D15F46D6E57A90EB4B1D9F3B9922393D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D17B61894661893AAB8E5ACCA8AEF83C /* CBSwitchCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBSwitchCell.h; sourceTree = "<group>"; };
+		D4EECA8BBD64DA2975500FAEDD556DF5 /* CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1.m; sourceTree = "<group>"; };
+		DC24A9E45E4C7683C5BE32740EA2F81A /* CBFormItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBFormItem.m; sourceTree = "<group>"; };
+		DD699DDB428DC7BDC47D69D1DB36C455 /* CBCellSet2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet2.m; sourceTree = "<group>"; };
+		DEF229DDD973A21B8D57A7CB754ADC9F /* CBFormController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormController-prefix.pch"; sourceTree = "<group>"; };
+		E0CB4B9618B9F3617A46788F6EE66798 /* CBCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCell.m; sourceTree = "<group>"; };
+		F25D026184525EFC4CC038016F387768 /* Pods-CBFormController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBFormController_Example-dummy.m"; sourceTree = "<group>"; };
+		F2F0644BEE9FADD4BD63EDA4F771EA5C /* CBCellSet1Text.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Text.h; sourceTree = "<group>"; };
+		F37A794FDB43ADEB4CB39B46D720E901 /* Pods-CBFormController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBFormController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		F76A8124D3D98BAC7DC96EA8215ACE8E /* CBSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBSwitch.h; sourceTree = "<group>"; };
+		F8B0BCF31467266F2FA68FC737A81828 /* Pods-CBFormController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F9568174811C12E41E35E489E3EFE6B1 /* CBTextCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBTextCell.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3103A13169B9D0BC33FCEFC301C4F980 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		582364954269F2856829458A350A4649 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2717B1E03D78A3022230667AF141626F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6399FDD9E8466A250586241CB0C616A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A094EB5E044DCE40EB347F5D287422A4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF25C3EC5186401241A55BC59AF6B0FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58499099981E0F2F03A2966755952066 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02B17687E40805AF5711A34AC345C478 /* Pods-CBFormController_Example */ = {
+			isa = PBXGroup;
+			children = (
+				2B077499B54CEF40201CA3A00ECD4468 /* Info.plist */,
+				99C8AC7D9E4E4EA557EA641AB7956115 /* Pods-CBFormController_Example.modulemap */,
+				456E31D1A9F180D084BE7B13F89F2E96 /* Pods-CBFormController_Example-acknowledgements.markdown */,
+				F37A794FDB43ADEB4CB39B46D720E901 /* Pods-CBFormController_Example-acknowledgements.plist */,
+				F25D026184525EFC4CC038016F387768 /* Pods-CBFormController_Example-dummy.m */,
+				C2CE8BEDF0A9D53A230668B619DA0602 /* Pods-CBFormController_Example-frameworks.sh */,
+				645E9A9ED1AAD43EF559AF6112F4D749 /* Pods-CBFormController_Example-resources.sh */,
+				0E5AE5ABAFD72423B4009DA9C2086417 /* Pods-CBFormController_Example-umbrella.h */,
+				AC742D659432143BF0F8410AC4C00702 /* Pods-CBFormController_Example.debug.xcconfig */,
+				7243CEAF9B4DF39C92F1B003C462846B /* Pods-CBFormController_Example.release.xcconfig */,
+			);
+			name = "Pods-CBFormController_Example";
+			path = "Target Support Files/Pods-CBFormController_Example";
+			sourceTree = "<group>";
+		};
+		0720760E6FAA87218C034E98CCD3509B /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57E0FC7BF63680DF330B7FF826A9F39D /* CBFormController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		205BA618158F55890696453A5F92484D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7895578ECE6143D614D0E15CF15AA794 /* CBCell.h */,
+				E0CB4B9618B9F3617A46788F6EE66798 /* CBCell.m */,
+				25814F16CBE4E2E068448B6ECD257FFC /* CBCell+CellSet1.h */,
+				586055F8FB836F1BFF95070A9D189898 /* CBCell+CellSet1.m */,
+				6ACE5B5F375D6CCDE05BCE24D8028DE8 /* CBCellSet.h */,
+				C1E3BDB61C04F33C5D463259502ECECB /* CBCellSet.m */,
+				6F753A6D86FBE103F426EF73EAF0DD65 /* CBCellSet1.h */,
+				D4EECA8BBD64DA2975500FAEDD556DF5 /* CBCellSet1.m */,
+				3F22911F1B7A6D1E0003ABC5 /* CBCell+CBCellSet1.h */,
+				3F2291201B7A6D1E0003ABC5 /* CBCell+CBCellSet1.m */,
+				77D4502B9EE8F5C72E797102080C8FBA /* CBCellSet1Switch.h */,
+				72B73458431CF573D94CD2DABA5F7E1A /* CBCellSet1Switch.m */,
+				F2F0644BEE9FADD4BD63EDA4F771EA5C /* CBCellSet1Text.h */,
+				4127D69B14CD98B1D5055B7390C946BC /* CBCellSet1Text.m */,
+				066893EEAC76588A6C561C9CD473845F /* CBCellSet2.h */,
+				DD699DDB428DC7BDC47D69D1DB36C455 /* CBCellSet2.m */,
+				702734B0E6DDCD25B34D821958C861F7 /* CBFormController.h */,
+				B22930C7532AD80A16DE88D5809A7CCD /* CBFormController.m */,
+				50DD9C2A3A1D62C510E7FD59931432CD /* CBFormItem.h */,
+				DC24A9E45E4C7683C5BE32740EA2F81A /* CBFormItem.m */,
+				F76A8124D3D98BAC7DC96EA8215ACE8E /* CBSwitch.h */,
+				73B198ED89E85F6A1A1E2C6A6FDDE5B6 /* CBSwitch.m */,
+				D17B61894661893AAB8E5ACCA8AEF83C /* CBSwitchCell.h */,
+				9A73D5134BAFFF643F8B5A027B7BBEBA /* CBSwitchCell.m */,
+				B34F34E6D55D5DA0DB1B4CF5F0D7F660 /* CBText.h */,
+				3A06294C68F8591F77DAC1A47C91445C /* CBText.m */,
+				F9568174811C12E41E35E489E3EFE6B1 /* CBTextCell.h */,
+				8C73FC8B29945DAF19398ACB6F1D4C2B /* CBTextCell.m */,
+				3F2291131B799A0C0003ABC5 /* NSObject+Equals.h */,
+				3F2291141B799A0C0003ABC5 /* NSObject+Equals.m */,
+				3F2291171B79A0000003ABC5 /* NSString+Equals.h */,
+				3F2291181B79A0000003ABC5 /* NSString+Equals.m */,
+				3F22911B1B79A08D0003ABC5 /* NSNumber+Equals.h */,
+				3F22911C1B79A08D0003ABC5 /* NSNumber+Equals.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		33A2DFA941E11F4B5B7E005D2FE0A3E5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7929F0B5945A8080A0C461295AC88E62 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3F223A248DD3FB118E5453A3225A13ED /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B593BA9D71F43CC39CCC0A427C96D21C /* CBCellSet1Switch.xib */,
+				0225E90CE71F45872DF103C425F453DC /* CBCellSet1Text.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		57E0FC7BF63680DF330B7FF826A9F39D /* CBFormController */ = {
+			isa = PBXGroup;
+			children = (
+				6A5E68D4A9ADA33FCB4D86018CA60E69 /* Pod */,
+				5DA5429A89A7F7B23CA3D26D7515DFE9 /* Resources */,
+				A23A7E1C4E3866458BBF80DAA6070460 /* Support Files */,
+			);
+			name = CBFormController;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		5DA5429A89A7F7B23CA3D26D7515DFE9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60579726181099DB0EF50513712DF176 /* Pod */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5E1F3384B1B39575144FEBFCF3210CCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33A2DFA941E11F4B5B7E005D2FE0A3E5 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60579726181099DB0EF50513712DF176 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3F223A248DD3FB118E5453A3225A13ED /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		6A5E68D4A9ADA33FCB4D86018CA60E69 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				205BA618158F55890696453A5F92484D /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				C88113A79685B4EFEE7BAD12896829F7 /* Podfile */,
+				0720760E6FAA87218C034E98CCD3509B /* Development Pods */,
+				5E1F3384B1B39575144FEBFCF3210CCC /* Frameworks */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				D871C749CBB672E76A502DD5E90F9842 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		95A97BFD46FD579E4F65F01FE0B9F96A /* Pods-CBFormController_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8F285BDD810BB6E503C37EBF532FC3E1 /* Info.plist */,
+				9F00FB41DEA45AB5957C5D9430DCA2B7 /* Pods-CBFormController_Tests.modulemap */,
+				9998F3FEA63ED7530ECB6C4B88EB4DD6 /* Pods-CBFormController_Tests-acknowledgements.markdown */,
+				37DD1358AA66BF69BC4F4D67D903A319 /* Pods-CBFormController_Tests-acknowledgements.plist */,
+				104DBA47C6E63627415217E9250D0C0B /* Pods-CBFormController_Tests-dummy.m */,
+				35367D407BB83A110CA54677DC192FFF /* Pods-CBFormController_Tests-frameworks.sh */,
+				B84D64ADA8F9DF68BCEB4111066BA569 /* Pods-CBFormController_Tests-resources.sh */,
+				6E0139AD430A788BFEBFE9E1DBDF3421 /* Pods-CBFormController_Tests-umbrella.h */,
+				B14305637C0A7E637142A6DB8D1E20D6 /* Pods-CBFormController_Tests.debug.xcconfig */,
+				F8B0BCF31467266F2FA68FC737A81828 /* Pods-CBFormController_Tests.release.xcconfig */,
+			);
+			name = "Pods-CBFormController_Tests";
+			path = "Target Support Files/Pods-CBFormController_Tests";
+			sourceTree = "<group>";
+		};
+		A23A7E1C4E3866458BBF80DAA6070460 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B449F5171FA164A068BB5F8745BAD991 /* CBFormController.modulemap */,
+				BDF3575C63EF520CF259FF6ED397A582 /* CBFormController.xcconfig */,
+				D0D16DCDBBE6834ED9B64C3B64CFA184 /* CBFormController-Private.xcconfig */,
+				C501566FFC29580E01DB43CEE4788796 /* CBFormController-dummy.m */,
+				DEF229DDD973A21B8D57A7CB754ADC9F /* CBFormController-prefix.pch */,
+				A3B84E770298DEABB887BDAC5289F3F2 /* CBFormController-umbrella.h */,
+				D15F46D6E57A90EB4B1D9F3B9922393D /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CBFormController";
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C0A31E852C1CAA8350EED4A6F4355C3 /* CBFormController.bundle */,
+				1D33C76775323AAF0BAB5295B0824EEA /* CBFormController.framework */,
+				61F8023C86F1766253A1020A22697A07 /* Pods_CBFormController_Example.framework */,
+				9CD5F2D2CD76C1089D3029B66A89758A /* Pods_CBFormController_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D871C749CBB672E76A502DD5E90F9842 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				02B17687E40805AF5711A34AC345C478 /* Pods-CBFormController_Example */,
+				95A97BFD46FD579E4F65F01FE0B9F96A /* Pods-CBFormController_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0EEAC2B8FEF90642A7748178ED8961C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2291151B799A0C0003ABC5 /* NSObject+Equals.h in Headers */,
+				3F2291211B7A6D1E0003ABC5 /* CBCell+CBCellSet1.h in Headers */,
+				F0DCFCBFB752AC7C3EAFC9F4A8C5BA5C /* CBCell+CellSet1.h in Headers */,
+				AADBB5F79A4BD59D76CB9DC72C26415C /* CBCell.h in Headers */,
+				B3BA2EFB5667AC6F4EEFF4137BE11DB7 /* CBCellSet.h in Headers */,
+				862DD418E025D07B6E68863F9E3D5F02 /* CBCellSet1.h in Headers */,
+				3F2291191B79A0000003ABC5 /* NSString+Equals.h in Headers */,
+				7E5EBB43D5A30EF3FF783BA46AEE93BB /* CBCellSet1Switch.h in Headers */,
+				3F22911D1B79A08D0003ABC5 /* NSNumber+Equals.h in Headers */,
+				64FB48E7CD5133AB4A6227AFAFDA3BC5 /* CBCellSet1Text.h in Headers */,
+				60C602F28E01E15BBEBEEAFB95F12682 /* CBCellSet2.h in Headers */,
+				8FCCE76B59B08CBC5C089378C5C89D16 /* CBFormController-umbrella.h in Headers */,
+				BF337E07B3B0541485588B154FCFE445 /* CBFormController.h in Headers */,
+				6A9528ECE5A623E6356249C8F7F0279D /* CBFormItem.h in Headers */,
+				D564BD552ABF699BC4AF2F23016FCF7B /* CBSwitch.h in Headers */,
+				6B3EDB5B9A460F3B0B29C16C850801D0 /* CBSwitchCell.h in Headers */,
+				03298C443755F8C33E7B6A06594F5FD5 /* CBText.h in Headers */,
+				B325DBA648D738F197E6AC37895D4188 /* CBTextCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3414B7AA9B1C7A44E155D17CA25F8593 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				039567E357D9DEE6A84C84FD7C0DF696 /* Pods-CBFormController_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51D6D867C17EBE757441D3559BEDCEAD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1575C70AC5732EFFCFAEF3BCD82FF57A /* Pods-CBFormController_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		08E55923D33F455410804AD17F55DFF7 /* CBFormController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC9E08078DAD590A629707E12A070482 /* Build configuration list for PBXNativeTarget "CBFormController" */;
+			buildPhases = (
+				EED74331D441417CCB5F97D974C72C15 /* Sources */,
+				CF25C3EC5186401241A55BC59AF6B0FB /* Frameworks */,
+				5574B611A9A89B5EB2FEDE5DEB8CD023 /* Resources */,
+				0EEAC2B8FEF90642A7748178ED8961C6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				310155B9F5F70FC07B3CD701F006FC12 /* PBXTargetDependency */,
+			);
+			name = CBFormController;
+			productName = CBFormController;
+			productReference = 1D33C76775323AAF0BAB5295B0824EEA /* CBFormController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		177F15886DE642407689FF10E553A82A /* CBFormController-CBFormController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22072CD37123526A91CFEE977DC8DCC6 /* Build configuration list for PBXNativeTarget "CBFormController-CBFormController" */;
+			buildPhases = (
+				2EBD2621995EE6DCB49ED6D284B96F89 /* Sources */,
+				3103A13169B9D0BC33FCEFC301C4F980 /* Frameworks */,
+				B4555B9574AD1FD1CD9279622C466D75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CBFormController-CBFormController";
+			productName = "CBFormController-CBFormController";
+			productReference = 1C0A31E852C1CAA8350EED4A6F4355C3 /* CBFormController.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		753CDC51198DBCD6D69C092DA9E8A40E /* Pods-CBFormController_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B94A93CEB3395E5F2A9809084CF9F7EC /* Build configuration list for PBXNativeTarget "Pods-CBFormController_Tests" */;
+			buildPhases = (
+				C6677D4B4A7DFB1EB1E17D59283B78C3 /* Sources */,
+				582364954269F2856829458A350A4649 /* Frameworks */,
+				51D6D867C17EBE757441D3559BEDCEAD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FF528865D6BA10A31B5C8A45051B083 /* PBXTargetDependency */,
+			);
+			name = "Pods-CBFormController_Tests";
+			productName = "Pods-CBFormController_Tests";
+			productReference = 9CD5F2D2CD76C1089D3029B66A89758A /* Pods_CBFormController_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D835255B740884065556ACB19D28A22B /* Pods-CBFormController_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D678C89E6121B5319B0E05666DD113AB /* Build configuration list for PBXNativeTarget "Pods-CBFormController_Example" */;
+			buildPhases = (
+				31ED1921E5721F35C55620840A2E7AB4 /* Sources */,
+				6399FDD9E8466A250586241CB0C616A0 /* Frameworks */,
+				3414B7AA9B1C7A44E155D17CA25F8593 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E760E02F559525D82F700525B66F61 /* PBXTargetDependency */,
+			);
+			name = "Pods-CBFormController_Example";
+			productName = "Pods-CBFormController_Example";
+			productReference = 61F8023C86F1766253A1020A22697A07 /* Pods_CBFormController_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08E55923D33F455410804AD17F55DFF7 /* CBFormController */,
+				177F15886DE642407689FF10E553A82A /* CBFormController-CBFormController */,
+				D835255B740884065556ACB19D28A22B /* Pods-CBFormController_Example */,
+				753CDC51198DBCD6D69C092DA9E8A40E /* Pods-CBFormController_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5574B611A9A89B5EB2FEDE5DEB8CD023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA03140F2C1A88F5283E650320FAB233 /* CBCellSet1Switch.xib in Resources */,
+				88E0B59DC0FC2C35628AF74059CD61C4 /* CBCellSet1Text.xib in Resources */,
+				43205F6B4D6DF61F4CFC50CCAD4EF0A6 /* CBFormController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4555B9574AD1FD1CD9279622C466D75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2EBD2621995EE6DCB49ED6D284B96F89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31ED1921E5721F35C55620840A2E7AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6695004B196259A69316836B1CEBD4CF /* Pods-CBFormController_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6677D4B4A7DFB1EB1E17D59283B78C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED36935071DD0E8311C0755E3CBAFF03 /* Pods-CBFormController_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EED74331D441417CCB5F97D974C72C15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2291161B799A0C0003ABC5 /* NSObject+Equals.m in Sources */,
+				1CEFF13283D4D3E9E30F3BD28F8FD477 /* CBCell+CellSet1.m in Sources */,
+				8A7955BA2B24AA11801E370559BEEA02 /* CBCell.m in Sources */,
+				E6411DAE04BCA82BAB8E085BDFF4A8AE /* CBCellSet.m in Sources */,
+				F24969C1F0434F1124F39578CEFF2A89 /* CBCellSet1.m in Sources */,
+				3F22911E1B79A08D0003ABC5 /* NSNumber+Equals.m in Sources */,
+				5A3D83005918A512835F22EDD928BCBE /* CBCellSet1Switch.m in Sources */,
+				2A76BB861B3FD7EFA99C8C910E5492EE /* CBCellSet1Text.m in Sources */,
+				301EC428C66ADA5B5C2BF2603BC39E6F /* CBCellSet2.m in Sources */,
+				B2BE032C72D4E9640ED95963B704FE3A /* CBFormController-dummy.m in Sources */,
+				D39AC19128E14222E57FE5C42F5DBA33 /* CBFormController.m in Sources */,
+				3F22911A1B79A0000003ABC5 /* NSString+Equals.m in Sources */,
+				A650FA16FDECB831EF3B5170D441432E /* CBFormItem.m in Sources */,
+				11A24DA3920C4A670706E9BFBB194BD2 /* CBSwitch.m in Sources */,
+				A13400B44829B311AFBBE2562F2526F2 /* CBSwitchCell.m in Sources */,
+				B0281A6E566811293CC4A4E74334E3F5 /* CBText.m in Sources */,
+				3F2291221B7A6D1E0003ABC5 /* CBCell+CBCellSet1.m in Sources */,
+				ABF95EDF31B8570FFE3FD51569BF6142 /* CBTextCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E760E02F559525D82F700525B66F61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CBFormController;
+			target = 08E55923D33F455410804AD17F55DFF7 /* CBFormController */;
+			targetProxy = CD3B82E00E7771A3E5C076B330CA4062 /* PBXContainerItemProxy */;
+		};
+		310155B9F5F70FC07B3CD701F006FC12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CBFormController-CBFormController";
+			target = 177F15886DE642407689FF10E553A82A /* CBFormController-CBFormController */;
+			targetProxy = 5D817AF0AE09A6272544CAC174175784 /* PBXContainerItemProxy */;
+		};
+		5FF528865D6BA10A31B5C8A45051B083 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CBFormController;
+			target = 08E55923D33F455410804AD17F55DFF7 /* CBFormController */;
+			targetProxy = D108683A1BB3A46E490857160C5B96F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		040496ED49E3945DA653405E42F79D7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D16DCDBBE6834ED9B64C3B64CFA184 /* CBFormController-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CBFormController/CBFormController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CBFormController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CBFormController/CBFormController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = CBFormController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		25E171B952D2694AE4310457BB6F22C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CB0BBC2D2DDA3DB994BB56EF555E355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D16DCDBBE6834ED9B64C3B64CFA184 /* CBFormController-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CBFormController/CBFormController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CBFormController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CBFormController/CBFormController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = CBFormController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3A49D58276826FFD28FF0538A13BACFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D16DCDBBE6834ED9B64C3B64CFA184 /* CBFormController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CBFormController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		42C57E93BEA5AAB6A219E812A498C0A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7243CEAF9B4DF39C92F1B003C462846B /* Pods-CBFormController_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CBFormController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-CBFormController_Example/Pods-CBFormController_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_CBFormController_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		60E8D70E62F02E377BB78BB247AA9ABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D16DCDBBE6834ED9B64C3B64CFA184 /* CBFormController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CBFormController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		664A547D3C957543398A1C1CA8D23ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		8962FEAC61B0C92BF049B7CC4BB1178A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC742D659432143BF0F8410AC4C00702 /* Pods-CBFormController_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CBFormController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-CBFormController_Example/Pods-CBFormController_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_CBFormController_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F667741070C678CB8DADEC5D7137F122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B14305637C0A7E637142A6DB8D1E20D6 /* Pods-CBFormController_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CBFormController_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-CBFormController_Tests/Pods-CBFormController_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_CBFormController_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FDB07075CB71AEAAD3A245DDC652CB22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8B0BCF31467266F2FA68FC737A81828 /* Pods-CBFormController_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CBFormController_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-CBFormController_Tests/Pods-CBFormController_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_CBFormController_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22072CD37123526A91CFEE977DC8DCC6 /* Build configuration list for PBXNativeTarget "CBFormController-CBFormController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A49D58276826FFD28FF0538A13BACFC /* Debug */,
+				60E8D70E62F02E377BB78BB247AA9ABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				664A547D3C957543398A1C1CA8D23ACF /* Debug */,
+				25E171B952D2694AE4310457BB6F22C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B94A93CEB3395E5F2A9809084CF9F7EC /* Build configuration list for PBXNativeTarget "Pods-CBFormController_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F667741070C678CB8DADEC5D7137F122 /* Debug */,
+				FDB07075CB71AEAAD3A245DDC652CB22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D678C89E6121B5319B0E05666DD113AB /* Build configuration list for PBXNativeTarget "Pods-CBFormController_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8962FEAC61B0C92BF049B7CC4BB1178A /* Debug */,
+				42C57E93BEA5AAB6A219E812A498C0A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC9E08078DAD590A629707E12A070482 /* Build configuration list for PBXNativeTarget "CBFormController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB0BBC2D2DDA3DB994BB56EF555E355 /* Debug */,
+				040496ED49E3945DA653405E42F79D7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

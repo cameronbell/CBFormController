@@ -1,0 +1,14 @@
+PODS:
+  - CBFormController (0.1.0)
+
+DEPENDENCIES:
+  - CBFormController (from `../`)
+
+EXTERNAL SOURCES:
+  CBFormController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CBFormController: 801370ce9035a208927b8c7e0908ab181e06a33c
+
+COCOAPODS: 0.38.0
