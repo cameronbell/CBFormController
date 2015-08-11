@@ -14,11 +14,11 @@ static char iconKey;
 @implementation CBCell (CBCellSet1)
 
 - (void)setIcon:(UILabel *)icon {
-    [self setCustomPropertyWithObject:icon forKey:iconKey];
+    [self setCustomPropertyWithObject:icon forKey:&iconKey];
 }
 
 - (UILabel *)icon {
-    return (UILabel *)[self getCustomPropertyWithKey:iconKey];
+    return (UILabel *)[self getCustomPropertyWithKey:&iconKey];
 }
 
 
