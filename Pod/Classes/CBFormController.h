@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CBFormItem.h"
-#import "CBCellSet.h"
 #import "CBText.h"
 #import "CBSwitch.h"
+#import "CBCellSet.h"
+#import "CBCellSet1.h"
 
 //Enum for the different editing modes of the CBFormController
 typedef NS_ENUM(NSInteger, CBFormEditMode) {

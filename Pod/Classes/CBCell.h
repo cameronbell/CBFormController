@@ -10,7 +10,15 @@
 
 @class CBFormItem;
 
-@interface CBCell : UITableViewCell
+@protocol CBCellCategoryProtocol <NSObject>
+
+@optional
+//This function call gives any category on this CBCell an opportunity to customize the cell.
+-(void)configureAddonsForFormItem:(CBFormItem *)formItem;
+
+@end
+
+@interface CBCell : UITableViewCell <CBCellCategoryProtocol>
 
 -(void)configureForFormItem:(CBFormItem *)formItem;
 -(void)setCustomPropertyWithObject:(NSObject *)icon forKey:(const void *)key;

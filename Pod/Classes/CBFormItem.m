@@ -24,12 +24,14 @@
 @synthesize change;
 @dynamic save;
 @dynamic validate;
+@synthesize addOns = _addOns;
 
 
 -(id)initWithName:(NSString *)name {
     if (self = [super init]) {
         self.name = name;
         _engaged = NO;
+        _addOns = [NSMutableDictionary dictionary];
     }
     return self;
 }
