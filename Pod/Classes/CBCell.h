@@ -13,6 +13,6 @@
 @interface CBCell : UITableViewCell
 
 -(void)configureForFormItem:(CBFormItem *)formItem;
-
-
+-(void)setCustomPropertyWithObject:(NSObject *)icon forKey:(char)key;
+-(NSObject *)getCustomPropertyWithKey:(char)key;
 @end
