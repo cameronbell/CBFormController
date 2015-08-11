@@ -28,12 +28,13 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m}'
-  s.resources = 'Pod/Classes/**/*.{xib}'
+  s.resources = 'Pod/Classes/**/*.{xib,ttf,otf}'
   s.resource_bundles = {
     'CBFormController' => ['Pod/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'CoreText'
   # s.dependency 'AFNetworking', '~> 2.3'
+#s.dependency 'FontAwesomeKit', 'master'
 end

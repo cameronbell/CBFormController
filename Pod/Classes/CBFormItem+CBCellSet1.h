@@ -6,8 +6,10 @@
 //
 //
 
-#import <CBFormController/CBFormController.h>
+#import "CBFormItem.h"
+#import <FontAwesomeKit/FontAwesomeKit.h>
+
 
 @interface CBFormItem (CBCellSet1)
-
+-(void)setIcon:(FAKFontAwesome *)icon;
 @end

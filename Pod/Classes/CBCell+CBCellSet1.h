@@ -6,7 +6,7 @@
 //
 //
 
-#import <CBFormController/CBFormController.h>
+#import "CBCell.h"
 
 @interface CBCell (CBCellSet1)
 

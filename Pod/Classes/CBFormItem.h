@@ -48,6 +48,7 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue);
 @property (nonatomic, copy) void (^save)(NSObject *value);
 @property (nonatomic, copy) BOOL (^validate)(NSObject *value);
+@property (nonatomic,retain) NSMutableDictionary *addOns;
 
 
 -(id)initWithName:(NSString *)name;

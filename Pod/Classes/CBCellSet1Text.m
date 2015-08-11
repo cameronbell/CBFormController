@@ -14,11 +14,7 @@
 -(void)configureForFormItem:(CBText *)formItem {
     
     [super configureForFormItem:formItem];
-    
     [self.textField setPlaceholder:formItem.title];
-    
-    UILabel *icon = self.icon;
-    [self.icon setText:@"blah"];
 }
 
 /*

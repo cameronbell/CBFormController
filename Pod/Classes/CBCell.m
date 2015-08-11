@@ -20,7 +20,10 @@
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
-    
+    //This function call gives any category on this CBCell an opportunity to customize the cell.
+    if ([self respondsToSelector:@selector(configureAddonsForFormItem:)]) {
+        [self configureAddonsForFormItem:formItem];
+    }
 }
 
 - (void)awakeFromNib {

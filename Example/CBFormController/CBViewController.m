@@ -39,6 +39,7 @@
     CBText *textItem = [[CBText alloc]initWithName:@"item1"];
     [textItem setTitle:@"Name"];
     [textItem setInitialValue:_text1];
+    [textItem setIcon:[FAKFontAwesome userIconWithSize:18]];
     [sections addObject:@[textItem]];
     
     [textItem setSave:^(NSString *value) {

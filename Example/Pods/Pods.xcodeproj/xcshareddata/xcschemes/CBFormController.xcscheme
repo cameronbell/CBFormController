@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9D7DC25BBCFF449EF58AC74"
+               BlueprintIdentifier = "95F4779177212C74451E285A"
                BuildableName = "CBFormController.framework"
                BlueprintName = "CBFormController"
                ReferencedContainer = "container:Pods.xcodeproj">

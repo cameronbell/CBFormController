@@ -7,6 +7,7 @@
 //
 
 #import "CBCellSet.h"
+#import "CBFormItem+CBCellSet1.h"
 
 @interface CBCellSet1 : CBCellSet
 
