@@ -33,14 +33,14 @@
     // Configure the view for the selected state
 }
 
--(void)setCustomPropertyWithObject:(NSObject *)icon forKey:(char)key {
-    objc_setAssociatedObject(self, &key,
+-(void)setCustomPropertyWithObject:(NSObject *)icon forKey:(const void *)key {
+    objc_setAssociatedObject(self, key,
                              icon, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
 }
 
--(NSObject *)getCustomPropertyWithKey:(char)key {
-    return objc_getAssociatedObject(self, &key);
+-(NSObject *)getCustomPropertyWithKey:(const void *)key {
+    return objc_getAssociatedObject(self, key);
 }
 
 
