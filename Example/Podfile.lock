@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CBFormController: c4ea1da4cf042eff68c2852c957ced221d14297e
+  CBFormController: 77260069001b7510b2722d9191989927b7930de7
   MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
   MZFormSheetController: a29e904f8832bcaa08a9751106e10beb4df751df
   UITextView+Placeholder: 83895056749372c96febfb43f536c9b1aae3e08e
