@@ -3,7 +3,7 @@
 //  UTTI
 //
 //  Created by Cameron Bell on 2015-08-05.
-//  Copyright (c) 2015 Sigvaria. All rights reserved.
+//  Copyright (c) 2015 Cameron Bell. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
