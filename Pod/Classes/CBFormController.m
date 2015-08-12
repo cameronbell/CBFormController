@@ -886,6 +886,7 @@
             break;
         }
         case PopupPicker: {
+            [formItem selected];
             break;
         }
         case Button: {
@@ -918,27 +919,7 @@
         }
                case DDVCPopupPicker: {
             
-            DDVCPopupPickerView *pickerPopupView = [[DDVCPopupPickerView alloc]initForFormItem:formItem withTitle:[self titleForCellAtIndexPath:indexPath] withItems:[self getItemsForPopupPickerFormItem:formItem] withDelegate:self];
-            
-            MZFormSheetController *pickerPopup = [[MZFormSheetController alloc]initWithViewController:pickerPopupView];
-            pickerPopup.shouldDismissOnBackgroundViewTap = YES;
-            pickerPopup.transitionStyle = MZFormSheetTransitionStyleSlideFromBottom;
-            pickerPopup.cornerRadius = 8.0;
-            pickerPopup.portraitTopInset = 6.0;
-            pickerPopup.landscapeTopInset = 6.0;
-            
-            CGRect screenSize = [[UIScreen mainScreen]bounds];
-            
-            pickerPopup.presentedFormSheetSize = CGSizeMake(screenSize.size.width - 40, 350);
-            
-            pickerPopup.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
-                presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
-            };
-            
-            [pickerPopup presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
-                
-            }];
-            
+     
             
             break;
         }

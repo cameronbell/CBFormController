@@ -64,6 +64,10 @@
         _switch1 = value;
     }];
     
+    CBPopupPicker *popup1 = [[CBPopupPicker alloc]initWithName:@"popup1"];
+    [popup1 setItems:[NSMutableArray arrayWithArray:@[@"Male",@"Female"]]];
+    [popup1 setTitle:@"Medication"];
+    [popup1 setIcon:[FAKFontAwesome medkitIconWithSize:18]];
     
     CBText *textItem2 = [[CBText alloc]initWithName:@"item3"];
     [textItem2 setTitle:@"Last Name"];
@@ -74,7 +78,7 @@
     [textItem2 setSave:^(NSString *value) {
         _text2 = value;
     }];
-    [sections addObject:@[switchItem,textItem2]];
+    [sections addObject:@[switchItem,textItem2,popup1]];
     
     CBDate *date1 = [[CBDate alloc]initWithName:@"date1"];
     [date1 setTitle:@"Birthdate"];
