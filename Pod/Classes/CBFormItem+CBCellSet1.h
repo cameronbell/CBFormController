@@ -7,7 +7,7 @@
 //
 
 #import "CBFormItem.h"
-#import <FontAwesomeKit/FontAwesomeKit.h>
+#import "FAKFontAwesome.h"
 
 
 @interface CBFormItem (CBCellSet1)
