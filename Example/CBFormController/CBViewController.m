@@ -34,6 +34,8 @@
     
     self.editMode = CBFormEditModeFree;
     
+    [self setDefaultDate:[NSDate date]];
+    
     NSMutableArray *sections = [NSMutableArray array];
     
     CBText *textItem = [[CBText alloc]initWithName:@"item1"];
@@ -85,6 +87,11 @@
         NSLog(@"Button 1 Pressed!");
     }];
     [sections addObject:@[button1,date1]];
+    
+    CBComment *comment1 = [[CBComment alloc]initWithName:@"Comment1"];
+    [comment1 setTitle:@"Comments"];
+    [comment1 setIcon:[FAKFontAwesome commentIconWithSize:18]];
+    [sections addObject:@[comment1]];
 
     return sections;
 }

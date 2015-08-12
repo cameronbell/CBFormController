@@ -70,7 +70,6 @@
     [self.formController updates];
 }
 
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     //Let the formController decide the actual return value of this function as it manages the selection of formitems in response to the return key.

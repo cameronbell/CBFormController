@@ -1,5 +1,7 @@
 PODS:
-  - CBFormController (0.1.0)
+  - CBFormController (0.1.0):
+    - UITextView+Placeholder
+  - UITextView+Placeholder (1.0.9)
 
 DEPENDENCIES:
   - CBFormController (from `../`)
@@ -9,6 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CBFormController: f2577a29a5f08261ed323691f5aec0c3265ad17c
+  CBFormController: 5de8987373c818e153074910bbd2aa1450890b8b
+  UITextView+Placeholder: 83895056749372c96febfb43f536c9b1aae3e08e
 
 COCOAPODS: 0.38.0
