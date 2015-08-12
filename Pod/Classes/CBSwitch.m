@@ -47,6 +47,10 @@
     return [NSNumber numberWithBool:[(CBSwitchCell *)self.cell theSwitch].on];
 }
 
+-(BOOL)isEdited {
+    return [(NSNumber *)self.value isEqualToNumber:(NSNumber *)self.initialValue];
+}
+
 -(void)switchChanged {
     if ([self isEdited]) {
         [self valueChanged];

@@ -9,6 +9,8 @@
 #import "CBCell+CBCellSet1.h"
 #import "CBText.h"
 #import "FAKFontAwesome.h"
+
+//Using the address of this char as a key for the associated object created for the custom property
 static char iconKey;
 
 @implementation CBCell (CBCellSet1)
