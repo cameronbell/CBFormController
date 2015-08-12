@@ -68,10 +68,6 @@
     if (![self value] && ![self initialValue]) return NO;
     
     //If one is nil and the other is not then one of them has changed
-    
-    NSObject *iv = self.initialValue;
-    NSObject *v = self.value;
-    
     if ((!self.initialValue)^(!self.value)) return YES;
     
     return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.value];
