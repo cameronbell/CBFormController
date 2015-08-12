@@ -27,16 +27,19 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
     PopupPicker
 };
 
+
 @interface CBFormItem : NSObject {
+    @protected
     NSObject *_initialValue;
     NSObject *_value;
+    NSString *_title;
 }
 
 @property (nonatomic,retain) CBCell *cell; //A reference to the cell which currently represents this form item
 @property (nonatomic,retain) NSString *name; //The name and identifier for the cell
 @property (nonatomic,assign,getter = isEngaged) BOOL engaged;
 @property (nonatomic,assign,getter = isHidden) BOOL hidden;
-@property (nonatomic,assign) CGFloat height; // Returns the height the formitem's cell should be. This may be dependent on other properties of the formitem
+@property (nonatomic,assign) CGFloat height; // Returns the height the formitem's cell should be. This may be dependent on other properties of the formitem. This is a different property from the height property of the CBCell
 @property (nonatomic,assign) int numberOfTitleLines;
 @property (nonatomic,assign) Class cellClass; //This property allows the cellClass to be overridden. Normally this will take the value of the formController's cellSetClass property
 @property (nonatomic,weak) CBFormController *formController;
@@ -45,10 +48,11 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic,assign,readonly) CBFormItemType type;
 @property (nonatomic,retain) NSString *title; //The title that should be displayed on the formItem. Not all cells will display this title and it is not required.
 @property (nonatomic,assign) BOOL enabledWhenNotEditing;
-@property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue);
-@property (nonatomic, copy) void (^save)(NSObject *value);
-@property (nonatomic, copy) BOOL (^validate)(NSObject *value);
-@property (nonatomic,retain) NSMutableDictionary *addOns;
+@property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue); //Called when the value of the formItem changes if applicable
+@property (nonatomic, copy) void (^save)(NSObject *value); //Called to ask the subclass to save the value to the data source
+@property (nonatomic, copy) BOOL (^validate)(NSObject *value); //Called to verify that the new value is acceptable to be saved to the data source.
+@property (nonatomic, copy) void (^select)(); //Called to verify that the new value is acceptable to be saved to the data source.
+@property (nonatomic,retain) NSMutableDictionary *addOns; //A dictionary that categories CBFormItem and CBFormItem cell can use to pass values
 
 
 -(id)initWithName:(NSString *)name;
@@ -59,5 +63,6 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 -(BOOL)isEdited;
 -(void)valueChanged;
 -(BOOL)attemptSave;
+-(void)selected; //Currently only called when CBButtons are tapped
 
 @end

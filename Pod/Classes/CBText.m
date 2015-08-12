@@ -45,6 +45,10 @@
     return [(CBTextCell *)self.cell textField].text;
 }
 
+-(BOOL)isEdited {
+    return [(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
+}
+
 -(void)engage {
     [super engage];
     
@@ -70,15 +74,6 @@
     return [self.formController textFieldShouldReturnForFormItem:self];
 
 }
-
-/*-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-
-    if ([self isEdited]) {
-        [self valueChanged];
-    }
-    
-    return YES;
-}*/
 
 -(void)textFieldEditingChange {
     if ([self isEdited]) {

@@ -9,15 +9,7 @@
 #import "CBFormController.h"
 
 
-#define APPLE_BLUE RGB(13., 122., 255.)
-//defines for easy colour entry
-#define  RGB(R,G,B) [UIColor colorWithRed:(R/255.) green:(G/255.) blue:(B/255.) alpha:1.0] //Inputs must be of form ##. (float)
-#define RGBA(R,G,B,A) [UIColor colorWithRed:(R) green:(G) blue:(B) alpha:(A)]
-//RGB color macro
-#define UIColorFromRGB(rgbValue) [UIColor \
-colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @interface CBFormController () {
     NSMutableArray *_sectionArray;
@@ -29,13 +21,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     BOOL _scrollAutomationLock;
 }
 
-
-
 @end
 
 @implementation CBFormController
 @synthesize formTable = _formTable;
 @synthesize editMode = _editMode;
+@synthesize defaultDate = _defaultDate;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -56,7 +47,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     //Get all of the form configuration information from the subclass
     [self loadFormConfiguration];
-    
     
     //This ensures this class gets the OS notifications about when the keyboard is shown
     [self registerForKeyboardNotifications];
@@ -113,19 +103,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     //    return self.formTable.contentInset;
 }
 
-//If nothing sets the editMode property it defaults to FREE mode.
+//If nothing sets the editMode property it defaults to CBFormEditModeFree mode.
 -(CBFormEditMode)editMode {
-    return _editMode ? _editMode : FREE;
+    return _editMode ? _editMode : CBFormEditModeFree;
 }
 
 -(BOOL)editing {
     switch ([self editMode]) {
-        case FROZEN:
+        case CBFormEditModeFrozen:
             return NO;
-        case EDIT:
+        case CBFormEditModeEdit:
             return _editing;
-        case FREE:
-        case SAVE:
+        case CBFormEditModeFree:
+        case CBFormEditModeSave:
             return YES;
         default:
             break;
@@ -898,7 +888,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         case PopupPicker: {
             break;
         }
-        case Button:
+        case Button: {
+            [formItem selected];
+            break;
+        }
         case Switch:
         case Caption:
         default:
@@ -966,14 +959,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 -(void)updateNavigationBar {
     
-    //The FROZEN and FREE Edit modes do not require any changes to the navigation bar buttons
-    //The EDIT and SAVE modes do.
+    //The CBFormEditModeFrozen and CBFormEditModeFree Edit modes do not require any changes to the navigation bar buttons
+    //The CBFormEditModeEdit and CBFormEditModeSave modes do.
     switch ([self editMode]) {
-        case FROZEN:
-        case FREE:
+        case CBFormEditModeFrozen:
+        case CBFormEditModeFree:
             break;
-        case EDIT:
-        case SAVE:
+        case CBFormEditModeEdit:
+        case CBFormEditModeSave:
         {
             [self configureRightBarButton];
             [self configureLeftBarButton];
@@ -987,7 +980,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 -(void)configureRightBarButton {
     switch ([self editMode]) {
-        case EDIT:{
+        case CBFormEditModeEdit:{
             if ([self editing]) {
                 [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
                 [self.rightButton setEnabled:[self isFormEdited]];
@@ -996,7 +989,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             }
             break;
         }
-        case SAVE:{
+        case CBFormEditModeSave:{
             [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
             [self.rightButton setEnabled:[self isFormEdited]];
             break;
@@ -1055,7 +1048,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 -(IBAction)rightButtonWasPressed:(id)sender {
     switch ([self editMode]) {
-        case EDIT:{
+        case CBFormEditModeEdit:{
             if ([self editing]) {
                 [self save];
             }else{
@@ -1063,7 +1056,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             }
             break;
         }
-        case SAVE: {
+        case CBFormEditModeSave: {
             [self save];
         }
         default:
@@ -1145,6 +1138,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         CBFormItem *formItem = [self.formItems objectAtIndex:i];
         [formItem dismiss];
     }
+}
+
+//Tells the formTable to update it's view properties. Mainly important for updating the height of the cells.
+-(void)updates {
+    [self.formTable beginUpdates];
+    [self.formTable endUpdates];
 }
 
 

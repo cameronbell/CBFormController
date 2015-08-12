@@ -24,6 +24,7 @@
 @synthesize change;
 @dynamic save;
 @dynamic validate;
+@synthesize select; //This one is synthesized because we're not overriding it in a subclass so that it can have specific parameter classes. Essentially, we want the accessors to be generated.
 @synthesize addOns = _addOns;
 
 
@@ -61,14 +62,12 @@
         }
     }
     
+    //Tells the cell what cellSet it belongs to.
+    [_cell setCellSet:self.formController.cellSet];
+    
     [self configureCell:_cell];
     
     return _cell;
-}
-
--(NSObject *)value {
-    NSAssert(NO, @"This is an abstract method.");
-    return nil;
 }
 
 //Returns the appropriate height for the formitem based on the number of lines in the title (default = 1).
@@ -76,13 +75,13 @@
     switch (self.numberOfTitleLines) {
         case 1: {
             
-            return self.formController.cellSet.defaultHeight;
+            return self.cell.height;
             
             break;
         }
         case 2: {
             
-            return self.formController.cellSet.defaultTwoLineHeight;
+            return self.cell.twoLineHeight;
             
             break;
         }
@@ -255,6 +254,22 @@
     }*/
 }
 
+//Overriding this function to warn users who don't implement this function in a CBFormItem subclass
+-(void)setInitialValue:(NSObject *)initialValue {
+    NSLog(@"WARNING: This CBFormItem does not implement the initialValue property.");
+}
+
+//Overriding this function to warn users who don't implement this function in a CBFormItem subclass
+-(void)setValue:(NSObject *)value {
+    NSLog(@"WARNING: This CBFormItem does not implement the value property.");
+}
+
+//Overriding this function to warn users who don't implement this function in a CBFormItem subclass
+-(NSObject *)value {
+    NSLog(@"WARNING: This CBFormItem does not implement the value property.");
+    return nil; //Figure out how to avoid this warning for formitems that don't implement this
+}
+
 
 //Returns a test for equality based on the formItem's name.
 -(BOOL)equals:(CBFormItem *)formItem {
@@ -265,19 +280,20 @@
     }
 }
 
-//Most classes will not need to override this function because equals will likely work as the comparator.
-//Using a category on NSObject to provide the equals method on NSObject as an abstract method.
+
+//Implemented by subclasses that can be edited, and tells us whether the formitem has been edited
 -(BOOL)isEdited {
-    return ![self.initialValue equals:self.value];
+    return NO;
 }
 
 -(void)valueChanged {
     
+    //Calls the change block on the formItem if it exists
     if (self.change) {
         self.change(self.initialValue,self.value);
     }
     
-    
+    //Tells the form controller that a formItem's value changed and that it should update things like the navbar
     [self.formController formWasEdited];
     
 }
@@ -296,6 +312,12 @@
         return YES;
     }else{
         return NO;
+    }
+}
+
+-(void)selected {
+    if (self.select) {
+        self.select();
     }
 }
 

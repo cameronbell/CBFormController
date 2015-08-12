@@ -7,190 +7,211 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0175FA5B0D18730E25709A86CF69FF5C /* CBCellSet1Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = F73867395EF0F41B887884A4FC66755C /* CBCellSet1Switch.m */; };
-		0289DABF6938A8CFC4CC42DE0BE99152 /* FAKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F07DE8C5A24AB7C3972E97E1BC35A3C /* FAKIcon.m */; };
-		0380DB9B0C4007472AF68CADD62736E6 /* CBText.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EA13947676AF6A3521EDDC3BE20543 /* CBText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02463616E738D72222CCE99E2E0F9929 /* CBButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7D24929E0E68C630631E3FDA2F1210 /* CBButtonCell.m */; };
+		0290286B9995C9C08FD96E4D1723A836 /* FAKZocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 8724720FF89F24829A139712F0C5B4F2 /* FAKZocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		039567E357D9DEE6A84C84FD7C0DF696 /* Pods-CBFormController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5AE5ABAFD72423B4009DA9C2086417 /* Pods-CBFormController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0411D404FF368C3B80B876BD56D17929 /* FAKFoundationIcons.h in Headers */ = {isa = PBXBuildFile; fileRef = 5616A5484427C49DFD8514EFD6D3D27C /* FAKFoundationIcons.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A148B1F44B96338E82566447C508054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59F894D48CCB38A92A6B4F8224A410 /* Foundation.framework */; };
-		0A4F4794A0A94F84D944A594907761DB /* CBFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DF36A0472011834391DBA400BF14F /* CBFormController.m */; };
-		0AEE90FA2B8E646D3D6104FF7654BA5D /* FAKIonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A98887B29CAB92697860D121C3EFB2F /* FAKIonIcons.m */; };
-		0DB4A9D23996D662CF52F762D7EF5BF8 /* FontAwesomeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A204A9ED380598FAA0D83B54A6B69FF6 /* FontAwesomeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B3D52020F59880CF6C79BC17D42C63 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EE49F42068C81C956518EF9B8433A67 /* ionicons.ttf */; };
-		13A82E01F7F6ED6BF3A44A71B4652923 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926AE83166A7F7D08D12FA7C9A665CCC /* CoreText.framework */; };
-		150531F947CCFF317AF55E6BC7118556 /* NSString+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = E539E763A699017FC0B98166D221775E /* NSString+Equals.m */; };
+		04238CCE9D5CE7490892253613C91742 /* CBTextCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A261F287FC6D58E93E102402D2E45D77 /* CBTextCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05500E6346786959425593634E7C46B6 /* FAKFoundationIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F54698162CB93685B9AF27F03738C8 /* FAKFoundationIcons.m */; };
+		07CB04509AAFC1271B047A3E155EB17E /* CBFormItem+CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = 67237E8D3048CF1F742EE3110688D7F4 /* CBFormItem+CBCellSet1.m */; };
+		092B0D8F73DE5891AD486EDF7B2081B3 /* CBCellSet1Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EFB400FE1342AEC7C180A1C71EF51D /* CBCellSet1Switch.m */; };
+		0D46D63B7455468434B42BC26A96D9F6 /* CBCellSet2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1925D6EA93E8984368379A91E61E3CCE /* CBCellSet2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		109A40CE9F4B42CDFCB7EB97AA40CCE7 /* NSNumber+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = B8202ADC90585593BE61BEF85A8CAC91 /* NSNumber+Equals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10C5D487717F5EDDA23DA21F80DD7C2E /* CBCellSet1Button.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8788C5A461E05D62834AC442C1AFA9B7 /* CBCellSet1Button.xib */; };
+		11C8F5B51149029F066B12610FC1E753 /* CBCellSet1Text.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442AF3A4F19DF0BEFB17690139C30D56 /* CBCellSet1Text.xib */; };
+		14E1D0E9B1CE36715D049A93166CBAF1 /* CBFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = 92204F8EADBD994B7A5F7FAA13CFDDAE /* CBFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1575C70AC5732EFFCFAEF3BCD82FF57A /* Pods-CBFormController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0139AD430A788BFEBFE9E1DBDF3421 /* Pods-CBFormController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F4E2DE94D6C85CFA3A8B0A03ED07488 /* CBCellSet1Switch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1D6189BDE37D07D8F29EAAA0F711FA /* CBCellSet1Switch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2215AC417E3C9B86921173B9B33F5C8C /* foundation-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4882201D3662082DD4735F0DCD7FC33 /* foundation-icons.ttf */; };
-		2717B1E03D78A3022230667AF141626F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59F894D48CCB38A92A6B4F8224A410 /* Foundation.framework */; };
-		2731EC66C7D4F97FB8BE4CA3CFA9229C /* CBCellSet1Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EF6399A89025BB5E85DCF15EDE1C53 /* CBCellSet1Text.m */; };
-		2B148CCFF48FC2531E5A7B6B3AA075F8 /* NSNumber+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 719BDEB21AD4121844CF04312AB56472 /* NSNumber+Equals.m */; };
-		324CEC672670F89F07244F6EFBF4C345 /* CBCellSet2.h in Headers */ = {isa = PBXBuildFile; fileRef = CE446DD618A5F524BC8BF234DD3ED96D /* CBCellSet2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4205CDB61F6586198227E875D295DB56 /* NSNumber+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C6EDAA976B5A9BC05630E06FCB8136 /* NSNumber+Equals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A1B82EEC942D33F1EA24ACA9B3DB0B4 /* CBCellSet1Switch.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA0D57BEA02139837F72CC8DC99EA5A1 /* CBCellSet1Switch.xib */; };
-		4C5C6CB1EE087D2D2A5F814282D32C35 /* CBFormItem+CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E0CD0B9EDA3B0E858B439DB8D33EE96 /* CBFormItem+CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CBB79153EFE9D041250C6D09E2C180D /* NSObject+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3F94E813E6D2F58B4D0784E677711C /* NSObject+Equals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5334FF4D7C430624EBB717F7796CBF3F /* CBCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CD056058131F784D8F0D4A6CCB04200A /* CBCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56D713831D3A91F518300466A1DCDBB2 /* CBTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 831F3B57BD25E5D671977FD0A68C9B00 /* CBTextCell.m */; };
-		5A13120FF904771222900D3842F7CE0F /* CBFormItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D64FAFD440451287F469942404D367F /* CBFormItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BB3202EBEC19D4B7A1317AE557FEC09 /* CBCell+CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEB674529657153DB8BDD65DF6611 /* CBCell+CBCellSet1.m */; };
+		19E235564E2E6C5CA5B1B379783507EF /* CBCellSet1Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 21945A51F0E96706A3C712628E1B0012 /* CBCellSet1Button.m */; };
+		1A1784AF6436BFB044D71EE6CAE7204F /* FAKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD79346FDCF656591C27D1E06372785 /* FAKIcon.m */; };
+		1AAE4CD980072E476BACA2B642861475 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = EADE46F1CA2AC2F4DFE005BF66338884 /* FontAwesome.otf */; };
+		1B6AA4B0F7AAC9415190180F3E9FF491 /* FAKFoundationIcons.h in Headers */ = {isa = PBXBuildFile; fileRef = D4F5C5E973BE8467227C8F559209E069 /* FAKFoundationIcons.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23E3CB39D098409F45E3D685120D2DF0 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76CD316B24B08A45212496C8195E6094 /* ionicons.ttf */; };
+		2717B1E03D78A3022230667AF141626F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64A3164EDC450DA66F23BB0B35B9E14 /* Foundation.framework */; };
+		273DD1D81D5054F0E84779B089241F89 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3BE5D9D24843A96A1D59A2F94E24E5 /* CoreText.framework */; };
+		2B24D10419A51DFD14267A754E94CEE2 /* CBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E858D9DAD7777F11FA72EFD7EB5AD4A2 /* CBCell.m */; };
+		2DF6D46A76D3F7B61044D13B46ACFB98 /* FAKIonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92E304DB09290B9229AD3124B4D5C8 /* FAKIonIcons.m */; };
+		2F2E2114519370F4B71B7FDBCDB444C3 /* CBFormController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EB6E739EA76B7B24252D783F45966AA /* CBFormController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31E22BD4CAF8D9CA726FCAC27BD002D4 /* FAKIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EBDDCDEB74B55EC7F1D3CDBFA26BB1 /* FAKIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34CBF12253B41255C7522556888D8BB7 /* CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 5035AFC7D10E0E712B69DF6C007D3ED6 /* CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38E29A67613A7E7B5367DABA5F00650B /* CBCellSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 629CD4C1775C991B1F1F1B5FF4219D7F /* CBCellSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B54BD16D751E6D3BF33B15D0A945979 /* CBCellSet1Date.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC599103E7E3ECE0D95385F30312EF /* CBCellSet1Date.xib */; };
+		3DE03788CEA1FE85CC7F56BFF3C60368 /* CBDate.h in Headers */ = {isa = PBXBuildFile; fileRef = AE3C012BF69B253B9207D9E283F0F267 /* CBDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41AF7E288AA7EA9582834480685793AE /* CBFormItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB6AF64ECD52CC16B1D34D4C29CC372 /* CBFormItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41B9261C3440FC14D9CB642D046DDA82 /* CBButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C70A07E04746815022E390BC2BD8BCD2 /* CBButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C381ED7C36E294E825CE36BAEEE38E /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44CB74A6CAD8819CC348CB2863F485A5 /* zocial-regular-webfont.ttf */; };
+		440C7AA23D3ACAC87883894ACD6C8D17 /* FAKFontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 345CC56A85B2AE748A32AE541ECE4457 /* FAKFontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A8B8A10D760A58B260BE333427D78C9 /* NSString+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E1407F3A05BCE900D3DE1D305DBE64A /* NSString+Equals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B879F08FC668D3607AB872DC6C9D244 /* CBText.m in Sources */ = {isa = PBXBuildFile; fileRef = 924CA6E6E9FF8F077EFF85667E989376 /* CBText.m */; };
+		4E24EDA2DBC543A5A38CE6A4EA375F2E /* CBCellSet1Switch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2328F55059028F7105B5FA907F074BBB /* CBCellSet1Switch.xib */; };
+		4E66FBE24E0DDCD789BAC0A1005C71E5 /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EE55B74A0B68053BC28DAB0D4112FF /* CBButton.m */; };
+		50102CCF707AF2D7F7173C6C12464482 /* CBSwitchCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F61CACBDD239C32BF4A5BE7910B1CB6 /* CBSwitchCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5119B57A15A08BC4D55E03B1B63A1B47 /* CBTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FADE43DE32FF9EA9E84190CE74038D91 /* CBTextCell.m */; };
+		5BD54A3A60E80EF6485B0C7B519B1655 /* CBCellSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A119DAE21D3F4404CE4B1C727EB58B60 /* CBCellSet.m */; };
+		5C86E1ADA8225194897D280B7F08BD1D /* CBCell+CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EF4A9B30620899791A1214D34C831 /* CBCell+CBCellSet1.m */; };
+		60C165D7812B3A39DA1361F24D3BCCEB /* CBCellSet1Date.h in Headers */ = {isa = PBXBuildFile; fileRef = 21649F76F635E4A28A33C5954D4F93BE /* CBCellSet1Date.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62D82BA507D35810B1B4CC4FB6BAAD93 /* NSNumber+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEB3B707966181254D2CCEA56DB471E /* NSNumber+Equals.m */; };
+		642AA7EF91119D30911F785264FD725E /* CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BD580FB7E59C0BCF3D3634B3717EB8 /* CBCellSet1.m */; };
 		6695004B196259A69316836B1CEBD4CF /* Pods-CBFormController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F25D026184525EFC4CC038016F387768 /* Pods-CBFormController_Example-dummy.m */; };
-		6712DB42A70AFE6C6B28603D55521E60 /* CBTextCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E830F45BE444F28F3BB6857E04A35E4 /* CBTextCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C2CB12FE74759BC87288A9CBC4D9BBB /* FAKFoundationIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D1DFAF2AF5C914A175BCF3386AABA0 /* FAKFoundationIcons.m */; };
-		7D2BAA2A56951CE32BA9EB0737185BCF /* CBSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3618D703071F05A73AB7585CB68CB84 /* CBSwitchCell.m */; };
-		7D742C1C0E3188F5C44DEB9BB3D85668 /* CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 81508241E23E1C0B787C7465DA6D561B /* CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8049A72ECB5D46226541EB6BC2B71312 /* CBFormController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCB6012FFF878501E935DC1220751535 /* CBFormController.bundle */; };
-		862036A922E2825433BCA0E476052CC7 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCC2013693521BA474F7A3E42D4A4533 /* FontAwesome.otf */; };
-		8A6C0042218AAF406A111A2EABDCAE4D /* CBCellSet2.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B6C09A0FAFCF2F18BF7ABF2EDFD784 /* CBCellSet2.m */; };
-		8AE4776F1C71B655FC0D1D84C0B318E0 /* FAKZocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 1647591FDBA8156099F03DB7881CAD1F /* FAKZocial.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		991E6C43FC680393380E75CA4B508A8D /* CBCellSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF61C44BF390052A1915164E4877C65 /* CBCellSet.m */; };
-		A094EB5E044DCE40EB347F5D287422A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59F894D48CCB38A92A6B4F8224A410 /* Foundation.framework */; };
-		A0B9F18A518CCAED9F7ECEA41BEE172A /* CBFormController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E32E192C27507CCF74F8531EE89F1C0 /* CBFormController-dummy.m */; };
-		A40CDF6EA178577990CF9CB181908815 /* CBCellSet1Text.h in Headers */ = {isa = PBXBuildFile; fileRef = 816BAF1219F375DBE803F0570B3EB9CF /* CBCellSet1Text.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A879C53B77A6CDFE4BBAD95EDB3C066F /* FAKZocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5B19E6D97A5831511D20E970A8FBF6 /* FAKZocial.m */; };
-		AA1446282F2DA15798C38762D5CF4B33 /* NSString+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = E7CC99864F735F15E1B6B3BA0215F193 /* NSString+Equals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2B2CA6F03A7C35679ABE28BBF9C42B2 /* FAKFontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 8815F8C0621C89DC68ABB879526072DA /* FAKFontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA450B8CB35C5637A0F5047753B3DCC4 /* CBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0898693522671E13BD6912B510FD1136 /* CBSwitch.m */; };
-		BCB3F2A860414B09E4E179D34ACB26BE /* CBCellSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E18699654E800569032EE19FB21E5F2C /* CBCellSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2F40A2E7BEF370AA2E252E8D16BEBF7 /* CBSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FF1F322FA3FA7F17FD7378B5D0203C8 /* CBSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C334A1D12FBAB2D2FADDBB5503D9DCE5 /* CBText.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAA0F8DB6BAE76E5CBE8E04487004B /* CBText.m */; };
-		C43D09404950C7F597B7E99FF2CCF692 /* FAKIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 088A1C861024489A4FB9A75195E8F437 /* FAKIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C79B89684C696E54387D3C8C8C5237BB /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D534E2927EDF10B62BC8FB1382D871F4 /* zocial-regular-webfont.ttf */; };
-		CC41AF6AFB98551261A5013922ECB73C /* CBFormController.h in Headers */ = {isa = PBXBuildFile; fileRef = B11C6113EE2891AFB0A7090E0671CCE3 /* CBFormController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D12B71E372F3152D4649B4554D6BF9F1 /* FAKFontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FB970DD4159FF73025CDDCCCB8E240 /* FAKFontAwesome.m */; };
-		D24F3BB01555CC77DBCE5F25B0C22E7F /* CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B0FBA2ED60328CB717F33448FE3688 /* CBCellSet1.m */; };
-		D5CDBD615143B80B6ACB487D6C72B7CF /* FAKIonIcons.h in Headers */ = {isa = PBXBuildFile; fileRef = F42F7E91D7332944FD94D29C104D14FE /* FAKIonIcons.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D99AED12870115076147C8902730C737 /* NSObject+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3AF24F0C9546F9A4274A9382D07A1D /* NSObject+Equals.m */; };
-		DE8A762620B3830870B29E3AAD7F7C74 /* CBFormItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC74C366BFD4F60CAE3D0F04AE95025 /* CBFormItem.m */; };
-		E99B48C0DF0FE14097A4E0EFBE58DCAB /* CBCell+CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B7968CC050DFD504C3A51CD01B4DD96 /* CBCell+CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D5E63D1A01D52AED3DC775883D79C0D /* CBCellSet1Text.m in Sources */ = {isa = PBXBuildFile; fileRef = C028ACE6CF7AA423F7CE8955B191B4F6 /* CBCellSet1Text.m */; };
+		709082C8D136F8D900BE4A468B815C97 /* CBSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EF236B867B46A10C9F495BCD7D462B /* CBSwitch.m */; };
+		790BA87D980080F129C0A9050D448E24 /* CBCellSet1Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E113C6C40EB79E8B5D6B6D3DB0B2947 /* CBCellSet1Date.m */; };
+		7CDDFED63CB5CA4E78F3899D2E36A73A /* CBFormController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F6042C44FF4A20A28A1B2A5879FE866 /* CBFormController.bundle */; };
+		8A15A87F41FF46BEDF48C26CD73553DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64A3164EDC450DA66F23BB0B35B9E14 /* Foundation.framework */; };
+		90A09FB5D891F943D7D60FF38EE508E6 /* NSString+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 220F3EFAE2E702EA50E23BA8E9527D92 /* NSString+Equals.m */; };
+		935E24455B4E07654D9A63242F9BF91B /* CBCellSet2.m in Sources */ = {isa = PBXBuildFile; fileRef = 321755CE5CD3CFF7BD43162212123A37 /* CBCellSet2.m */; };
+		975A810529ABD682C61BD52901979841 /* foundation-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63BCF481ACE65EDE7A4E630FE2868A2A /* foundation-icons.ttf */; };
+		9B954C6A66739DA65268E40155A87466 /* CBFormItem+CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DF009947660E442D426A1BE932A215B /* CBFormItem+CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C66796F76D262E3D680D680ED07BA4D /* NSObject+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = D758A3111F8F6620B103A0CD78F3A7D6 /* NSObject+Equals.m */; };
+		A094EB5E044DCE40EB347F5D287422A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64A3164EDC450DA66F23BB0B35B9E14 /* Foundation.framework */; };
+		A3BEC62CBA0828A801B9720979A8A76C /* CBCellSet1Text.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB77410BD8CCD9F9A92DD128EFE11C9 /* CBCellSet1Text.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4509560E7B793DEEAB5B8DC0F13BA52 /* CBFormController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AA5E131EEE2C117751C0F49E95916B /* CBFormController-dummy.m */; };
+		A7FB3F058BEA417AD7A68F6E1FF07BE0 /* CBFormItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D25A3682069AA889B99A144BEBEDA /* CBFormItem.m */; };
+		B53C14D3FE060EF9B703FF7CD07DABAE /* NSObject+Equals.h in Headers */ = {isa = PBXBuildFile; fileRef = C605B59777D4F6A0C2404D0E942C3AC8 /* NSObject+Equals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB246868B8E270BC90A0DC35D8D0B725 /* CBDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5649A3A9D794E60F429B378DE878AFE /* CBDate.m */; };
+		BBAEC1402E99438A174CBB89D32DBEB0 /* CBSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D1787DB851BB70E39FDCFF509FD42F0 /* CBSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2B265E23B455079D4E2F0E0A862BC7F /* CBFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D10E77FC60112596CA66D8C2DCC4D0 /* CBFormController.m */; };
+		C5203D9C24C183E376FE294B9AF05AAF /* CBDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8248F1F85340C8F468EC653D18A755F /* CBDateCell.m */; };
+		C535C0D42EF404070A4DE6F5BAC954A3 /* FAKFontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF49515A9E65BB30C8A8E22B938E0B /* FAKFontAwesome.m */; };
+		C7C4AEE56398ED4FA0E4C8CF118203D1 /* CBCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B2C5868D89F055375A57B81C813E8A6 /* CBCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEA80A919080B425D88D3F1F021B4616 /* CBText.h in Headers */ = {isa = PBXBuildFile; fileRef = 1386CC9C16DED4AC464E94F94F9C038C /* CBText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1991DA33651D6C12D4A850027C9A451 /* FAKIonIcons.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D98B3361EF3C21A55C4FD0CE3EF56C /* FAKIonIcons.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA20A00FC016FD2FE712700AE3DF83E9 /* CBCell+CBCellSet1.h in Headers */ = {isa = PBXBuildFile; fileRef = 98D9C8BA567915AD7C0914CB87EA7883 /* CBCell+CBCellSet1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED36935071DD0E8311C0755E3CBAFF03 /* Pods-CBFormController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 104DBA47C6E63627415217E9250D0C0B /* Pods-CBFormController_Tests-dummy.m */; };
-		EFAF1AF3C767D9FBA3F32B1B0BEA3CB4 /* CBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8F3D6CAEAC70734B79ED2514C35591 /* CBCell.m */; };
-		FA6C116944C59357438502099FDDFC6B /* CBSwitchCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E1E488062E0963089F13DBD906A19E /* CBSwitchCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC22C04C4A683CF37438A42271EE8B83 /* CBFormItem+CBCellSet1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197A9ADC3B37D97CC77E738D16778DA /* CBFormItem+CBCellSet1.m */; };
-		FCFD01D10EC63A0413514FB0B5D97A84 /* CBCellSet1Text.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73FCA598FE5821E0618515DB890C0AD /* CBCellSet1Text.xib */; };
-		FFDE91C7AE3EB4E0DFFC9416665D960D /* CBFormController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CBE6F7634990E8EC602FA014D81C691 /* CBFormController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0FEC42D6850A3DCA098FA9AAC7BCDAD /* CBButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C2061498AC37BEBD9D5D7FB44CAD4255 /* CBButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3D7C3C50153E536A2DB8336524DB2F4 /* CBCellSet1Switch.h in Headers */ = {isa = PBXBuildFile; fileRef = 094F372267C0CB083784156D6708D9FC /* CBCellSet1Switch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4FE1710B558FCB27A4494184CF4A7B9 /* FAKZocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 51115568ABE0A3039F28A02181F45F7E /* FAKZocial.m */; };
+		F70F4498F2FDF4BB23233411F8922E08 /* CBCellSet1Button.h in Headers */ = {isa = PBXBuildFile; fileRef = 878A370148B375FD5332B6F6CE5F6E3C /* CBCellSet1Button.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9A96B312F64BFBB63FF7E38D343B069 /* CBDateCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AF57DFA6F0BA23A0BD9718CD73BC1E4D /* CBDateCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA27E936C760EC2282CF13C6332B35E6 /* FontAwesomeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2144A20978C2F5E2EEE26D3C3941B2A7 /* FontAwesomeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD68593B06403F8B014455F433AD7EAF /* CBSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5EDEB51BDDCFC1DBFBF620B884D62 /* CBSwitchCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		080222E076D692AA81421DF1D308B923 /* PBXContainerItemProxy */ = {
+		427E70D36E4E6E5E512A2566055CFE74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A4E010F387C8962B0076262AC22E1735;
+			remoteGlobalIDString = 9DA4528E6FC91D836F164A6C40898726;
+			remoteInfo = CBFormController;
+		};
+		908A8AE82126B48C240BC7D730330415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DA4528E6FC91D836F164A6C40898726;
+			remoteInfo = CBFormController;
+		};
+		EBA55A9A6BCE6173E7A381AF3B62CDFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29B6B4FECB450C66525FA490C4E4D6BE;
 			remoteInfo = "CBFormController-CBFormController";
-		};
-		19901A508A9CF11D8551EDC1688586BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BCC28E0D386654B4CA51125B1B380F91;
-			remoteInfo = CBFormController;
-		};
-		51C1D451CA2E852A244BC9A6CC919F94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BCC28E0D386654B4CA51125B1B380F91;
-			remoteInfo = CBFormController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		088A1C861024489A4FB9A75195E8F437 /* FAKIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKIcon.h; sourceTree = "<group>"; };
-		0898693522671E13BD6912B510FD1136 /* CBSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBSwitch.m; sourceTree = "<group>"; };
-		09B0FBA2ED60328CB717F33448FE3688 /* CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1.m; sourceTree = "<group>"; };
+		0557693166D804944144ACA25B693498 /* CBFormController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBFormController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		094F372267C0CB083784156D6708D9FC /* CBCellSet1Switch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Switch.h; sourceTree = "<group>"; };
+		0AD79346FDCF656591C27D1E06372785 /* FAKIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKIcon.m; sourceTree = "<group>"; };
+		0CB6AF64ECD52CC16B1D34D4C29CC372 /* CBFormItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBFormItem.h; sourceTree = "<group>"; };
+		0D1787DB851BB70E39FDCFF509FD42F0 /* CBSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBSwitch.h; sourceTree = "<group>"; };
+		0D92E304DB09290B9229AD3124B4D5C8 /* FAKIonIcons.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKIonIcons.m; sourceTree = "<group>"; };
 		0E5AE5ABAFD72423B4009DA9C2086417 /* Pods-CBFormController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CBFormController_Example-umbrella.h"; sourceTree = "<group>"; };
-		0EE49F42068C81C956518EF9B8433A67 /* ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		104DBA47C6E63627415217E9250D0C0B /* Pods-CBFormController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBFormController_Tests-dummy.m"; sourceTree = "<group>"; };
-		145A9901E829BFE8F3CF29386E83D6D9 /* CBFormController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CBFormController-Private.xcconfig"; sourceTree = "<group>"; };
-		1647591FDBA8156099F03DB7881CAD1F /* FAKZocial.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKZocial.h; sourceTree = "<group>"; };
-		1ADAA0F8DB6BAE76E5CBE8E04487004B /* CBText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBText.m; sourceTree = "<group>"; };
-		2A59F894D48CCB38A92A6B4F8224A410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1386CC9C16DED4AC464E94F94F9C038C /* CBText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBText.h; sourceTree = "<group>"; };
+		1925D6EA93E8984368379A91E61E3CCE /* CBCellSet2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet2.h; sourceTree = "<group>"; };
+		2144A20978C2F5E2EEE26D3C3941B2A7 /* FontAwesomeKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FontAwesomeKit.h; sourceTree = "<group>"; };
+		21649F76F635E4A28A33C5954D4F93BE /* CBCellSet1Date.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Date.h; sourceTree = "<group>"; };
+		21945A51F0E96706A3C712628E1B0012 /* CBCellSet1Button.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Button.m; sourceTree = "<group>"; };
+		220F3EFAE2E702EA50E23BA8E9527D92 /* NSString+Equals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Equals.m"; sourceTree = "<group>"; };
+		22D10E77FC60112596CA66D8C2DCC4D0 /* CBFormController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBFormController.m; sourceTree = "<group>"; };
+		2328F55059028F7105B5FA907F074BBB /* CBCellSet1Switch.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Switch.xib; sourceTree = "<group>"; };
+		23EE55B74A0B68053BC28DAB0D4112FF /* CBButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBButton.m; sourceTree = "<group>"; };
+		28F54698162CB93685B9AF27F03738C8 /* FAKFoundationIcons.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKFoundationIcons.m; sourceTree = "<group>"; };
+		2AEB3B707966181254D2CCEA56DB471E /* NSNumber+Equals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Equals.m"; sourceTree = "<group>"; };
 		2B077499B54CEF40201CA3A00ECD4468 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E0CD0B9EDA3B0E858B439DB8D33EE96 /* CBFormItem+CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormItem+CBCellSet1.h"; sourceTree = "<group>"; };
-		2F1D2BD1A278A33E2890343C4B5E0BC3 /* CBFormController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBFormController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E113C6C40EB79E8B5D6B6D3DB0B2947 /* CBCellSet1Date.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Date.m; sourceTree = "<group>"; };
+		321755CE5CD3CFF7BD43162212123A37 /* CBCellSet2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet2.m; sourceTree = "<group>"; };
+		345CC56A85B2AE748A32AE541ECE4457 /* FAKFontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKFontAwesome.h; sourceTree = "<group>"; };
 		35367D407BB83A110CA54677DC192FFF /* Pods-CBFormController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		35BD580FB7E59C0BCF3D3634B3717EB8 /* CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1.m; sourceTree = "<group>"; };
+		375591BD73AA13EEA595B2433E1A66A8 /* CBFormController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CBFormController-Private.xcconfig"; sourceTree = "<group>"; };
 		37DD1358AA66BF69BC4F4D67D903A319 /* Pods-CBFormController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBFormController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		38EA13947676AF6A3521EDDC3BE20543 /* CBText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBText.h; sourceTree = "<group>"; };
-		3A98887B29CAB92697860D121C3EFB2F /* FAKIonIcons.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKIonIcons.m; sourceTree = "<group>"; };
+		3E1407F3A05BCE900D3DE1D305DBE64A /* NSString+Equals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Equals.h"; sourceTree = "<group>"; };
+		41AA5E131EEE2C117751C0F49E95916B /* CBFormController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBFormController-dummy.m"; sourceTree = "<group>"; };
+		442AF3A4F19DF0BEFB17690139C30D56 /* CBCellSet1Text.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Text.xib; sourceTree = "<group>"; };
+		44CB74A6CAD8819CC348CB2863F485A5 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
+		44EFB400FE1342AEC7C180A1C71EF51D /* CBCellSet1Switch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Switch.m; sourceTree = "<group>"; };
 		456E31D1A9F180D084BE7B13F89F2E96 /* Pods-CBFormController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBFormController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4B5B19E6D97A5831511D20E970A8FBF6 /* FAKZocial.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKZocial.m; sourceTree = "<group>"; };
-		5616A5484427C49DFD8514EFD6D3D27C /* FAKFoundationIcons.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKFoundationIcons.h; sourceTree = "<group>"; };
-		5E1D6189BDE37D07D8F29EAAA0F711FA /* CBCellSet1Switch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Switch.h; sourceTree = "<group>"; };
-		5E830F45BE444F28F3BB6857E04A35E4 /* CBTextCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBTextCell.h; sourceTree = "<group>"; };
-		60C6EDAA976B5A9BC05630E06FCB8136 /* NSNumber+Equals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Equals.h"; sourceTree = "<group>"; };
+		4A9D25A3682069AA889B99A144BEBEDA /* CBFormItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBFormItem.m; sourceTree = "<group>"; };
+		4D3BE5D9D24843A96A1D59A2F94E24E5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		4F61CACBDD239C32BF4A5BE7910B1CB6 /* CBSwitchCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBSwitchCell.h; sourceTree = "<group>"; };
+		4FBC599103E7E3ECE0D95385F30312EF /* CBCellSet1Date.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Date.xib; sourceTree = "<group>"; };
+		5035AFC7D10E0E712B69DF6C007D3ED6 /* CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1.h; sourceTree = "<group>"; };
+		51115568ABE0A3039F28A02181F45F7E /* FAKZocial.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKZocial.m; sourceTree = "<group>"; };
+		5B2C5868D89F055375A57B81C813E8A6 /* CBCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCell.h; sourceTree = "<group>"; };
+		5DF009947660E442D426A1BE932A215B /* CBFormItem+CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormItem+CBCellSet1.h"; sourceTree = "<group>"; };
 		61F8023C86F1766253A1020A22697A07 /* Pods_CBFormController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBFormController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		629CD4C1775C991B1F1F1B5FF4219D7F /* CBCellSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet.h; sourceTree = "<group>"; };
+		63BCF481ACE65EDE7A4E630FE2868A2A /* foundation-icons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "foundation-icons.ttf"; sourceTree = "<group>"; };
 		645E9A9ED1AAD43EF559AF6112F4D749 /* Pods-CBFormController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Example-resources.sh"; sourceTree = "<group>"; };
-		6A3DF36A0472011834391DBA400BF14F /* CBFormController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBFormController.m; sourceTree = "<group>"; };
-		6CBE6F7634990E8EC602FA014D81C691 /* CBFormController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormController-umbrella.h"; sourceTree = "<group>"; };
+		67237E8D3048CF1F742EE3110688D7F4 /* CBFormItem+CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBFormItem+CBCellSet1.m"; sourceTree = "<group>"; };
 		6E0139AD430A788BFEBFE9E1DBDF3421 /* Pods-CBFormController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CBFormController_Tests-umbrella.h"; sourceTree = "<group>"; };
-		7197A9ADC3B37D97CC77E738D16778DA /* CBFormItem+CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBFormItem+CBCellSet1.m"; sourceTree = "<group>"; };
-		719BDEB21AD4121844CF04312AB56472 /* NSNumber+Equals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Equals.m"; sourceTree = "<group>"; };
+		6F6042C44FF4A20A28A1B2A5879FE866 /* CBFormController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBFormController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7243CEAF9B4DF39C92F1B003C462846B /* Pods-CBFormController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		7B7968CC050DFD504C3A51CD01B4DD96 /* CBCell+CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCell+CBCellSet1.h"; sourceTree = "<group>"; };
-		7F07DE8C5A24AB7C3972E97E1BC35A3C /* FAKIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKIcon.m; sourceTree = "<group>"; };
-		81508241E23E1C0B787C7465DA6D561B /* CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1.h; sourceTree = "<group>"; };
-		816BAF1219F375DBE803F0570B3EB9CF /* CBCellSet1Text.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Text.h; sourceTree = "<group>"; };
-		81EF6399A89025BB5E85DCF15EDE1C53 /* CBCellSet1Text.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Text.m; sourceTree = "<group>"; };
-		82D1DFAF2AF5C914A175BCF3386AABA0 /* FAKFoundationIcons.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKFoundationIcons.m; sourceTree = "<group>"; };
-		831F3B57BD25E5D671977FD0A68C9B00 /* CBTextCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBTextCell.m; sourceTree = "<group>"; };
-		8815F8C0621C89DC68ABB879526072DA /* FAKFontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKFontAwesome.h; sourceTree = "<group>"; };
-		8D64FAFD440451287F469942404D367F /* CBFormItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBFormItem.h; sourceTree = "<group>"; };
+		76CD316B24B08A45212496C8195E6094 /* ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
+		8724720FF89F24829A139712F0C5B4F2 /* FAKZocial.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKZocial.h; sourceTree = "<group>"; };
+		8788C5A461E05D62834AC442C1AFA9B7 /* CBCellSet1Button.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Button.xib; sourceTree = "<group>"; };
+		878A370148B375FD5332B6F6CE5F6E3C /* CBCellSet1Button.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Button.h; sourceTree = "<group>"; };
+		8BD5EDEB51BDDCFC1DBFBF620B884D62 /* CBSwitchCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBSwitchCell.m; sourceTree = "<group>"; };
+		8D7D24929E0E68C630631E3FDA2F1210 /* CBButtonCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBButtonCell.m; sourceTree = "<group>"; };
 		8F285BDD810BB6E503C37EBF532FC3E1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FF1F322FA3FA7F17FD7378B5D0203C8 /* CBSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBSwitch.h; sourceTree = "<group>"; };
-		91B6C09A0FAFCF2F18BF7ABF2EDFD784 /* CBCellSet2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet2.m; sourceTree = "<group>"; };
-		926AE83166A7F7D08D12FA7C9A665CCC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		92204F8EADBD994B7A5F7FAA13CFDDAE /* CBFormController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBFormController.h; sourceTree = "<group>"; };
+		924CA6E6E9FF8F077EFF85667E989376 /* CBText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBText.m; sourceTree = "<group>"; };
+		98D9C8BA567915AD7C0914CB87EA7883 /* CBCell+CBCellSet1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCell+CBCellSet1.h"; sourceTree = "<group>"; };
 		9998F3FEA63ED7530ECB6C4B88EB4DD6 /* Pods-CBFormController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBFormController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		99C8AC7D9E4E4EA557EA641AB7956115 /* Pods-CBFormController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CBFormController_Example.modulemap"; sourceTree = "<group>"; };
-		9AF61C44BF390052A1915164E4877C65 /* CBCellSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet.m; sourceTree = "<group>"; };
-		9B3F94E813E6D2F58B4D0784E677711C /* NSObject+Equals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+Equals.h"; sourceTree = "<group>"; };
 		9CD5F2D2CD76C1089D3029B66A89758A /* Pods_CBFormController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBFormController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E32E192C27507CCF74F8531EE89F1C0 /* CBFormController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBFormController-dummy.m"; sourceTree = "<group>"; };
+		9EB6E739EA76B7B24252D783F45966AA /* CBFormController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormController-umbrella.h"; sourceTree = "<group>"; };
 		9F00FB41DEA45AB5957C5D9430DCA2B7 /* Pods-CBFormController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CBFormController_Tests.modulemap"; sourceTree = "<group>"; };
-		A204A9ED380598FAA0D83B54A6B69FF6 /* FontAwesomeKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FontAwesomeKit.h; sourceTree = "<group>"; };
+		A119DAE21D3F4404CE4B1C727EB58B60 /* CBCellSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet.m; sourceTree = "<group>"; };
+		A261F287FC6D58E93E102402D2E45D77 /* CBTextCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBTextCell.h; sourceTree = "<group>"; };
 		AC742D659432143BF0F8410AC4C00702 /* Pods-CBFormController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B11C6113EE2891AFB0A7090E0671CCE3 /* CBFormController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBFormController.h; sourceTree = "<group>"; };
+		AE3C012BF69B253B9207D9E283F0F267 /* CBDate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBDate.h; sourceTree = "<group>"; };
+		AF57DFA6F0BA23A0BD9718CD73BC1E4D /* CBDateCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBDateCell.h; sourceTree = "<group>"; };
 		B14305637C0A7E637142A6DB8D1E20D6 /* Pods-CBFormController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B449F5171FA164A068BB5F8745BAD991 /* CBFormController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CBFormController.modulemap; sourceTree = "<group>"; };
+		B5649A3A9D794E60F429B378DE878AFE /* CBDate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBDate.m; sourceTree = "<group>"; };
+		B64A3164EDC450DA66F23BB0B35B9E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B8202ADC90585593BE61BEF85A8CAC91 /* NSNumber+Equals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Equals.h"; sourceTree = "<group>"; };
 		B84D64ADA8F9DF68BCEB4111066BA569 /* Pods-CBFormController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Tests-resources.sh"; sourceTree = "<group>"; };
+		B91EF4A9B30620899791A1214D34C831 /* CBCell+CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCell+CBCellSet1.m"; sourceTree = "<group>"; };
+		B9EF236B867B46A10C9F495BCD7D462B /* CBSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBSwitch.m; sourceTree = "<group>"; };
+		BAB77410BD8CCD9F9A92DD128EFE11C9 /* CBCellSet1Text.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet1Text.h; sourceTree = "<group>"; };
 		BDF3575C63EF520CF259FF6ED397A582 /* CBFormController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CBFormController.xcconfig; sourceTree = "<group>"; };
+		C028ACE6CF7AA423F7CE8955B191B4F6 /* CBCellSet1Text.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Text.m; sourceTree = "<group>"; };
+		C2061498AC37BEBD9D5D7FB44CAD4255 /* CBButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
 		C2CE8BEDF0A9D53A230668B619DA0602 /* Pods-CBFormController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBFormController_Example-frameworks.sh"; sourceTree = "<group>"; };
-		C44EEB674529657153DB8BDD65DF6611 /* CBCell+CBCellSet1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCell+CBCellSet1.m"; sourceTree = "<group>"; };
+		C605B59777D4F6A0C2404D0E942C3AC8 /* NSObject+Equals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+Equals.h"; sourceTree = "<group>"; };
+		C70A07E04746815022E390BC2BD8BCD2 /* CBButtonCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBButtonCell.h; sourceTree = "<group>"; };
 		C88113A79685B4EFEE7BAD12896829F7 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CA0D57BEA02139837F72CC8DC99EA5A1 /* CBCellSet1Switch.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Switch.xib; sourceTree = "<group>"; };
-		CCB6012FFF878501E935DC1220751535 /* CBFormController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBFormController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD056058131F784D8F0D4A6CCB04200A /* CBCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCell.h; sourceTree = "<group>"; };
-		CE446DD618A5F524BC8BF234DD3ED96D /* CBCellSet2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet2.h; sourceTree = "<group>"; };
-		CF8F3D6CAEAC70734B79ED2514C35591 /* CBCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCell.m; sourceTree = "<group>"; };
+		C9DF49515A9E65BB30C8A8E22B938E0B /* FAKFontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKFontAwesome.m; sourceTree = "<group>"; };
 		D15F46D6E57A90EB4B1D9F3B9922393D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1FB970DD4159FF73025CDDCCCB8E240 /* FAKFontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAKFontAwesome.m; sourceTree = "<group>"; };
-		D3618D703071F05A73AB7585CB68CB84 /* CBSwitchCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBSwitchCell.m; sourceTree = "<group>"; };
-		D3E1E488062E0963089F13DBD906A19E /* CBSwitchCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBSwitchCell.h; sourceTree = "<group>"; };
-		D534E2927EDF10B62BC8FB1382D871F4 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
-		D73FCA598FE5821E0618515DB890C0AD /* CBCellSet1Text.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CBCellSet1Text.xib; sourceTree = "<group>"; };
-		DB3AF24F0C9546F9A4274A9382D07A1D /* NSObject+Equals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Equals.m"; sourceTree = "<group>"; };
-		DCC2013693521BA474F7A3E42D4A4533 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		D3EBDDCDEB74B55EC7F1D3CDBFA26BB1 /* FAKIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKIcon.h; sourceTree = "<group>"; };
+		D4F5C5E973BE8467227C8F559209E069 /* FAKFoundationIcons.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKFoundationIcons.h; sourceTree = "<group>"; };
+		D758A3111F8F6620B103A0CD78F3A7D6 /* NSObject+Equals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Equals.m"; sourceTree = "<group>"; };
 		DEF229DDD973A21B8D57A7CB754ADC9F /* CBFormController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFormController-prefix.pch"; sourceTree = "<group>"; };
-		E18699654E800569032EE19FB21E5F2C /* CBCellSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCellSet.h; sourceTree = "<group>"; };
-		E539E763A699017FC0B98166D221775E /* NSString+Equals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Equals.m"; sourceTree = "<group>"; };
-		E7CC99864F735F15E1B6B3BA0215F193 /* NSString+Equals.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Equals.h"; sourceTree = "<group>"; };
+		E2D98B3361EF3C21A55C4FD0CE3EF56C /* FAKIonIcons.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKIonIcons.h; sourceTree = "<group>"; };
+		E8248F1F85340C8F468EC653D18A755F /* CBDateCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBDateCell.m; sourceTree = "<group>"; };
+		E858D9DAD7777F11FA72EFD7EB5AD4A2 /* CBCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCell.m; sourceTree = "<group>"; };
+		EADE46F1CA2AC2F4DFE005BF66338884 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		F25D026184525EFC4CC038016F387768 /* Pods-CBFormController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBFormController_Example-dummy.m"; sourceTree = "<group>"; };
 		F37A794FDB43ADEB4CB39B46D720E901 /* Pods-CBFormController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBFormController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		F42F7E91D7332944FD94D29C104D14FE /* FAKIonIcons.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAKIonIcons.h; sourceTree = "<group>"; };
-		F4882201D3662082DD4735F0DCD7FC33 /* foundation-icons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "foundation-icons.ttf"; sourceTree = "<group>"; };
-		F73867395EF0F41B887884A4FC66755C /* CBCellSet1Switch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCellSet1Switch.m; sourceTree = "<group>"; };
 		F8B0BCF31467266F2FA68FC737A81828 /* Pods-CBFormController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBFormController_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FAC74C366BFD4F60CAE3D0F04AE95025 /* CBFormItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBFormItem.m; sourceTree = "<group>"; };
+		FADE43DE32FF9EA9E84190CE74038D91 /* CBTextCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBTextCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4C10626E953E93E268888B8A086948E5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		582364954269F2856829458A350A4649 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,12 +228,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD63014EE016BB6E3446AE319C80AFAE /* Frameworks */ = {
+		93C58588A3CA604DBC022ADCEAE1C5DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A82E01F7F6ED6BF3A44A71B4652923 /* CoreText.framework in Frameworks */,
-				0A148B1F44B96338E82566447C508054 /* Foundation.framework in Frameworks */,
+				273DD1D81D5054F0E84779B089241F89 /* CoreText.framework in Frameworks */,
+				8A15A87F41FF46BEDF48C26CD73553DD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED82BA3F339D2C1095D110013B068144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +265,24 @@
 			path = "Target Support Files/Pods-CBFormController_Example";
 			sourceTree = "<group>";
 		};
+		03C1AA3AAD09D8AD5B78D3E046FA635B /* FontAwesomeKit */ = {
+			isa = PBXGroup;
+			children = (
+				345CC56A85B2AE748A32AE541ECE4457 /* FAKFontAwesome.h */,
+				C9DF49515A9E65BB30C8A8E22B938E0B /* FAKFontAwesome.m */,
+				D4F5C5E973BE8467227C8F559209E069 /* FAKFoundationIcons.h */,
+				28F54698162CB93685B9AF27F03738C8 /* FAKFoundationIcons.m */,
+				D3EBDDCDEB74B55EC7F1D3CDBFA26BB1 /* FAKIcon.h */,
+				0AD79346FDCF656591C27D1E06372785 /* FAKIcon.m */,
+				E2D98B3361EF3C21A55C4FD0CE3EF56C /* FAKIonIcons.h */,
+				0D92E304DB09290B9229AD3124B4D5C8 /* FAKIonIcons.m */,
+				8724720FF89F24829A139712F0C5B4F2 /* FAKZocial.h */,
+				51115568ABE0A3039F28A02181F45F7E /* FAKZocial.m */,
+				2144A20978C2F5E2EEE26D3C3941B2A7 /* FontAwesomeKit.h */,
+			);
+			path = FontAwesomeKit;
+			sourceTree = "<group>";
+		};
 		0720760E6FAA87218C034E98CCD3509B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,65 +291,13 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		1092BD2BC242BB10DD3B84C62DCA9A22 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				CA0D57BEA02139837F72CC8DC99EA5A1 /* CBCellSet1Switch.xib */,
-				D73FCA598FE5821E0618515DB890C0AD /* CBCellSet1Text.xib */,
-				AD6A156A1FEB93DF0217A9FE0D28FD7C /* FontAwesomeKit */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		21FF83D38BE2E1D5499360B06000D8F3 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				926AE83166A7F7D08D12FA7C9A665CCC /* CoreText.framework */,
-				2A59F894D48CCB38A92A6B4F8224A410 /* Foundation.framework */,
+				4D3BE5D9D24843A96A1D59A2F94E24E5 /* CoreText.framework */,
+				B64A3164EDC450DA66F23BB0B35B9E14 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		28A1AA1B30B153BBED8A02BF4DD102C9 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				CD056058131F784D8F0D4A6CCB04200A /* CBCell.h */,
-				CF8F3D6CAEAC70734B79ED2514C35591 /* CBCell.m */,
-				7B7968CC050DFD504C3A51CD01B4DD96 /* CBCell+CBCellSet1.h */,
-				C44EEB674529657153DB8BDD65DF6611 /* CBCell+CBCellSet1.m */,
-				E18699654E800569032EE19FB21E5F2C /* CBCellSet.h */,
-				9AF61C44BF390052A1915164E4877C65 /* CBCellSet.m */,
-				81508241E23E1C0B787C7465DA6D561B /* CBCellSet1.h */,
-				09B0FBA2ED60328CB717F33448FE3688 /* CBCellSet1.m */,
-				5E1D6189BDE37D07D8F29EAAA0F711FA /* CBCellSet1Switch.h */,
-				F73867395EF0F41B887884A4FC66755C /* CBCellSet1Switch.m */,
-				816BAF1219F375DBE803F0570B3EB9CF /* CBCellSet1Text.h */,
-				81EF6399A89025BB5E85DCF15EDE1C53 /* CBCellSet1Text.m */,
-				CE446DD618A5F524BC8BF234DD3ED96D /* CBCellSet2.h */,
-				91B6C09A0FAFCF2F18BF7ABF2EDFD784 /* CBCellSet2.m */,
-				B11C6113EE2891AFB0A7090E0671CCE3 /* CBFormController.h */,
-				6A3DF36A0472011834391DBA400BF14F /* CBFormController.m */,
-				8D64FAFD440451287F469942404D367F /* CBFormItem.h */,
-				FAC74C366BFD4F60CAE3D0F04AE95025 /* CBFormItem.m */,
-				2E0CD0B9EDA3B0E858B439DB8D33EE96 /* CBFormItem+CBCellSet1.h */,
-				7197A9ADC3B37D97CC77E738D16778DA /* CBFormItem+CBCellSet1.m */,
-				8FF1F322FA3FA7F17FD7378B5D0203C8 /* CBSwitch.h */,
-				0898693522671E13BD6912B510FD1136 /* CBSwitch.m */,
-				D3E1E488062E0963089F13DBD906A19E /* CBSwitchCell.h */,
-				D3618D703071F05A73AB7585CB68CB84 /* CBSwitchCell.m */,
-				38EA13947676AF6A3521EDDC3BE20543 /* CBText.h */,
-				1ADAA0F8DB6BAE76E5CBE8E04487004B /* CBText.m */,
-				5E830F45BE444F28F3BB6857E04A35E4 /* CBTextCell.h */,
-				831F3B57BD25E5D671977FD0A68C9B00 /* CBTextCell.m */,
-				60C6EDAA976B5A9BC05630E06FCB8136 /* NSNumber+Equals.h */,
-				719BDEB21AD4121844CF04312AB56472 /* NSNumber+Equals.m */,
-				9B3F94E813E6D2F58B4D0784E677711C /* NSObject+Equals.h */,
-				DB3AF24F0C9546F9A4274A9382D07A1D /* NSObject+Equals.m */,
-				E7CC99864F735F15E1B6B3BA0215F193 /* NSString+Equals.h */,
-				E539E763A699017FC0B98166D221775E /* NSString+Equals.m */,
-				8D4BF6C254D0B99B47EE33AFEBEACCE6 /* FontAwesomeKit */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		57E0FC7BF63680DF330B7FF826A9F39D /* CBFormController */ = {
@@ -336,7 +330,7 @@
 		60579726181099DB0EF50513712DF176 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				1092BD2BC242BB10DD3B84C62DCA9A22 /* Classes */,
+				9FC3C1B222DF9C996316A9275CEBD249 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
@@ -344,9 +338,63 @@
 		6A5E68D4A9ADA33FCB4D86018CA60E69 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				28A1AA1B30B153BBED8A02BF4DD102C9 /* Classes */,
+				6BD77BA9474FF3F684CF69F2FCEEB8DC /* Classes */,
 			);
 			path = Pod;
+			sourceTree = "<group>";
+		};
+		6BD77BA9474FF3F684CF69F2FCEEB8DC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C2061498AC37BEBD9D5D7FB44CAD4255 /* CBButton.h */,
+				23EE55B74A0B68053BC28DAB0D4112FF /* CBButton.m */,
+				C70A07E04746815022E390BC2BD8BCD2 /* CBButtonCell.h */,
+				8D7D24929E0E68C630631E3FDA2F1210 /* CBButtonCell.m */,
+				5B2C5868D89F055375A57B81C813E8A6 /* CBCell.h */,
+				E858D9DAD7777F11FA72EFD7EB5AD4A2 /* CBCell.m */,
+				98D9C8BA567915AD7C0914CB87EA7883 /* CBCell+CBCellSet1.h */,
+				B91EF4A9B30620899791A1214D34C831 /* CBCell+CBCellSet1.m */,
+				629CD4C1775C991B1F1F1B5FF4219D7F /* CBCellSet.h */,
+				A119DAE21D3F4404CE4B1C727EB58B60 /* CBCellSet.m */,
+				5035AFC7D10E0E712B69DF6C007D3ED6 /* CBCellSet1.h */,
+				35BD580FB7E59C0BCF3D3634B3717EB8 /* CBCellSet1.m */,
+				878A370148B375FD5332B6F6CE5F6E3C /* CBCellSet1Button.h */,
+				21945A51F0E96706A3C712628E1B0012 /* CBCellSet1Button.m */,
+				21649F76F635E4A28A33C5954D4F93BE /* CBCellSet1Date.h */,
+				2E113C6C40EB79E8B5D6B6D3DB0B2947 /* CBCellSet1Date.m */,
+				094F372267C0CB083784156D6708D9FC /* CBCellSet1Switch.h */,
+				44EFB400FE1342AEC7C180A1C71EF51D /* CBCellSet1Switch.m */,
+				BAB77410BD8CCD9F9A92DD128EFE11C9 /* CBCellSet1Text.h */,
+				C028ACE6CF7AA423F7CE8955B191B4F6 /* CBCellSet1Text.m */,
+				1925D6EA93E8984368379A91E61E3CCE /* CBCellSet2.h */,
+				321755CE5CD3CFF7BD43162212123A37 /* CBCellSet2.m */,
+				AE3C012BF69B253B9207D9E283F0F267 /* CBDate.h */,
+				B5649A3A9D794E60F429B378DE878AFE /* CBDate.m */,
+				AF57DFA6F0BA23A0BD9718CD73BC1E4D /* CBDateCell.h */,
+				E8248F1F85340C8F468EC653D18A755F /* CBDateCell.m */,
+				92204F8EADBD994B7A5F7FAA13CFDDAE /* CBFormController.h */,
+				22D10E77FC60112596CA66D8C2DCC4D0 /* CBFormController.m */,
+				0CB6AF64ECD52CC16B1D34D4C29CC372 /* CBFormItem.h */,
+				4A9D25A3682069AA889B99A144BEBEDA /* CBFormItem.m */,
+				5DF009947660E442D426A1BE932A215B /* CBFormItem+CBCellSet1.h */,
+				67237E8D3048CF1F742EE3110688D7F4 /* CBFormItem+CBCellSet1.m */,
+				0D1787DB851BB70E39FDCFF509FD42F0 /* CBSwitch.h */,
+				B9EF236B867B46A10C9F495BCD7D462B /* CBSwitch.m */,
+				4F61CACBDD239C32BF4A5BE7910B1CB6 /* CBSwitchCell.h */,
+				8BD5EDEB51BDDCFC1DBFBF620B884D62 /* CBSwitchCell.m */,
+				1386CC9C16DED4AC464E94F94F9C038C /* CBText.h */,
+				924CA6E6E9FF8F077EFF85667E989376 /* CBText.m */,
+				A261F287FC6D58E93E102402D2E45D77 /* CBTextCell.h */,
+				FADE43DE32FF9EA9E84190CE74038D91 /* CBTextCell.m */,
+				B8202ADC90585593BE61BEF85A8CAC91 /* NSNumber+Equals.h */,
+				2AEB3B707966181254D2CCEA56DB471E /* NSNumber+Equals.m */,
+				C605B59777D4F6A0C2404D0E942C3AC8 /* NSObject+Equals.h */,
+				D758A3111F8F6620B103A0CD78F3A7D6 /* NSObject+Equals.m */,
+				3E1407F3A05BCE900D3DE1D305DBE64A /* NSString+Equals.h */,
+				220F3EFAE2E702EA50E23BA8E9527D92 /* NSString+Equals.m */,
+				03C1AA3AAD09D8AD5B78D3E046FA635B /* FontAwesomeKit */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -358,24 +406,6 @@
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				D871C749CBB672E76A502DD5E90F9842 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8D4BF6C254D0B99B47EE33AFEBEACCE6 /* FontAwesomeKit */ = {
-			isa = PBXGroup;
-			children = (
-				8815F8C0621C89DC68ABB879526072DA /* FAKFontAwesome.h */,
-				D1FB970DD4159FF73025CDDCCCB8E240 /* FAKFontAwesome.m */,
-				5616A5484427C49DFD8514EFD6D3D27C /* FAKFoundationIcons.h */,
-				82D1DFAF2AF5C914A175BCF3386AABA0 /* FAKFoundationIcons.m */,
-				088A1C861024489A4FB9A75195E8F437 /* FAKIcon.h */,
-				7F07DE8C5A24AB7C3972E97E1BC35A3C /* FAKIcon.m */,
-				F42F7E91D7332944FD94D29C104D14FE /* FAKIonIcons.h */,
-				3A98887B29CAB92697860D121C3EFB2F /* FAKIonIcons.m */,
-				1647591FDBA8156099F03DB7881CAD1F /* FAKZocial.h */,
-				4B5B19E6D97A5831511D20E970A8FBF6 /* FAKZocial.m */,
-				A204A9ED380598FAA0D83B54A6B69FF6 /* FontAwesomeKit.h */,
-			);
-			path = FontAwesomeKit;
 			sourceTree = "<group>";
 		};
 		95A97BFD46FD579E4F65F01FE0B9F96A /* Pods-CBFormController_Tests */ = {
@@ -396,28 +426,40 @@
 			path = "Target Support Files/Pods-CBFormController_Tests";
 			sourceTree = "<group>";
 		};
+		9FC3C1B222DF9C996316A9275CEBD249 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8788C5A461E05D62834AC442C1AFA9B7 /* CBCellSet1Button.xib */,
+				4FBC599103E7E3ECE0D95385F30312EF /* CBCellSet1Date.xib */,
+				2328F55059028F7105B5FA907F074BBB /* CBCellSet1Switch.xib */,
+				442AF3A4F19DF0BEFB17690139C30D56 /* CBCellSet1Text.xib */,
+				B3A54C13D2CC7BEE7BB69CF195B58DCB /* FontAwesomeKit */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		A23A7E1C4E3866458BBF80DAA6070460 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				B449F5171FA164A068BB5F8745BAD991 /* CBFormController.modulemap */,
 				BDF3575C63EF520CF259FF6ED397A582 /* CBFormController.xcconfig */,
-				145A9901E829BFE8F3CF29386E83D6D9 /* CBFormController-Private.xcconfig */,
-				9E32E192C27507CCF74F8531EE89F1C0 /* CBFormController-dummy.m */,
+				375591BD73AA13EEA595B2433E1A66A8 /* CBFormController-Private.xcconfig */,
+				41AA5E131EEE2C117751C0F49E95916B /* CBFormController-dummy.m */,
 				DEF229DDD973A21B8D57A7CB754ADC9F /* CBFormController-prefix.pch */,
-				6CBE6F7634990E8EC602FA014D81C691 /* CBFormController-umbrella.h */,
+				9EB6E739EA76B7B24252D783F45966AA /* CBFormController-umbrella.h */,
 				D15F46D6E57A90EB4B1D9F3B9922393D /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/CBFormController";
 			sourceTree = "<group>";
 		};
-		AD6A156A1FEB93DF0217A9FE0D28FD7C /* FontAwesomeKit */ = {
+		B3A54C13D2CC7BEE7BB69CF195B58DCB /* FontAwesomeKit */ = {
 			isa = PBXGroup;
 			children = (
-				DCC2013693521BA474F7A3E42D4A4533 /* FontAwesome.otf */,
-				F4882201D3662082DD4735F0DCD7FC33 /* foundation-icons.ttf */,
-				0EE49F42068C81C956518EF9B8433A67 /* ionicons.ttf */,
-				D534E2927EDF10B62BC8FB1382D871F4 /* zocial-regular-webfont.ttf */,
+				EADE46F1CA2AC2F4DFE005BF66338884 /* FontAwesome.otf */,
+				63BCF481ACE65EDE7A4E630FE2868A2A /* foundation-icons.ttf */,
+				76CD316B24B08A45212496C8195E6094 /* ionicons.ttf */,
+				44CB74A6CAD8819CC348CB2863F485A5 /* zocial-regular-webfont.ttf */,
 			);
 			path = FontAwesomeKit;
 			sourceTree = "<group>";
@@ -425,8 +467,8 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCB6012FFF878501E935DC1220751535 /* CBFormController.bundle */,
-				2F1D2BD1A278A33E2890343C4B5E0BC3 /* CBFormController.framework */,
+				6F6042C44FF4A20A28A1B2A5879FE866 /* CBFormController.bundle */,
+				0557693166D804944144ACA25B693498 /* CBFormController.framework */,
 				61F8023C86F1766253A1020A22697A07 /* Pods_CBFormController_Example.framework */,
 				9CD5F2D2CD76C1089D3029B66A89758A /* Pods_CBFormController_Tests.framework */,
 			);
@@ -461,40 +503,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		774709BE76827DB0CF62CD2EEF527CEA /* Headers */ = {
+		A7599133DA4748B68E9BCDF092ADA7D5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E99B48C0DF0FE14097A4E0EFBE58DCAB /* CBCell+CBCellSet1.h in Headers */,
-				5334FF4D7C430624EBB717F7796CBF3F /* CBCell.h in Headers */,
-				BCB3F2A860414B09E4E179D34ACB26BE /* CBCellSet.h in Headers */,
-				7D742C1C0E3188F5C44DEB9BB3D85668 /* CBCellSet1.h in Headers */,
-				1F4E2DE94D6C85CFA3A8B0A03ED07488 /* CBCellSet1Switch.h in Headers */,
-				A40CDF6EA178577990CF9CB181908815 /* CBCellSet1Text.h in Headers */,
-				324CEC672670F89F07244F6EFBF4C345 /* CBCellSet2.h in Headers */,
-				FFDE91C7AE3EB4E0DFFC9416665D960D /* CBFormController-umbrella.h in Headers */,
-				CC41AF6AFB98551261A5013922ECB73C /* CBFormController.h in Headers */,
-				4C5C6CB1EE087D2D2A5F814282D32C35 /* CBFormItem+CBCellSet1.h in Headers */,
-				5A13120FF904771222900D3842F7CE0F /* CBFormItem.h in Headers */,
-				C2F40A2E7BEF370AA2E252E8D16BEBF7 /* CBSwitch.h in Headers */,
-				FA6C116944C59357438502099FDDFC6B /* CBSwitchCell.h in Headers */,
-				0380DB9B0C4007472AF68CADD62736E6 /* CBText.h in Headers */,
-				6712DB42A70AFE6C6B28603D55521E60 /* CBTextCell.h in Headers */,
-				B2B2CA6F03A7C35679ABE28BBF9C42B2 /* FAKFontAwesome.h in Headers */,
-				0411D404FF368C3B80B876BD56D17929 /* FAKFoundationIcons.h in Headers */,
-				C43D09404950C7F597B7E99FF2CCF692 /* FAKIcon.h in Headers */,
-				D5CDBD615143B80B6ACB487D6C72B7CF /* FAKIonIcons.h in Headers */,
-				8AE4776F1C71B655FC0D1D84C0B318E0 /* FAKZocial.h in Headers */,
-				0DB4A9D23996D662CF52F762D7EF5BF8 /* FontAwesomeKit.h in Headers */,
-				4205CDB61F6586198227E875D295DB56 /* NSNumber+Equals.h in Headers */,
-				4CBB79153EFE9D041250C6D09E2C180D /* NSObject+Equals.h in Headers */,
-				AA1446282F2DA15798C38762D5CF4B33 /* NSString+Equals.h in Headers */,
+				F0FEC42D6850A3DCA098FA9AAC7BCDAD /* CBButton.h in Headers */,
+				41B9261C3440FC14D9CB642D046DDA82 /* CBButtonCell.h in Headers */,
+				EA20A00FC016FD2FE712700AE3DF83E9 /* CBCell+CBCellSet1.h in Headers */,
+				C7C4AEE56398ED4FA0E4C8CF118203D1 /* CBCell.h in Headers */,
+				38E29A67613A7E7B5367DABA5F00650B /* CBCellSet.h in Headers */,
+				34CBF12253B41255C7522556888D8BB7 /* CBCellSet1.h in Headers */,
+				F70F4498F2FDF4BB23233411F8922E08 /* CBCellSet1Button.h in Headers */,
+				60C165D7812B3A39DA1361F24D3BCCEB /* CBCellSet1Date.h in Headers */,
+				F3D7C3C50153E536A2DB8336524DB2F4 /* CBCellSet1Switch.h in Headers */,
+				A3BEC62CBA0828A801B9720979A8A76C /* CBCellSet1Text.h in Headers */,
+				0D46D63B7455468434B42BC26A96D9F6 /* CBCellSet2.h in Headers */,
+				3DE03788CEA1FE85CC7F56BFF3C60368 /* CBDate.h in Headers */,
+				F9A96B312F64BFBB63FF7E38D343B069 /* CBDateCell.h in Headers */,
+				2F2E2114519370F4B71B7FDBCDB444C3 /* CBFormController-umbrella.h in Headers */,
+				14E1D0E9B1CE36715D049A93166CBAF1 /* CBFormController.h in Headers */,
+				9B954C6A66739DA65268E40155A87466 /* CBFormItem+CBCellSet1.h in Headers */,
+				41AF7E288AA7EA9582834480685793AE /* CBFormItem.h in Headers */,
+				BBAEC1402E99438A174CBB89D32DBEB0 /* CBSwitch.h in Headers */,
+				50102CCF707AF2D7F7173C6C12464482 /* CBSwitchCell.h in Headers */,
+				CEA80A919080B425D88D3F1F021B4616 /* CBText.h in Headers */,
+				04238CCE9D5CE7490892253613C91742 /* CBTextCell.h in Headers */,
+				440C7AA23D3ACAC87883894ACD6C8D17 /* FAKFontAwesome.h in Headers */,
+				1B6AA4B0F7AAC9415190180F3E9FF491 /* FAKFoundationIcons.h in Headers */,
+				31E22BD4CAF8D9CA726FCAC27BD002D4 /* FAKIcon.h in Headers */,
+				E1991DA33651D6C12D4A850027C9A451 /* FAKIonIcons.h in Headers */,
+				0290286B9995C9C08FD96E4D1723A836 /* FAKZocial.h in Headers */,
+				FA27E936C760EC2282CF13C6332B35E6 /* FontAwesomeKit.h in Headers */,
+				109A40CE9F4B42CDFCB7EB97AA40CCE7 /* NSNumber+Equals.h in Headers */,
+				B53C14D3FE060EF9B703FF7CD07DABAE /* NSObject+Equals.h in Headers */,
+				4A8B8A10D760A58B260BE333427D78C9 /* NSString+Equals.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		29B6B4FECB450C66525FA490C4E4D6BE /* CBFormController-CBFormController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38CFE6997929A31237C1A887764F4E98 /* Build configuration list for PBXNativeTarget "CBFormController-CBFormController" */;
+			buildPhases = (
+				2EF66C07B706B31063305C4343C0C6E0 /* Sources */,
+				ED82BA3F339D2C1095D110013B068144 /* Frameworks */,
+				2BAFAB8C7E62277E9964B88CDC4ED8B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CBFormController-CBFormController";
+			productName = "CBFormController-CBFormController";
+			productReference = 6F6042C44FF4A20A28A1B2A5879FE866 /* CBFormController.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		753CDC51198DBCD6D69C092DA9E8A40E /* Pods-CBFormController_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B94A93CEB3395E5F2A9809084CF9F7EC /* Build configuration list for PBXNativeTarget "Pods-CBFormController_Tests" */;
@@ -506,47 +571,30 @@
 			buildRules = (
 			);
 			dependencies = (
-				CE67AE15CAA09E6C71E8754381EEFEFA /* PBXTargetDependency */,
+				C61C6C07419F4795D5E7A7722C29CBFC /* PBXTargetDependency */,
 			);
 			name = "Pods-CBFormController_Tests";
 			productName = "Pods-CBFormController_Tests";
 			productReference = 9CD5F2D2CD76C1089D3029B66A89758A /* Pods_CBFormController_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A4E010F387C8962B0076262AC22E1735 /* CBFormController-CBFormController */ = {
+		9DA4528E6FC91D836F164A6C40898726 /* CBFormController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 981CC34FD25841D98A04B416CCCDD632 /* Build configuration list for PBXNativeTarget "CBFormController-CBFormController" */;
+			buildConfigurationList = 79C47D6A2C6505C43EE64FF15ACBB559 /* Build configuration list for PBXNativeTarget "CBFormController" */;
 			buildPhases = (
-				229698FA41CF5DF0B704CACABEF9F92E /* Sources */,
-				4C10626E953E93E268888B8A086948E5 /* Frameworks */,
-				69B5EB1132E279EE7095B458A803E54D /* Resources */,
+				CC26608769F549564960315DD482AFDF /* Sources */,
+				93C58588A3CA604DBC022ADCEAE1C5DF /* Frameworks */,
+				6FD6582054768BEA0B95F0101F1EC64C /* Resources */,
+				A7599133DA4748B68E9BCDF092ADA7D5 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = "CBFormController-CBFormController";
-			productName = "CBFormController-CBFormController";
-			productReference = CCB6012FFF878501E935DC1220751535 /* CBFormController.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-		BCC28E0D386654B4CA51125B1B380F91 /* CBFormController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B48AE99E9A3B51F0FFBA9D4445CBF9D0 /* Build configuration list for PBXNativeTarget "CBFormController" */;
-			buildPhases = (
-				A2FF7246BCB59FA1CD63A9061F6518FD /* Sources */,
-				BD63014EE016BB6E3446AE319C80AFAE /* Frameworks */,
-				788FE3EFC8E06B90FAB9DB18DEC309E6 /* Resources */,
-				774709BE76827DB0CF62CD2EEF527CEA /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B439643BFD1D612A415F68734C90BEC4 /* PBXTargetDependency */,
+				124B30C7E0A41A47918B44D02506B633 /* PBXTargetDependency */,
 			);
 			name = CBFormController;
 			productName = CBFormController;
-			productReference = 2F1D2BD1A278A33E2890343C4B5E0BC3 /* CBFormController.framework */;
+			productReference = 0557693166D804944144ACA25B693498 /* CBFormController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D835255B740884065556ACB19D28A22B /* Pods-CBFormController_Example */ = {
@@ -560,7 +608,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0E7F2038B846F5DF68B157C5AFAC8E22 /* PBXTargetDependency */,
+				CFEE2DFDC96E0E6FC2F0D0686241C24C /* PBXTargetDependency */,
 			);
 			name = "Pods-CBFormController_Example";
 			productName = "Pods-CBFormController_Example";
@@ -588,8 +636,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BCC28E0D386654B4CA51125B1B380F91 /* CBFormController */,
-				A4E010F387C8962B0076262AC22E1735 /* CBFormController-CBFormController */,
+				9DA4528E6FC91D836F164A6C40898726 /* CBFormController */,
+				29B6B4FECB450C66525FA490C4E4D6BE /* CBFormController-CBFormController */,
 				D835255B740884065556ACB19D28A22B /* Pods-CBFormController_Example */,
 				753CDC51198DBCD6D69C092DA9E8A40E /* Pods-CBFormController_Tests */,
 			);
@@ -597,31 +645,33 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		69B5EB1132E279EE7095B458A803E54D /* Resources */ = {
+		2BAFAB8C7E62277E9964B88CDC4ED8B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		788FE3EFC8E06B90FAB9DB18DEC309E6 /* Resources */ = {
+		6FD6582054768BEA0B95F0101F1EC64C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1B82EEC942D33F1EA24ACA9B3DB0B4 /* CBCellSet1Switch.xib in Resources */,
-				FCFD01D10EC63A0413514FB0B5D97A84 /* CBCellSet1Text.xib in Resources */,
-				8049A72ECB5D46226541EB6BC2B71312 /* CBFormController.bundle in Resources */,
-				862036A922E2825433BCA0E476052CC7 /* FontAwesome.otf in Resources */,
-				2215AC417E3C9B86921173B9B33F5C8C /* foundation-icons.ttf in Resources */,
-				10B3D52020F59880CF6C79BC17D42C63 /* ionicons.ttf in Resources */,
-				C79B89684C696E54387D3C8C8C5237BB /* zocial-regular-webfont.ttf in Resources */,
+				10C5D487717F5EDDA23DA21F80DD7C2E /* CBCellSet1Button.xib in Resources */,
+				3B54BD16D751E6D3BF33B15D0A945979 /* CBCellSet1Date.xib in Resources */,
+				4E24EDA2DBC543A5A38CE6A4EA375F2E /* CBCellSet1Switch.xib in Resources */,
+				11C8F5B51149029F066B12610FC1E753 /* CBCellSet1Text.xib in Resources */,
+				7CDDFED63CB5CA4E78F3899D2E36A73A /* CBFormController.bundle in Resources */,
+				1AAE4CD980072E476BACA2B642861475 /* FontAwesome.otf in Resources */,
+				975A810529ABD682C61BD52901979841 /* foundation-icons.ttf in Resources */,
+				23E3CB39D098409F45E3D685120D2DF0 /* ionicons.ttf in Resources */,
+				41C381ED7C36E294E825CE36BAEEE38E /* zocial-regular-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		229698FA41CF5DF0B704CACABEF9F92E /* Sources */ = {
+		2EF66C07B706B31063305C4343C0C6E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -636,36 +686,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2FF7246BCB59FA1CD63A9061F6518FD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BB3202EBEC19D4B7A1317AE557FEC09 /* CBCell+CBCellSet1.m in Sources */,
-				EFAF1AF3C767D9FBA3F32B1B0BEA3CB4 /* CBCell.m in Sources */,
-				991E6C43FC680393380E75CA4B508A8D /* CBCellSet.m in Sources */,
-				D24F3BB01555CC77DBCE5F25B0C22E7F /* CBCellSet1.m in Sources */,
-				0175FA5B0D18730E25709A86CF69FF5C /* CBCellSet1Switch.m in Sources */,
-				2731EC66C7D4F97FB8BE4CA3CFA9229C /* CBCellSet1Text.m in Sources */,
-				8A6C0042218AAF406A111A2EABDCAE4D /* CBCellSet2.m in Sources */,
-				A0B9F18A518CCAED9F7ECEA41BEE172A /* CBFormController-dummy.m in Sources */,
-				0A4F4794A0A94F84D944A594907761DB /* CBFormController.m in Sources */,
-				FC22C04C4A683CF37438A42271EE8B83 /* CBFormItem+CBCellSet1.m in Sources */,
-				DE8A762620B3830870B29E3AAD7F7C74 /* CBFormItem.m in Sources */,
-				BA450B8CB35C5637A0F5047753B3DCC4 /* CBSwitch.m in Sources */,
-				7D2BAA2A56951CE32BA9EB0737185BCF /* CBSwitchCell.m in Sources */,
-				C334A1D12FBAB2D2FADDBB5503D9DCE5 /* CBText.m in Sources */,
-				56D713831D3A91F518300466A1DCDBB2 /* CBTextCell.m in Sources */,
-				D12B71E372F3152D4649B4554D6BF9F1 /* FAKFontAwesome.m in Sources */,
-				6C2CB12FE74759BC87288A9CBC4D9BBB /* FAKFoundationIcons.m in Sources */,
-				0289DABF6938A8CFC4CC42DE0BE99152 /* FAKIcon.m in Sources */,
-				0AEE90FA2B8E646D3D6104FF7654BA5D /* FAKIonIcons.m in Sources */,
-				A879C53B77A6CDFE4BBAD95EDB3C066F /* FAKZocial.m in Sources */,
-				2B148CCFF48FC2531E5A7B6B3AA075F8 /* NSNumber+Equals.m in Sources */,
-				D99AED12870115076147C8902730C737 /* NSObject+Equals.m in Sources */,
-				150531F947CCFF317AF55E6BC7118556 /* NSString+Equals.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C6677D4B4A7DFB1EB1E17D59283B78C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -674,33 +694,69 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC26608769F549564960315DD482AFDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E66FBE24E0DDCD789BAC0A1005C71E5 /* CBButton.m in Sources */,
+				02463616E738D72222CCE99E2E0F9929 /* CBButtonCell.m in Sources */,
+				5C86E1ADA8225194897D280B7F08BD1D /* CBCell+CBCellSet1.m in Sources */,
+				2B24D10419A51DFD14267A754E94CEE2 /* CBCell.m in Sources */,
+				5BD54A3A60E80EF6485B0C7B519B1655 /* CBCellSet.m in Sources */,
+				642AA7EF91119D30911F785264FD725E /* CBCellSet1.m in Sources */,
+				19E235564E2E6C5CA5B1B379783507EF /* CBCellSet1Button.m in Sources */,
+				790BA87D980080F129C0A9050D448E24 /* CBCellSet1Date.m in Sources */,
+				092B0D8F73DE5891AD486EDF7B2081B3 /* CBCellSet1Switch.m in Sources */,
+				6D5E63D1A01D52AED3DC775883D79C0D /* CBCellSet1Text.m in Sources */,
+				935E24455B4E07654D9A63242F9BF91B /* CBCellSet2.m in Sources */,
+				BB246868B8E270BC90A0DC35D8D0B725 /* CBDate.m in Sources */,
+				C5203D9C24C183E376FE294B9AF05AAF /* CBDateCell.m in Sources */,
+				A4509560E7B793DEEAB5B8DC0F13BA52 /* CBFormController-dummy.m in Sources */,
+				C2B265E23B455079D4E2F0E0A862BC7F /* CBFormController.m in Sources */,
+				07CB04509AAFC1271B047A3E155EB17E /* CBFormItem+CBCellSet1.m in Sources */,
+				A7FB3F058BEA417AD7A68F6E1FF07BE0 /* CBFormItem.m in Sources */,
+				709082C8D136F8D900BE4A468B815C97 /* CBSwitch.m in Sources */,
+				FD68593B06403F8B014455F433AD7EAF /* CBSwitchCell.m in Sources */,
+				4B879F08FC668D3607AB872DC6C9D244 /* CBText.m in Sources */,
+				5119B57A15A08BC4D55E03B1B63A1B47 /* CBTextCell.m in Sources */,
+				C535C0D42EF404070A4DE6F5BAC954A3 /* FAKFontAwesome.m in Sources */,
+				05500E6346786959425593634E7C46B6 /* FAKFoundationIcons.m in Sources */,
+				1A1784AF6436BFB044D71EE6CAE7204F /* FAKIcon.m in Sources */,
+				2DF6D46A76D3F7B61044D13B46ACFB98 /* FAKIonIcons.m in Sources */,
+				F4FE1710B558FCB27A4494184CF4A7B9 /* FAKZocial.m in Sources */,
+				62D82BA507D35810B1B4CC4FB6BAAD93 /* NSNumber+Equals.m in Sources */,
+				9C66796F76D262E3D680D680ED07BA4D /* NSObject+Equals.m in Sources */,
+				90A09FB5D891F943D7D60FF38EE508E6 /* NSString+Equals.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0E7F2038B846F5DF68B157C5AFAC8E22 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CBFormController;
-			target = BCC28E0D386654B4CA51125B1B380F91 /* CBFormController */;
-			targetProxy = 19901A508A9CF11D8551EDC1688586BC /* PBXContainerItemProxy */;
-		};
-		B439643BFD1D612A415F68734C90BEC4 /* PBXTargetDependency */ = {
+		124B30C7E0A41A47918B44D02506B633 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CBFormController-CBFormController";
-			target = A4E010F387C8962B0076262AC22E1735 /* CBFormController-CBFormController */;
-			targetProxy = 080222E076D692AA81421DF1D308B923 /* PBXContainerItemProxy */;
+			target = 29B6B4FECB450C66525FA490C4E4D6BE /* CBFormController-CBFormController */;
+			targetProxy = EBA55A9A6BCE6173E7A381AF3B62CDFE /* PBXContainerItemProxy */;
 		};
-		CE67AE15CAA09E6C71E8754381EEFEFA /* PBXTargetDependency */ = {
+		C61C6C07419F4795D5E7A7722C29CBFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CBFormController;
-			target = BCC28E0D386654B4CA51125B1B380F91 /* CBFormController */;
-			targetProxy = 51C1D451CA2E852A244BC9A6CC919F94 /* PBXContainerItemProxy */;
+			target = 9DA4528E6FC91D836F164A6C40898726 /* CBFormController */;
+			targetProxy = 908A8AE82126B48C240BC7D730330415 /* PBXContainerItemProxy */;
+		};
+		CFEE2DFDC96E0E6FC2F0D0686241C24C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CBFormController;
+			target = 9DA4528E6FC91D836F164A6C40898726 /* CBFormController */;
+			targetProxy = 427E70D36E4E6E5E512A2566055CFE74 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		21FE11C97F31DBC45C5C72B4EC482E13 /* Release */ = {
+		037A5C84F3953D92387E7BD6AF8FECC1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 145A9901E829BFE8F3CF29386E83D6D9 /* CBFormController-Private.xcconfig */;
+			baseConfigurationReference = 375591BD73AA13EEA595B2433E1A66A8 /* CBFormController-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = CBFormController;
@@ -744,6 +800,18 @@
 			};
 			name = Release;
 		};
+		2CE39F0325E5ED942F41C56607542516 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 375591BD73AA13EEA595B2433E1A66A8 /* CBFormController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = CBFormController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		42C57E93BEA5AAB6A219E812A498C0A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7243CEAF9B4DF39C92F1B003C462846B /* Pods-CBFormController_Example.release.xcconfig */;
@@ -772,18 +840,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		577079C38FEFF0B29EEF791738A23BA6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 145A9901E829BFE8F3CF29386E83D6D9 /* CBFormController-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = CBFormController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
 		};
 		664A547D3C957543398A1C1CA8D23ACF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -853,9 +909,9 @@
 			};
 			name = Debug;
 		};
-		8BA4680AFC6E9D2FEC765A17138778F5 /* Release */ = {
+		98B7BBDA3D722CE8E01CD7C19FF17198 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 145A9901E829BFE8F3CF29386E83D6D9 /* CBFormController-Private.xcconfig */;
+			baseConfigurationReference = 375591BD73AA13EEA595B2433E1A66A8 /* CBFormController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -880,9 +936,9 @@
 			};
 			name = Release;
 		};
-		B882B58478635227E84BCB1523E92B29 /* Debug */ = {
+		991390572C1E2B4EBA0BD96D08EAE45A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 145A9901E829BFE8F3CF29386E83D6D9 /* CBFormController-Private.xcconfig */;
+			baseConfigurationReference = 375591BD73AA13EEA595B2433E1A66A8 /* CBFormController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -977,20 +1033,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		981CC34FD25841D98A04B416CCCDD632 /* Build configuration list for PBXNativeTarget "CBFormController-CBFormController" */ = {
+		38CFE6997929A31237C1A887764F4E98 /* Build configuration list for PBXNativeTarget "CBFormController-CBFormController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				577079C38FEFF0B29EEF791738A23BA6 /* Debug */,
-				21FE11C97F31DBC45C5C72B4EC482E13 /* Release */,
+				2CE39F0325E5ED942F41C56607542516 /* Debug */,
+				037A5C84F3953D92387E7BD6AF8FECC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B48AE99E9A3B51F0FFBA9D4445CBF9D0 /* Build configuration list for PBXNativeTarget "CBFormController" */ = {
+		79C47D6A2C6505C43EE64FF15ACBB559 /* Build configuration list for PBXNativeTarget "CBFormController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B882B58478635227E84BCB1523E92B29 /* Debug */,
-				8BA4680AFC6E9D2FEC765A17138778F5 /* Release */,
+				991390572C1E2B4EBA0BD96D08EAE45A /* Debug */,
+				98B7BBDA3D722CE8E01CD7C19FF17198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
