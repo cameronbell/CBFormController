@@ -46,8 +46,13 @@
     return [(CBCommentCell *)self.cell textView].text;
 }
 
+//Ensures that initialValue is never nil
+-(NSObject *)initialValue {
+    return [(NSString *)_initialValue length] ? _initialValue : @"";
+}
+
 -(BOOL)isEdited {
-    return [(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
+    return ![(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
 }
 
 -(void)engage {
@@ -78,14 +83,7 @@
 }
 
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    //Let the formController decide the actual return value of this function as it manages the selection of formitems in response to the return key.
-    return [self.formController textFieldShouldReturnForFormItem:self];
-    
-}
-
--(void)textFieldEditingChange {
+-(void)textViewDidChange:(UITextView *)textView {
     if ([self isEdited]) {
         [self valueChanged];
     }

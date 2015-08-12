@@ -47,8 +47,13 @@
     return [NSNumber numberWithBool:[(CBSwitchCell *)self.cell theSwitch].on];
 }
 
+
+//Ensures that initialValue is never nil so that isEdited functions properly.
+-(NSObject *)initialValue {
+    return _initialValue ? _initialValue : [NSNumber numberWithBool:NO];
+}
 -(BOOL)isEdited {
-    return [(NSNumber *)self.value isEqualToNumber:(NSNumber *)self.initialValue];
+    return ![(NSNumber *)self.initialValue isEqualToNumber:(NSNumber *)self.value];
 }
 
 -(void)switchChanged {

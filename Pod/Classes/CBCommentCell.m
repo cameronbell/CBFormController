@@ -26,6 +26,8 @@
     [self.textView setPlaceholder:formItem.placeholder];
     
     [self.textView setText:(NSString *)formItem.initialValue];
+    
+    //[self.textView addTarget:formItem action:@selector(textViewEditingChange) forControlEvents:UIControlEventEditingChanged];
 }
 
 
