@@ -9,8 +9,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "CBFormController"
-  s.version          = "0.1.1"
-  s.summary          = "A short description of CBFormController."
+  s.version          = "0.1.2"
+  s.summary          = "A customizable iOS Form Controller."
   s.homepage         = "https://github.com/cameronbell/CBFormController"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'

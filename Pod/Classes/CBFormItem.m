@@ -70,6 +70,10 @@
     return _cell;
 }
 
+-(void)configureCell:(CBCell *)cell {
+    
+}
+
 //Returns the appropriate height for the formitem based on the number of lines in the title (default = 1).
 -(CGFloat)height {
     switch (self.numberOfTitleLines) {

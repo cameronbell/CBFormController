@@ -10,5 +10,4 @@
 
 @interface CBComment : CBFormItem <UITextViewDelegate>
 @property (nonatomic,retain) NSString *placeholder;
--(void)textViewEditingChange;
 @end

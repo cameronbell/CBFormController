@@ -12,5 +12,6 @@
 
 -(BOOL)equals:(NSObject *)object {
     NSAssert(NO, @"This is an abstract method.");
+    return NO;
 }
 @end
