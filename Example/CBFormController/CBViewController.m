@@ -32,9 +32,9 @@
 
 -(NSArray *)getFormConfiguration {
     
-    self.editMode = CBFormEditModeFree;
+    self.editMode = CBFormEditModeEdit;
     
-    [self setDefaultDate:[NSDate date]];
+    //[self setDefaultDate:[NSDate date]];
     
     NSMutableArray *sections = [NSMutableArray array];
     

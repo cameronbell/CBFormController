@@ -52,13 +52,50 @@
     return _dateFormatter;
 }
 
+
 -(NSObject *)value {
-    return [self.dateFormatter dateFromString:[[(CBDateCell *)self. cell dateField] text]];
+    NSString *text = [[(CBDateCell *)self. cell dateField] text];
+    return [self.dateFormatter dateFromString:text];
+}
+
+-(NSObject *)initialValue {
+    return _initialValue ? _initialValue : self.formController.defaultDate;
 }
 
 -(BOOL)isEdited {
-    return [(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
+    
+    //If both value and initialValue are nil then the formItem has not been edited
+    if (![self value] && ![self initialValue]) return NO;
+    
+    //If one is nil and the other is not then one of them has changed
+    
+    NSObject *iv = self.initialValue;
+    NSObject *v = self.value;
+    
+    if ((!self.initialValue)^(!self.value)) return YES;
+    
+    return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.value];
 }
+
++ (BOOL)date:(NSDate *)date1 isSameDayAsDate:(NSDate *)date2 {
+    // Both dates must be defined, or they're not the same
+    //assertnotnil(date1);
+    //assertnotnil(date2);
+    
+    if (date1 == nil || date2 == nil) {
+        return NO;
+    }
+    
+    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *day = [calendar components:NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date1];
+    NSDateComponents *day2 = [calendar components:NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date2];
+    return ([day2 day] == [day day] &&
+            [day2 month] == [day month] &&
+            [day2 year] == [day year] &&
+            [day2 era] == [day era]);
+}
+
 
 //Updating the height of the cell is the only change required for engaging an dismissing CBDate items
 -(void)engage {

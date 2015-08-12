@@ -13,6 +13,8 @@
 @synthesize titleAlign = _titleAlign;
 @synthesize titleColor = _titleColor;
 @synthesize buttonType = _buttonType;
+@synthesize save;
+@synthesize validate;
 
 -(id)initWithName:(NSString *)name {
     if (self = [super initWithName:name]) {

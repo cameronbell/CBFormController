@@ -51,8 +51,14 @@
     return [(CBPopupPickerCell *)self.cell textField].text;
 }
 
+//Ensuring that this never returns nil so that isEdited works properly.
+-(NSObject *)initialValue {
+    return [(NSString *)_initialValue length] ? _initialValue : @"";
+}
+
 -(BOOL)isEdited {
-    return [(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
+    //No need to worry about value being nil because the default Value of the UITextField is @"".
+    return ![(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
 }
 
 -(void)selected {

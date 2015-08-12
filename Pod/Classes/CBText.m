@@ -45,8 +45,13 @@
     return [(CBTextCell *)self.cell textField].text;
 }
 
+//Ensuring that this never returns nil so that isEdited works properly.
+-(NSObject *)initialValue {
+    return [(NSString *)_initialValue length] ? _initialValue : @"";
+}
+
 -(BOOL)isEdited {
-    return [(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
+    return ![(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
 }
 
 -(void)engage {
