@@ -1,1 +1,0 @@
-CBFORMCONTROLLER_OTHER_LDFLAGS = -framework "CoreText"

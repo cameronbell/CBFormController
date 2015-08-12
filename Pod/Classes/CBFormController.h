@@ -12,6 +12,7 @@
 #import "CBSwitch.h"
 #import "CBButton.h"
 #import "CBDate.h"
+#import "CBComment.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
 

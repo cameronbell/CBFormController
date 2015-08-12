@@ -1,6 +1,0 @@
-framework module CBFormController {
-  umbrella header "CBFormController-umbrella.h"
-
-  export *
-  module * { export * }
-}
