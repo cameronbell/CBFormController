@@ -13,7 +13,7 @@
 @synthesize onString = _onString;
 @synthesize offString = _offString;
 @synthesize save;
-@synthesize validate;
+@synthesize validation;
 
 -(CBFormItemType)type {
     return Switch;
@@ -22,6 +22,8 @@
 -(void)configureCell:(CBCell *)cell {
     
     [cell configureForFormItem:self];
+    
+    
 }
 
 //Ensures that this FormItem's initialValue can only be set to a nsnumber.

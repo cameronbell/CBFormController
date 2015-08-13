@@ -48,7 +48,7 @@
         _text1 = value;
     }];
     
-    [textItem setValidate:^(NSString *value) {
+    [textItem setValidation:^(NSString *value) {
         if (value.length <3) {
             [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Derp" delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil] show];
             return NO;

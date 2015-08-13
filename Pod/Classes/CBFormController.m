@@ -1047,21 +1047,25 @@
 
 #pragma mark - Data Methods (Save, etc...)
 
+-(BOOL)validate {
+    return YES;
+}
+
 -(void)save {
     [self dismissAllFields];
     
-    BOOL saveSuccess = YES;
+    BOOL validationSuccess = YES;
     for (CBFormItem *formItem in [self formItems]) {
-        if (![formItem attemptSave]) {
-            saveSuccess = NO;
-            break;
-        }
+        validationSuccess = formItem.validate;
+        if (!validationSuccess)return;
     }
     
-    if (saveSuccess) {
-        self.editing = NO;
-        [self reloadEntireForm];
+    for (CBFormItem *formItem in [self formItems]) {
+        [formItem saveValue];
     }
+    
+    self.editing = NO;
+    [self reloadEntireForm];
 }
 
 -(void)beginEdit {

@@ -23,7 +23,7 @@
 @synthesize enabledWhenNotEditing = _enabledWhenNotEditing;
 @synthesize change;
 @dynamic save;
-@dynamic validate;
+@dynamic validation;
 @synthesize select; //This one is synthesized because we're not overriding it in a subclass so that it can have specific parameter classes. Essentially, we want the accessors to be generated.
 @synthesize addOns = _addOns;
 
@@ -302,20 +302,16 @@
     
 }
 
--(BOOL)attemptSave {
-    BOOL validationSuccess = YES;
-    if (self.validate) {
-        validationSuccess = self.validate(self.value);
+-(BOOL)validate {
+    if (self.validation) {
+        return self.validation(self.value);
     }
-    
-    if (validationSuccess) {
-        if (self.save) {
-            self.save(self.value);
-        }
-        
-        return YES;
-    }else{
-        return NO;
+    return YES;
+}
+
+-(void)saveValue {
+    if (self.save) {
+        self.save(self.value);
     }
 }
 

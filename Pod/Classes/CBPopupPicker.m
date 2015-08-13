@@ -16,7 +16,7 @@
 
 @synthesize placeholder = _placeholder;
 @synthesize save;
-@synthesize validate;
+@synthesize validation;
 @synthesize allowsCustomItems = _allowsCustomItems;
 @synthesize items = _items;
 

@@ -13,7 +13,7 @@
 
 @property (nonatomic,retain) NSString *placeholder;
 @property (nonatomic, copy) void (^save)(NSString *value);
-@property (nonatomic, copy) BOOL (^validate)(NSString *value);
+@property (nonatomic, copy) BOOL (^validation)(NSString *value);
 
 -(void)textFieldEditingChange;
 @end

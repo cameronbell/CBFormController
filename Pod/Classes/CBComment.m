@@ -13,7 +13,7 @@
 @implementation CBComment
 @synthesize placeholder = _placeholder;
 @synthesize save;
-@synthesize validate;
+@synthesize validation;
 
 
 -(CBFormItemType)type {

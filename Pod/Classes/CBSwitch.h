@@ -13,7 +13,7 @@
 @property (nonatomic,retain) NSString *onString;
 @property (nonatomic,retain) NSString *offString;
 @property (nonatomic, copy) void (^save)(NSNumber *value);
-@property (nonatomic, copy) BOOL (^validate)(NSNumber *value);
+@property (nonatomic, copy) BOOL (^validation)(NSNumber *value);
 
 //This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
 

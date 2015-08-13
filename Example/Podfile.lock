@@ -1,5 +1,5 @@
 PODS:
-  - CBFormController (0.1.1):
+  - CBFormController (0.1.2):
     - MZFormSheetController (~> 3.1)
     - UITextView+Placeholder
   - MZAppearance (1.1.5)
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CBFormController: 7ec034ad1c823733fe82100ddef1aaf9d8ec1dfd
+  CBFormController: 6c17d03a5a8bfd972bc4aaabbedbb15f8d5f25cd
   MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
   MZFormSheetController: a29e904f8832bcaa08a9751106e10beb4df751df
   UITextView+Placeholder: 83895056749372c96febfb43f536c9b1aae3e08e

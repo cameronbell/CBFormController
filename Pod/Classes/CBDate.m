@@ -13,7 +13,7 @@
 @implementation CBDate
 
 @synthesize save;
-@synthesize validate;
+@synthesize validation;
 @synthesize dateFormatter = _dateFormatter;
 
 

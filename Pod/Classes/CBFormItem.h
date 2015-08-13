@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic,assign) BOOL enabledWhenNotEditing;
 @property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue); //Called when the value of the formItem changes if applicable
 @property (nonatomic, copy) void (^save)(NSObject *value); //Called to ask the subclass to save the value to the data source
-@property (nonatomic, copy) BOOL (^validate)(NSObject *value); //Called to verify that the new value is acceptable to be saved to the data source.
+@property (nonatomic, copy) BOOL (^validation)(NSObject *value); //Called to verify that the new value is acceptable to be saved to the data source.
 @property (nonatomic, copy) void (^select)(); //Called to verify that the new value is acceptable to be saved to the data source.
 @property (nonatomic,retain) NSMutableDictionary *addOns; //A dictionary that categories CBFormItem and CBFormItem cell can use to pass values
 
@@ -62,7 +62,8 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 -(BOOL)equals:(CBFormItem *)formItem;
 -(BOOL)isEdited;
 -(void)valueChanged;
--(BOOL)attemptSave;
+-(void)saveValue;
+-(BOOL)validate;
 -(void)selected; //Currently only called when CBButtons are tapped
 
 @end

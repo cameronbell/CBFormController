@@ -14,7 +14,7 @@
 @synthesize titleColor = _titleColor;
 @synthesize buttonType = _buttonType;
 @synthesize save;
-@synthesize validate;
+@synthesize validation;
 
 -(id)initWithName:(NSString *)name {
     if (self = [super initWithName:name]) {
