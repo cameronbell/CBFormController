@@ -9,6 +9,7 @@
 #import "CBText.h"
 #import "CBFormController.h"
 
+
 @implementation CBText
 @synthesize placeholder = _placeholder;
 @synthesize save;
@@ -25,7 +26,8 @@
 
 //Ensures that this FormItem's initialValue can only be set to a string
 -(void)setInitialValue:(NSObject *)initialValue {
-    if ([initialValue isKindOfClass:[NSString class]]) {
+    
+    if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
         _initialValue = initialValue;
     }else{
         NSAssert(NO, @"The initialValue of a CBText must be a NSString.");
