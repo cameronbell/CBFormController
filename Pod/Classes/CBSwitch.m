@@ -16,7 +16,7 @@
 @synthesize validation;
 
 -(CBFormItemType)type {
-    return Switch;
+    return CBFormItemTypeSwitch;
 }
 
 -(void)configureCell:(CBCell *)cell {

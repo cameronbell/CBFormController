@@ -27,7 +27,7 @@
 }
 
 -(CBFormItemType)type {
-    return Button;
+    return CBFormItemTypeButton;
 }
 
 -(void)configureCell:(CBCell *)cell {

@@ -22,7 +22,7 @@
 
 
 -(CBFormItemType)type {
-    return PopupPicker;
+    return CBFormItemTypePopupPicker;
 }
 
 -(void)configureCell:(CBCell *)cell {

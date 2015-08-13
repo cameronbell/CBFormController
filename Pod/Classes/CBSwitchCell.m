@@ -32,6 +32,7 @@
     //This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
     [self.theSwitch setOn:[(NSNumber *)formItem.initialValue boolValue]];
     
+    //Calls the function switchChanged on the corresponding formItem when the switch is flipped
     [self.theSwitch addTarget:formItem action:@selector(switchChanged) forControlEvents:UIControlEventValueChanged];
 
 }

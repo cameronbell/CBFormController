@@ -16,7 +16,7 @@
 
 
 -(CBFormItemType)type {
-    return Text;
+    return CBFormItemTypeText;
 }
 
 -(void)configureCell:(CBCell *)cell {

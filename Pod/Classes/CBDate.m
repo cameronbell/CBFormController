@@ -18,7 +18,7 @@
 
 
 -(CBFormItemType)type {
-    return Date;
+    return CBFormItemTypeDate;
 }
 
 -(void)configureCell:(CBCell *)cell {

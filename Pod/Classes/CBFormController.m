@@ -870,11 +870,11 @@
     }
     
     switch (formItem.type) {
-        case Text:
-        case Date:
-        case Comment:
-        case AutoComplete:
-        case FAQ: {
+        case CBFormItemTypeText:
+        case CBFormItemTypeDate:
+        case CBFormItemTypeComment:
+        case CBFormItemTypeAutoComplete:
+        case CBFormItemTypeFAQ: {
             if ([formItem isEngaged]) {
                 [self dismissFormItem:formItem];
             }else{
@@ -882,19 +882,19 @@
             }
             break;
         }
-        case Picker: {
+        case CBFormItemTypePicker: {
             break;
         }
-        case PopupPicker: {
+        case CBFormItemTypePopupPicker: {
             [formItem selected];
             break;
         }
-        case Button: {
+        case CBFormItemTypeButton: {
             [formItem selected];
             break;
         }
-        case Switch:
-        case Caption:
+        case CBFormItemTypeSwitch:
+        case CBFormItemTypeCaption:
         default:
             break;
     }

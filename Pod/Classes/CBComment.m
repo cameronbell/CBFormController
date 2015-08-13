@@ -17,7 +17,7 @@
 
 
 -(CBFormItemType)type {
-    return Comment;
+    return CBFormItemTypeComment;
 }
 
 -(void)configureCell:(CBCell *)cell {

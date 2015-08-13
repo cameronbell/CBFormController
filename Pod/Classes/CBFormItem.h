@@ -13,18 +13,18 @@
 
 //All CBFormItems have a type which corresponds with an enum value
 typedef NS_ENUM(NSInteger, CBFormItemType) {
-    Switch,
-    Date,
-    Button,
-    FAQ,
-    Text,
-    Picker,
-    Comment,
-    View,
-    AutoComplete,
-    Caption,
-    SegmentedControl,
-    PopupPicker
+    CBFormItemTypeSwitch,
+    CBFormItemTypeDate,
+    CBFormItemTypeButton,
+    CBFormItemTypeFAQ,
+    CBFormItemTypeText,
+    CBFormItemTypePicker,
+    CBFormItemTypeComment,
+    CBFormItemTypeView,
+    CBFormItemTypeAutoComplete,
+    CBFormItemTypeCaption,
+    CBFormItemTypeSegmentedControl,
+    CBFormItemTypePopupPicker
 };
 
 
