@@ -71,5 +71,6 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(BOOL)isFormEdited;//Returns YES if any of the values of any of the form items have been changed
 -(void)formWasEdited;//Called by a formitem's valueChanged method
 -(void)updates;
+-(void)save;
 
 @end
