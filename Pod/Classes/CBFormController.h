@@ -44,8 +44,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //Enum for the different editing modes of the CBFormController
 typedef NS_ENUM(NSInteger, CBFormEditMode) {
+    CBFormEditModeEdit = 1,
     CBFormEditModeFrozen,
-    CBFormEditModeEdit,
     CBFormEditModeSave,
     CBFormEditModeFree
 };

@@ -32,6 +32,7 @@
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _scrollAutomationLock = NO;
         _editing = NO;
+        _editMode = CBFormEditModeFree;
     }
     return self;
 }
