@@ -989,8 +989,8 @@
     [self.rightButton setFrame:CGRectMake(0, 12, 70, 22)];
     [self.rightButton addTarget:self action:@selector(rightButtonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.rightButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-    [self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    [self.rightButton setTitleColor:APPLE_BLUE forState:UIControlStateNormal];
+    //[self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    //[self.rightButton setTitleColor:APPLE_BLUE forState:UIControlStateNormal];
     [self.rightButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
     
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.rightButton];
@@ -1010,8 +1010,8 @@
             [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
             
             [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-            [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-            [cancelButton setTitleColor:APPLE_BLUE forState:UIControlStateNormal];
+            //[cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+            //[cancelButton setTitleColor:APPLE_BLUE forState:UIControlStateNormal];
             [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
             
             UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
