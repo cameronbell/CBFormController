@@ -8,6 +8,7 @@
 
 #import "CBSwitchCell.h"
 #import "CBSwitch.h"
+#import "CBFormController.h"
 
 @implementation CBSwitchCell
 @synthesize titleLabel,theSwitch,yesLabel,noLabel;
@@ -22,7 +23,10 @@
     [self.noLabel setText:formItem.offString];
     
     //Switch cells are not selectable
-    [self setSelectionStyle:UITableViewCellSelectionStyleNone]; //TODO: Why isn't this working?
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    //If the form is not editing then the user should not be able to flip the switch
+    [self.theSwitch setUserInteractionEnabled:[formItem.formController editing]];
     
     //Set initial value
     //This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
