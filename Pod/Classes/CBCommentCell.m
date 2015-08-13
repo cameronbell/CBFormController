@@ -8,6 +8,7 @@
 
 #import "CBCommentCell.h"
 #import "UITextView+Placeholder.h"
+#import "CBFormController.h"
 
 @implementation CBCommentCell
 @synthesize textView = _textView;
@@ -24,6 +25,9 @@
     
     //Uses a cocoapod that provides a category on UITextField that adds a placeholder property
     [self.textView setPlaceholder:formItem.placeholder];
+    
+    //Hide the pencilIcon if the cell is not editable
+    [self.pencilIcon setHidden:!formItem.formController.editing];
     
     [self.textView setText:(NSString *)formItem.initialValue];
     
