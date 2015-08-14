@@ -32,8 +32,14 @@
 -(id)initWithName:(NSString *)name {
     if (self = [super init]) {
         self.name = name;
+        
         _engaged = NO;
+        
+        //Initialize here so that this always exists
         _addOns = [NSMutableDictionary dictionary];
+        
+        //Sets default keyboard type
+        _keyboardType = UIKeyboardTypeDefault;
     }
     return self;
 }
@@ -44,7 +50,7 @@
         return _cell;
     }
     
-    //TODO:Check whether [self class] returns the current class or the bottom subclass
+    //Get the class for the cell for this form item from the cellSet
     NSString *cellClass = [self.formController.cellSet cellClassStringForFormItemClass:[self class]];
  
     NSAssert(cellClass, @"cellClass must exist");
@@ -54,8 +60,7 @@
     
     NSArray *topLevelObjects = [bundle loadNibNamed:cellClass owner:self options:nil];
     
-
-    
+    //Gets the cell out of the nib array
     for (id currentObject in topLevelObjects) {
         if ([currentObject isKindOfClass:NSClassFromString(cellClass)]) {
             _cell = (CBCell *)currentObject;
