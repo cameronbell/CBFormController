@@ -96,7 +96,7 @@ Then override the following function to create your form by creating CBFormItems
     //Add the section arrays to the sections array
     [sections addObjectsFromArray:@[profileSection, genderSection]];
 
-    //If this form is being shown in the walkthrough, add a continue button
+    //If this form is being edited, show the user a delete button
     if (self.editing) {
         CBButton *deleteButton = [[CBButton alloc]initWithName:@"delete"];
         [sections addObject:@[deleteButton]];
@@ -136,11 +136,53 @@ The buttonType property takes precedence over the titleAlign property.
 
 #### CBCaption (WIP)
 
+### Editing/Saving
+
+
+#### Editing Modes
+
+A CBFormController has a property called ```editMode``` which determines whether the user can edit and save the form.
+
+```Obj-C
+//Enum for the different editing modes of the CBFormController
+typedef NS_ENUM(NSInteger, CBFormEditMode) {
+    CBFormEditModeEdit = 1,
+    CBFormEditModeFrozen,
+    CBFormEditModeSave,
+    CBFormEditModeFree
+};
+```
+In ```-(NSArray *)getFormConfiguration``` the subclass should call: ```[self setEditMode:CBFormEditModeSave];``` to set the edit mode. The default is CBFormEditModeFree.
+
+The CBFormController also has a property called ```-(BOOL)editing;``` which tracks whether the form is currently editable.
+
+##### CBFormEditModeEdit
+This edit mode provides an Edit button in the view controller's navigation bar and does not allow the user to make changes to the form items until the user has tapped the edit button. The Edit button then turns into a Save button and once the user had made a change to the data, a Cancel button appears on the left side of the navigation bar.
+
+CBFormItem has a boolean property called ```enabledWhenNotEditing``` which allows a form item to be editable when the formcontroller is not editing. CBButtons default this property to true.
+
+##### CBFormEditModeFrozen
+This edit mode does not allow the user to edit any of the fields, unless the ```enabledWhenNotEditing``` property is set to true for that field.
+
+##### CBFormEditModeSave
+In this edit mode, the CBFormController is always in an editable state. A Save button appears on the right of the navigation bar that becomes enabled when the user makes a change to the form.
+
+##### CBFormEditModeFree (WIP)
+In this edit mode, there is no save button and the form is always editable. When the user makes a change it is immediately validated and saved.
+
+#### Saving
+When the user presses the save button, the CBFormController's ```-(BOOL)save;``` function is called. The subclass can override this function but must remember to call ```[super save]``` if the navigation item functionality is to be preserved.
+
+When the save function is called, the CBFormController first calls the validation blocks of all the form items should they exist. Each form item has the opportunity to block the save call in its validation block by returning YES or NO depending on whether the validation passed. If no validation block is provided for a form item then no validation is performed.
+
+If validation passes, the save block is called on all form items. This is where the subclass should handle saving the returned value back to the data store/model.
+
+#### Note:
+Whenever the Save,Edit, or Cancel button is pressed, ```-(void)reloadEntireForm;``` is called on the CBFormController. This means that the ```-(NSArray *)getFormConfiguration;``` function is called again and the subclass has an opportunity to change properties of the form items or add or remove form items.
 
 ### Customized Cell Sets
 
 CBFormController allows you to install a cell set which is a collection of classes which extend the functionality of the CBFormItems and provide the aesthetic of the cells, via an .xib file for each cell type.
-
 
 ### Creating a New CBFormItemType
 
@@ -159,10 +201,9 @@ CBFormController allows you to install a cell set which is a collection of class
      * ```-(void)setInitialValue:(NSObject *)value;```
      * ```-(void)engage;```
      * ```-(void)dismiss;```
-     -
-10.  In isEdited remember to account for nil cases.
+10.  Remember to account cases when parameters and values are nil.
 
-### Form Items with Dynamic Heights
+#### Form Items with Dynamic Heights
 Call ```[self updates];``` on the CBFormController when you want the height of a cell to be updated with animation.
 
 ###Creating a New CBCellSet
@@ -198,15 +239,6 @@ This is useful when you want all of the cells in your custom CBCellSet to have t
 
 
 
-
-
-
-CBButton
-
-
-
-
-CBDate
 
 
 The form is reloaded when save/edit/cancel are pressed.
