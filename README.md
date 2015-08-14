@@ -237,13 +237,10 @@ This is useful when you want all of the cells in your custom CBCellSet to have t
 6. If the property was an IBOutlet, you will now be able to connect the custom property in Interface Builder.
 7. If you need to access this property in a subclass of CBCell, then ```#import``` the category in the class in which you want to access the property.
 
-
-
-
-
-The form is reloaded when save/edit/cancel are pressed.
-
-
+## Dependencies
+* 'UITextView+Placeholder'
+* 'MZFormSheetController', '~> 3.1'
+* FAKFontAwesome
 
 
 ## Requirements
