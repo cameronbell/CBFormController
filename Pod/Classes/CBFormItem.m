@@ -26,6 +26,7 @@
 @dynamic validation;
 @synthesize select; //This one is synthesized because we're not overriding it in a subclass so that it can have specific parameter classes. Essentially, we want the accessors to be generated.
 @synthesize addOns = _addOns;
+@synthesize keyboardType = _keyboardType;
 
 
 -(id)initWithName:(NSString *)name {

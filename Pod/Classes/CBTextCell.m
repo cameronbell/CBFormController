@@ -23,6 +23,7 @@
     [self.textField setText:(NSString *)formItem.initialValue];
     [self.textField setTag:[formItem.formController rowIndexForFormItem:formItem]];
     [self.textField addTarget:formItem action:@selector(textFieldEditingChange) forControlEvents:UIControlEventEditingChanged];
+    [self.textField setKeyboardType:formItem.keyboardType];
 }
 
 @end
