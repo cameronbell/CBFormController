@@ -19,6 +19,8 @@
     CBFormItem *_engagedItem;
     
     BOOL _scrollAutomationLock;
+    
+    UIEdgeInsets _originalInsets;
 }
 
 @end
@@ -54,6 +56,13 @@
     
     //Configures the navigation bar buttons
     [self setupNavigationBar];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    //Captures the form table's original content insets
+    _originalInsets = self.formTable.contentInset;
     
 }
 
@@ -97,11 +106,6 @@
         _cellSet = [[CBCellSet1 alloc]init];
     }
     return _cellSet;
-}
-
--(UIEdgeInsets)getOriginalContentInsets {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-    //    return self.formTable.contentInset;
 }
 
 //If nothing sets the editMode property it defaults to CBFormEditModeFree mode.
@@ -184,7 +188,7 @@
     
     _scrollAutomationLock = YES;
     
-    CGFloat topInset = [self getOriginalContentInsets].top;
+    CGFloat topInset = _originalInsets.top;
     
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(topInset, 0.0, kbSize.height, 0.0);
     self.formTable.contentInset = contentInsets;
@@ -211,7 +215,7 @@
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
-    UIEdgeInsets contentInsets = [self getOriginalContentInsets];
+    UIEdgeInsets contentInsets = _originalInsets;
     self.formTable.contentInset = contentInsets;
     self.formTable.scrollIndicatorInsets = contentInsets;
 }
