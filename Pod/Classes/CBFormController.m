@@ -12,14 +12,17 @@
 
 
 @interface CBFormController () {
+    
+    //Holds the array of section arrays which hold the form items
     NSMutableArray *_sectionArray;
     
+    //The cell set object which provides different cell configurations and aethetics
     CBCellSet *_cellSet;
     
+    //Holds the form item that is currently active
     CBFormItem *_engagedItem;
     
-    BOOL _scrollAutomationLock;
-    
+    //Keeps track of the contentInsets that the formtable loads with so that it can reset to these insets after changing them for the keyboard
     UIEdgeInsets _originalInsets;
 }
 
@@ -33,7 +36,8 @@
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _scrollAutomationLock = NO;
+        
+        //Set defaults for ivars
         _editing = NO;
         _editMode = CBFormEditModeFree;
     }
@@ -67,17 +71,22 @@
     
 }
 
+
 -(void)setupTable {
     
     //Create the form table and set its view to the size of the
     self.formTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    
+    //Set the delegate and datasource for the formtable to this class
     [self.formTable setDelegate:self];
     [self.formTable setDataSource:self];
     
+    //Add the table to this view controller's view
     [self.view addSubview:self.formTable];
     
 }
 
+//This function calls getFormConfiguration and then sets the formitem's formcontroller property to this class
 -(void)loadFormConfiguration {
     
     _sectionArray = [NSMutableArray arrayWithArray:[self getFormConfiguration]];
@@ -89,8 +98,6 @@
             formItem.formController = self;
         }
     }
-
-    
 }
 
 //This function is called to collect all the necessary information from the subclass about how to build the form
@@ -103,6 +110,7 @@
 
 //Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
 -(CBCellSet *)cellSet {
+    
     if (!_cellSet) {
         _cellSet = [[CBCellSet1 alloc]init];
     }
@@ -114,12 +122,20 @@
     return _editMode ? _editMode : CBFormEditModeFree;
 }
 
+//This function returns whether the form is editing or not, meaning that the form is editable. The form is always either editing or not, regardless of the editMode.
 -(BOOL)editing {
+    
     switch ([self editMode]) {
+        
+        //In Frozen Mode the form is never editing
         case CBFormEditModeFrozen:
             return NO;
+        
+        //In Edit mode the form can be editing or not
         case CBFormEditModeEdit:
             return _editing;
+            
+        //In Free and Save mode, the form is always editing
         case CBFormEditModeFree:
         case CBFormEditModeSave:
             return YES;
@@ -130,7 +146,7 @@
 
 #pragma mark - FormItem Access Methods
 
-//Returns an array of only the formItems flatened from the sectionArray
+//Returns an array of only the formItems flattened from the sectionArray
 -(NSMutableArray *)formItems {
     NSMutableArray *formItems = [NSMutableArray array];
     for (int i = 0; i<[_sectionArray count]; i++) {
@@ -150,7 +166,7 @@
     return [self.formItems objectAtIndex:rowIndex];
 }
 
-//Returns the
+//Returns the index in the formItems array of a given formItem matched by name
 -(int)rowIndexForFormItem:(CBFormItem *)formItem {
     
     int rowIndex = 0;
@@ -167,8 +183,7 @@
 
 #pragma mark - Engage/Dismiss Methods
 
-
-// Call this method somewhere in your view controller setup code.
+//Ensures that the keyboard delegate methods are called on this class.
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -181,13 +196,11 @@
     
 }
 
-// Called when the UIKeyboardDidShowNotification is sent.
+//Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    
-    _scrollAutomationLock = YES;
     
     CGFloat topInset = _originalInsets.top;
     
@@ -206,10 +219,7 @@
     cellRect = CGRectMake(cellRect.origin.x, cellRect.origin.y+20, cellRect.size.width, cellRect.size.height);
     
     if (!CGRectContainsPoint(aRect, cellRect.origin) ) {
-        
-        //[self.formTable setUserInteractionEnabled:NO];
         [self.formTable scrollRectToVisible:cellRect animated:YES];
-        //_scrollAutomationLock = NO;
     }
 }
 
@@ -221,6 +231,7 @@
     self.formTable.scrollIndicatorInsets = contentInsets;
 }
 
+//Calls engage on a formItem and calls dismiss on all of the other ones
 -(void)engageFormItem:(CBFormItem *)formItem {
     _engagedItem = formItem;
     
@@ -236,6 +247,7 @@
     }
 }
 
+//Dismisses a formItem
 -(void)dismissFormItem:(CBFormItem*)formItem {
     [formItem dismiss];
     if ([formItem equals:_engagedItem]) {
@@ -245,6 +257,7 @@
 
 #pragma mark - Return Key Management
 
+//This function and the next are responsible for deciding which formitem to engage next when the user taps the return key on the keyboard
 -(BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem {
     CBFormItem *nextItem = [self getNextItemForReturnAfter:formItem];
     if (nextItem == nil) {
@@ -267,12 +280,8 @@
 
 #pragma mark - UITableView Delegate/Datasource Methods
 
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-
     return UITableViewAutomaticDimension;
-    
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
@@ -286,7 +295,6 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return nil;
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return UITableViewAutomaticDimension;
 }
