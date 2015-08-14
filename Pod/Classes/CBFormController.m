@@ -1120,6 +1120,10 @@
     [self.formTable endUpdates];
 }
 
+//Shows a alert view with the validation error message
+-(void)showValidationErrorWithMessage:(NSString *)message {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
