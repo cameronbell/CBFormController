@@ -11,7 +11,6 @@
 
 
 @implementation CBText
-@synthesize placeholder = _placeholder;
 @synthesize save;
 @synthesize validation;
 

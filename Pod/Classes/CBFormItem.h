@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic,retain) NSObject *value;
 @property (nonatomic,assign,readonly) CBFormItemType type;
 @property (nonatomic,retain) NSString *title; //The title that should be displayed on the formItem. Not all cells will display this title and it is not required.
+@property (nonatomic,retain) NSString *placeholder; //The prompt shown to enter a value into a field. Not all cells will display.
 @property (nonatomic,assign) BOOL enabledWhenNotEditing;
 @property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue); //Called when the value of the formItem changes if applicable
 @property (nonatomic, copy) void (^save)(NSObject *value); //Called to ask the subclass to save the value to the data source

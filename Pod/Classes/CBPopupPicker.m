@@ -14,7 +14,6 @@
 
 @implementation CBPopupPicker
 
-@synthesize placeholder = _placeholder;
 @synthesize save;
 @synthesize validation;
 @synthesize allowsCustomItems = _allowsCustomItems;

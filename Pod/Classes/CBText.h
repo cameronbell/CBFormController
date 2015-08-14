@@ -11,7 +11,6 @@
 
 @interface CBText : CBFormItem <UITextFieldDelegate>
 
-@property (nonatomic,retain) NSString *placeholder;
 @property (nonatomic, copy) void (^save)(NSString *value);
 @property (nonatomic, copy) BOOL (^validation)(NSString *value);
 

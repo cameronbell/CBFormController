@@ -64,6 +64,12 @@
         _switch1 = value;
     }];
     
+    CBPicker *maleFemale = [[CBPicker alloc]initWithName:@"picker1"];
+    [maleFemale setItems:@[@"Male",@"Female"]];
+    [maleFemale setTitle:@"Sex"];
+    [maleFemale setIcon:[FAKFontAwesome transgenderIconWithSize:18]];
+    
+    
     CBPopupPicker *popup1 = [[CBPopupPicker alloc]initWithName:@"popup1"];
     [popup1 setItems:[NSMutableArray arrayWithArray:@[@"Male",@"Female"]]];
     [popup1 setTitle:@"Medication"];
@@ -78,14 +84,13 @@
     [textItem2 setSave:^(NSString *value) {
         _text2 = value;
     }];
-    [sections addObject:@[switchItem,textItem2,popup1]];
+    [sections addObject:@[switchItem,textItem2,popup1,maleFemale]];
     
     CBDate *date1 = [[CBDate alloc]initWithName:@"date1"];
     [date1 setTitle:@"Birthdate"];
     [date1 setIcon:[FAKFontAwesome calendarIconWithSize:18]];
     
     CBButton *button1 = [[CBButton alloc]initWithName:@"button1"];
-//    [button1 setTitle:@"Press it."];
     [button1 setButtonType:CBButtonTypeDelete];
     [button1 setSelect:^{
         NSLog(@"Button 1 Pressed!");

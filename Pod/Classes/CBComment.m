@@ -11,7 +11,6 @@
 #import "CBFormController.h"
 
 @implementation CBComment
-@synthesize placeholder = _placeholder;
 @synthesize save;
 @synthesize validation;
 
