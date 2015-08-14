@@ -888,15 +888,13 @@
         case CBFormItemTypeDate:
         case CBFormItemTypeComment:
         case CBFormItemTypeAutoComplete:
+        case CBFormItemTypePicker:
         case CBFormItemTypeFAQ: {
             if ([formItem isEngaged]) {
                 [self dismissFormItem:formItem];
             }else{
                 [self engageFormItem:formItem];
             }
-            break;
-        }
-        case CBFormItemTypePicker: {
             break;
         }
         case CBFormItemTypePopupPicker: {
@@ -912,36 +910,6 @@
         default:
             break;
     }
-    
-    //These two things need to be accounted for
-
-    /*
-        case DDVCPicker:{
-            
-            if ([formItem isEngaged]) {
-                [self dismissFormItem:formItem];
-            }else{
-                
-                CGFloat f = 180;
-                [formItem.data setObject:NUMINT(f) forKey:@"height"];
-                [self.iOS6Picker setTag:[self menuOffsetForIndexPath:indexPath]];
-                [self.iOS6Picker reloadAllComponents];
-                [self engageFormItem:formItem];
-                
-            }
-            break;
-        }
-               case DDVCPopupPicker: {
-            
-     
-            
-            break;
-        }
-            
-        default:
-            break;
-    }*/
-
 }
 
 #pragma mark - Navigation Bar Management Methods
