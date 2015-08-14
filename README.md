@@ -178,11 +178,19 @@ When the save function is called, the CBFormController first calls the validatio
 If validation passes, the save block is called on all form items. This is where the subclass should handle saving the returned value back to the data store/model.
 
 #### Note:
-Whenever the Save,Edit, or Cancel button is pressed, ```-(void)reloadEntireForm;``` is called on the CBFormController. This means that the ```-(NSArray *)getFormConfiguration;``` function is called again and the subclass has an opportunity to change properties of the form items or add or remove form items.
+Whenever the Save, Edit, or Cancel button is pressed, ```-(void)reloadEntireForm;``` is called on the CBFormController. This means that the ```-(NSArray *)getFormConfiguration;``` function is called again and the subclass has an opportunity to change properties of the form items or add or remove form items.
 
 ### Customized Cell Sets
 
 CBFormController allows you to install a cell set which is a collection of classes which extend the functionality of the CBFormItems and provide the aesthetic of the cells, via an .xib file for each cell type.
+
+####Creating a New CBCellSet
+1. Create a subclass of CBCellSet
+2. Create an instance of the subclass and set it to the cellSet property of the CBFormController
+3. Implement Default height and default two line height if applicable.
+4. Create cell classes titled "[NameOfSubclass][FormItemType Enum Value]” (Must have an xib with a single cell inside for each class.)
+5. Configure each cell and link its properties using Interface Builder
+
 
 ### Creating a New CBFormItemType
 
@@ -205,12 +213,6 @@ CBFormController allows you to install a cell set which is a collection of class
 
 #### Form Items with Dynamic Heights
 Call ```[self updates];``` on the CBFormController when you want the height of a cell to be updated with animation.
-
-###Creating a New CBCellSet
-1. Create a subclass of CBCellSet
-2. Create an instance of the subclass and set it to the cellSet property of the CBFormController
-3. Implement Default height and default two line height if applicable.
-4. Create cell classes titled "[NameOfSubclass][FormItemType Enum Value]” (Must have an xib with a single cell inside for each class.)
 
 
 
