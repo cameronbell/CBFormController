@@ -27,7 +27,7 @@
 
 //Ensures that this FormItem's initialValue can only be set to a date
 -(void)setInitialValue:(NSObject *)initialValue {
-    if ([initialValue isKindOfClass:[NSDate class]]) {
+    if (!initialValue || [initialValue isKindOfClass:[NSDate class]]) {
         _initialValue = initialValue;
     }else{
         NSAssert(NO, @"The initialValue of a CBDate must be a NSDate.");
