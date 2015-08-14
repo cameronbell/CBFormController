@@ -65,13 +65,16 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 
 @property (nonatomic,retain) NSDate *defaultDate;
 
+@property (nonatomic, copy) void (^saveSucceeded)(CBFormController *formController); //Block that gets called after the save function succeeds
+
 -(NSArray *)getFormConfiguration; //This function is called to collect all the necessary information from the subclass about how to build the form
 -(int)rowIndexForFormItem:(CBFormItem *)formItem;
 -(BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem;
 -(BOOL)isFormEdited;//Returns YES if any of the values of any of the form items have been changed
 -(void)formWasEdited;//Called by a formitem's valueChanged method
 -(void)updates;
--(void)save;
+-(BOOL)save;
+
 -(BOOL)validate;
 
 @end

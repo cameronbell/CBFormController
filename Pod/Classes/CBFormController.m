@@ -29,6 +29,7 @@
 @synthesize formTable = _formTable;
 @synthesize editMode = _editMode;
 @synthesize defaultDate = _defaultDate;
+@synthesize saveSucceeded = _saveSucceeded;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -1057,13 +1058,13 @@
     return YES;
 }
 
--(void)save {
+-(BOOL)save {
     [self dismissAllFields];
     
     BOOL validationSuccess = YES;
     for (CBFormItem *formItem in [self formItems]) {
         validationSuccess = formItem.validate;
-        if (!validationSuccess)return;
+        if (!validationSuccess)return NO;
     }
     
     for (CBFormItem *formItem in [self formItems]) {
@@ -1072,6 +1073,12 @@
     
     self.editing = NO;
     [self reloadEntireForm];
+    
+    if (self.saveSucceeded) {
+        self.saveSucceeded(self);
+    }
+    
+    return YES;
 }
 
 -(void)beginEdit {
