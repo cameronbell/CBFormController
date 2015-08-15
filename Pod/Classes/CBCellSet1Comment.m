@@ -8,14 +8,21 @@
 
 #import "CBCellSet1Comment.h"
 #import "UITextView+Placeholder.h"
+#import "CBCell+CBCellSet1.h"
+#import "FAKFontAwesome.h"
+#import "CBFormItem+CBCellSet1.h"
 
 @implementation CBCellSet1Comment
 
 -(void)configureForFormItem:(CBComment *)formItem {
     
+    //Call this before calling super so that if the subclass does set an icon for this formitem that that icon is shown
+    [formItem setIcon:[FAKFontAwesome commentIconWithSize:18]];
+    
     [super configureForFormItem:formItem];
     
     [self.textView setPlaceholder:formItem.title];
+    
     
 }
 
