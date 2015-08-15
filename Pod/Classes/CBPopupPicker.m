@@ -18,7 +18,7 @@
 @synthesize validation;
 @synthesize allowsCustomItems = _allowsCustomItems;
 @synthesize items = _items;
-
+@synthesize didSelectItem;
 
 -(CBFormItemType)type {
     return CBFormItemTypePopupPicker;
@@ -97,6 +97,13 @@
     if ([self isEdited]) {
         [self valueChanged];
     }
+    
+    if (self.didSelectItem) {
+        self.didSelectItem(item);
+    }
+    
+    
+    
 }
 
 
