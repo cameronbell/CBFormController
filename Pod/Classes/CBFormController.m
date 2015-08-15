@@ -1048,6 +1048,11 @@
     [self dismissAllFields];
     
     BOOL validationSuccess = YES;
+    
+    //Allows the subclass to override the validate function
+    validationSuccess = [self validate];
+    if (!validationSuccess)return NO;
+    
     for (CBFormItem *formItem in [self formItems]) {
         validationSuccess = formItem.validate;
         if (!validationSuccess)return NO;
