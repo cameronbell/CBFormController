@@ -156,6 +156,16 @@
     return formItems;
 }
 
+//Returns a formitem found by name
+-(CBFormItem *)formItem:(NSString *)name {
+    for (CBFormItem *formItem in [self formItems]) {
+        if ([formItem.name isEqualToString:name]) {
+            return formItem;
+        }
+    }
+    return nil;
+}
+
 //Returns the formitem at a given indexPath as represented in the sectionArray
 -(CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath {
     return [[_sectionArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
