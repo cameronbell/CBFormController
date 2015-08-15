@@ -39,8 +39,10 @@
 
 //Ensures that this FormItem's value can only be set to a string
 -(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
-        _value = value;
+    
+    //If the value is nil or not of type NSString then fail, otherwise set the text of the cell's textField to the value
+    if (!value || [value isKindOfClass:[NSString class]]) {
+        [[(CBPopupPickerCell *)self.cell textField] setText:(NSString *)value];
     }else{
         NSAssert(NO, @"The value of a CBPopupPicker must be a NSString.");
     }
