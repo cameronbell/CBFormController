@@ -28,12 +28,14 @@
 @synthesize addOns = _addOns;
 @synthesize keyboardType = _keyboardType;
 @synthesize placeholder = _placeholder;
+@synthesize userInteractionEnabled = _userInteractionEnabled;
 
 -(id)initWithName:(NSString *)name {
     if (self = [super init]) {
         self.name = name;
         
         _engaged = NO;
+        _userInteractionEnabled = YES;
         
         //Initialize here so that this always exists
         _addOns = [NSMutableDictionary dictionary];
@@ -77,7 +79,7 @@
 }
 
 -(void)configureCell:(CBCell *)cell {
-    
+    [cell setSelectionStyle:[self userInteractionEnabled] ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone];
 }
 
 //Returns the appropriate height for the formitem based on the number of lines in the title (default = 1).
@@ -324,6 +326,19 @@
 -(void)selected {
     if (self.select) {
         self.select();
+    }
+}
+
+-(void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    
+    _userInteractionEnabled = userInteractionEnabled;
+    
+    if(_cell) {
+        if (_userInteractionEnabled) {
+            [self.cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        }else{
+            [self.cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
     }
 }
 

@@ -889,7 +889,7 @@
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
     //This ensures that if a FormItem is pressed while the form is not in editing mode that nothing will happen, unless the formItem's enabledWhenNotEditing property is true
-    if (!([self editing] || formItem.enabledWhenNotEditing)) {
+    if (!([self editing] || formItem.enabledWhenNotEditing) || !formItem.userInteractionEnabled) {
         return;
     }
     
