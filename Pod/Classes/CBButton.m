@@ -31,6 +31,7 @@
 }
 
 -(void)configureCell:(CBCell *)cell {
+    [super configureCell:cell];
     [cell configureForFormItem:self];
 }
 
