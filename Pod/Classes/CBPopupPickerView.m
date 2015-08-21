@@ -12,7 +12,6 @@
 
 @interface CBPopupPickerView () {
     NSMutableArray *_results;
-    NSString *_title;
     CBPopupPicker *_formItem;
     NSString *_searchTerm;
 }
@@ -39,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UINavigationItem *titleItem = [[UINavigationItem alloc]initWithTitle:_title];
+    UINavigationItem *titleItem = [[UINavigationItem alloc]initWithTitle:_formItem.title];
     
     [self.titleBar setItems:@[titleItem]];
 }
