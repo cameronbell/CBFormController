@@ -980,6 +980,7 @@
     [self.rightButton addTarget:self action:@selector(rightButtonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.rightButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
     [self.rightButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.rightButton];
     [self.navigationItem setRightBarButtonItem:saveBarButton animated:YES];
@@ -999,6 +1000,7 @@
             
             [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
             [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+            [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
             
             UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
             
