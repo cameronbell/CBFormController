@@ -76,6 +76,7 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(void)formWasEdited;//Called by a formitem's valueChanged method
 -(void)updates;
 -(BOOL)save;
+-(void)cancel;  
 -(BOOL)validate;
 -(void)showValidationErrorWithMessage:(NSString *)message;
 -(CBFormItem *)formItem:(NSString *)name;
