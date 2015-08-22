@@ -956,7 +956,7 @@
         case CBFormEditModeEdit:{
             if ([self editing]) {
                 [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
-                //[self.rightButton setEnabled:[self isFormEdited]];
+                [self.rightButton setEnabled:[self isFormEdited]];
                 [self.rightButton setEnabled:YES];
             }else{
                 [self.rightButton setTitle:@"Edit" forState:UIControlStateNormal];
