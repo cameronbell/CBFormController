@@ -31,7 +31,9 @@
     //The date picker must set to some value; If initialValue is nil, show defaultDate, but if that is nil then show today's date.
     [self.datePicker setDate:formItem.initialValue ? (NSDate*)formItem.initialValue : (formItem.formController.defaultDate ? formItem.formController.defaultDate : [NSDate date])];
 
-    
+    //This is a temporary fix for the iOS9 Datepicker bug.
+    [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
 
 }
 
