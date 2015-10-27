@@ -86,6 +86,12 @@
     
 }
 
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self.formTable setFrame:self.view.frame];
+}
+
 //This function calls getFormConfiguration and then sets the formitem's formcontroller property to this class
 -(void)loadFormConfiguration {
     
