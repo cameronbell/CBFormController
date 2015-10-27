@@ -24,6 +24,8 @@
     
     //Keeps track of the contentInsets that the formtable loads with so that it can reset to these insets after changing them for the keyboard
     UIEdgeInsets _originalInsets;
+    
+    UIBarButtonItem *_cancelBarButtonItem;
 }
 
 @end
@@ -996,25 +998,29 @@
 -(void)configureLeftBarButton {
     
     if ([self editing]) {
-        
-        
         if ([self isFormEdited]){
-            UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-            [cancelButton setFrame:CGRectMake(0, 12, 70, 22)];
-            [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
             
-            [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-            [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-            [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+            if (!_cancelBarButtonItem) {
+                UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+                [cancelButton setFrame:CGRectMake(0, 12, 70, 22)];
+                [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+                
+                [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+                [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+                [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+                
+                _cancelBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
+            }
             
-            UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
-            
-            [self.navigationItem setLeftBarButtonItem:cancelBarButton animated:YES];
+            [self.navigationItem setLeftBarButtonItem:_cancelBarButtonItem animated:YES];
             [self.navigationItem setHidesBackButton:YES animated:YES];
+            
         }else{
+            
             [self.navigationItem setLeftBarButtonItem:nil animated:YES];
             [self.navigationItem setHidesBackButton:NO animated:YES];
+
         }
     }else{
         [self.navigationItem setLeftBarButtonItem:nil animated:YES];
