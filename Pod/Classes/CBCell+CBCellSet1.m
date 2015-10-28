@@ -26,10 +26,15 @@ static char iconKey;
 
 -(void)configureAddonsForFormItem:(CBText *)formItem {
     
-    UILabel *label = self.icon;
-    label.font = [UIFont fontWithName:kFontAwesomeFamilyName size:20];
-    NSString *string = [NSString fontAwesomeIconStringForEnum:[[formItem.addOns objectForKey:@"CBCellSet1_icon"] integerValue]];
-    [self.icon setText:string];
+    NSNumber *iconInteger = [formItem.addOns objectForKey:@"CBCellSet1_icon"];
+    if (iconInteger) {
+        self.icon.font = [UIFont fontWithName:kFontAwesomeFamilyName size:20];
+        NSString *string = [NSString fontAwesomeIconStringForEnum:[iconInteger integerValue]];
+        [self.icon setText:string];
+        
+    }else {
+        [self.icon setText:@""];
+    }
 }
 
 
