@@ -7,6 +7,7 @@
 //
 
 #import "CBViewController.h"
+#import <FontAwesome/NSString+FontAwesome.h>
 
 
 @interface CBViewController () {
@@ -67,13 +68,13 @@
     CBPicker *maleFemale = [[CBPicker alloc]initWithName:@"picker1"];
     [maleFemale setItems:@[@"Male",@"Female"]];
     [maleFemale setTitle:@"Sex"];
-    [maleFemale setIcon:[FAKFontAwesome transgenderIconWithSize:18]];
+    [maleFemale setIcon:FAtransgender];
     
     
     CBPopupPicker *popup1 = [[CBPopupPicker alloc]initWithName:@"popup1"];
     [popup1 setItems:[NSMutableArray arrayWithArray:@[@"Male",@"Female"]]];
     [popup1 setTitle:@"Medication"];
-    [popup1 setIcon:[FAKFontAwesome medkitIconWithSize:18]];
+    [popup1 setIcon:FAMedkit];
     
     CBText *textItem2 = [[CBText alloc]initWithName:@"item3"];
     [textItem2 setTitle:@"Last Name"];
@@ -88,7 +89,7 @@
     
     CBDate *date1 = [[CBDate alloc]initWithName:@"date1"];
     [date1 setTitle:@"Birthdate"];
-    [date1 setIcon:[FAKFontAwesome calendarIconWithSize:18]];
+    [date1 setIcon:FACalendar];
     
     CBButton *button1 = [[CBButton alloc]initWithName:@"button1"];
     [button1 setButtonType:CBButtonTypeDelete];
@@ -99,7 +100,7 @@
     
     CBComment *comment1 = [[CBComment alloc]initWithName:@"Comment1"];
     [comment1 setTitle:@"Comments"];
-    [comment1 setIcon:[FAKFontAwesome commentIconWithSize:18]];
+    [comment1 setIcon:FAComment];
     [sections addObject:@[comment1]];
 
     return sections;

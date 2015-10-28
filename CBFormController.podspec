@@ -29,8 +29,7 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'CoreText'
-  # s.dependency 'AFNetworking', '~> 2.3'
-#s.dependency 'FontAwesomeKit', 'master'
+  s.dependency 'FontAwesome', '~> 4.3.0'
   s.dependency 'UITextView+Placeholder'
   s.dependency 'MZFormSheetController', '~> 3.1'
 end

@@ -17,6 +17,10 @@
 #import "CBPicker.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
+#import <FontAwesome/FAImageView.h>
+#import <FontAwesome/NSString+FontAwesome.h>
+#import <FontAwesome/UIFont+FontAwesome.h>
+
 
 
 
@@ -56,7 +60,7 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 @interface CBFormController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
 
-@property (nonatomic,retain) UITableView *formTable; //This is the tableview which contains the form cells
+@property (nonatomic,retain) IBOutlet UITableView *formTable; //This is the tableview which contains the form cells
 @property (nonatomic,retain) CBCellSet *cellSet;
 @property (nonatomic,assign) CBFormEditMode editMode;
 @property (nonatomic,assign) BOOL editing;
@@ -80,5 +84,6 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(BOOL)validate;
 -(void)showValidationErrorWithMessage:(NSString *)message;
 -(CBFormItem *)formItem:(NSString *)name;
+-(CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath;
 
 @end
