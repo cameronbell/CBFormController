@@ -84,5 +84,6 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(BOOL)validate;
 -(void)showValidationErrorWithMessage:(NSString *)message;
 -(CBFormItem *)formItem:(NSString *)name;
+-(CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath;
 
 @end
