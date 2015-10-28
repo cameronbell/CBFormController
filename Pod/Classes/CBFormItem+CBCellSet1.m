@@ -12,8 +12,8 @@
 
 @implementation CBFormItem (CBCellSet1)
 
--(void)setIcon:(FAKFontAwesome *)icon {
-    [self.addOns setObject:icon forKey:@"CBCellSet1_icon"];
+-(void)setIcon:(FAIcon)icon {
+    [self.addOns setObject:[NSNumber numberWithInteger:icon] forKey:@"CBCellSet1_icon"];
 }
 
 @end

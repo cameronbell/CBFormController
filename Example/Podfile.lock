@@ -1,26 +1,32 @@
 PODS:
   - CBFormController (0.1.2):
+    - FontAwesome (~> 4.3.0)
     - MZFormSheetController (~> 3.1)
     - UITextView+Placeholder
-  - MZAppearance (1.1.5)
-  - MZFormSheetController (3.1.0):
+  - FontAwesome (4.3.0)
+  - MZAppearance (1.1.6)
+  - MZFormSheetController (3.1.1):
     - MZAppearance
-    - MZFormSheetController/Core (= 3.1.0)
-  - MZFormSheetController/Core (3.1.0):
+    - MZFormSheetController/Core (= 3.1.1)
+  - MZFormSheetController/Core (3.1.1):
     - MZAppearance
-  - UITextView+Placeholder (1.0.9)
+  - Reveal-iOS-SDK (1.6.1)
+  - UITextView+Placeholder (1.1.0)
 
 DEPENDENCIES:
   - CBFormController (from `../`)
+  - Reveal-iOS-SDK
 
 EXTERNAL SOURCES:
   CBFormController:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CBFormController: 6c17d03a5a8bfd972bc4aaabbedbb15f8d5f25cd
-  MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
-  MZFormSheetController: a29e904f8832bcaa08a9751106e10beb4df751df
-  UITextView+Placeholder: 83895056749372c96febfb43f536c9b1aae3e08e
+  CBFormController: 23d8db982dac8184502788adfba10f45e1fa00e3
+  FontAwesome: 341b52261cad8254017da3ddfc01d67c87c0ca88
+  MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  MZFormSheetController: 3ea2e7add63016e05908af1c5df7bf20e7fe2678
+  Reveal-iOS-SDK: ceae964076cebe3efe63e5e9abe3152efce46aa8
+  UITextView+Placeholder: 672ce543356b5b5787f354415bc3b132d47f0362
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.39.0

@@ -8,7 +8,8 @@
 
 #import "CBCell+CBCellSet1.h"
 #import "CBText.h"
-#import "FAKFontAwesome.h"
+#import <FontAwesome/NSString+FontAwesome.h>
+
 
 //Using the address of this char as a key for the associated object created for the custom property
 static char iconKey;
@@ -24,7 +25,11 @@ static char iconKey;
 }
 
 -(void)configureAddonsForFormItem:(CBText *)formItem {
-    [self.icon setAttributedText:[(FAKIcon *)[formItem.addOns objectForKey:@"CBCellSet1_icon"] attributedString]];
+    
+    UILabel *label = self.icon;
+    label.font = [UIFont fontWithName:kFontAwesomeFamilyName size:20];
+    NSString *string = [NSString fontAwesomeIconStringForEnum:[[formItem.addOns objectForKey:@"CBCellSet1_icon"] integerValue]];
+    [self.icon setText:string];
 }
 
 
