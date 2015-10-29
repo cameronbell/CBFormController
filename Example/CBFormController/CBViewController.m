@@ -42,7 +42,7 @@
     CBText *textItem = [[CBText alloc]initWithName:@"item1"];
     [textItem setTitle:@"Name"];
     [textItem setInitialValue:_text1];
-    [textItem setIcon:[FAKFontAwesome userIconWithSize:18]];
+    [textItem setIcon:FAUser];
     [sections addObject:@[textItem]];
     
     [textItem setSave:^(NSString *value) {
@@ -75,6 +75,7 @@
     [popup1 setItems:[NSMutableArray arrayWithArray:@[@"Male",@"Female"]]];
     [popup1 setTitle:@"Medication"];
     [popup1 setIcon:FAMedkit];
+    [popup1 setIconColor:[UIColor redColor]];
     
     CBText *textItem2 = [[CBText alloc]initWithName:@"item3"];
     [textItem2 setTitle:@"Last Name"];
