@@ -20,4 +20,9 @@
     [self.addOns setObject:color forKey:@"CBCellSet1_icon_color"];
 }
 
+- (void)setIcon:(FAIcon)icon withColor:(UIColor *)color {
+    [self setIcon:icon];
+    [self setIconColor:color];
+}
+
 @end

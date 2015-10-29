@@ -12,4 +12,7 @@
 @interface CBFormItem (CBCellSet1)
 -(void)setIcon:(FAIcon)icon;
 -(void)setIconColor:(UIColor *)color;
+
+//Sets an icon in the given color
+- (void)setIcon:(FAIcon)icon withColor:(UIColor *)color; 
 @end
