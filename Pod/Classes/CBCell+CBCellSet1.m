@@ -29,6 +29,7 @@ static char iconKey;
     NSNumber *iconInteger = [formItem.addOns objectForKey:@"CBCellSet1_icon"];
     if (iconInteger) {
         self.icon.font = [UIFont fontWithName:kFontAwesomeFamilyName size:20];
+        [self.icon setTextColor:[formItem.addOns objectForKey:@"CBCellSet1_icon_color"]];
         NSString *string = [NSString fontAwesomeIconStringForEnum:[iconInteger integerValue]];
         [self.icon setText:string];
         

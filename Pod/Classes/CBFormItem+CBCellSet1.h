@@ -10,5 +10,6 @@
 #import <FontAwesome/NSString+FontAwesome.h>
 
 @interface CBFormItem (CBCellSet1)
--(void)setIcon:(FAIcon)icon; 
+-(void)setIcon:(FAIcon)icon;
+-(void)setIconColor:(UIColor *)color;
 @end
