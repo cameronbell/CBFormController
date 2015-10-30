@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CBCell.h"
+#import <FontAwesome/NSString+FontAwesome.h>
 
 @class CBFormController;
 
@@ -57,7 +58,6 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic,assign) UIKeyboardType keyboardType; //Used for formItems that have a keyboard. Determines which keyboard is shown.
 @property (nonatomic,assign) BOOL userInteractionEnabled;
 
-
 -(id)initWithName:(NSString *)name;
 -(void)configureCell:(CBCell*)cell; //This function is called when the formitem creates the cell and the cell needs to be configured
 -(void)dismiss;
@@ -68,5 +68,12 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 -(void)saveValue;
 -(BOOL)validate;
 -(void)selected; //Currently only called when CBButtons are tapped
+
+
+-(void)setIcon:(FAIcon)icon;
+-(void)setIconColor:(UIColor *)color;
+
+//Sets an icon in the given color
+- (void)setIcon:(FAIcon)icon withColor:(UIColor *)color;
 
 @end

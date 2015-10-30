@@ -27,6 +27,7 @@
     [self.textView setPlaceholder:formItem.placeholder];
     
     //Hide the pencilIcon if the cell is not editable
+    [formItem setIcon:FAComment];
     [self.pencilIcon setHidden:!formItem.formController.editing];
     
     [self.textView setText:(NSString *)formItem.initialValue];
@@ -34,5 +35,8 @@
     //[self.textView addTarget:formItem action:@selector(textViewEditingChange) forControlEvents:UIControlEventEditingChanged];
 }
 
+-(CGFloat)height {
+    return 120.0f;
+}
 
 @end

@@ -342,5 +342,17 @@
     }
 }
 
+-(void)setIcon:(FAIcon)icon {
+    [self.addOns setObject:[NSNumber numberWithInteger:icon] forKey:@"CBCellSet1_icon"];
+}
+
+-(void)setIconColor:(UIColor *)color {
+    [self.addOns setObject:color forKey:@"CBCellSet1_icon_color"];
+}
+
+- (void)setIcon:(FAIcon)icon withColor:(UIColor *)color {
+    [self setIcon:icon];
+    [self setIconColor:color];
+}
 
 @end
