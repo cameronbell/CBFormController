@@ -17,7 +17,6 @@
 @synthesize cell = _cell;
 @synthesize name = _name;
 @synthesize engaged = _engaged;
-@synthesize type = _type;
 @synthesize title = _title;
 @synthesize initialValue = _initialValue;
 @synthesize enabledWhenNotEditing = _enabledWhenNotEditing;

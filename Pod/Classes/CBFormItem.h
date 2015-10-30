@@ -8,23 +8,6 @@
 
 @class CBFormController;
 
-//All CBFormItems have a type which corresponds with an enum value
-typedef NS_ENUM(NSInteger, CBFormItemType) {
-    CBFormItemTypeSwitch,
-    CBFormItemTypeDate,
-    CBFormItemTypeButton,
-    CBFormItemTypeFAQ,
-    CBFormItemTypeText,
-    CBFormItemTypePicker,
-    CBFormItemTypeComment,
-    CBFormItemTypeView,
-    CBFormItemTypeAutoComplete,
-    CBFormItemTypeCaption,
-    CBFormItemTypeSegmentedControl,
-    CBFormItemTypePopupPicker
-};
-
-
 @interface CBFormItem : NSObject {
     @protected
     NSObject *_initialValue;
@@ -42,7 +25,6 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic,weak) CBFormController *formController;
 @property (nonatomic,retain) NSObject *initialValue;
 @property (nonatomic,retain) NSObject *value;
-@property (nonatomic,assign,readonly) CBFormItemType type;
 @property (nonatomic,retain) NSString *title; //The title that should be displayed on the formItem. Not all cells will display this title and it is not required.
 @property (nonatomic,retain) NSString *placeholder; //The prompt shown to enter a value into a field. Not all cells will display.
 @property (nonatomic,assign) BOOL enabledWhenNotEditing;
