@@ -10,10 +10,34 @@
 #import "CBFormController.h"
 #import <objc/runtime.h>
 
+//Using the address of this char as a key for the associated object created for the custom property
+static char iconKey;
 
 @implementation CBCell
 @synthesize cellSet = _cellSet;
 @synthesize height = _height;
+
+- (void)setIcon:(UILabel *)icon {
+    [self setCustomPropertyWithObject:icon forKey:&iconKey];
+}
+
+- (UILabel *)icon {
+    return (UILabel *)[self getCustomPropertyWithKey:&iconKey];
+}
+
+-(void)configureAddonsForFormItem:(CBText *)formItem {
+    
+    NSNumber *iconInteger = [formItem.addOns objectForKey:@"CBCellSet1_icon"];
+    if (iconInteger) {
+        self.icon.font = [UIFont fontWithName:kFontAwesomeFamilyName size:20];
+        [self.icon setTextColor:[formItem.addOns objectForKey:@"CBCellSet1_icon_color"]];
+        NSString *string = [NSString fontAwesomeIconStringForEnum:[iconInteger integerValue]];
+        [self.icon setText:string];
+        
+    }else {
+        [self.icon setText:@""];
+    }
+}
 
 -(void)configureForFormItem:(CBFormItem *)formItem {
     
