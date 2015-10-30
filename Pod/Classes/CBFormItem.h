@@ -1,10 +1,6 @@
-//
-//  CBFormItem.h
-//  Pods
-//
-//  Created by Cameron Bell on 2015-08-10.
-//
-//
+//  Base class for all form items
+//  @author Cameron Bell
+//  @authot Julien Guerinet
 
 #import <Foundation/Foundation.h>
 #import "CBCell.h"
