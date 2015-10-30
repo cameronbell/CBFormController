@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7AF1B31BE317130072151B /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 3E7AF1B21BE317130072151B /* CHANGELOG.md */; };
 		456416A234DE72C47F43F3B9 /* Pods_CBFormController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A92D07DF12DA2B18CDA567C /* Pods_CBFormController_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E7AF1B21BE317130072151B /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		576280D9CB33278DF14E6C6D /* Pods-CBFormController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBFormController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBFormController_Tests/Pods-CBFormController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A92D07DF12DA2B18CDA567C /* Pods_CBFormController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBFormController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* CBFormController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBFormController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 			children = (
 				68621C6612C164D3B1FBC1E9 /* CBFormController.podspec */,
 				D72890818DA5FCCFDAF0F56A /* README.md */,
+				3E7AF1B21BE317130072151B /* CHANGELOG.md */,
 				B883B76D4FD21CA9B32A2FD7 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -393,6 +396,7 @@
 				6003F59E195388D20070C39A /* CBAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* CBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				3E7AF1B31BE317130072151B /* CHANGELOG.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
