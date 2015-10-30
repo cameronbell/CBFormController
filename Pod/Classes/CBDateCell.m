@@ -37,4 +37,8 @@
 
 }
 
+-(CGFloat)engagedHeight {
+    return 210.0f;
+}
+
 @end
