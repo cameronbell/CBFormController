@@ -13,13 +13,11 @@
 
 
 -(CGFloat)defaultHeight {
-    NSAssert(NO, @"This method is abstract.");
-    return 0;
+    return 45; 
 }
 
 -(CGFloat)defaultTwoLineHeight {
-    NSAssert(NO, @"This method is abstract.");
-    return 0;
+    return 70; 
 }
 
 -(NSString *)cellClassStringForFormItemClass:(Class)formItemClass {
