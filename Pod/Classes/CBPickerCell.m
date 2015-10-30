@@ -26,4 +26,9 @@
     [self.pickerField setText:(NSString *)formItem.initialValue];
 }
 
+//Returns the height of the cell when the formitem is engaged and the picker is shown
+-(CGFloat)engagedHeight {
+    return 180.0f;
+}
+
 @end
