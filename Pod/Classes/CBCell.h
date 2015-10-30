@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CBCellSet.h"
 
 @class CBFormItem;
 
