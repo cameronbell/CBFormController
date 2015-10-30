@@ -27,10 +27,16 @@
 @property (nonatomic,assign) CGFloat twoLineHeight; //Returns the height when the cell has a double line title.
 @property (nonatomic,retain) IBOutlet UILabel *icon;
 
+@property (nonatomic,assign) CGFloat defaultHeight; //Required method to implement in the subclass
+@property (nonatomic,assign) CGFloat defaultTwoLineHeight;
+
 -(void)setIcon:(UILabel *)icon;
 -(UILabel *)icon;
 
 -(void)configureForFormItem:(CBFormItem *)formItem;
 -(void)setCustomPropertyWithObject:(NSObject *)icon forKey:(const void *)key;
 -(NSObject *)getCustomPropertyWithKey:(const void *)key;
+
+-(NSString *)cellClassStringForFormItemClass:(Class)formItemClass;
+
 @end
