@@ -8,48 +8,77 @@
 
 @class CBFormController;
 
-@interface CBFormItem : NSObject {
-    @protected
-    NSObject *_initialValue;
-    NSObject *_value;
-    NSString *_title;
-}
+@interface CBFormItem : NSObject
 
-@property (nonatomic,retain) CBCell *cell; //A reference to the cell which currently represents this form item
-@property (nonatomic,retain) NSString *name; //The name and identifier for the cell
-@property (nonatomic,assign,getter = isEngaged) BOOL engaged;
-@property (nonatomic,assign,getter = isHidden) BOOL hidden;
-@property (nonatomic,assign) CGFloat height; // Returns the height the formitem's cell should be. This may be dependent on other properties of the formitem. This is a different property from the height property of the CBCell
-@property (nonatomic,assign) int numberOfTitleLines;
-@property (nonatomic,assign) Class cellClass; //This property allows the cellClass to be overridden. Normally this will take the value of the formController's cellSetClass property
-@property (nonatomic,weak) CBFormController *formController;
-@property (nonatomic,retain) NSObject *initialValue;
-@property (nonatomic,retain) NSObject *value;
-@property (nonatomic,retain) NSString *title; //The title that should be displayed on the formItem. Not all cells will display this title and it is not required.
-@property (nonatomic,retain) NSString *placeholder; //The prompt shown to enter a value into a field. Not all cells will display.
-@property (nonatomic,assign) BOOL enabledWhenNotEditing;
-@property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue); //Called when the value of the formItem changes if applicable
-@property (nonatomic, copy) void (^save)(NSObject *value); //Called to ask the subclass to save the value to the data source
-@property (nonatomic, copy) BOOL (^validation)(NSObject *value); //Called to verify that the new value is acceptable to be saved to the data source.
-@property (nonatomic, copy) void (^select)(); //Called to verify that the new value is acceptable to be saved to the data source.
-@property (nonatomic,retain) NSMutableDictionary *addOns; //A dictionary that categories CBFormItem and CBFormItem cell can use to pass values
-@property (nonatomic,assign) UIKeyboardType keyboardType; //Used for formItems that have a keyboard. Determines which keyboard is shown.
-@property (nonatomic,assign) BOOL userInteractionEnabled;
+//The FormController instance that this form item belongs to
+@property (nonatomic, weak) CBFormController *formController;
+//Reference to this form item's view
+@property (nonatomic, retain) CBCell *cell;
+//The cell name and identifier
+@property (nonatomic, retain) NSString *name;
+//True if the current item is engaged by the user, false otherwise
+@property (nonatomic, assign, getter = isEngaged) BOOL engaged;
+//True if the current item is hidden, false otherwise
+@property (nonatomic, assign, getter = isHidden) BOOL hidden;
+//The total number of title lines
+@property (nonatomic, assign) int numberOfTitleLines;
+//The initial value
+@property (nonatomic, retain) NSObject *initialValue;
+//The current value
+@property (nonatomic, retain) NSObject *value;
+//The form item title
+@property (nonatomic, retain) NSString *title;
+//The form item placeholder
+@property (nonatomic, retain) NSString *placeholder;
+//The form item icon
+@property (nonatomic, assign) FAIcon icon;
+//The form item icon color
+@property (nonatomic, retain) UIColor *iconColor;
+//Called when the value of the form item changes
+@property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue);
+//Called when the value of the form item should be saves
+@property (nonatomic, copy) void (^save)(NSObject *value);
+//Called when the value of the form item should be validated before being saved
+@property (nonatomic, copy) BOOL (^validation)(NSObject *value);
+//Called when the form item is selected
+@property (nonatomic, copy) void (^select)(); 
+//The keyboard type to use if a keyboard should be shown
+@property (nonatomic, assign) UIKeyboardType keyboardType;
+//True if the user can interact with the form item, false otherwise
+@property (nonatomic, assign) BOOL userInteractionEnabled;
 
--(id)initWithName:(NSString *)name;
--(void)configureCell:(CBCell*)cell; //This function is called when the formitem creates the cell and the cell needs to be configured
--(void)dismiss;
--(void)engage;
--(BOOL)equals:(CBFormItem *)formItem;
--(BOOL)isEdited;
--(void)valueChanged;
--(void)saveValue;
--(BOOL)validate;
--(void)selected; //Currently only called when CBButtons are tapped
+//Initializes the form item with the given name/identifier
+- (id)initWithName:(NSString *)name;
 
+//Configures the cell once created
+- (void)configureCell:(CBCell*)cell;
 
--(void)setIcon:(FAIcon)icon;
--(void)setIconColor:(UIColor *)color;
+//Engages the form item. Opposite of dismiss:
+- (void)engage;
+
+//Dismisses the form item if it's engaged. Opposite of engage:
+- (void)dismiss;
+
+//@return True if it is equal to the given form item, false otherwise
+- (BOOL)equals:(CBFormItem *)formItem;
+
+//@return true if the form item has been edited, false otherwise
+- (BOOL)isEdited;
+
+//Called when the value has been changed
+- (void)valueChanged;
+
+//Calls the save lambda
+- (void)saveValue;
+
+//Calls the validate lamba
+- (BOOL)validate;
+
+//Called when the form controller is clicked on
+- (void)selected;
+
+//@return the height to use for this form item 
+- (CGFloat)height;
 
 //Sets an icon in the given color
 - (void)setIcon:(FAIcon)icon withColor:(UIColor *)color;

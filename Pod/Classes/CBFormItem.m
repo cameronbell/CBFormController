@@ -1,10 +1,5 @@
-//
-//  CBFormItem.m
-//  Pods
-//
-//  Created by Cameron Bell on 2015-08-10.
-//
-//
+//  @author Cameron Bell
+//  @author Julien Guerinet
 
 #import "CBFormItem.h"
 #import "CBFormController.h"
