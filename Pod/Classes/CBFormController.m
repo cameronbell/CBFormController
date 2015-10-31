@@ -1,47 +1,36 @@
-//
-//  CBFormController.m
-//  CBFormController
-//
-//  Created by Cameron Bell on 2015-08-10.
+//  @author Cameron Bell
+//  @author Julien Guerinet
 //  Copyright (c) 2015 Cameron Bell. All rights reserved.
-//
 
 #import "CBFormController.h"
 
-
-
-
 @interface CBFormController () {
-    
     //Holds the array of section arrays which hold the form items
-    NSMutableArray *_sectionArray;
+    NSMutableArray *_sections;
     
-    //The cell set object which provides different cell configurations and aethetics
-    CBCellSet *_cellSet;
+    //The current section that the user is adding items to
+    NSMutableArray *_currentSection; 
     
     //Holds the form item that is currently active
     CBFormItem *_engagedItem;
     
-    //Keeps track of the contentInsets that the formtable loads with so that it can reset to these insets after changing them for the keyboard
+    //Keeps track of the contentInsets that the formtable loads with so that it can reset to
+    //  these insets after changing them for the keyboard
     UIEdgeInsets _originalInsets;
     
+    //TODO The cancel button
     UIBarButtonItem *_cancelBarButtonItem;
 }
 
 @end
 
 @implementation CBFormController
-@synthesize formTable = _formTable;
-@synthesize editMode = _editMode;
-@synthesize defaultDate = _defaultDate;
-@synthesize saveSucceeded = _saveSucceeded;
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        
         //Set defaults for ivars
         _editing = NO;
-        _editMode = CBFormEditModeFree;
+        _mode = CBFormModeFree;
     }
     return self;
 }
@@ -50,7 +39,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     //Makes the formTable and ensures that it is properly setup with in the view
     [self setupTable];
@@ -66,18 +54,16 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    
+- (void)viewDidAppear:(BOOL)animated {
     //Captures the form table's original content insets
     _originalInsets = self.formTable.contentInset;
-    
 }
 
-
--(void)setupTable {
-    
+//Sets up the TableView
+- (void)setupTable {
     //Create the form table and set its view to the size of the
-    self.formTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    self.formTable = [[UITableView alloc]initWithFrame:self.view.frame
+                                                 style:UITableViewStyleGrouped];
     
     //Set the delegate and datasource for the formtable to this class
     [self.formTable setDelegate:self];
@@ -85,87 +71,83 @@
     
     //Add the table to this view controller's view
     [self.view addSubview:self.formTable];
-    
 }
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
     [self.formTable setFrame:self.view.frame];
 }
 
-//This function calls getFormConfiguration and then sets the formitem's formcontroller property to this class
--(void)loadFormConfiguration {
-    
-    _sectionArray = [NSMutableArray arrayWithArray:[self getFormConfiguration]];
-    
-    //Ensure the formController property is set for all formItems
-    //TODO: This will need to change to facilitate formItems being added.
-    for (NSArray *section in _sectionArray) {
-        for (CBFormItem *formItem in section) {
-            formItem.formController = self;
-        }
+- (void)loadForm {
+    //Start the new list of sections
+    _sections = [NSMutableArray array];
+}
+
+- (void)startSection {
+    //Check if there was a current section
+    if(_currentSection){
+        //Close the current section
+        [_sections addObject:_currentSection];
     }
+    
+    //Reset the current section
+    _currentSection = [NSMutableArray array];
 }
 
-//This function is called to collect all the necessary information from the subclass about how to build the form
--(NSArray *)getFormConfiguration {
-    
-    NSAssert(NO, @"This function must be overridden in the subclass.");
-    
-    return nil;
-}
-
-//Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
--(CBCellSet *)cellSet {
-    
-    if (!_cellSet) {
-        _cellSet = [[CBCellSet1 alloc]init];
+- (void)addFormItem:(CBFormItem *)item {
+    //Check that there is a section open before adding the form item
+    if(!_currentSection){
+        NSAssert(NO, @"You must start a section before adding form items");
+        return;
     }
-    return _cellSet;
+    
+    //Set the FormController property on it
+    [item setFormController:self];
+    
+    //Add it to the current section array
+    [_currentSection addObject:item];
 }
 
-//If nothing sets the editMode property it defaults to CBFormEditModeFree mode.
--(CBFormEditMode)editMode {
-    return _editMode ? _editMode : CBFormEditModeFree;
+- (void)endForm {
+    //Ends the current section
+    [_sections addObject:_currentSection];
+    _currentSection = nil;
 }
 
 //This function returns whether the form is editing or not, meaning that the form is editable. The form is always either editing or not, regardless of the editMode.
+//TODO
 -(BOOL)editing {
-    
-    switch ([self editMode]) {
-        
+    switch (_mode) {
         //In Frozen Mode the form is never editing
-        case CBFormEditModeFrozen:
+        case CBFormModeFrozen:
             return NO;
-        
         //In Edit mode the form can be editing or not
-        case CBFormEditModeEdit:
+        case CBFormModeEdit:
             return _editing;
-            
         //In Free and Save mode, the form is always editing
-        case CBFormEditModeFree:
-        case CBFormEditModeSave:
+        case CBFormModeFree:
+        case CBFormModeSave:
             return YES;
         default:
+            NSAssert(NO, @"Unknown edit mode");
             break;
     }
 }
 
 #pragma mark - FormItem Access Methods
 
-//Returns an array of only the formItems flattened from the sectionArray
--(NSMutableArray *)formItems {
+//Returns an array of the formItems flattened from the sectionArray
+- (NSMutableArray *)formItems {
     NSMutableArray *formItems = [NSMutableArray array];
-    for (int i = 0; i<[_sectionArray count]; i++) {
-        NSMutableArray *itemArray = [_sectionArray objectAtIndex:i];
-        [formItems addObjectsFromArray:itemArray];
+   
+    for(NSMutableArray *section in _sections){
+        [formItems addObjectsFromArray:section];
     }
+    
     return formItems;
 }
 
-//Returns a formitem found by name
--(CBFormItem *)formItem:(NSString *)name {
+- (CBFormItem *)formItem:(NSString *)name {
     for (CBFormItem *formItem in [self formItems]) {
         if ([formItem.name isEqualToString:name]) {
             return formItem;
@@ -174,18 +156,16 @@
     return nil;
 }
 
-//Returns the formitem at a given indexPath as represented in the sectionArray
--(CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath {
-    return [[_sectionArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+- (CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath {
+    return [[_sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 }
 
-//Returns the formitem at a given index in a linear list of the cells
--(CBFormItem *)formItemForRowIndex:(int)rowIndex {
+- (CBFormItem *)formItemForRowIndex:(int)rowIndex {
     return [self.formItems objectAtIndex:rowIndex];
 }
 
 //Returns the index in the formItems array of a given formItem matched by name
--(int)rowIndexForFormItem:(CBFormItem *)formItem {
+- (int)rowIndexForFormItem:(CBFormItem *)formItem {
     
     int rowIndex = 0;
     for (CBFormItem *formItem in [self formItems]) {
