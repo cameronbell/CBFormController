@@ -164,19 +164,16 @@
     return [self.formItems objectAtIndex:rowIndex];
 }
 
-//Returns the index in the formItems array of a given formItem matched by name
-- (int)rowIndexForFormItem:(CBFormItem *)formItem {
-    
-    int rowIndex = 0;
-    for (CBFormItem *formItem in [self formItems]) {
-        if ([formItem equals:formItem]) {
-            return rowIndex;
+- (int)rowIndexForFormItem:(CBFormItem *)item {
+    NSMutableArray *formItems = [self formItems];
+    for(int i = 0; i < [formItems count]; i ++){
+        if([[formItems objectAtIndex:i] equals:item]){
+            return i;
         }
-        rowIndex++;
     }
     
     NSAssert(NO, @"This method should always find an equivalent formitem.");
-    return 0;
+    return -1;
 }
 
 #pragma mark - Engage/Dismiss Methods

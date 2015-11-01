@@ -58,9 +58,6 @@ typedef NS_ENUM(NSInteger, CBFormMode) {
 //Ends the form
 - (void)endForm;
 
-//Returns the row index for the given form item
-- (int)rowIndexForFormItem:(CBFormItem *)formItem;
-
 //TODO What is this ?
 - (BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem;
 
@@ -81,5 +78,8 @@ typedef NS_ENUM(NSInteger, CBFormMode) {
 
 //Returns the form item for the given index path
 - (CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath;
+
+//Returns the row index for the given form item
+- (int)rowIndexForFormItem:(CBFormItem *)formItem;
 
 @end
