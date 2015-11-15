@@ -24,9 +24,5 @@
 -(UILabel *)icon;
 
 -(void)configureForFormItem:(CBFormItem *)formItem;
--(void)setCustomPropertyWithObject:(NSObject *)icon forKey:(const void *)key;
--(NSObject *)getCustomPropertyWithKey:(const void *)key;
-
--(NSString *)cellClassStringForFormItemClass:(Class)formItemClass;
 
 @end
