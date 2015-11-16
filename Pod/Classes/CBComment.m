@@ -21,18 +21,6 @@
     [self.textView setText:(NSString *)self.initialValue];
 }
 
-//Ensures that this FormItem's initialValue can only be set to a string
-- (void)setInitialValue:(NSObject *)initialValue {
-    [self validateValue:initialValue];
-    self.initialValue = initialValue;
-}
-
-//Ensures that this FormItem's value can only be set to a string
-- (void)setValue:(NSObject *)value {
-    [self validateValue:value];
-    self.value = value;
-}
-
 - (NSObject *)value {
     return self.textView.text;
 }

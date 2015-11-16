@@ -7,15 +7,17 @@
 //
 
 #import "CBFormItem.h"
-#import "CBDateCell.h"
 
 @interface CBDate : CBFormItem
 
+//Displays the currently selected date
 @property (nonatomic,retain) IBOutlet UITextField *dateField;
+//The picker used to select the date
 @property (nonatomic,retain) IBOutlet UIDatePicker *datePicker;
+//The height of the view when engaged
 @property (nonatomic,assign) CGFloat engagedHeight;
+//The formatter used for the displayed date text
 @property (nonatomic,retain) NSDateFormatter *dateFormatter;
+//Called when the date has been changed
 -(IBAction)dateChanged:(id)sender;
-@property (nonatomic, copy) void (^save)(NSDate *value); //Called to ask the subclass to save the value to the data source
-@property (nonatomic, copy) BOOL (^validation)(NSDate *value); //Called to verify that the new value is acceptable to be saved to the data source.
 @end

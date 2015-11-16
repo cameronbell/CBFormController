@@ -81,6 +81,9 @@
 //Calls the validate lamba
 - (BOOL)validate;
 
+//Checks that the value is acceptable for the type of form item and crashes the app if it isn't
+- (void)validateValue:(NSObject *)value;
+
 //Called when the form controller is clicked on
 - (void)selected;
 

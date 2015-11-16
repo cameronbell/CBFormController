@@ -74,14 +74,16 @@
     [self setEngaged:NO];
 }
 
-//Overriding this function to warn users who don't implement this function in a CBFormItem subclass
--(void)setInitialValue:(NSObject *)initialValue {
-    NSLog(@"WARNING: This CBFormItem does not implement the initialValue property.");
+- (void)setInitialValue:(NSObject *)initialValue {
+    //Calls the validateValue method to make sure it's of the right type
+    [self validateValue:initialValue];
+    self.initialValue = initialValue;
 }
 
-//Overriding this function to warn users who don't implement this function in a CBFormItem subclass
--(void)setValue:(NSObject *)value {
-    NSLog(@"WARNING: This CBFormItem does not implement the value property.");
+- (void)setValue:(NSObject *)value {
+    //Calls the validateValue method to make sure it's of the right type
+    [self validateValue:value];
+    self.value = value;
 }
 
 //Overriding this function to warn users who don't implement this function in a CBFormItem subclass

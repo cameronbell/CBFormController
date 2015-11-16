@@ -8,21 +8,12 @@
 
 #import "CBDate.h"
 #import "CBFormController.h"
-#import "CBDateCell.h"
 
 @implementation CBDate
 
-@synthesize save;
-@synthesize validation;
-@synthesize dateFormatter = _dateFormatter;
-
-
--(CBFormItemType)type {
-    return CBFormItemTypeDate;
-}
-
 -(void)configure {
     [super configure];
+    
     [self.dateField setUserInteractionEnabled:NO];
     [self.datePicker addTarget:self action:@selector(dateChanged:)
               forControlEvents:UIControlEventValueChanged];
@@ -45,25 +36,7 @@
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
 }
 
-//Ensures that this FormItem's initialValue can only be set to a date
--(void)setInitialValue:(NSObject *)initialValue {
-    if (!initialValue || [initialValue isKindOfClass:[NSDate class]]) {
-        _initialValue = initialValue;
-    }else{
-        NSAssert(NO, @"The initialValue of a CBDate must be a NSDate.");
-    }
-}
-
-//Ensures that this FormItem's value can only be set to a date
--(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSDate class]]) {
-        _value = value;
-    }else{
-        NSAssert(NO, @"The value of a CBDate must be a NSDate.");
-    }
-}
-
--(NSDateFormatter *)dateFormatter {
+- (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc]init];
         [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -72,62 +45,52 @@
     return _dateFormatter;
 }
 
-
--(NSObject *)value {
-    NSString *text = [[(CBDateCell *)self. cell dateField] text];
-    return [self.dateFormatter dateFromString:text];
+- (NSObject *)value {
+    return [self.dateFormatter dateFromString:self.dateField.text];
 }
 
--(NSObject *)initialValue {
-    return _initialValue ? _initialValue : self.formController.defaultDate;
+- (NSObject *)initialValue {
+    //Defaults to today
+    return super.initialValue ? super.initialValue : [NSDate date];
 }
 
 -(BOOL)isEdited {
-    
-    //If both value and initialValue are nil then the formItem has not been edited
-    if (![self value] && ![self initialValue]) return NO;
-    
-    //If one is nil and the other is not then one of them has changed
-    if ((!self.initialValue)^(!self.value)) return YES;
-    
     return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.value];
 }
 
+//Checks if two dates are equal
 + (BOOL)date:(NSDate *)date1 isSameDayAsDate:(NSDate *)date2 {
-    // Both dates must be defined, or they're not the same
-    //assertnotnil(date1);
-    //assertnotnil(date2);
-    
     if (date1 == nil || date2 == nil) {
-        return NO;
+        //If they're both nil, consider them equal
+        return date1 == nil && date2 == nil;
     }
     
-    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSCalendar *calendar =
+        [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
-    NSDateComponents *day = [calendar components:NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date1];
-    NSDateComponents *day2 = [calendar components:NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date2];
-    return ([day2 day] == [day day] &&
-            [day2 month] == [day month] &&
-            [day2 year] == [day year] &&
+    NSDateComponents *day = [calendar components: NSCalendarUnitEra | NSCalendarUnitYear |
+                             NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date1];
+    NSDateComponents *day2 = [calendar components: NSCalendarUnitEra | NSCalendarUnitYear |
+                              NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date2];
+    
+    return ([day2 day] == [day day] && [day2 month] == [day month] && [day2 year] == [day year] &&
             [day2 era] == [day era]);
 }
 
-
 //Updating the height of the cell is the only change required for engaging an dismissing CBDate items
--(void)engage {
+- (void)engage {
     [super engage];
     [self.formController updates];
 }
--(void)dismiss {
+
+- (void)dismiss {
     [super dismiss];
     [self.formController updates];
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     //Let the formController decide the actual return value of this function as it manages the selection of formitems in response to the return key.
     return [self.formController textFieldShouldReturnForFormItem:self];
-    
 }
 
 //If the CBDate is engaged then return the CBDateCell's engagedHeight, otherwise just fall back to the default.
@@ -150,6 +113,12 @@
 
 -(CGFloat)engagedHeight {
     return 210.0f;
+}
+
+- (void)validateValue:(NSObject *)value {
+    if (![value isKindOfClass:[NSDate class]]) {
+        NSAssert(NO, @"The value of a CBDate must be a NSDate.");
+    }
 }
 
 @end

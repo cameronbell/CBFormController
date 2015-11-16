@@ -11,6 +11,6 @@
 @interface CBComment : CBFormItem <UITextViewDelegate>
 
 //The input view for the user's comments
-@property (nonatomic,retain) IBOutlet UITextView *textView;
+@property (nonatomic, retain) IBOutlet UITextView *textView;
 
 @end
