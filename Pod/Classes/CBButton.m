@@ -31,8 +31,9 @@
 }
 
 -(void)configureCell:(CBCell *)cell {
-    [super configureCell:cell];
-    [cell configureForFormItem:self];
+    [super configure];
+    [self.titleLabel setTextAlignment:self.titleAlign];
+    [self.titleLabel setTextColor:self.titleColor];
 }
 
 //If the buttonType property is set, it takes precedence over the titleAlign property

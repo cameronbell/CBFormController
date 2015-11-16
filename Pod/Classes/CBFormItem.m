@@ -37,21 +37,16 @@
 }
 
 - (void)configure {
-    [cell setSelectionStyle:[self userInteractionEnabled] ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone];
-    
-    //Set the titlelabel's text to the formItem's title - This may not do anything if the cell doesn't use a titleLabel.
-    [self.titleLabel setText:formItem.title];
+    [self setSelectionStyle:[self userInteractionEnabled] ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone];
     
     [self setClipsToBounds:YES];
     
-    //Makes it such that the cell cannot be highlighted by tapping when the form isn't editing, or unless the user has specific that this cell should be able to be interacted with even when the form is not editing
-    if (!([formItem.formController editing] || formItem.enabledWhenNotEditing)) {
-        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    }
+    //Set the titlelabel's text to the formItem's title
+    [self.titleLabel setText:self.title];
     
-    //This function call gives any category on this CBCell an opportunity to customize the cell.
-    if ([self respondsToSelector:@selector(configureAddonsForFormItem:)]) {
-        [self configureAddonsForFormItem:formItem];
+    //Makes it such that the cell cannot be highlighted by tapping when the form isn't editing, or unless the user has specific that this cell should be able to be interacted with even when the form is not editing
+    if (!([self.formController editing] || self.enabledWhenNotEditing)) {
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
 }
 
