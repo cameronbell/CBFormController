@@ -10,6 +10,10 @@
 
 @interface CBSwitch : CBFormItem
 
+@property (nonatomic,retain) IBOutlet UILabel *titleLabel;
+@property (nonatomic,retain) IBOutlet UISwitch *theSwitch;
+@property (nonatomic,retain) IBOutlet UILabel *yesLabel;
+@property (nonatomic,retain) IBOutlet UILabel *noLabel;
 @property (nonatomic,retain) NSString *onString;
 @property (nonatomic,retain) NSString *offString;
 @property (nonatomic, copy) void (^save)(NSNumber *value);

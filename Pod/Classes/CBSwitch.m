@@ -19,13 +19,26 @@
     return CBFormItemTypeSwitch;
 }
 
--(void)configureCell:(CBCell *)cell {
+-(void)configure {
+    [super configure];
     
-    [super configureCell:cell];
+    //Set the labels for this cell
+    [self.titleLabel setText:self.title];
+    [self.yesLabel setText:self.onString];
+    [self.noLabel setText:self.offString];
     
-    [cell configureForFormItem:self];
+    //Switch cells are not selectable
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
+    //If the form is not editing then the user should not be able to flip the switch
+    [self.theSwitch setUserInteractionEnabled:[self.formController editing]];
     
+    //Set initial value
+    //This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
+    [self.theSwitch setOn:[(NSNumber *)self.initialValue boolValue]];
+    
+    //Calls the function switchChanged on the corresponding formItem when the switch is flipped
+    [self.theSwitch addTarget:self action:@selector(switchChanged) forControlEvents:UIControlEventValueChanged];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a nsnumber.
