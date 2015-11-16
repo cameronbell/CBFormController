@@ -7,63 +7,39 @@
 //
 
 #import "CBComment.h"
-#import "CBCommentCell.h"
 #import "CBFormController.h"
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
 
 @implementation CBComment
-@synthesize save;
-@synthesize validation;
 
-
--(CBFormItemType)type {
-    return CBFormItemTypeComment;
-}
-
--(void)configure {
+- (void)configure {
     [super configure];
     
     [self.textView setUserInteractionEnabled:NO];
     [self.textView setDelegate:self];
-    [self.donelabel setHidden:YES];
-    
-    //Uses a cocoapod that provides a category on UITextField that adds a placeholder property
-    [self.textView setPlaceHolder:self.placeholder];
-    
-    //Hide the pencilIcon if the cell is not editable
-    [formItem setIcon:FAComment];
-    [self.pencilIcon setHidden:!formItem.formController.editing];
-    
-    [self.textView setText:(NSString *)formItem.initialValue];
-    
-    //[self.textView addTarget:formItem action:@selector(textViewEditingChange) forControlEvents:UIControlEventEditingChanged];
+    [self.textView setPlaceholder:self.placeholder];
+    [self.textView setText:(NSString *)self.initialValue];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a string
--(void)setInitialValue:(NSObject *)initialValue {
-    
-    if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
-        _initialValue = initialValue;
-    }else{
-        NSAssert(NO, @"The initialValue of a CBComment must be a NSString.");
-    }
+- (void)setInitialValue:(NSObject *)initialValue {
+    [self validateValue:initialValue];
+    self.initialValue = initialValue;
 }
 
 //Ensures that this FormItem's value can only be set to a string
--(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
-        _value = value;
-    }else{
-        NSAssert(NO, @"The value of a CBComment must be a NSString.");
-    }
+- (void)setValue:(NSObject *)value {
+    [self validateValue:value];
+    self.value = value;
 }
 
--(NSObject *)value {
-    return [(CBCommentCell *)self.cell textView].text;
+- (NSObject *)value {
+    return self.textView.text;
 }
 
 //Ensures that initialValue is never nil
--(NSObject *)initialValue {
-    return [(NSString *)_initialValue length] ? _initialValue : @"";
+- (NSObject *)initialValue {
+    return [(NSString *)self.initialValue length] ? self.initialValue : @"";
 }
 
 -(BOOL)isEdited {
@@ -106,6 +82,13 @@
 
 -(CGFloat)height {
     return 120.0f;
+}
+
+//Checks that the given value is a String
+- (void) validateValue:(NSObject *)value {
+    if (![value isKindOfClass:[NSString class]]) {
+        NSAssert(NO, @"The value of a CBComment must be a NSString.");
+    }
 }
 
 @end

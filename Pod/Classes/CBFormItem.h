@@ -3,7 +3,6 @@
 //  @authot Julien Guerinet
 
 #import <Foundation/Foundation.h>
-#import "CBCell.h"
 #import <FontAwesome/NSString+FontAwesome.h>
 
 @class CBFormController;
@@ -52,6 +51,8 @@
 @property (nonatomic,assign) CGFloat defaultHeight;
 //The view's default height for 2 lines 
 @property (nonatomic,assign) CGFloat defaultTwoLineHeight;
+//TODO
+@property (nonatomic, assign) BOOL enabledWhenNotEditing; 
 
 //Initializes the form item with the given name/identifier
 - (id)initWithName:(NSString *)name;
