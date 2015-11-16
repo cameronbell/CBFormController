@@ -10,17 +10,18 @@
 
 @interface CBSwitch : CBFormItem
 
-@property (nonatomic,retain) IBOutlet UILabel *titleLabel;
-@property (nonatomic,retain) IBOutlet UISwitch *theSwitch;
-@property (nonatomic,retain) IBOutlet UILabel *yesLabel;
-@property (nonatomic,retain) IBOutlet UILabel *noLabel;
-@property (nonatomic,retain) NSString *onString;
-@property (nonatomic,retain) NSString *offString;
-@property (nonatomic, copy) void (^save)(NSNumber *value);
-@property (nonatomic, copy) BOOL (^validation)(NSNumber *value);
+//The switch
+@property (nonatomic, retain) IBOutlet UISwitch *theSwitch;
+//Label for the on text
+@property (nonatomic, retain) IBOutlet UILabel *onLabel;
+//Label for the off text
+@property (nonatomic, retain) IBOutlet UILabel *offLabel;
+//String to use for the on state
+@property (nonatomic, retain) NSString *onString;
+//String to use for the fof state
+@property (nonatomic, retain) NSString *offString;
 
-//This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
-
--(void)switchChanged;
+//Called when the status of the switch changes
+- (void)switchChanged;
 
 @end
