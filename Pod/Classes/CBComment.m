@@ -42,45 +42,35 @@
     return [(NSString *)self.initialValue length] ? self.initialValue : @"";
 }
 
--(BOOL)isEdited {
+- (BOOL)isEdited {
     return ![(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
 }
 
--(void)engage {
+- (void)engage {
     [super engage];
     
-    CBCommentCell *commentCell = (CBCommentCell *)self.cell;
-    
     [self.formController updates];
-    [commentCell.textView setUserInteractionEnabled:YES];
-    [commentCell.textView becomeFirstResponder];
-    [commentCell.pencilIcon setHidden:YES];
-    [commentCell.donelabel setHidden:NO];
-
-    
+    [self.textView setUserInteractionEnabled:YES];
+    [self.textView becomeFirstResponder];
 }
 
--(void)dismiss {
+- (void)dismiss {
     [super dismiss];
-    
-    CBCommentCell *commentCell = (CBCommentCell *)self.cell;
 
-    [commentCell.textView setUserInteractionEnabled:NO];
-    [commentCell.textView resignFirstResponder];
-    [commentCell.textView setContentOffset:CGPointMake(0, 0)];
-    [commentCell.pencilIcon setHidden:NO];
-    [commentCell.donelabel setHidden:YES];
+    [self.textView setUserInteractionEnabled:NO];
+    [self.textView resignFirstResponder];
+    [self.textView setContentOffset:CGPointMake(0, 0)];
     [self.formController updates];
 }
 
 
--(void)textViewDidChange:(UITextView *)textView {
+- (void)textViewDidChange:(UITextView *)textView {
     if ([self isEdited]) {
         [self valueChanged];
     }
 }
 
--(CGFloat)height {
+- (CGFloat)height {
     return 120.0f;
 }
 
