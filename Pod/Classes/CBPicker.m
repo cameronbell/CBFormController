@@ -19,9 +19,17 @@
     return CBFormItemTypePicker;
 }
 
--(void)configureCell:(CBCell *)cell {
-    [super configureCell:cell];
-    [cell configureForFormItem:self];
+-(void)configure {
+    [super configure];
+    [self.pickerField setPlaceholder:self.placeholder];
+    [self.pickerField setUserInteractionEnabled:NO];
+    
+    //Set delegate to the formitem
+    [self.picker setDelegate:self];
+    [self.picker setDataSource:self];
+    
+    //Set initial value
+    [self.pickerField setText:(NSString *)self.initialValue];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a string
@@ -161,6 +169,9 @@
     return tView;
 }
 
-
+//Returns the height of the cell when the formitem is engaged and the picker is shown
+-(CGFloat)engagedHeight {
+    return 180.0f;
+}
 
 @end
