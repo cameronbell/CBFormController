@@ -33,7 +33,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
 }
 
 - (void)configure {
@@ -45,7 +44,7 @@
     [self.titleLabel setText:self.title];
     
     //Makes it such that the cell cannot be highlighted by tapping when the form isn't editing, or unless the user has specific that this cell should be able to be interacted with even when the form is not editing
-    if (!([self.formController editing] || self.enabledWhenNotEditing)) {
+    if (!([self.formController editing])) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
 }
@@ -91,16 +90,10 @@
     return nil; //Figure out how to avoid this warning for formitems that don't implement this
 }
 
-
 //Returns a test for equality based on the formItem's name.
 -(BOOL)equals:(CBFormItem *)formItem {
-    if ([formItem.name isEqualToString:self.name]) {
-        return YES;
-    }else{
-        return NO;
-    }
+    return [formItem.name isEqualToString:self.name];
 }
-
 
 //Implemented by subclasses that can be edited, and tells us whether the formitem has been edited
 -(BOOL)isEdited {
@@ -108,7 +101,6 @@
 }
 
 -(void)valueChanged {
-    
     //Calls the change block on the formItem if it exists
     if (self.change) {
         self.change(self.initialValue,self.value);
@@ -138,17 +130,11 @@
     }
 }
 
--(void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
-    
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
     _userInteractionEnabled = userInteractionEnabled;
     
-    if(_cell) {
-        if (_userInteractionEnabled) {
-            [self.cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
-        }else{
-            [self.cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        }
-    }
+    [self setSelectionStyle:_userInteractionEnabled ?
+        UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone];
 }
 
 - (void)setIcon:(FAIcon)icon withColor:(UIColor *)color {
