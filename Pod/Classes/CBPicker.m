@@ -7,19 +7,10 @@
 //
 
 #import "CBPicker.h"
-#import "CBPickerCell.h"
 
 @implementation CBPicker
-@synthesize save;
-@synthesize validation;
-@synthesize items = _items;
 
-
--(CBFormItemType)type {
-    return CBFormItemTypePicker;
-}
-
--(void)configure {
+- (void)configure {
     [super configure];
     [self.pickerField setPlaceholder:self.placeholder];
     [self.pickerField setUserInteractionEnabled:NO];
@@ -32,56 +23,33 @@
     [self.pickerField setText:(NSString *)self.initialValue];
 }
 
-//Ensures that this FormItem's initialValue can only be set to a string
--(void)setInitialValue:(NSObject *)initialValue {
-    
-    if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
-        _initialValue = initialValue;
-    }else{
-        NSAssert(NO, @"The initialValue of a CBPicker must be a NSString.");
-    }
-}
-
-//Ensures that this FormItem's value can only be set to a string
--(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
-        _value = value;
-    }else{
-        NSAssert(NO, @"The value of a CBPicker must be a NSString.");
-    }
-}
-
--(NSObject *)value {
-    return [(CBPickerCell *)self.cell pickerField].text;
+- (NSObject *)value {
+    return self.pickerField.text;
 }
 
 //Ensuring that this never returns nil so that isEdited works properly.
--(NSObject *)initialValue {
-    return [(NSString *)_initialValue length] ? _initialValue : @"";
+- (NSObject *)initialValue {
+    return [(NSString *)super.initialValue length] ? super.initialValue : @"";
 }
 
--(BOOL)isEdited {
+- (BOOL)isEdited {
     return ![(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
 }
 
--(void)engage {
-    
+- (void)engage {
     [super engage];
-    
-    CBPickerCell *pickerCell = (CBPickerCell *)self.cell;
     
     //Default to the first value in the items array
     int selectedIndex = 0;
     
     //If the formitem already has a value then set the picker to that value
     if ([(NSString *)self.value length]) {
-        
         selectedIndex = [self indexOfStringInPicker:(NSString *)self.value];
-
-    }else{
-        //If the formitem does not already have a value then set it to the value of the first one in the array
+    } else {
+        //If the formitem does not already have a value then set it
+        //  to the value of the first one in the array
         if ([self.items count]) {
-            [pickerCell.pickerField setText:[self.items objectAtIndex:selectedIndex]];
+            [self.pickerField setText:[self.items objectAtIndex:selectedIndex]];
         }
     }
 
@@ -89,57 +57,51 @@
     [self.formController updates];
     
     //Sets the picker to the selectedIndex
-    [pickerCell.picker selectRow:selectedIndex inComponent:0 animated:NO];
+    [self.picker selectRow:selectedIndex inComponent:0 animated:NO];
     
     //Make the picker visible
-    [pickerCell.picker setHidden:NO];
-    
+    [self.picker setHidden:NO];
 }
 
--(int)indexOfStringInPicker:(NSString *)string {
-    
-    int index = 0;
-    for (NSString *item in self.items) {
-        if ([item isEqualToString:string]) {
-            return index;
+- (int)indexOfStringInPicker:(NSString *)string {
+    for (int i = 0; i < [self.items count]; i ++) {
+        if ([[self.items objectAtIndex:i] isEqualToString:string]) {
+            return i;
         }
-        index++;
     }
     
     //String not found
     return -1;
 }
 
--(void)dismiss {
-    
+- (void)dismiss {
     [super dismiss];
-    
-    CBPickerCell *pickerCell = (CBPickerCell *)self.cell;
     
     //Adjusts the height of the cell appropriately
     [self.formController updates];
     
     //Hidse the picker
-    [pickerCell.picker setHidden:YES];
+    [self.picker setHidden:YES];
     
 }
 
 //If the cell is engaged return it's engaged height, otherwise load the default
--(CGFloat)height {
+- (CGFloat)height {
     if (self.engaged) {
-        return [(CBPickerCell *)[self cell] engagedHeight];
-    }else {
+        return self.engagedHeight;
+    } else {
         return [super height];
     }
 }
 
 #pragma mark - Picker View Delegate/DataSource Methods
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     return [self.items count];
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row
+           forComponent:(NSInteger)component {
     return [self.items objectAtIndex:row];
 }
 
@@ -147,13 +109,13 @@
     return 1;
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    CBPickerCell *cell = (CBPickerCell *)self.cell;
-    [cell.pickerField setText:[self.items objectAtIndex:row]];
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component {
+    [self.pickerField setText:[self.items objectAtIndex:row]];
 }
 
--(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
+          forComponent:(NSInteger)component reusingView:(UIView *)view {
     UILabel* tView = (UILabel*)view;
     if (!tView){
         tView = [[UILabel alloc] init];
@@ -162,7 +124,6 @@
         [tView setAdjustsFontSizeToFitWidth:YES];
         [tView setTextAlignment:NSTextAlignmentCenter];
         [tView setBackgroundColor:[UIColor clearColor]];
-        
     }
     // Fill the label text here
     [tView setText:[self pickerView:pickerView titleForRow:row forComponent:component]];
@@ -170,8 +131,15 @@
 }
 
 //Returns the height of the cell when the formitem is engaged and the picker is shown
--(CGFloat)engagedHeight {
+- (CGFloat)engagedHeight {
     return 180.0f;
+}
+
+//Checks that the given value is a String
+- (void) validateValue:(NSObject *)value {
+    if (![value isKindOfClass:[NSString class]]) {
+        NSAssert(NO, @"The value of a CBPicker must be a NSString.");
+    }
 }
 
 @end
