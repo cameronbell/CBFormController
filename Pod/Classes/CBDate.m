@@ -89,22 +89,22 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    //Let the formController decide the actual return value of this function as it manages the selection of formitems in response to the return key.
+    //Let the formController decide the actual return value of this function
+    //  as it manages the selection of formitems in response to the return key.
     return [self.formController textFieldShouldReturnForFormItem:self];
 }
 
-//If the CBDate is engaged then return the CBDateCell's engagedHeight, otherwise just fall back to the default.
--(CGFloat)height {
+- (CGFloat)height {
     if (self.engaged) {
-        return [(CBDateCell *)[self cell] engagedHeight];
-    }else {
+        return [self engagedHeight];
+    } else {
         return [super height];
     }
 }
 
--(IBAction)dateChanged:(id)sender {
+- (IBAction)dateChanged:(id)sender {
     UIDatePicker *datePicker = (UIDatePicker *)sender;
-    [[(CBDateCell *)self.cell dateField] setText:[self.dateFormatter stringFromDate:datePicker.date]];
+    [self.dateField setText:[self.dateFormatter stringFromDate:datePicker.date]];
     
     if ([self isEdited]) {
         [self valueChanged];
