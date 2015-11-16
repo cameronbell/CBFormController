@@ -19,9 +19,15 @@
     return CBFormItemTypeText;
 }
 
--(void)configureCell:(CBCell *)cell {
-    [super configureCell:cell];
-    [cell configureForFormItem:self];
+-(void)configure {
+    [super configure];
+    [self.textField setUserInteractionEnabled:NO];
+    [self.textField setDelegate:self];
+    [self.textField setText:(NSString *)self.initialValue];
+    [self.textField setTag:[self.formController rowIndexForFormItem:formItem]];
+    [self.textField addTarget:self action:@selector(textFieldEditingChange)
+             forControlEvents:UIControlEventEditingChanged];
+    [self.textField setKeyboardType:self.keyboardType];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a string
