@@ -11,7 +11,7 @@
 
 @interface CBPopupPicker : CBFormItem <CBPopupPickerViewDelegate>
 
-
+@property (nonatomic,retain) IBOutlet UITextField *textField;
 @property (nonatomic,assign) BOOL allowsCustomItems;
 @property (nonatomic,retain) NSMutableArray *items;
 @property (nonatomic, copy) void (^save)(NSString *value); //Called to ask the subclass to save the value to the data source

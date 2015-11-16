@@ -24,11 +24,12 @@
     return CBFormItemTypePopupPicker;
 }
 
--(void)configureCell:(CBCell *)cell {
+-(void)configure {
+    [super configure];
     
-    [super configureCell:cell];
-    
-    [cell configureForFormItem:self];
+    [self.textField setPlaceholder:self.placeholder];
+    [self.textField setText:(NSString *)self.initialValue];
+    [self.textField setUserInteractionEnabled:NO];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a string
