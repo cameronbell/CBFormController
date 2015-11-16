@@ -11,6 +11,9 @@
 
 @interface CBDate : CBFormItem
 
+@property (nonatomic,retain) IBOutlet UITextField *dateField;
+@property (nonatomic,retain) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic,assign) CGFloat engagedHeight;
 @property (nonatomic,retain) NSDateFormatter *dateFormatter;
 -(IBAction)dateChanged:(id)sender;
 @property (nonatomic, copy) void (^save)(NSDate *value); //Called to ask the subclass to save the value to the data source

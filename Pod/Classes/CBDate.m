@@ -21,9 +21,28 @@
     return CBFormItemTypeDate;
 }
 
--(void)configureCell:(CBCell *)cell {
-    [super configureCell:cell];
-    [cell configureForFormItem:self];
+-(void)configure {
+    [super configure];
+    [self.dateField setUserInteractionEnabled:NO];
+    [self.datePicker addTarget:self action:@selector(dateChanged:)
+              forControlEvents:UIControlEventValueChanged];
+    
+    //Trying this out
+    //[self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    //The dateField can be nil if both initialValue and defaultDate are nil
+    NSString *string = [self.dateFormatter stringFromDate:self.initialValue ?
+                        (NSDate *)self.initialValue : self.formController.defaultDate];
+    [self.dateField setText:string];
+    
+    //The date picker must set to some value; If initialValue is nil, show defaultDate, but if that is nil then show today's date.
+    [self.datePicker setDate:self.initialValue ?
+     (NSDate *)self.initialValue :
+     (self.formController.defaultDate ? self.formController.defaultDate : [NSDate date])];
+    
+    //This is a temporary fix for the iOS9 Datepicker bug.
+    [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a date
@@ -129,6 +148,8 @@
     }
 }
 
-
+-(CGFloat)engagedHeight {
+    return 210.0f;
+}
 
 @end

@@ -23,11 +23,11 @@
     [super configure];
     
     [self.textView setUserInteractionEnabled:NO];
-    [self.textView setDelegate:formItem];
+    [self.textView setDelegate:self];
     [self.donelabel setHidden:YES];
     
     //Uses a cocoapod that provides a category on UITextField that adds a placeholder property
-    [self.textView setPlaceholder:formItem.placeholder];
+    [self.textView setPlaceHolder:self.placeholder];
     
     //Hide the pencilIcon if the cell is not editable
     [formItem setIcon:FAComment];
