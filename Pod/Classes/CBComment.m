@@ -19,9 +19,23 @@
     return CBFormItemTypeComment;
 }
 
--(void)configureCell:(CBCell *)cell {
-    [super configureCell:cell];
-    [cell configureForFormItem:self];
+-(void)configure {
+    [super configure];
+    
+    [self.textView setUserInteractionEnabled:NO];
+    [self.textView setDelegate:formItem];
+    [self.donelabel setHidden:YES];
+    
+    //Uses a cocoapod that provides a category on UITextField that adds a placeholder property
+    [self.textView setPlaceholder:formItem.placeholder];
+    
+    //Hide the pencilIcon if the cell is not editable
+    [formItem setIcon:FAComment];
+    [self.pencilIcon setHidden:!formItem.formController.editing];
+    
+    [self.textView setText:(NSString *)formItem.initialValue];
+    
+    //[self.textView addTarget:formItem action:@selector(textViewEditingChange) forControlEvents:UIControlEventEditingChanged];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a string
@@ -88,6 +102,10 @@
     if ([self isEdited]) {
         [self valueChanged];
     }
+}
+
+-(CGFloat)height {
+    return 120.0f;
 }
 
 @end
