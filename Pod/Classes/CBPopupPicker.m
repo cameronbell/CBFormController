@@ -73,12 +73,14 @@
     pickerPopup.shouldDismissOnBackgroundViewTap = YES;
     pickerPopup.transitionStyle = MZFormSheetTransitionStyleSlideFromBottom;
     pickerPopup.cornerRadius = 8.0;
-    pickerPopup.portraitTopInset = 6.0;
     pickerPopup.landscapeTopInset = 6.0;
+
     
     CGRect screenSize = [[UIScreen mainScreen]bounds];
-    
     pickerPopup.presentedFormSheetSize = CGSizeMake(screenSize.size.width - 40, 350);
+    pickerPopup.portraitTopInset = (screenSize.size.height-pickerPopup.presentedFormSheetSize.height)/2;
+    
+    
     
     pickerPopup.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController){
         presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
