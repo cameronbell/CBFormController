@@ -22,9 +22,6 @@
     //Holds the form item that is currently active
     CBFormItem *_engagedItem;
     
-    //Keeps track of the contentInsets that the formtable loads with so that it can reset to these insets after changing them for the keyboard
-    UIEdgeInsets _originalInsets;
-    
     UIBarButtonItem *_cancelBarButtonItem;
 }
 

@@ -71,6 +71,9 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 
 @property (nonatomic,retain) NSDate *defaultDate;
 
+//Keeps track of the contentInsets that the formtable loads with so that it can reset to these insets after changing them for the keyboard
+@property (nonatomic,assign) UIEdgeInsets originalInsets;
+
 @property (nonatomic, copy) void (^saveSucceeded)(CBFormController *formController); //Block that gets called after the save function succeeds
 
 -(NSArray *)getFormConfiguration; //This function is called to collect all the necessary information from the subclass about how to build the form
