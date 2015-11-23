@@ -17,9 +17,6 @@
     //Keeps track of the contentInsets that the formtable loads with so that it can reset to
     //  these insets after changing them for the keyboard
     UIEdgeInsets _originalInsets;
-    
-    //TODO The cancel button
-    UIBarButtonItem *_cancelBarButtonItem;
 }
 
 @end
@@ -43,15 +40,32 @@
     //Makes the formTable and ensures that it is properly setup with in the view
     [self setupTable];
     
-    //Get all of the form configuration information from the subclass
-    [self loadFormConfiguration];
-    
     //This ensures this class gets the OS notifications about when the keyboard is shown
     [self registerForKeyboardNotifications];
     
-    //Configures the navigation bar buttons
-    [self setupNavigationBar];
+    //Set up the left button
+    self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.leftButton setFrame:CGRectMake(0, 12, 70, 22)];
+    [self.leftButton addTarget:self action:@selector(leftButtonPressed)
+         forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+    [self.leftButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.leftButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [self.leftButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    self.leftBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.leftButton];
     
+    //Set up the right button
+    self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.rightButton setFrame:CGRectMake(0, 12, 70, 22)];
+    [self.rightButton addTarget:self action:@selector(rightButtonPressed)
+          forControlEvents:UIControlEventTouchUpInside];
+    [self.rightButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+    [self.rightButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    self.rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.rightButton];
+    [self.navigationItem setRightBarButtonItem:self.rightBarButton animated:YES];
+    
+    [self updateNavigationBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -179,8 +193,7 @@
 #pragma mark - Engage/Dismiss Methods
 
 //Ensures that the keyboard delegate methods are called on this class.
-- (void)registerForKeyboardNotifications
-{
+- (void)registerForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];
@@ -192,8 +205,7 @@
 }
 
 //Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
+- (void)keyboardWasShown:(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     
@@ -208,43 +220,44 @@
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     
-    NSIndexPath *indexPath = [self.formTable indexPathForCell:_engagedItem.cell];
+    NSIndexPath *indexPath = [self.formTable indexPathForCell:_engagedItem];
     
     CGRect cellRect = [self.formTable rectForRowAtIndexPath:indexPath];
-    cellRect = CGRectMake(cellRect.origin.x, cellRect.origin.y+20, cellRect.size.width, cellRect.size.height);
+    cellRect = CGRectMake(cellRect.origin.x, cellRect.origin.y + 20, cellRect.size.width,
+                          cellRect.size.height);
     
-    if (!CGRectContainsPoint(aRect, cellRect.origin) ) {
+    if (!CGRectContainsPoint(aRect, cellRect.origin)) {
         [self.formTable scrollRectToVisible:cellRect animated:YES];
     }
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
     UIEdgeInsets contentInsets = _originalInsets;
     self.formTable.contentInset = contentInsets;
     self.formTable.scrollIndicatorInsets = contentInsets;
 }
 
-//Calls engage on a formItem and calls dismiss on all of the other ones
+// Engages a form item and dismisses the other ones
 -(void)engageFormItem:(CBFormItem *)formItem {
     _engagedItem = formItem;
+    [formItem setEngaged:YES];
     
-    [formItem engage];
-    
+    //Go through the form items except for this one
     NSMutableArray *items = [NSMutableArray arrayWithArray:self.formItems];
     [items removeObject:formItem];
-    for (int i = 0; i<[items count]; i++) {
-        CBFormItem *formItem = [items objectAtIndex:i];
-        if ([formItem isEngaged]) {
-            [formItem dismiss];
-        }
+    
+    for (CBFormItem *item in items) {
+        //Dismiss them (nothing will happen if they are already dismissed)
+        [item setEngaged:NO];
     }
 }
 
-//Dismisses a formItem
--(void)dismissFormItem:(CBFormItem*)formItem {
-    [formItem dismiss];
+// Dismisses a formItem
+- (void)dismissFormItem:(CBFormItem *)formItem {
+    [formItem setEngaged:NO];
+    
+    //Reset the engages item to nil if this is the form item we are dismissing
     if ([formItem equals:_engagedItem]) {
         _engagedItem = nil;
     }
@@ -252,25 +265,20 @@
 
 #pragma mark - Return Key Management
 
-//This function and the next are responsible for deciding which formitem to engage next when the user taps the return key on the keyboard
--(BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem {
-    CBFormItem *nextItem = [self getNextItemForReturnAfter:formItem];
-    if (nextItem == nil) {
+// Engages the next form item if there is one
+- (BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem {
+    //Get the next form item
+    CBFormItem *item = [self.formItems objectAtIndex:[self.formItems indexOfObject:formItem] + 1];
+    
+    //If there isn't one, dismiss the current form item
+    if (!item) {
         [self dismissFormItem:formItem];
-    }else{
-        [self engageFormItem:nextItem];
+    }
+    //If there is one, engage it
+    else {
+        [self engageFormItem:formItem];
     }
     return NO;
-}
-
--(CBFormItem *)getNextItemForReturnAfter:(CBFormItem *) formItem {
-    NSInteger menuOffset = [self.formItems indexOfObject:formItem];
-    if ((menuOffset+1)< [self.formItems count]) {
-        return  [self.formItems objectAtIndex:(menuOffset+1)];
-    }else {
-        return nil;
-    }
-    
 }
 
 #pragma mark - UITableView Delegate/Datasource Methods
@@ -303,12 +311,13 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [_sectionArray count];
+    return [_sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int count = 0;
-    for (int i = 0; i<[[_sectionArray objectAtIndex:section] count]; i++) {
+    
+    for (int i = 0; i < [[_sections objectAtIndex:section] count]; i++) {
         CBFormItem *formItem = [[_sectionArray objectAtIndex:section] objectAtIndex:i];
         if (![formItem isHidden]) {
             count++;
@@ -325,65 +334,36 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //Deselect the form item
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
-    //This ensures that if a FormItem is pressed while the form is not in editing mode that nothing will happen, unless the formItem's enabledWhenNotEditing property is true
+    //If the form item should not be pressed, don't continue
     if (!([self editing] || formItem.enabledWhenNotEditing) || !formItem.userInteractionEnabled) {
         return;
     }
     
-    switch (formItem.type) {
-        case CBFormItemTypeText:
-        case CBFormItemTypeDate:
-        case CBFormItemTypeComment:
-        case CBFormItemTypeAutoComplete:
-        case CBFormItemTypePicker:
-        case CBFormItemTypeFAQ: {
-            if ([formItem isEngaged]) {
-                [self dismissFormItem:formItem];
-            }else{
-                [self engageFormItem:formItem];
-            }
-            break;
-        }
-        case CBFormItemTypePopupPicker: {
-            [formItem selected];
-            break;
-        }
-        case CBFormItemTypeButton: {
-            [formItem selected];
-            break;
-        }
-        case CBFormItemTypeSwitch:
-        case CBFormItemTypeCaption:
-        default:
-            break;
+    //Engage or disengage the chosen form item
+    if ([formItem isSelected]) {
+        [self dismissFormItem:formItem];
+    }
+    else {
+        [self engageFormItem:formItem];
     }
 }
 
 #pragma mark - Navigation Bar Management Methods
 
--(void)setupNavigationBar {
-    [self installRightBarButton];
-    
-    [self updateNavigationBar];
-}
-
 -(void)updateNavigationBar {
-    
-    //The CBFormEditModeFrozen and CBFormEditModeFree Edit modes do not require any changes to the navigation bar buttons
+    //The CBFormEditModeFrozen and CBFormEditModeFree Edit modes do not require any changes
+    //  to the navigation bar buttons
     //The CBFormEditModeEdit and CBFormEditModeSave modes do.
-    switch ([self editMode]) {
-        case CBFormEditModeFrozen:
-        case CBFormEditModeFree:
-            break;
-        case CBFormEditModeEdit:
-        case CBFormEditModeSave:
-        {
-            [self configureRightBarButton];
-            [self configureLeftBarButton];
+    switch ([self mode]) {
+        case CBFormModeEdit:
+        case CBFormModeSave: {
+            [self configureRightButton];
+            [self configureLeftButton];
             break;
         }
         default:
@@ -391,62 +371,11 @@
     }
 }
 
-
--(void)configureRightBarButton {
-    switch ([self editMode]) {
-        case CBFormEditModeEdit:{
-            if ([self editing]) {
-                [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
-                [self.rightButton setEnabled:[self isFormEdited]];
-                [self.rightButton setEnabled:YES];
-            }else{
-                [self.rightButton setTitle:@"Edit" forState:UIControlStateNormal];
-            }
-            break;
-        }
-        case CBFormEditModeSave:{
-            [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
-            [self.rightButton setEnabled:[self isFormEdited]];
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
-
--(void)installRightBarButton {
-    self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.rightButton setFrame:CGRectMake(0, 12, 70, 22)];
-    [self.rightButton addTarget:self action:@selector(rightButtonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.rightButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-    [self.rightButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    
-    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.rightButton];
-    [self.navigationItem setRightBarButtonItem:saveBarButton animated:YES];
-    
-}
-
--(void)configureLeftBarButton {
-    
+//Configures the left bar button
+- (void)configureLeftButton {
     if ([self editing]) {
         if ([self isFormEdited]){
-            
-            if (!_cancelBarButtonItem) {
-                UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-                [cancelButton setFrame:CGRectMake(0, 12, 70, 22)];
-                [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
-                
-                [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-                [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-                [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-                
-                _cancelBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
-            }
-            
-            [self.navigationItem setLeftBarButtonItem:_cancelBarButtonItem animated:YES];
+            [self.navigationItem setLeftBarButtonItem:self.leftBarButton animated:YES];
             [self.navigationItem setHidesBackButton:YES animated:YES];
             
         }else{
@@ -461,8 +390,36 @@
     }
 }
 
--(IBAction)rightButtonWasPressed:(id)sender {
-    switch ([self editMode]) {
+//Configures the right bar button
+- (void)configureRightButton {
+    switch ([self mode]) {
+        case CBFormModeEdit:{
+            if ([self editing]) {]
+                [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
+                [self.rightButton setEnabled:[self isFormEdited]];
+            } else {
+                [self.rightButton setTitle:@"Edit" forState:UIControlStateNormal];
+            }
+            break;
+        }
+        case CBFormModeSave:{
+            [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
+            [self.rightButton setEnabled:[self isFormEdited]];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)leftButtonPressed {
+    self.editing = NO;
+    [self dismissAllFields];
+    [self reloadEntireForm];
+}
+
+- (void)rightButtonPressed {
+    switch ([self mode]) {
         case CBFormEditModeEdit:{
             if ([self editing]) {
                 [self save];
@@ -515,12 +472,6 @@
 
 -(void)beginEdit {
     self.editing = YES;
-    [self reloadEntireForm];
-}
-
--(void)cancel {
-    self.editing = NO;
-    [self dismissAllFields];
     [self reloadEntireForm];
 }
 

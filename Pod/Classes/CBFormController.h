@@ -37,10 +37,14 @@ typedef NS_ENUM(NSInteger, CBFormMode) {
 @property (nonatomic, assign) CBFormMode mode;
 //True if the form is currently being edited, false otherwise
 @property (nonatomic, assign) BOOL editing;
-//The right button on the navigation bar
+//The left button view on the navigation bar
+@property (nonatomic, retain) UIButton *leftButton;
+//The left button on the navigation bar
+@property (nonatomic, retain) UIBarButtonItem *leftBarButton;
+//The right button view on the navigation bar
 @property (nonatomic, retain) UIButton *rightButton;
-//TODO The left button on the navigation bar
-@property (nonatomic, retain) UIButton *cancelButton;
+//The right button on the navigation bar
+@property (nonatomic, retain) UIBarButtonItem *rightBarButton; 
 //TODO
 @property (nonatomic,retain) NSDate *defaultDate;
 //Block that gets called after the save function succeeds

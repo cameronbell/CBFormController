@@ -27,14 +27,6 @@
     return self;
 }
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (void)configure {
     [self setSelectionStyle:[self userInteractionEnabled] ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone];
     
@@ -64,14 +56,6 @@
 //Controls the number of lines that the title can occupy. At present CBFormController only supports values of 1 or 2. Looking to improve upon this in the future.
 -(int)numberOfTitleLines {
     return 1;
-}
-
--(void)engage {
-    [self setEngaged:YES];
-}
-
--(void)dismiss {
-    [self setEngaged:NO];
 }
 
 - (void)setInitialValue:(NSObject *)initialValue {
@@ -126,11 +110,6 @@
     }
 }
 
--(void)selected {
-    if (self.select) {
-        self.select();
-    }
-}
 
 - (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
     _userInteractionEnabled = userInteractionEnabled;

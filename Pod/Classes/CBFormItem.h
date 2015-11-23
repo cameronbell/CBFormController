@@ -17,7 +17,7 @@
 @property (nonatomic, weak) CBFormController *formController;
 //The cell name and identifier
 @property (nonatomic, retain) NSString *name;
-//True if the current item is engaged by the user, false otherwise
+//True if the current item is selected by the user, false otherwise
 @property (nonatomic, assign, getter = isEngaged) BOOL engaged;
 //True if the current item is hidden, false otherwise
 @property (nonatomic, assign, getter = isHidden) BOOL hidden;
@@ -60,12 +60,6 @@
 //Configures the view once created
 - (void)configure;
 
-//Engages the form item. Opposite of dismiss:
-- (void)engage;
-
-//Dismisses the form item if it's engaged. Opposite of engage:
-- (void)dismiss;
-
 //@return True if it is equal to the given form item, false otherwise
 - (BOOL)equals:(CBFormItem *)formItem;
 
@@ -83,9 +77,6 @@
 
 //Checks that the value is acceptable for the type of form item and crashes the app if it isn't
 - (void)validateValue:(NSObject *)value;
-
-//Called when the form controller is clicked on
-- (void)selected;
 
 //@return the height to use for this form item 
 - (CGFloat)height;
