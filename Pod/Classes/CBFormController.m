@@ -283,31 +283,32 @@
 
 #pragma mark - UITableView Delegate/Datasource Methods
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return UITableViewAutomaticDimension;
-}
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return nil;
-}
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return nil;
-}
--(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return nil;
-}
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return nil;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return UITableViewAutomaticDimension;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    CBFormItem *formItem = [self formItemForIndexPath:indexPath];
-    
-    return [formItem height];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[self formItemForIndexPath:indexPath] height];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -317,26 +318,24 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int count = 0;
     
-    for (int i = 0; i < [[_sections objectAtIndex:section] count]; i++) {
-        CBFormItem *formItem = [[_sectionArray objectAtIndex:section] objectAtIndex:i];
+    NSMutableArray *currentSection = [_sections objectAtIndex:section];
+    for (CBFormItem *formItem in currentSection) {
         if (![formItem isHidden]) {
-            count++;
+            count ++;
         }
     }
+    
     return count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    CBFormItem *formItem = [self formItemForIndexPath:indexPath];
-    
-    return [formItem cell];
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self formItemForIndexPath:indexPath];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //Deselect the form item
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
     //If the form item should not be pressed, don't continue
@@ -394,7 +393,7 @@
 - (void)configureRightButton {
     switch ([self mode]) {
         case CBFormModeEdit:{
-            if ([self editing]) {]
+            if ([self editing]) {
                 [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
                 [self.rightButton setEnabled:[self isFormEdited]];
             } else {
@@ -420,17 +419,17 @@
 
 - (void)rightButtonPressed {
     switch ([self mode]) {
-        case CBFormEditModeEdit:{
+        case CBFormModeEdit:
             if ([self editing]) {
                 [self save];
-            }else{
+            }
+            else {
                 [self beginEdit];
             }
             break;
-        }
-        case CBFormEditModeSave: {
+        case CBFormModeSave:
             [self save];
-        }
+            break;
         default:
             break;
     }
@@ -438,31 +437,37 @@
 
 #pragma mark - Data Methods (Save, etc...)
 
--(BOOL)validate {
+- (BOOL)validate {
     return YES;
 }
 
--(BOOL)save {
+- (BOOL)save {
     [self dismissAllFields];
     
-    BOOL validationSuccess = YES;
-    
     //Allows the subclass to override the validate function
-    validationSuccess = [self validate];
-    if (!validationSuccess)return NO;
-    
-    for (CBFormItem *formItem in [self formItems]) {
-        validationSuccess = formItem.validate;
-        if (!validationSuccess)return NO;
+    if (![self validate]) {
+        return NO;
     }
     
+    //Go through the validation blocks of all of the from items
+    for (CBFormItem *formItem in [self formItems]) {
+        if (![formItem validate]) {
+            return NO;
+        }
+    }
+    
+    //Save the fields of all of the form items
     for (CBFormItem *formItem in [self formItems]) {
         [formItem saveValue];
     }
     
+    //Turn off editing
     self.editing = NO;
+    
+    //Reload the entire form
     [self reloadEntireForm];
     
+    //TODO What is this ?
     if (self.saveSucceeded) {
         self.saveSucceeded(self);
     }
@@ -491,44 +496,26 @@
 }
 
 -(void)reloadEntireForm {
-    [self eraseCells];
-    [self loadFormConfiguration];
     [self.formTable reloadData];
     [self updateNavigationBar];
 }
 
-//this method exists so that a subclass can erase the cells of the formitems so that calling reloadData will actually reload the cell, which is useful in the case where we want to reload the cells from their original content like the cancel button on the profile
--(void)eraseCells {
-    
-    for (int i = 0; i<[self.formItems count]; i++) {
-        CBFormItem *formItem = [self.formItems objectAtIndex:i];
-        [formItem setCell:nil];
-    }
-}
-
--(void)dismissAllFields {
-    for (int i = 0; i<[self.formItems count]; i++) {
-        CBFormItem *formItem = [self.formItems objectAtIndex:i];
-        [formItem dismiss];
+- (void)dismissAllFields {
+    for (CBFormItem *formItem in self.formItems) {
+        [formItem setEngaged:NO];
     }
 }
 
 //Tells the formTable to update it's view properties. Mainly important for updating the height of the cells.
--(void)updates {
+- (void)updates {
     [self.formTable beginUpdates];
     [self.formTable endUpdates];
 }
 
 //Shows a alert view with the validation error message
--(void)showValidationErrorWithMessage:(NSString *)message {
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+- (void)showValidationErrorWithMessage:(NSString *)message {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil
+                      cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 @end

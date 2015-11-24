@@ -7,7 +7,7 @@
 //
 
 #import "CBPopupPickerView.h"
-#import "CBPopupPickerCell.h"
+#import "CBPopupPicker.h"
 #import "CBFormController.h"
 
 @interface CBPopupPickerView () {
