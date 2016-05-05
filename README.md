@@ -16,7 +16,6 @@ it, simply add the following line to your Podfile:
 pod "CBFormController"
 ```
 
-
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -244,14 +243,12 @@ This is useful when you want all of the cells in your custom CBCellSet to have t
 * pod 'MZFormSheetController', '~> 3.1'
 * FAKFontAwesome
 
+## Contributors
+* [Julien Guerinet](https://github.com/jguerinet)
+* [Cameron Bell](https://github.com/cameronbell)
 
-## Requirements
-
-
-## Author
-
-Cameron Bell, cameron.bell@me.com
+## Version History
+See the [Change Log](CHANGELOG.md).
 
 ## License
-
 CBFormController is available under the MIT license. See the LICENSE file for more info.
