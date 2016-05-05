@@ -244,8 +244,8 @@ This is useful when you want all of the cells in your custom CBCellSet to have t
 * FAKFontAwesome
 
 ## Contributors
-* [Julien Guerinet](https://github.com/jguerinet)
 * [Cameron Bell](https://github.com/cameronbell)
+* [Julien Guerinet](https://github.com/jguerinet)
 
 ## Version History
 See the [Change Log](CHANGELOG.md).
