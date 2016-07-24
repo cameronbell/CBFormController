@@ -29,6 +29,7 @@
     
     if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
         _initialValue = initialValue;
+        _value = [initialValue copy];
     }else{
         NSAssert(NO, @"The initialValue of a CBPicker must be a NSString.");
     }
@@ -143,6 +144,10 @@
     
     CBPickerCell *cell = (CBPickerCell *)self.cell;
     [cell.pickerField setText:[self.items objectAtIndex:row]];
+    
+    if ([self isEdited]) {
+        [self valueChanged];
+    }
 }
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
