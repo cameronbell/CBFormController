@@ -17,7 +17,7 @@
     [super configureForFormItem:formItem];
     
     [self.textField setPlaceholder:formItem.placeholder];
-    [self.textField setText:(NSString *)formItem.initialValue];
+    [self.textField setText:[(NSArray *)formItem.initialValue componentsJoinedByString:@", "]];
     [self.textField setUserInteractionEnabled:NO];
 
 }

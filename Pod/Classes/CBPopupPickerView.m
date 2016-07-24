@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Cameron Bell. All rights reserved.
 //
 
-#import "CBPopupPickerView.h"
 #import "CBPopupPickerCell.h"
 #import "CBFormController.h"
 
 @interface CBPopupPickerView () {
     NSMutableArray *_results;
+    NSMutableArray *_selections;
     CBPopupPicker *_formItem;
     NSString *_searchTerm;
 }
@@ -22,14 +22,15 @@
 @synthesize titleBar,searchField,searchTable;
 @synthesize delegate = _delegate;
 
-
--(id)initForFormItem:(CBPopupPicker *)formItem withDelegate:(id <CBPopupPickerViewDelegate>)delegate{
+-(id)initForFormItem:(CBPopupPicker *)formItem withDelegate:(id <CBPopupPickerViewDelegate>)delegate allowsMultipleSelection:(BOOL)multipleSelections allowsCustomItems:(BOOL)customItems selections:(NSArray *)selections {
     if (self = [super initWithNibName:@"CBPopupPickerView" bundle:[NSBundle bundleForClass:[self class]]]) {
         _delegate = delegate;
         _formItem = formItem;
         _results = [NSMutableArray arrayWithArray:formItem.items];
-        
+        _selections = selections ? [NSMutableArray arrayWithArray:selections] : [NSMutableArray array];
         _searchTerm = @"";
+        _allowsCustomItems = customItems && !multipleSelections; //If multipleSelections is allowed then don't allow customItems
+        _allowsMultipleSelections = multipleSelections;
     }
     return self;
 }
@@ -39,6 +40,10 @@
     // Do any additional setup after loading the view from its nib.
     
     UINavigationItem *titleItem = [[UINavigationItem alloc]initWithTitle:_formItem.title];
+    
+    [titleItem setRightBarButtonItem:_allowsMultipleSelections ? [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(multipleSelectionDoneButton:)] : nil];
+    
+    [self.topOfTable setConstant: _allowsCustomItems ? 96 : self.titleBar.frame.size.height];
     
     [self.titleBar setItems:@[titleItem]];
 }
@@ -94,9 +99,7 @@ replacementString:(NSString *)string {
             initWithStyle:UITableViewCellStyleDefault
             reuseIdentifier:@"cell"];
     
-    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setClipsToBounds:YES];
-    
     
     int customItemCellOffset = 0;
     if (_searchTerm.length > 0) {
@@ -107,10 +110,20 @@ replacementString:(NSString *)string {
         [cell.textLabel setText:[NSString stringWithFormat:@"Add item named %@ ...",_searchTerm]];
     }else{
         [cell.textLabel setText:[_results objectAtIndex:indexPath.row + customItemCellOffset]];
+        if (_allowsMultipleSelections) {
+            if ([_selections containsObject:cell.textLabel.text]) {
+                //Add checkbox to cell
+                UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"checkmark"]];
+                [imgView setFrame:CGRectMake(cell.frame.size.width-22-50, (cell.frame.size.height-22)/2, 22, 22)];
+                [cell addSubview:imgView];
+            } else {
+                UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"checkmark-future"]];
+                [imgView setFrame:CGRectMake(cell.frame.size.width-22-50, (cell.frame.size.height-22)/2, 22, 22)];
+                [cell addSubview:imgView];
+            }
+        }
     }
-    
     return cell;
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,9 +142,16 @@ replacementString:(NSString *)string {
     }
     
     
-    
-    [self.delegate popupPickerForFormItem:_formItem didSelectItem:result];
-    
+    if(_allowsMultipleSelections) {
+        if([_selections containsObject:result]) {
+            [_selections removeObject:result];
+        }else{
+            [_selections addObject:result];
+        }
+        [self.searchTable reloadData];
+    }else{
+        [self.delegate popupPickerForFormItem:_formItem didSelectItems:@[result]];
+    }
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -140,6 +160,10 @@ replacementString:(NSString *)string {
     }
     
     return YES;
+}
+
+-(IBAction)multipleSelectionDoneButton:(id)sender {
+    [self.delegate popupPickerForFormItem:_formItem didSelectItems:_selections];
 }
 
 - (void)didReceiveMemoryWarning {

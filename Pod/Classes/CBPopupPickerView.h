@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class CBFormItem;
+
+@class CBPopupPicker;
 
 @protocol CBPopupPickerViewDelegate <NSObject>
 
--(void)popupPickerForFormItem:(CBFormItem*)formItem didSelectItem:(NSString *)item;
+-(void)popupPickerForFormItem:(CBFormItem*)formItem didSelectItems:(NSArray *)items;
 
 @end
 
@@ -23,9 +24,11 @@
 @property (nonatomic,retain) IBOutlet UINavigationBar *titleBar;
 @property (nonatomic,retain) IBOutlet UITextField *searchField;
 @property (nonatomic,retain) IBOutlet UITableView *searchTable;
+@property (nonatomic,assign) BOOL allowsMultipleSelections;
+@property (nonatomic,assign) BOOL allowsCustomItems;
+@property (nonatomic,retain) IBOutlet NSLayoutConstraint *topOfTable;
 
 @property (nonatomic,weak) id <CBPopupPickerViewDelegate> delegate;
 
--(id)initForFormItem:(CBFormItem *)formItem withDelegate:(id <CBPopupPickerViewDelegate>)delegate;
-
+-(id)initForFormItem:(CBPopupPicker *)formItem withDelegate:(id <CBPopupPickerViewDelegate>)delegate allowsMultipleSelection:(BOOL)multipleSelections allowsCustomItems:(BOOL)customItems selections:(NSArray *)selections;
 @end
