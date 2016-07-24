@@ -73,6 +73,8 @@
     
     CBPopupPicker *popup1 = [[CBPopupPicker alloc]initWithName:@"popup1"];
     [popup1 setItems:[NSMutableArray arrayWithArray:@[@"Male",@"Female"]]];
+    [popup1 setAllowsCustomItems:YES];
+    [popup1 setAllowsMultipleSelection:NO];
     [popup1 setTitle:@"Medication"];
     [popup1 setIcon:FAMedkit];
     [popup1 setIconColor:[UIColor redColor]];
