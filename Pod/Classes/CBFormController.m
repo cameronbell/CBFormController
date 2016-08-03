@@ -1110,6 +1110,10 @@
     [self updateNavigationBar];
 }
 
+-(void)reloadFormItem:(CBFormItem *)formItem {
+    [self.formTable reloadRowsAtIndexPaths:[self indexPathForFormItem:formItem] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 //this method exists so that a subclass can erase the cells of the formitems so that calling reloadData will actually reload the cell, which is useful in the case where we want to reload the cells from their original content like the cancel button on the profile
 -(void)eraseCells {
     
@@ -1137,11 +1141,21 @@
     [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 }
 
+-(NSArray *)formItemsInSection:(NSInteger)section {
+    return [_sectionArray objectAtIndex:section];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(NSIndexPath *)indexPathForFormItem:(CBFormItem *)formItem {
+    if (!formItem.cell) {
+        return nil;
+    }
+    return [self.formTable indexPathForCell:formItem.cell];
+}
 
 
 @end
