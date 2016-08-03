@@ -16,7 +16,7 @@
 @end
 
 @implementation CBAutoComplete
-
+@synthesize save,validation;
 
 
 -(CBFormItemType)type {
@@ -31,10 +31,10 @@
 //Ensures that this FormItem's initialValue can only be set to a string
 -(void)setInitialValue:(NSObject *)initialValue {
     
-    if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
+    if (!initialValue || [initialValue isKindOfClass:self.objectClass]) {
         _initialValue = initialValue;
     }else{
-        NSAssert(NO, @"The initialValue of a CBText must be a NSString.");
+        NSAssert(NO, @"The initialValue is a member of the wrong class.");
     }
 }
 
@@ -132,7 +132,7 @@
             forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //Store the selected object
-    _selectedObject = _selectedObject;
+    _selectedObject = selectedObject;
     
     //Dismiss this formItem
     [self dismiss];

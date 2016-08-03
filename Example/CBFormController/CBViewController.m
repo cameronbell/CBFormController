@@ -15,6 +15,7 @@
     NSString *_text1;
     NSString *_text2;
     NSNumber *_switch1;
+    IJCity *_city;
     NSArray *_cities;
 }
 
@@ -149,9 +150,13 @@
     CBAutoComplete *autoComplete = [[CBAutoComplete alloc]initWithName:@"autocomplete"];
     [autoComplete setObjectClass:[IJCity class]];
     [autoComplete setTitle:@"City"];
+    [autoComplete setInitialValue:_city];
     [autoComplete setIcon:FAbuilding];
     [autoComplete setGetAutoCompletions:^NSArray* (NSString *queryString) {
         return _cities;
+    }];
+    [autoComplete setSave:^(NSObject *value) {
+        _city = (IJCity *)value;
     }];
     
     [sections addObject:@[autoComplete]];

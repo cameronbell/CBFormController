@@ -17,6 +17,9 @@
 
 @property (nonatomic, copy) NSArray* (^getAutoCompletions)(NSString *queryString);
 
+@property (nonatomic, copy) void (^save)(NSObject *value);
+@property (nonatomic, copy) BOOL (^validation)(NSObject *value);
+
 -(void)clear;
 - (void)autoCompleteTextField:(MLPAutoCompleteTextField *)textField
  possibleCompletionsForString:(NSString *)string
