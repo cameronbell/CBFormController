@@ -42,6 +42,7 @@
         
         //Sets default keyboard type
         _keyboardType = UIKeyboardTypeDefault;
+        
     }
     return self;
 }
@@ -114,156 +115,10 @@
 
 -(void)engage {
     [self setEngaged:YES];
-    
-    
-    /*switch (self.type) {
-        case DDVCText: {
-            DDVCTextCell *textCell = (DDVCTextCell *)self.cell;
-            [textCell.textField setUserInteractionEnabled:YES];
-            [textCell.textField becomeFirstResponder];
-            break;
-        }
-        case DDVCDate: {
-            
-            if (IOS7) {
-                [self.delegate updates];
-            }else{
-                [self.delegate showDatePicker:YES];
-            }
-            break;
-        }
-        case DDVCPicker: {
-            DDVCPickerCell *pickerCell = (DDVCPickerCell *)self.cell;
-            
-            int selectedIndex = -1;
-            
-            //If the formitem already has a selectedIndex then show that
-            if ([self.data objectForKey:@"selectedIndex"]) {
-                selectedIndex = [[self.data objectForKey:@"selectedIndex"]intValue];
-            }else{
-                
-                //If the formitem does not already have a selectedIndex then get the selectionItems for the picker and make the first one of the selectedIndex/String
-                selectedIndex = 0;
-                
-                NSMutableArray *selectionItems = [self.delegate selectionItemsForPicker:self];
-                NSString *selectedString;
-                if ([selectionItems count] > 0) {
-                    selectedString = [selectionItems objectAtIndex:selectedIndex];
-                }
-                if (selectedString) {
-                    [pickerCell.pickerField setText:selectedString];
-                    [self.data setObject:selectedString forKey:@"selectedString"];
-                }
-                
-            }
-            
-            
-            if (IOS7) {
-                [self.delegate updates];
-                [pickerCell.picker selectRow:selectedIndex inComponent:0 animated:NO];
-                [pickerCell.picker setHidden:NO];
-            }else{
-                [self.delegate showPicker:YES];
-                [[self.delegate iOS6Picker] selectRow:selectedIndex inComponent:0 animated:NO];
-                
-            }
-            
-            break;
-        }
-        case DDVCFAQ: {
-            [self.delegate updates];
-            
-            [self.delegate scrollFormTableForHiddenFAQItem:self];
-            
-            break;
-        }
-        case DDVCComment: {
-            [self.delegate updates];
-            DDVCCommentCell *commentCell = (DDVCCommentCell *)self.cell;
-            [commentCell.textView setUserInteractionEnabled:YES];
-            [commentCell.textView becomeFirstResponder];
-            [commentCell.pencilIcon setHidden:YES];
-            [commentCell.donelabel setHidden:NO];
-            break;
-        }
-        case DDVCAutoComplete: {
-            DDVCAutoCompleteCell *autoComplete = (DDVCAutoCompleteCell *)self.cell;
-            
-            [autoComplete.autoCompleteTextField setUserInteractionEnabled:YES];
-            [autoComplete.autoCompleteTextField becomeFirstResponder];
-            break;
-        }
-        case DDVCPopupPicker: {
-            break;
-        }
-            
-            
-        default:
-            break;
-    }
-     */
 }
 
 -(void)dismiss {
     [self setEngaged:NO];
-   
-    /*switch (self.type) {
-        case DDVCText: {
-            DDVCTextCell *textCell = (DDVCTextCell *)self.cell;
-            [textCell.textField resignFirstResponder];
-            [textCell.textField setUserInteractionEnabled:NO];
-            break;
-        }
-        case DDVCDate: {
-            if (IOS7) {
-                [self.delegate updates];
-            }else{
-                [self.delegate showDatePicker:NO];
-            }
-            break;
-        }
-        case DDVCPicker: {
-            DDVCPickerCell *pickerCell = (DDVCPickerCell *)self.cell;
-            //[pickerCell.dropDown hideDropDown:pickerCell.pickerButton];
-            
-            
-            if (IOS7) {
-                [self.delegate updates];
-                [pickerCell.picker setHidden:YES];
-            }else{
-                if ([[self.delegate engagedItem] type] != DDVCPicker || [[[self.delegate engagedItem]name] isEqualToString:self.name]) {
-                    [self.delegate showPicker:NO];
-                }
-                
-            }
-            break;
-        }
-        case DDVCFAQ:{
-            [self.delegate updates];
-            break;
-        }
-        case DDVCComment: {
-            DDVCCommentCell *commentCell = (DDVCCommentCell *)self.cell;
-            [commentCell.textView setUserInteractionEnabled:NO];
-            [commentCell.textView resignFirstResponder];
-            [commentCell.pencilIcon setHidden:NO];
-            [commentCell.donelabel setHidden:YES];
-            [self.delegate updates];
-            break;
-        }
-        case DDVCAutoComplete: {
-            DDVCAutoCompleteCell *autoComplete = (DDVCAutoCompleteCell *)self.cell;
-            [autoComplete.autoCompleteTextField resignFirstResponder];
-            [autoComplete.autoCompleteTextField setUserInteractionEnabled:NO];
-            break;
-        }
-        case DDVCPopupPicker: {
-            //TODO: Dismiss the popup
-        }
-            
-        default:
-            break;
-    }*/
 }
 
 //Overriding this function to warn users who don't implement this function in a CBFormItem subclass
@@ -311,14 +166,14 @@
 }
 
 -(BOOL)validate {
-    if (self.validation) {
+    if ([self respondsToSelector:@selector(validation)] && self.validation) {
         return self.validation(self.value);
     }
     return YES;
 }
 
 -(void)saveValue {
-    if (self.save) {
+    if ([self respondsToSelector:@selector(save)] && self.save) {
         self.save(self.value);
     }
 }

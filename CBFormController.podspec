@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
   s.dependency 'FontAwesome', '~> 4.3.0'
   s.dependency 'UITextView+Placeholder'
   s.dependency 'MZFormSheetController', '~> 3.1'
+  s.dependency 'MLPAutoCompleteTextField', '1.5'
 end

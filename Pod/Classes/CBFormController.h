@@ -15,11 +15,10 @@
 #import "CBComment.h"
 #import "CBPopupPicker.h"
 #import "CBPicker.h"
+#import "CBAutoComplete.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
-#import <FontAwesome/FAImageView.h>
-#import <FontAwesome/NSString+FontAwesome.h>
-#import <FontAwesome/UIFont+FontAwesome.h>
+@import FontAwesome;
 
 
 
