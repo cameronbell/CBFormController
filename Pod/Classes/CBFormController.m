@@ -21,8 +21,6 @@
     
     //Holds the form item that is currently active
     CBFormItem *_engagedItem;
-    
-    UIBarButtonItem *_cancelBarButtonItem;
 }
 
 @end
@@ -272,7 +270,8 @@
 
 #pragma mark - Return Key Management
 
-//This function and the next are responsible for deciding which formitem to engage next when the user taps the return key on the keyboard
+//This function and the next are responsible for deciding which formitem to engage
+// next when the user taps the return key on the keyboard
 -(BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem {
     CBFormItem *nextItem = [self getNextItemForReturnAfter:formItem];
     if (nextItem == nil) {
@@ -997,7 +996,7 @@
     if ([self editing]) {
         if ([self isFormEdited]){
             
-            if (!_cancelBarButtonItem) {
+            if (!self.cancelButton) {
                 UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
                 [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
                 [cancelButton setFrame:CGRectMake(0, 12, 70, 22)];
@@ -1007,10 +1006,10 @@
                 [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
                 [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
                 
-                _cancelBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
+                self.cancelButton = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
             }
             
-            [self.navigationItem setLeftBarButtonItem:_cancelBarButtonItem animated:YES];
+            [self.navigationItem setLeftBarButtonItem:self.cancelButton animated:YES];
             [self.navigationItem setHidesBackButton:YES animated:YES];
             
         }else{

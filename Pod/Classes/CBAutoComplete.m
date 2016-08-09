@@ -52,8 +52,10 @@
     }
 }
 
+
 -(NSObject *)value {
-    return _selectedObject;
+    //If no object has been selected return the initialValue
+    return _selectedObject ? _selectedObject : [self initialValue];
 }
 
 //TODO: Is is alright for this to be nil?

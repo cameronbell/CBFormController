@@ -18,7 +18,7 @@
 #import "CBAutoComplete.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
-@import FontAwesome;
+#import <FontAwesome/NSString+FontAwesome.h>
 
 
 
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 
 // Buttons
 @property (nonatomic,retain) UIButton *rightButton;
-@property (nonatomic,retain) UIButton *cancelButton;
+@property (nonatomic,retain) UIBarButtonItem *cancelButton;
 
 @property (nonatomic,retain) NSDate *defaultDate;
 
@@ -90,6 +90,10 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(NSArray *)formItemsInSection:(NSInteger)section;
 -(void)reloadEntireForm;
 -(void)reloadFormItem:(CBFormItem *)formItem;
-
+-(void)dismissFormItem:(CBFormItem*)formItem;
+-(NSMutableArray *)formItems;
+-(void)configureRightBarButton;
+-(void)installRightBarButton;
+-(void)configureLeftBarButton;
 
 @end

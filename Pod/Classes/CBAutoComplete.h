@@ -7,7 +7,7 @@
 //
 
 #import "CBFormController.h"
-@import MLPAutoCompleteTextField;
+#import <MLPAutoCompleteTextField/MLPAutoCompleteTextField.h>
 
 
 @interface CBAutoComplete : CBFormItem <MLPAutoCompleteTextFieldDelegate,MLPAutoCompleteTextFieldDataSource>

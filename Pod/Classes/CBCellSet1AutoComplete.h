@@ -8,7 +8,7 @@
 
 #import <CBFormController/CBFormController.h>
 #import "CBAutoCompleteCell.h"
-@import MLPAutoCompleteTextField;
+#import <MLPAutoCompleteTextField/MLPAutoCompleteTextField.h>
 
 @interface CBCellSet1AutoComplete : CBAutoCompleteCell
 
