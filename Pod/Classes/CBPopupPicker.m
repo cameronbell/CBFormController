@@ -26,27 +26,64 @@
     [cell configureForFormItem:self];
 }
 
-//Ensures that this FormItem's initialValue can only be set to a string
+
 -(void)setInitialValue:(NSObject *)initialValue {
-    if (!initialValue || [initialValue isKindOfClass:[NSArray class]]) {
+    
+    //If the initialValue passed in is an array then take it as is
+    if ([initialValue isKindOfClass:[NSArray class]]) {
         _initialValue = initialValue;
         _value = [initialValue copy];
-    }else{
-        NSAssert(NO, @"The initialValue of a CBPopupPicker must be a NSArray.");
     }
+    //If the initial value passed in is an object, put it in an array
+    else if(initialValue) {
+        _initialValue = @[initialValue];
+        _value = [_initialValue copy];
+    }
+    //If the initial value is nil, just set the initialValue and the value to arrays
+    else {
+        _initialValue = @[];
+        _value = @[];
+    }
+}
+
+/** 
+ If the _value array has at least one object in it, return it, otherwise return nil
+*/
+-(NSObject *)singleValue {
+    return [(NSArray *)_value count] >= 1 ? [(NSArray *)_value objectAtIndex:0] : nil;
 }
 
 //Ensures that this FormItem's value can only be set to a array
 -(void)setValue:(NSObject *)value {
     
-    //If the value is nil or not of type NSString then fail, otherwise set the text of the cell's textField to the value
-    if (!value || [value isKindOfClass:[NSArray class]]) {
-        //[[(CBPopupPickerCell *)self.cell textField] setText:(NSString *)value];
+    //TODO: Making the assumption here that the array objects are strings
+    
+    //If the value passed in is an array then take it as is
+    if ([value isKindOfClass:[NSArray class]]) {
         _value = value;
-        [[(CBPopupPickerCell *)self.cell textField] setText:[(NSArray *)value componentsJoinedByString:@", "]];
-    }else{
-        NSAssert(NO, @"The value of a CBPopupPicker must be a NSString.");
+        
     }
+    //If the initial value passed in is an object, put it in an array
+    else if(value) {
+        _value = @[value];
+        
+    }
+    //If the initial value is nil, just set the initialValue and the value to arrays
+    else {
+        _value = @[];
+    }
+    
+    [[(CBPopupPickerCell *)self.cell textField] setText:[(NSArray *)_value componentsJoinedByString:@", "]];
+
+//    
+//    //If the value is nil or not of type NSString then fail, otherwise set the text of the cell's textField to the value
+//    if (!value || [value isKindOfClass:[NSArray class]]) {
+//        //[[(CBPopupPickerCell *)self.cell textField] setText:(NSString *)value];
+//        _value = value;
+//        [[(CBPopupPickerCell *)self.cell textField] setText:[(NSArray *)value componentsJoinedByString:@", "]];
+//    }else{
+//        NSAssert(NO, @"The value of a CBPopupPicker must be a NSArray.");
+//    }
 }
 
 -(NSObject *)value {
