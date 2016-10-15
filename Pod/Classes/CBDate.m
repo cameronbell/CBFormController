@@ -43,6 +43,10 @@
         NSString *dateString = [self.dateFormatter stringFromDate:_value];
         UITextField *dateField = [(CBDateCell *)self.cell dateField];
         [dateField setText:dateString];
+        
+        if ([self isEdited]) {
+            [self valueChanged];
+        }
     
     }else{
         NSAssert(NO, @"The value of a CBDate must be a NSDate.");
