@@ -24,28 +24,29 @@
     [cell configureForFormItem:self];
 }
 
-//Ensures that this FormItem's initialValue can only be set to a string
 -(void)setInitialValue:(NSObject *)initialValue {
     
-    if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
+    if (!initialValue || [initialValue isKindOfClass:[NSString class]] || [initialValue respondsToSelector:@selector(pickerString)]) {
         _initialValue = initialValue;
         _value = [initialValue copy];
     }else{
-        NSAssert(NO, @"The initialValue of a CBPicker must be a NSString.");
+        NSAssert(NO, @"The initialValue is not a string, or does not implement -(NSString *)pickerString");
     }
 }
 
-//Ensures that this FormItem's value can only be set to a string
+//Ensures that this FormItem's value can only be set to a string or to an object that implements -(NSString *)pickerString
 -(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
+    
+    if ([value isKindOfClass:[NSString class]] || [value respondsToSelector:@selector(pickerString)]) {
         _value = value;
     }else{
-        NSAssert(NO, @"The value of a CBPicker must be a NSString.");
+        NSAssert(NO, @"The value is not a string, or does not implement -(NSString *)pickerString");
     }
 }
 
 -(NSObject *)value {
-    return [(CBPickerCell *)self.cell pickerField].text;
+    return _value;
+    //return [(CBPickerCell *)self.cell pickerField].text;
 }
 
 //Ensuring that this never returns nil so that isEdited works properly.
@@ -143,10 +144,15 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     CBPickerCell *cell = (CBPickerCell *)self.cell;
-    [cell.pickerField setText:[self.items objectAtIndex:row]];
     
-    if ([self isEdited]) {
-        [self valueChanged];
+    //Verify that there is at least one item to pick from before setting it
+    if (self.items.count > 0) {
+
+        [cell.pickerField setText:[self.items objectAtIndex:row]];
+        
+        if ([self isEdited]) {
+            [self valueChanged];
+        }
     }
 }
 
