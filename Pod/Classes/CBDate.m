@@ -39,6 +39,11 @@
 -(void)setValue:(NSObject *)value {
     if ([value isKindOfClass:[NSDate class]]) {
         _value = value;
+        
+        NSString *dateString = [self.dateFormatter stringFromDate:_value];
+        UITextField *dateField = [(CBDateCell *)self.cell dateField];
+        [dateField setText:dateString];
+    
     }else{
         NSAssert(NO, @"The value of a CBDate must be a NSDate.");
     }
@@ -97,6 +102,12 @@
 //Updating the height of the cell is the only change required for engaging an dismissing CBDate items
 -(void)engage {
     [super engage];
+    
+    // If no value nor initialValue is provided then load the current date
+    if (!_value && !_initialValue) {
+        [self setValue:[NSDate date]];
+    }
+    
     [self.formController updates];
 }
 -(void)dismiss {
