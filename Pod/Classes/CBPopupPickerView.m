@@ -42,10 +42,13 @@
     UINavigationItem *titleItem = [[UINavigationItem alloc]initWithTitle:_formItem.title];
     
     [titleItem setRightBarButtonItem:_allowsMultipleSelections ? [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(multipleSelectionDoneButton:)] : nil];
-    
-    [self.topOfTable setConstant: _allowsCustomItems ? 96 : self.titleBar.frame.size.height];
-    
+
     [self.titleBar setItems:@[titleItem]];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.topOfTable setConstant: _allowsCustomItems ? 96 : self.titleBar.frame.size.height];
 }
 
 - (BOOL)textField:(UITextField *)textField
@@ -91,6 +94,10 @@ replacementString:(NSString *)string {
     }
     
     return [_results count];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
