@@ -51,6 +51,11 @@
     [self.topOfTable setConstant: _allowsCustomItems ? 96 : self.titleBar.frame.size.height];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+//    [self.searchTable reloadData];
+}
 - (BOOL)textField:(UITextField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {
@@ -121,11 +126,11 @@ replacementString:(NSString *)string {
             if ([_selections containsObject:cell.textLabel.text]) {
                 //Add checkbox to cell
                 UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"checkmark"]];
-                [imgView setFrame:CGRectMake(cell.frame.size.width-22-50, (cell.frame.size.height-22)/2, 22, 22)];
+                [imgView setFrame:CGRectMake(tableView.frame.size.width-22-20, (cell.frame.size.height-22)/2, 22, 22)];
                 [cell addSubview:imgView];
             } else {
                 UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"checkmark-future"]];
-                [imgView setFrame:CGRectMake(cell.frame.size.width-22-50, (cell.frame.size.height-22)/2, 22, 22)];
+                [imgView setFrame:CGRectMake(tableView.frame.size.width-22-20, (cell.frame.size.height-22)/2, 22, 22)];
                 [cell addSubview:imgView];
             }
         }
