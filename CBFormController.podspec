@@ -23,9 +23,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*.{h,m}'
   s.resources = 'Pod/Classes/**/*.{xib,ttf,otf}'
-  s.resource_bundles = {
-    'CBFormController' => ['Pod/Assets/*.png']
-  }
+#s.resource_bundles = {
+#   'CBFormController' => ['Pod/Assets/*.png']
+# }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'CoreText'
