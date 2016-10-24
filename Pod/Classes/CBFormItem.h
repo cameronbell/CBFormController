@@ -56,6 +56,7 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic,retain) NSMutableDictionary *addOns; //A dictionary that categories CBFormItem and CBFormItem cell can use to pass values
 @property (nonatomic,assign) UIKeyboardType keyboardType; //Used for formItems that have a keyboard. Determines which keyboard is shown.
 @property (nonatomic,assign) BOOL userInteractionEnabled;
+@property (nonatomic, copy) void (^configureCell)(CBCell *cell);
 
 
 -(id)initWithName:(NSString *)name;

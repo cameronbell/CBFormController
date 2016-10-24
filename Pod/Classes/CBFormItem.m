@@ -80,8 +80,17 @@
 }
 
 -(void)configureCell:(CBCell *)cell {
+    
+    //Sets the cell's selection style
     [cell setSelectionStyle:[self userInteractionEnabled] ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone];
+    
+    //Calls the configureCell block of the formitem
+    if (self.configureCell) {
+        self.configureCell(cell);
+    }
 }
+
+
 
 //Returns the appropriate height for the formitem based on the number of lines in the title (default = 1).
 -(CGFloat)height {
