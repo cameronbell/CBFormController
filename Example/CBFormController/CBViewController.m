@@ -118,6 +118,11 @@
     [textItem setTitle:@"Name"];
     [textItem setInitialValue:_text1];
     [textItem setIcon:FAUser];
+    [textItem setConfigureCell:^void (CBCell *cell){
+        CBTextCell *textCell = (CBTextCell *)cell;
+        [textCell.textField setAdjustsFontSizeToFitWidth:NO];
+    }];
+    
     [sections addObject:@[textItem]];
     
     [textItem setSave:^(NSString *value) {
