@@ -111,7 +111,8 @@
     return nil;
 }
 
-//Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
+// Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
+// TODO: This should probably be done using something static unlike NSUserDefaults, perhaps a plist.
 -(CBCellSet *)cellSet {
     
     if (!_cellSet) {

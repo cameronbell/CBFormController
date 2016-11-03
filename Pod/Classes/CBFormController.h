@@ -18,6 +18,7 @@
 #import "CBAutoComplete.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
+#import "CBCellSet2.h"
 #import <FontAwesome/NSString+FontAwesome.h>
 
 

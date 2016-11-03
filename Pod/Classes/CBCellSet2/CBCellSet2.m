@@ -10,4 +10,12 @@
 
 @implementation CBCellSet2
 
+-(CGFloat)defaultHeight {
+    return 45;
+}
+
+-(CGFloat)defaultTwoLineHeight {
+    return 70;
+}
+
 @end
