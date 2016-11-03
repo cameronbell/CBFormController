@@ -11,12 +11,15 @@
 
 @implementation CBCellSet2Text
 
-/*
+
 -(void)configureForFormItem:(CBText *)formItem {
     
     [super configureForFormItem:formItem];
-    [self.textField setPlaceholder:formItem.title];
+    
+    [self.textField setPlaceholder:formItem.placeholder];
+    
+    [self.titleLabel setText:formItem.title];
 }
-*/
+
 
 @end

@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,32 +17,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap to Enter" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-bj-hqb">
-                        <rect key="frame" x="109" y="16" width="191" height="22"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap to Enter" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-bj-hqb">
+                        <rect key="frame" x="162" y="12" width="144" height="30"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-Pr-HlY">
-                        <rect key="frame" x="22" y="17" width="87" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="87" id="AX8-2n-AWr"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-Pr-HlY">
+                        <rect key="frame" x="14" y="16" width="144" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="yhP-bj-hqb" secondAttribute="trailing" constant="20" id="KmG-l7-36M"/>
-                    <constraint firstItem="Yh0-Pr-HlY" firstAttribute="top" secondItem="hKM-rH-xQp" secondAttribute="top" constant="17" id="a6e-le-XHM"/>
-                    <constraint firstAttribute="bottom" secondItem="Yh0-Pr-HlY" secondAttribute="bottom" constant="15" id="ir8-FE-9S1"/>
-                    <constraint firstItem="yhP-bj-hqb" firstAttribute="leading" secondItem="Yh0-Pr-HlY" secondAttribute="trailing" constant="8" id="iw5-fR-VcW"/>
-                    <constraint firstItem="yhP-bj-hqb" firstAttribute="top" secondItem="hKM-rH-xQp" secondAttribute="topMargin" constant="8" id="kaf-Oa-19F"/>
+                    <constraint firstItem="yhP-bj-hqb" firstAttribute="width" secondItem="Yh0-Pr-HlY" secondAttribute="width" id="DzP-Aj-i3r"/>
+                    <constraint firstAttribute="bottom" secondItem="yhP-bj-hqb" secondAttribute="bottom" constant="12" id="FlE-6E-ynb"/>
+                    <constraint firstAttribute="trailing" secondItem="yhP-bj-hqb" secondAttribute="trailing" constant="14" id="KmG-l7-36M"/>
+                    <constraint firstItem="yhP-bj-hqb" firstAttribute="leading" secondItem="Yh0-Pr-HlY" secondAttribute="trailing" constant="4" id="TEi-2B-4oC"/>
+                    <constraint firstItem="Yh0-Pr-HlY" firstAttribute="centerY" secondItem="hKM-rH-xQp" secondAttribute="centerY" id="ZKj-Ps-c6D"/>
+                    <constraint firstItem="yhP-bj-hqb" firstAttribute="centerY" secondItem="hKM-rH-xQp" secondAttribute="centerY" id="u3I-qi-ifJ"/>
                     <constraint firstItem="Yh0-Pr-HlY" firstAttribute="leading" secondItem="hKM-rH-xQp" secondAttribute="leading" constant="14" id="zU1-Rd-k67"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="textField" destination="yhP-bj-hqb" id="pxf-ff-6WR"/>
+                <outlet property="titleLabel" destination="Yh0-Pr-HlY" id="ecn-57-6Dz"/>
             </connections>
             <point key="canvasLocation" x="481" y="79"/>
         </tableViewCell>
