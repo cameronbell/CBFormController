@@ -80,7 +80,7 @@
             case CBButtonTypeDelete:
                 return COLOUR_ALERT_RED;
             default:
-                return APPLE_BLUE;
+                return [UIColor blackColor];
                 break;
         }
     }
