@@ -18,17 +18,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-tM-B1f">
-                        <rect key="frame" x="20" y="11" width="280" height="21"/>
+                        <rect key="frame" x="14" y="12" width="292" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="OYb-tM-B1f" secondAttribute="bottom" constant="12.5" id="Kco-de-mLv"/>
-                    <constraint firstItem="OYb-tM-B1f" firstAttribute="top" secondItem="kGI-cf-nb6" secondAttribute="top" constant="11" id="gYD-OL-xU3"/>
-                    <constraint firstItem="OYb-tM-B1f" firstAttribute="leading" secondItem="kGI-cf-nb6" secondAttribute="leading" constant="20" id="nXo-fT-HMM"/>
-                    <constraint firstAttribute="trailing" secondItem="OYb-tM-B1f" secondAttribute="trailing" constant="20" id="vcP-Ap-pp2"/>
+                    <constraint firstAttribute="bottom" secondItem="OYb-tM-B1f" secondAttribute="bottom" constant="12" id="Kco-de-mLv"/>
+                    <constraint firstItem="OYb-tM-B1f" firstAttribute="top" secondItem="kGI-cf-nb6" secondAttribute="top" constant="12" id="gYD-OL-xU3"/>
+                    <constraint firstItem="OYb-tM-B1f" firstAttribute="leading" secondItem="kGI-cf-nb6" secondAttribute="leading" constant="14" id="nXo-fT-HMM"/>
+                    <constraint firstAttribute="trailing" secondItem="OYb-tM-B1f" secondAttribute="trailing" constant="14" id="vcP-Ap-pp2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -13,19 +13,15 @@
 #import <FontAwesome/NSString+FontAwesome.h>
 
 @implementation CBCellSet2Comment
-/*
+
 -(void)configureForFormItem:(CBComment *)formItem {
-    
-    //Call this before calling super so that if the subclass does set an icon for this formitem that that icon is shown
-    [formItem setIcon:FAComment];
     
     [super configureForFormItem:formItem];
     
-    [self.textView setPlaceholder:formItem.title];
-    
-    
+    [self.textView setPlaceholder:formItem.placeholder];
+    [self.titleLabel setText:formItem.title];
 }
-*/
+
 -(CGFloat)height {
     return 120.0f;
 }
