@@ -94,7 +94,10 @@
 
 //Returns the appropriate height for the formitem based on the number of lines in the title (default = 1).
 -(CGFloat)height {
-    switch (self.numberOfTitleLines) {
+    
+    int value = self.numberOfTitleLines;
+    
+    switch (value) {
         case 1: {
             
             return self.cell.height;
@@ -119,7 +122,7 @@
 
 //Controls the number of lines that the title can occupy. At present CBFormController only supports values of 1 or 2. Looking to improve upon this in the future.
 -(int)numberOfTitleLines {
-    return 1;
+    return numberOfTitleLines ? numberOfTitleLines : 1;
 }
 
 -(void)engage {
