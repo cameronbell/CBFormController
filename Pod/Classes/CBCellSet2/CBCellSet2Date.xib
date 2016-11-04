@@ -17,13 +17,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="209"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTl-mA-CWX">
-                        <rect key="frame" x="20" y="6" width="32" height="31"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTl-mA-CWX" userLabel="Title Label">
+                        <rect key="frame" x="14" y="6" width="144" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="0Dm-7W-EVl"/>
-                            <constraint firstAttribute="width" constant="32" id="iFO-I4-G9K"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,7 +36,7 @@
                         </date>
                     </datePicker>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap to Enter" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I7t-9R-QUN">
-                        <rect key="frame" x="65" y="11" width="235" height="22"/>
+                        <rect key="frame" x="162" y="11" width="144" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="lAE-MZ-Glj"/>
                         </constraints>
@@ -50,16 +49,17 @@
                     <constraint firstItem="pp5-E6-PhA" firstAttribute="top" secondItem="MLh-jr-cCd" secondAttribute="top" constant="45" id="2vT-OP-NHb"/>
                     <constraint firstAttribute="trailing" secondItem="pp5-E6-PhA" secondAttribute="trailing" id="6ES-sD-aML"/>
                     <constraint firstItem="I7t-9R-QUN" firstAttribute="top" secondItem="MLh-jr-cCd" secondAttribute="top" constant="11" id="A1z-na-hcl"/>
-                    <constraint firstAttribute="trailing" secondItem="I7t-9R-QUN" secondAttribute="trailing" constant="20" id="DBD-PU-r4Y"/>
-                    <constraint firstItem="mTl-mA-CWX" firstAttribute="leading" secondItem="MLh-jr-cCd" secondAttribute="leading" constant="20" symbolic="YES" id="VX7-fi-ATY"/>
-                    <constraint firstItem="I7t-9R-QUN" firstAttribute="leading" secondItem="MLh-jr-cCd" secondAttribute="leading" constant="65" id="WOG-5T-EU2"/>
+                    <constraint firstAttribute="trailing" secondItem="I7t-9R-QUN" secondAttribute="trailing" constant="14" id="DBD-PU-r4Y"/>
+                    <constraint firstItem="mTl-mA-CWX" firstAttribute="leading" secondItem="MLh-jr-cCd" secondAttribute="leading" constant="14" id="VX7-fi-ATY"/>
                     <constraint firstItem="mTl-mA-CWX" firstAttribute="top" secondItem="MLh-jr-cCd" secondAttribute="top" constant="6" id="dW4-8S-Kql"/>
+                    <constraint firstItem="I7t-9R-QUN" firstAttribute="width" secondItem="mTl-mA-CWX" secondAttribute="width" id="fz9-Ws-YzS"/>
+                    <constraint firstItem="I7t-9R-QUN" firstAttribute="leading" secondItem="mTl-mA-CWX" secondAttribute="trailing" constant="4" id="hOv-xD-SeY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateField" destination="I7t-9R-QUN" id="L4p-OC-8jL"/>
                 <outlet property="datePicker" destination="pp5-E6-PhA" id="LZ3-xz-i7w"/>
-                <outlet property="icon" destination="mTl-mA-CWX" id="gMK-2t-EBT"/>
+                <outlet property="titleLabel" destination="mTl-mA-CWX" id="Z9o-mm-bq1"/>
             </connections>
         </tableViewCell>
     </objects>

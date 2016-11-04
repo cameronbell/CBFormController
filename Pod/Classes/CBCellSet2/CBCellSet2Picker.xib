@@ -32,7 +32,7 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="M1n-cW-k4b">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="M1n-cW-k4b">
                         <rect key="frame" x="14" y="6" width="144" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="xcd-mi-bHr"/>
@@ -42,7 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwI-Dt-deC">
-                        <rect key="frame" x="0.0" y="45" width="320" height="172"/>
+                        <rect key="frame" x="0.0" y="45" width="320" height="171"/>
                     </pickerView>
                 </subviews>
                 <constraints>
@@ -62,7 +62,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="icon" destination="M1n-cW-k4b" id="wJP-bF-GuI"/>
                 <outlet property="picker" destination="bwI-Dt-deC" id="MOr-gg-1rb"/>
                 <outlet property="pickerField" destination="DKW-o3-TEI" id="L1C-aV-SeY"/>
                 <outlet property="titleLabel" destination="M1n-cW-k4b" id="qww-rC-Mz0"/>
