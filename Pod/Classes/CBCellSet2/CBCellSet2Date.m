@@ -16,7 +16,8 @@
     [super configureForFormItem:formItem];
 
     //Sets the placeholder of the dateField to the title which is the theme of this cell set
-    [self.dateField setPlaceholder:formItem.title];
+    [self.dateField setPlaceholder:formItem.placeholder];
+    [self.titleLabel setText:formItem.title];
     
 }
 
