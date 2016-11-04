@@ -13,7 +13,10 @@
 @interface CBAutoComplete : CBFormItem <MLPAutoCompleteTextFieldDelegate,MLPAutoCompleteTextFieldDataSource>
 
 //The Class which the selectedObject should be a member of
-@property (nonatomic,assign) Class objectClass;
+//@property (nonatomic,assign) Class objectClass;
+
+
+@property (nonatomic,retain) NSString *selectorString;
 
 @property (nonatomic, copy) NSArray* (^getAutoCompletions)(NSString *queryString);
 
