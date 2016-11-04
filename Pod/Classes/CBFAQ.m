@@ -43,12 +43,10 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     
+    // This calculates the total height of the content in the webview
     NSString *height = [webView stringByEvaluatingJavaScriptFromString:@"Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );"];
     
     float contentHeight = [height floatValue];
-    
-    // Add padding
-    //contentHeight += 4;
     
     CBFAQCell *faqCell = (CBFAQCell *)self.cell;
     [faqCell.answerWebviewHeight setConstant:contentHeight];

@@ -33,18 +33,12 @@
     [self.questionLabel setText:formItem.question];
     [self.questionLabel setNumberOfLines:0];
     
-    // TODO: Determine height and save value to self.openHeight
-    //self.openHeight = 80;
-    
     /* Configure Answer Webview */
     
     NSString *helvetica = @"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><body style=\"font-family:HelveticaNeue-Light;font-size:17px;\">";
     NSString *fontedString = [[helvetica stringByAppendingString:formItem.answer] stringByAppendingString:@"</body></html>"];
 
     [self.answerWebview setDelegate:formItem];
-    
-    // What was this for?
-    //[self.answerWebview setTag:[self menuOffsetForIndexPath:indexPath]];
     
     [self.answerWebview loadHTMLString:fontedString baseURL:nil];
     [self.answerWebview.scrollView setScrollEnabled:NO];
