@@ -64,18 +64,18 @@
     
     CBPickerCell *pickerCell = (CBPickerCell *)self.cell;
     
-    //Default to the first value in the items array
-    int selectedIndex = 0;
+    //Default to the first value in the items array if no value already selected
+    int selectedIndex = self.value ? [self.items indexOfObject:self.value] : 0;
     
-    //If the formitem already has a value then set the picker to that value
-    if ([(NSString *)self.value length]) {
+    //If the formitem does not already have a value then set it to the value of the first one in the array
+    if ([self.items count]) {
         
-        selectedIndex = [self indexOfStringInPicker:(NSString *)self.value];
-
-    }else{
-        //If the formitem does not already have a value then set it to the value of the first one in the array
-        if ([self.items count]) {
-            [pickerCell.pickerField setText:[self.items objectAtIndex:selectedIndex]];
+        NSObject *pickerItem = [self.items objectAtIndex:selectedIndex];
+        if ([pickerItem isKindOfClass:[NSString class]]) {
+            [pickerCell.pickerField setText:(NSString *)pickerItem];
+        }else if([pickerItem respondsToSelector:@selector(pickerString)]) {
+            [pickerCell.pickerField
+             setText:[pickerItem performSelector:@selector(pickerString) withObject:nil]];
         }
     }
 
@@ -90,7 +90,7 @@
     
 }
 
--(int)indexOfStringInPicker:(NSString *)string {
+/*-(int)indexOfStringInPicker:(NSString *)string {
     
     int index = 0;
     for (NSString *item in self.items) {
@@ -102,7 +102,7 @@
     
     //String not found
     return -1;
-}
+}*/
 
 -(void)dismiss {
     
@@ -154,7 +154,7 @@
         
         if ([selectedObj isKindOfClass:[NSString class]]) {
             [cell.pickerField setText:(NSString *)selectedObj];
-        }else if([selectedObj respondsToSelector:@selector(pickerString:)]) {
+        }else if([selectedObj respondsToSelector:@selector(pickerString)]) {
             [cell.pickerField setText:[selectedObj performSelector:@selector(pickerString) withObject:nil]];
         }
         
@@ -176,7 +176,12 @@
         
     }
     // Fill the label text here
-    [tView setText:[self pickerView:pickerView titleForRow:row forComponent:component]];
+    NSObject *pickerItem = [self pickerView:pickerView titleForRow:row forComponent:component];
+    if ([pickerItem isKindOfClass:[NSString class]]) {
+        [tView setText:(NSString *)pickerItem];
+    }else if([pickerItem respondsToSelector:@selector(pickerString)]) {
+        [tView setText:[pickerItem performSelector:@selector(pickerString) withObject:nil]];
+    }
     return tView;
 }
 
