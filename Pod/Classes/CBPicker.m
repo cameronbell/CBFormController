@@ -26,21 +26,21 @@
 
 -(void)setInitialValue:(NSObject *)initialValue {
     
-    if (!initialValue || [initialValue isKindOfClass:[NSString class]] || [initialValue respondsToSelector:@selector(pickerString)]) {
+    if (!initialValue || [initialValue isKindOfClass:[NSString class]] || [initialValue respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         _initialValue = initialValue;
         _value = [initialValue copy];
     }else{
-        NSAssert(NO, @"The initialValue is not a string, or does not implement -(NSString *)pickerString");
+        NSAssert(NO, @"The initialValue is not a string, or does not the selector with name stored in pickerSelectorString");
     }
 }
 
 //Ensures that this FormItem's value can only be set to a string or to an object that implements -(NSString *)pickerString
 -(void)setValue:(NSObject *)value {
     
-    if ([value isKindOfClass:[NSString class]] || [value respondsToSelector:@selector(pickerString)]) {
+    if ([value isKindOfClass:[NSString class]] || [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         _value = value;
     }else{
-        NSAssert(NO, @"The value is not a string, or does not implement -(NSString *)pickerString");
+        NSAssert(NO, @"The value is not a string, or does not the selector with name stored in pickerSelectorString");
     }
 }
 
@@ -55,7 +55,7 @@
 }
 
 -(BOOL)isEdited {
-    return ![(NSString *)self.initialValue isEqualToString:(NSString *)self.value];
+    return ![self.initialValue isEqual:self.value];
 }
 
 -(void)engage {
@@ -71,12 +71,7 @@
     if ([self.items count]) {
         
         NSObject *pickerItem = [self.items objectAtIndex:selectedIndex];
-        if ([pickerItem isKindOfClass:[NSString class]]) {
-            [pickerCell.pickerField setText:(NSString *)pickerItem];
-        }else if([pickerItem respondsToSelector:@selector(pickerString)]) {
-            [pickerCell.pickerField
-             setText:[pickerItem performSelector:@selector(pickerString) withObject:nil]];
-        }
+        [pickerCell.pickerField setText:[self getPickerStringForItem:pickerItem]];
     }
 
     //Update the height of the cell
@@ -89,20 +84,6 @@
     [pickerCell.picker setHidden:NO];
     
 }
-
-/*-(int)indexOfStringInPicker:(NSString *)string {
-    
-    int index = 0;
-    for (NSString *item in self.items) {
-        if ([item isEqualToString:string]) {
-            return index;
-        }
-        index++;
-    }
-    
-    //String not found
-    return -1;
-}*/
 
 -(void)dismiss {
     
@@ -152,11 +133,7 @@
         
         [self setValue:selectedObj];
         
-        if ([selectedObj isKindOfClass:[NSString class]]) {
-            [cell.pickerField setText:(NSString *)selectedObj];
-        }else if([selectedObj respondsToSelector:@selector(pickerString)]) {
-            [cell.pickerField setText:[selectedObj performSelector:@selector(pickerString) withObject:nil]];
-        }
+        [cell.pickerField setText:[self getPickerStringForItem:selectedObj]];
         
         if ([self isEdited]) {
             [self valueChanged];
@@ -177,14 +154,21 @@
     }
     // Fill the label text here
     NSObject *pickerItem = [self pickerView:pickerView titleForRow:row forComponent:component];
-    if ([pickerItem isKindOfClass:[NSString class]]) {
-        [tView setText:(NSString *)pickerItem];
-    }else if([pickerItem respondsToSelector:@selector(pickerString)]) {
-        [tView setText:[pickerItem performSelector:@selector(pickerString) withObject:nil]];
-    }
+    [tView setText:[self getPickerStringForItem:pickerItem]];
     return tView;
 }
 
+- (NSString *)getPickerStringForItem:(NSObject *)obj {
+    if ([obj isKindOfClass:[NSString class]]) {
+        return (NSString *)obj;
+    }else if([obj respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
+        return [obj performSelector:NSSelectorFromString(self.pickerSelectorString) withObject:nil];
+    }
+}
 
+// Default pickerSelectorString to pickerString
+- (NSString *)pickerSelectorString {
+    return  _pickerSelectorString ? _pickerSelectorString : @"pickerString";
+}
 
 @end

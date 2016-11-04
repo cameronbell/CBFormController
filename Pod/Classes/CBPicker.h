@@ -12,10 +12,15 @@
 
 @property (nonatomic,retain) NSArray *items;
 
-//Called to ask the subclass to save the value to the data source
+// Called to ask the subclass to save the value to the data source
 @property (nonatomic, copy) void (^save)(NSString *value);
 
-//Called to verify that the new value is acceptable to be saved to the data source.
+// Called to verify that the new value is acceptable to be saved to the data source.
 @property (nonatomic, copy) BOOL (^validation)(NSString *value);
+
+// The name of the NSString field that should be used to get the string for the picker
+// Defaults to pickerString
+// An array of strings can be used in which case this property is ignored
+@property (nonatomic,retain) NSString *pickerSelectorString;
 
 @end
