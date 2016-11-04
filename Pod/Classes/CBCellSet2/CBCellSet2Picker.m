@@ -15,7 +15,9 @@
     [super configureForFormItem:formItem];
     
     //Sets the title of the cell to the placeholder
-    [self.pickerField setPlaceholder:formItem.title];
+    [self.pickerField setPlaceholder:formItem.placeholder];
+    
+    [self.titleLabel setText:formItem.title];
 }
 
 //Returns the height of the cell when the formitem is engaged and the picker is shown

@@ -148,7 +148,15 @@
     //Verify that there is at least one item to pick from before setting it
     if (self.items.count > 0) {
 
-        [cell.pickerField setText:[self.items objectAtIndex:row]];
+        NSObject *selectedObj = [self.items objectAtIndex:row];
+        
+        [self setValue:selectedObj];
+        
+        if ([selectedObj isKindOfClass:[NSString class]]) {
+            [cell.pickerField setText:(NSString *)selectedObj];
+        }else if([selectedObj respondsToSelector:@selector(pickerString:)]) {
+            [cell.pickerField setText:[selectedObj performSelector:@selector(pickerString) withObject:nil]];
+        }
         
         if ([self isEdited]) {
             [self valueChanged];
