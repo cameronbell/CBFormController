@@ -61,7 +61,7 @@
                 <outlet property="picker" destination="bwI-Dt-deC" id="MOr-gg-1rb"/>
                 <outlet property="pickerField" destination="DKW-o3-TEI" id="L1C-aV-SeY"/>
             </connections>
-            <point key="canvasLocation" x="559" y="306"/>
+            <point key="canvasLocation" x="91" y="155"/>
         </tableViewCell>
     </objects>
 </document>
