@@ -14,6 +14,8 @@
     
     [super configureForFormItem:formItem];
     
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     /* Configure Question */
     
     // TODO: This value should be obtained from the view, not from the screen size
