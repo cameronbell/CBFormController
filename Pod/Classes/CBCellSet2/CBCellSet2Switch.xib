@@ -18,8 +18,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="139" translatesAutoresizingMaskIntoConstraints="NO" id="nGC-hh-cwe">
-                        <rect key="frame" x="20" y="11" width="139" height="21"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <rect key="frame" x="14" y="12" width="145" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,11 +45,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="BBb-Tl-DJz" firstAttribute="leading" secondItem="DdB-Pr-G7J" secondAttribute="trailing" constant="8" symbolic="YES" id="2Ut-n6-Ii3"/>
-                    <constraint firstItem="nGC-hh-cwe" firstAttribute="top" secondItem="c3r-c5-e0F" secondAttribute="top" constant="11" id="5tG-rg-mhN"/>
+                    <constraint firstItem="nGC-hh-cwe" firstAttribute="top" secondItem="c3r-c5-e0F" secondAttribute="top" constant="12" id="5tG-rg-mhN"/>
                     <constraint firstItem="DdB-Pr-G7J" firstAttribute="leading" secondItem="Fiw-5A-QDx" secondAttribute="trailing" constant="4" id="KOU-Oi-yAJ"/>
                     <constraint firstItem="Fiw-5A-QDx" firstAttribute="baseline" secondItem="BBb-Tl-DJz" secondAttribute="baseline" id="NHw-Yp-an0"/>
                     <constraint firstAttribute="bottom" secondItem="nGC-hh-cwe" secondAttribute="bottom" constant="12" id="NM8-z8-sn0"/>
-                    <constraint firstItem="nGC-hh-cwe" firstAttribute="leading" secondItem="c3r-c5-e0F" secondAttribute="leading" constant="20" symbolic="YES" id="Q8Z-gy-E7X"/>
+                    <constraint firstItem="nGC-hh-cwe" firstAttribute="leading" secondItem="c3r-c5-e0F" secondAttribute="leading" constant="14" id="Q8Z-gy-E7X"/>
                     <constraint firstAttribute="trailing" secondItem="BBb-Tl-DJz" secondAttribute="trailing" constant="15" id="ZjB-9d-vI5"/>
                     <constraint firstAttribute="centerY" secondItem="DdB-Pr-G7J" secondAttribute="centerY" id="gHi-dh-Qt1"/>
                     <constraint firstItem="Fiw-5A-QDx" firstAttribute="leading" secondItem="nGC-hh-cwe" secondAttribute="trailing" constant="9" id="jxd-qX-EYR"/>
