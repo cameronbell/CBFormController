@@ -69,6 +69,7 @@
     
     if (!initialValue || [initialValue respondsToSelector:NSSelectorFromString(self.selectorString)]) {
         _initialValue = initialValue;
+        _value = initialValue;
     }else{
         NSAssert(NO, @"The initialValue does not implement the chosen selectorString.");
     }
@@ -87,7 +88,7 @@
 
 -(NSObject *)value {
     //If no object has been selected return the initialValue
-    return _value ? _value : [self initialValue];
+    return _value; // ? _value : ([self initialValue];
 }
 
 -(BOOL)isEdited {
