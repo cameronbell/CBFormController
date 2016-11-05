@@ -28,7 +28,7 @@
     
     if (!initialValue || [initialValue isKindOfClass:[NSString class]] || [initialValue respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         _initialValue = initialValue;
-        _value = [initialValue copy];
+        //_value = [initialValue copy];
     }else{
         NSAssert(NO, @"The initialValue is not a string, or does not the selector with name stored in pickerSelectorString");
     }
@@ -45,13 +45,14 @@
 }
 
 -(NSObject *)value {
-    return _value;
+    // TODO: If we do it this way, then setting the value to nil is not possible
+    return _value ? _value : _initialValue;
     //return [(CBPickerCell *)self.cell pickerField].text;
 }
 
 //Ensuring that this never returns nil so that isEdited works properly.
 -(NSObject *)initialValue {
-    return [(NSString *)_initialValue length] ? _initialValue : @"";
+    return _initialValue;
 }
 
 -(BOOL)isEdited {
@@ -164,6 +165,7 @@
     }else if([obj respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         return [obj performSelector:NSSelectorFromString(self.pickerSelectorString) withObject:nil];
     }
+    return @"";
 }
 
 // Default pickerSelectorString to pickerString

@@ -23,7 +23,7 @@
     [self.picker setDataSource:formItem];
     
     //Set initial value
-    [self.pickerField setText:(NSString *)formItem.initialValue];
+    [self.pickerField setText:[formItem getPickerStringForItem:formItem.initialValue]];
 }
 
 @end

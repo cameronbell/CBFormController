@@ -37,6 +37,7 @@
         //Set defaults for ivars
         _editing = NO;
         _editMode = CBFormEditModeFree;
+        
     }
     return self;
 }
@@ -435,7 +436,8 @@
     [self.rightButton addTarget:self action:@selector(rightButtonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.rightButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
     [self.rightButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [self.rightButton setTitleColor:self.editingButtonColorDisabled forState:UIControlStateDisabled];
+    [self.rightButton setTitleColor:self.editingButtonColorActive forState:UIControlStateNormal];
     
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.rightButton];
     [self.navigationItem setRightBarButtonItem:saveBarButton animated:YES];
@@ -455,7 +457,8 @@
                 
                 [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
                 [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-                [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+                [cancelButton setTitleColor:self.editingButtonColorDisabled forState:UIControlStateDisabled];
+                [cancelButton setTitleColor:self.editingButtonColorActive forState:UIControlStateNormal];
                 
                 self.cancelButton = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
             }
@@ -517,6 +520,8 @@
         [formItem saveValue];
     }
     
+    [self saveData];
+    
     self.editing = NO;
     [self reloadEntireForm];
     
@@ -524,6 +529,12 @@
         self.saveSucceeded(self);
     }
     
+    return YES;
+}
+
+// This function is called after validation is called by the full form save function but before
+// refreshing the form
+- (BOOL)saveData {
     return YES;
 }
 
@@ -561,7 +572,14 @@
 }
 
 -(void)reloadFormItem:(CBFormItem *)formItem {
-    [self.formTable reloadRowsAtIndexPaths:[self indexPathForFormItem:formItem] withRowAnimation:UITableViewRowAnimationNone];
+    
+    [formItem setCell:nil];
+    [formItem setEngaged:NO];
+    
+    NSArray *indexPaths = @[[self indexPathForFormItem:formItem]];
+    
+    [self.formTable reloadRowsAtIndexPaths:indexPaths
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 //this method exists so that a subclass can erase the cells of the formitems so that calling reloadData will actually reload the cell, which is useful in the case where we want to reload the cells from their original content like the cancel button on the profile
@@ -601,10 +619,23 @@
 }
 
 -(NSIndexPath *)indexPathForFormItem:(CBFormItem *)formItem {
-    if (!formItem.cell) {
-        return nil;
+    for (int i = 0; i<[_sectionArray count]; i++) {
+        NSUInteger index = [[_sectionArray objectAtIndex:i] indexOfObject:formItem];
+        if (index != NSNotFound) {
+            return [NSIndexPath indexPathForRow:index inSection:i];
+        }
     }
-    return [self.formTable indexPathForCell:formItem.cell];
+    return  nil;
+}
+
+// Defaults to black
+- (UIColor *)editingButtonColorActive {
+    return  _editingButtonColorActive ? _editingButtonColorActive : [UIColor blackColor];
+}
+
+// Defaults to light gray
+- (UIColor *)editingButtonColorDisabled {
+    return  _editingButtonColorDisabled ? _editingButtonColorDisabled : [UIColor lightGrayColor];
 }
 
 @end

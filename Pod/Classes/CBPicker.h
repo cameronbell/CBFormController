@@ -23,4 +23,5 @@
 // An array of strings can be used in which case this property is ignored
 @property (nonatomic,retain) NSString *pickerSelectorString;
 
+- (NSString *)getPickerStringForItem:(NSObject *)obj;
 @end
