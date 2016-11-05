@@ -15,6 +15,10 @@
 //The Class which the selectedObject should be a member of
 //@property (nonatomic,assign) Class objectClass;
 
+// Initializer
+// Contains selectorString so that the user doesn't forget to set
+// initialValue before the selectorString
+- (id)initWithName:(NSString *)name withSelectorString:(NSString *)selectorString;
 
 @property (nonatomic,retain) NSString *selectorString;
 

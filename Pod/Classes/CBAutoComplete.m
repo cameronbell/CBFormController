@@ -48,6 +48,12 @@
 @implementation CBAutoComplete
 @synthesize save,validation;
 
+- (id)initWithName:(NSString *)name withSelectorString:(NSString *)selectorString {
+    if (self = [super initWithName:name]) {
+        _selectorString = selectorString;
+    }
+    return self;
+}
 
 -(CBFormItemType)type {
     return CBFormItemTypeAutoComplete;
@@ -79,10 +85,10 @@
 }
 
 
-/*-(NSObject *)value {
+-(NSObject *)value {
     //If no object has been selected return the initialValue
-    return _selectedObject ? _selectedObject : [self initialValue];
-}*/
+    return _value ? _value : [self initialValue];
+}
 
 //TODO: Is is alright for this to be nil?
 //TODO: I probably don't need to override this
