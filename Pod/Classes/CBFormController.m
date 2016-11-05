@@ -291,7 +291,7 @@
 #pragma mark - UITableView Delegate/Datasource Methods
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return UITableViewAutomaticDimension;
+    return [self tableView:tableView titleForHeaderInSection:section].length || section == 0 ? UITableViewAutomaticDimension : 10;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
@@ -306,7 +306,7 @@
     return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return UITableViewAutomaticDimension;
+    return [self tableView:tableView titleForFooterInSection:section].length ? UITableViewAutomaticDimension : 10;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
