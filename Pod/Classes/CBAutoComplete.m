@@ -90,13 +90,6 @@
     return _value ? _value : [self initialValue];
 }
 
-//TODO: Is is alright for this to be nil?
-//TODO: I probably don't need to override this
-/*-(NSObject *)initialValue {
-    return _initialValue;
-}
-*/
-
 -(BOOL)isEdited {
     //isEqual should be overrided by the objects being passed in so that they are
     //compared by their properties values and not there references
