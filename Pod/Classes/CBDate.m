@@ -64,8 +64,7 @@
 
 
 -(NSObject *)value {
-    NSString *text = [[(CBDateCell *)self. cell dateField] text];
-    return [self.dateFormatter dateFromString:text];
+    return _value ? _value : _initialValue;
 }
 
 -(NSObject *)initialValue {
@@ -137,7 +136,9 @@
 
 -(IBAction)dateChanged:(id)sender {
     UIDatePicker *datePicker = (UIDatePicker *)sender;
-    [[(CBDateCell *)self.cell dateField] setText:[self.dateFormatter stringFromDate:datePicker.date]];
+    //[[(CBDateCell *)self.cell dateField] setText:[self.dateFormatter stringFromDate:datePicker.date]];
+    
+    [self setValue:datePicker.date];
     
     if ([self isEdited]) {
         [self valueChanged];
