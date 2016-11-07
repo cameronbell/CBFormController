@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="lEg-DB-Bbp" customClass="CBCellSet2AutoComplete">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lEg-DB-Bbp" id="GQN-nM-Bpm">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap to Enter" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6BQ-6t-eLk" customClass="MLPAutoCompleteTextField">
+                        <rect key="frame" x="162" y="11" width="144" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVa-X1-Rme">
+                        <rect key="frame" x="14" y="11" width="144" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6BQ-6t-eLk" firstAttribute="leading" secondItem="AVa-X1-Rme" secondAttribute="trailing" constant="4" id="8KA-mw-CRC"/>
+                    <constraint firstItem="6BQ-6t-eLk" firstAttribute="centerY" secondItem="GQN-nM-Bpm" secondAttribute="centerY" id="A4z-cF-9GX"/>
+                    <constraint firstAttribute="trailing" secondItem="6BQ-6t-eLk" secondAttribute="trailing" constant="14" id="NbZ-QA-vyX"/>
+                    <constraint firstItem="AVa-X1-Rme" firstAttribute="centerY" secondItem="GQN-nM-Bpm" secondAttribute="centerY" id="g8j-tP-qbs"/>
+                    <constraint firstItem="AVa-X1-Rme" firstAttribute="leading" secondItem="GQN-nM-Bpm" secondAttribute="leading" constant="14" id="kpw-fO-pYP"/>
+                    <constraint firstItem="6BQ-6t-eLk" firstAttribute="width" secondItem="AVa-X1-Rme" secondAttribute="width" id="z5q-6Z-ahh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="6BQ-6t-eLk" id="Ul7-em-6EF"/>
+                <outlet property="titleLabel" destination="AVa-X1-Rme" id="Jsx-qb-Ri6"/>
+            </connections>
+            <point key="canvasLocation" x="291" y="-33"/>
+        </tableViewCell>
+    </objects>
+</document>

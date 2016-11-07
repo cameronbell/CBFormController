@@ -16,8 +16,10 @@
 #import "CBPopupPicker.h"
 #import "CBPicker.h"
 #import "CBAutoComplete.h"
+#import "CBFAQ.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
+#import "CBCellSet2.h"
 #import <FontAwesome/NSString+FontAwesome.h>
 
 
@@ -68,6 +70,10 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 @property (nonatomic,retain) UIButton *rightButton;
 @property (nonatomic,retain) UIBarButtonItem *cancelButton;
 
+// The colour of the navigation item buttons when in editing mode
+@property (nonatomic,retain) UIColor *editingButtonColorActive;
+@property (nonatomic,retain) UIColor *editingButtonColorDisabled;
+
 @property (nonatomic,retain) NSDate *defaultDate;
 
 //Keeps track of the contentInsets that the formtable loads with so that it can reset to these insets after changing them for the keyboard
@@ -81,8 +87,19 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(BOOL)isFormEdited;//Returns YES if any of the values of any of the form items have been changed
 -(void)formWasEdited;//Called by a formitem's valueChanged method
 -(void)updates;
+
+/* This function initiates the form wide saving process, which:
+    1. Calls validation on each field
+    2. Calls the saveData method
+    3. Reloads the form
+*/
 -(BOOL)save;
--(void)cancel;  
+
+// This function is called after validation is called by the full form save function but before
+// refreshing the form
+- (BOOL)saveData;
+
+    -(void)cancel;
 -(BOOL)validate;
 -(void)showValidationErrorWithMessage:(NSString *)message;
 -(CBFormItem *)formItem:(NSString *)name;
@@ -95,5 +112,6 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(void)configureRightBarButton;
 -(void)installRightBarButton;
 -(void)configureLeftBarButton;
+-(void)setupNavigationBar;
 
 @end

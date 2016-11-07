@@ -37,6 +37,7 @@
         //Set defaults for ivars
         _editing = NO;
         _editMode = CBFormEditModeFree;
+        
     }
     return self;
 }
@@ -58,16 +59,13 @@
     
     //Configures the navigation bar buttons
     [self setupNavigationBar];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     
     //Captures the form table's original content insets
     _originalInsets = self.formTable.contentInset;
-    
 }
-
 
 -(void)setupTable {
     
@@ -111,7 +109,8 @@
     return nil;
 }
 
-//Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
+// Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
+// TODO: This should probably be done using something static unlike NSUserDefaults, perhaps a plist.
 -(CBCellSet *)cellSet {
     
     if (!_cellSet) {
@@ -206,7 +205,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-    
 }
 
 //Called when the UIKeyboardDidShowNotification is sent.
@@ -289,13 +287,12 @@
     }else {
         return nil;
     }
-    
 }
 
 #pragma mark - UITableView Delegate/Datasource Methods
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return UITableViewAutomaticDimension;
+    return [self tableView:tableView titleForHeaderInSection:section].length || section == 0 ? UITableViewAutomaticDimension : 10;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
@@ -310,130 +307,14 @@
     return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return UITableViewAutomaticDimension;
+    return [self tableView:tableView titleForFooterInSection:section].length ? UITableViewAutomaticDimension : 10;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
     return [formItem height];
-    
-    /*
-    switch (formItem.type) {
-        case DDVCText:{
-            
-            NSInteger count = [self numberOfTitleLinesForFormItem:formItem];
-            if (count == 2) {
-                return 70;
-            }else{
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            
-            
-            break;}
-        case DDVCFAQ:{
-            NSString *question = [[self faqForIndexPath:indexPath] question];
-            CGSize questionSize = [question sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0]
-                                       constrainedToSize:CGSizeMake(QUESTION_W, 9999)
-                                           lineBreakMode:NSLineBreakByWordWrapping];
-            
-            
-            int questionSizeAdjusted = questionSize.height + FAQ_QUESTION_BOTTOM_PADDING;
-            
-            if (questionSizeAdjusted < FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT) {
-                questionSizeAdjusted = FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            
-            if ([formItem isEngaged]) {
-                return questionSizeAdjusted + [[formItem.data objectForKey:@"answerHeight"]floatValue]+FAQ_ANSWER_BOTTOM_PADDING;
-            }else{
-                return questionSizeAdjusted;
-            }
-            break;}
-        case DDVCButton:{
-            
-            if ([[formItem.data objectForKey:@"height"] intValue]) {
-                return [[formItem.data objectForKey:@"height"] intValue];
-            }else{
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            break;}
-        case DDVCSwitch:{
-            NSInteger count = [self numberOfTitleLinesForFormItem:formItem];
-            if (count == 4) {
-                return 120;
-            }else if (count == 2) {
-                return 70;
-            }else{
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            break;}
-        case DDVCDate:{
-            if ([formItem isEngaged]) {
-                if (IOS7) {
-                    return 210;
-                }else{
-                    return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-                }
-                
-            }else{
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            break;
-        }
-        case DDVCDoseCell: {
-            return 86;//66;
-            break;
-        }
-        case DDVCPicker: {
-            if ([formItem isEngaged] && IOS7) {
-                return [[formItem.data objectForKey:@"height"] intValue];
-                
-            }else{
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            break;
-        }
-        case DDVCComment: {
-            if ([formItem isEngaged]) {
-                return [[[self getHeightsForComment:formItem] objectAtIndex:1]floatValue];
-            }else{
-                return [[[self getHeightsForComment:formItem] objectAtIndex:0]floatValue];
-            }
-            break;
-        }
-        case DDVCAutoComplete: {
-            
-            NSInteger count = [self numberOfTitleLinesForFormItem:formItem];
-            if (count == 2) {
-                return 70;
-            }else{
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }
-            break;
-        }
-        case DDVCCaption: {
-            return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT*1.5;
-            break;
-        }
-        case DDVCSegmentedControl: {
-            
-            if (IOS7) {
-                return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            }else{
-                return 60;
-            }
-            
-            break;
-        }
-        default:
-            return FORM_CONTROLLER_DEFAULT_FIELD_HEIGHT;
-            break;
-    }
-     
-     */
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -456,435 +337,6 @@
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
     return [formItem cell];
-    
-    
-    
-    /*
-    DDVCCell *returnCell;
-    switch (formItem.type) {
-        case DDVCButton: {
-            DDVCButtonCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCButtonCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCButtonCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCButtonCell class]]) {
-                    cell = (DDVCButtonCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.titleLabel setText:[self titleForCellAtIndexPath:indexPath]];
-            returnCell = cell;
-            break;
-        }
-        case DDVCText: {
-            
-            
-            DDVCTextCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCTextCell"];
-            
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCTextCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCTextCell class]]) {
-                    cell = (DDVCTextCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.textField setPlaceholder:[self titleForCellAtIndexPath:indexPath]];
-            [cell.textField setUserInteractionEnabled:NO];
-            [cell.textField setDelegate:self];
-            [cell.textField setTag:[self menuOffsetForIndexPath:indexPath]];
-            
-            NSString *initialValue = (NSString *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                [cell.textField setText:initialValue];
-            }
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCFAQ: {
-            DDVCFAQCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCFAQCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCFAQCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCFAQCell class]]) {
-                    cell = (DDVCFAQCell*) currentObject;
-                    break;
-                }
-            }
-            
-            
-            
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            
-            
-            
-            NSString *question = [[self faqForIndexPath:indexPath] question];
-            NSString *answer = [[self faqForIndexPath:indexPath] answer];
-            
-            CGSize questionSize = [question sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0]
-                                       constrainedToSize:CGSizeMake(QUESTION_W, 9999)
-                                           lineBreakMode:NSLineBreakByWordWrapping];
-            
-            
-            int questionSizeAdjusted = questionSize.height + 20;
-            
-            [cell.questionTextView removeFromSuperview];
-            cell.questionTextView = [[UILabel alloc]initWithFrame:CGRectMake(QUESTION_X, QUESTION_VERT_MARGIN, QUESTION_W,questionSizeAdjusted)];
-            
-            [cell.questionTextView setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0]];
-            [cell addSubview:cell.questionTextView];
-            [cell.questionTextView setUserInteractionEnabled:NO];
-            [cell.questionTextView setText:question];
-            [cell.questionTextView setBackgroundColor:[UIColor clearColor]];
-            [cell.questionTextView setLineBreakMode:NSLineBreakByWordWrapping];
-            [cell.questionTextView setNumberOfLines:0];
-            int questionHeightTotal = questionSizeAdjusted + QUESTION_VERT_MARGIN;
-            [formItem.data setObject:NUMINT(questionHeightTotal) forKey:@"questionHeight"];
-            [formItem.data setObject:NUMINT(0) forKey:@"answerHeight"];
-            
-            [cell.answerWebView removeFromSuperview];
-            
-            cell.answerWebView = [[UIWebView alloc]initWithFrame:CGRectZero];
-            
-            //TODO: This should be YES to enable links but there are some details I don't have the time to work out right now. Double tapping...
-            [cell.answerWebView setUserInteractionEnabled:NO];
-            
-            //cell.answerWebView = [[UIWebView alloc]initWithFrame:CGRectMake(DDVC_FAQ_ANSWER_LEFT_INSET, questionSizeAdjusted, 280,0)];
-            
-            [cell.answerWebView setFrame:CGRectMake(DDVC_FAQ_ANSWER_LEFT_INSET, questionSizeAdjusted, 280,0)];
-            
-            NSString *helvetica = @"<body style=\"font-family:HelveticaNeue-Light;font-size:17px;\">";
-            //NSString *content =[NSString stringWithFormat:@"<html><body style='background-color: transparent; width: 280px; margin: 0; padding: 0;'><div id='ContentDiv'>%@</div></body></html>",answer];
-            
-            NSString *fontedString = [[helvetica stringByAppendingString:answer] stringByAppendingString:@"</body>"];
-            
-            [cell.answerWebView setDelegate:self];
-            [cell.answerWebView setTag:[self menuOffsetForIndexPath:indexPath]];
-            
-            //[cell.answerWebView.scrollView setContentInset:UIEdgeInsetsMake(0,DDVC_FAQ_ANSWER_LEFT_INSET, 0, 0)];
-            [cell.answerWebView setBackgroundColor:[UIColor clearColor]];
-            [cell.answerWebView setOpaque:NO];
-            [cell.answerWebView loadHTMLString:fontedString baseURL:nil];
-            [cell.answerWebView.scrollView setScrollEnabled:NO];
-            [cell setClipsToBounds:YES];
-            [cell addSubview:cell.answerWebView];
-            
-            
-            returnCell = cell;
-            
-            break;
-        }
-        case DDVCDate: {
-            DATE_FORMATTER
-            DDVCDateCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCDateCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCDateCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCDateCell class]]) {
-                    cell = (DDVCDateCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.fieldLabel setPlaceholder:[self titleForCellAtIndexPath:indexPath]];
-            [cell.fieldLabel setUserInteractionEnabled:NO];
-            
-            if (IOS7) {
-                [cell.datePicker addTarget:self action:@selector(datePicker:) forControlEvents:UIControlEventValueChanged];
-                [cell.datePicker setTag:[self menuOffsetForIndexPath:indexPath]];
-            }else{
-                [cell.datePicker removeFromSuperview];
-                [self.iOS6DatePicker addTarget:self action:@selector(datePicker:) forControlEvents:UIControlEventValueChanged];
-                [self.iOS6DatePicker setTag:[self menuOffsetForIndexPath:indexPath]];
-                
-            }
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            
-            
-            
-            //Set default date
-            //[cell.fieldLabel setText:[dF stringFromDate:[NSDate date]]];
-            //[formItem.data setObject:[NSDate date] forKey:@"date"];
-            
-            //Set initial value
-            NSDate *initialValue = (NSDate *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                
-                if (IOS7) {
-                    [cell.datePicker setDate:initialValue];
-                }else{
-                    [self.iOS6DatePicker setDate:initialValue];
-                }
-                
-                [cell.fieldLabel setText:[dF stringFromDate:initialValue]];
-                [formItem.data setObject:initialValue forKey:@"date"];
-            }
-            
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCSwitch: {
-            DDVCSwitchCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCSwitchCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCSwitchCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCSwitchCell class]]) {
-                    cell = (DDVCSwitchCell*) currentObject;
-                    break;
-                }
-            }
-            
-            
-            [cell.titleLabel setText:[self titleForCellAtIndexPath:indexPath]];
-            if (IOS7) {
-                [cell.yesLabel setText:GLS(@"YES")];
-                [cell.noLabel setText:GLS(@"NO")];
-            }else{
-                [cell.yesLabel removeFromSuperview];
-                [cell.noLabel removeFromSuperview];
-            }
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            //[_fields insertObject:cell.theSwitch atIndex:menuOffset];
-            
-            //Set initial value
-            NSNumber *initialValue = (NSNumber *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                [cell.theSwitch setOn:[initialValue boolValue]];
-            }
-            
-            
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCPicker: {
-            
-            
-            DDVCPickerCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCPickerCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCPickerCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCPickerCell class]]) {
-                    cell = (DDVCPickerCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.pickerField setPlaceholder:[self titleForCellAtIndexPath:indexPath]];
-            [cell.pickerField setUserInteractionEnabled:NO];
-            //[cell.pickerButton setTag:[self menuOffsetForIndexPath:indexPath]];
-            //[cell.pickerButton setUserInteractionEnabled:NO];
-            
-            //
-            CGFloat f = 180;
-            [formItem.data setObject:NUMINT(f) forKey:@"height"];
-            if (IOS7) {
-                //[cell.picker addTarget:self action:@selector(picker:) forControlEvents:UIControlEventValueChanged];
-                [cell.picker setTag:[self menuOffsetForIndexPath:indexPath]];
-                
-                [cell.picker setDelegate:self];
-                [cell.picker setDataSource:self];
-                
-            }else{
-                [cell.picker removeFromSuperview];
-                //[self.iOS6Picker addTarget:self action:@selector(datePicker:) forControlEvents:UIControlEventValueChanged];
-                [self.iOS6Picker setTag:[self menuOffsetForIndexPath:indexPath]];
-                [self.iOS6Picker setDelegate:self];
-                [self.iOS6Picker setDataSource:self];
-                
-            }
-            
-            //This needs to be called before setSelectedString can be called.
-            [formItem setCell:cell];
-            
-            //Set initial value
-            NSString *initialValue = (NSString *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                [self setSelectedString:initialValue forPickerItem:formItem.name];
-            }
-            
-            
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCComment: {
-            DDVCCommentCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCCommentCell"];
-            
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCCommentCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCCommentCell class]]) {
-                    cell = (DDVCCommentCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.titleLabel setText:[self titleForCellAtIndexPath:indexPath]];
-            [cell.textView setUserInteractionEnabled:NO];
-            [cell.textView setTag:[self menuOffsetForIndexPath:indexPath]];
-            [cell.textView setDelegate:self];
-            [cell.donelabel setHidden:YES];
-            
-            [cell.textView setPlaceholder:@"Comments"];
-            
-            NSString *initialValue = (NSString *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                [cell.textView setText:initialValue];
-            }
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCAutoComplete: {
-            DDVCAutoCompleteCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCAutoComplete"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCAutoCompleteCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCAutoCompleteCell class]]) {
-                    cell = (DDVCAutoCompleteCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.titleLabel setText:[self titleForCellAtIndexPath:indexPath]];
-            [cell.autoCompleteTextField setDelegate:self];
-            [cell.autoCompleteTextField setAutoCompleteDelegate:self];
-            [cell.autoCompleteTextField setAutoCompleteDataSource:self];
-            [cell.autoCompleteTextField setFormItem:formItem];
-            [cell.autoCompleteTextField setAutoCompleteTableAppearsAsKeyboardAccessory:NO];
-            [cell.autoCompleteTextField registerAutoCompleteCellClass:[AutoCompleteOptionCell class] forCellReuseIdentifier:@"AutoCompleteOptionCell"];
-            [cell.autoCompleteTextField setUserInteractionEnabled:NO];
-            [cell.autoCompleteTextField setReverseAutoCompleteSuggestionsBoldEffect:YES];
-            [cell.autoCompleteTextField setTag:[self menuOffsetForIndexPath:indexPath]];
-            [cell.autoCompleteTextField setBackgroundColor:[UIColor whiteColor]];
-            
-            NSString *initialValue = (NSString *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                [cell.autoCompleteTextField setText:initialValue];
-            }
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCCaption: {
-            DDVCCaptionCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCCaptionCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCCaptionCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCCaptionCell class]]) {
-                    cell = (DDVCCaptionCell*) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.titleLabel setText:[self titleForCellAtIndexPath:indexPath]];
-            
-            [self refreshCaption:formItem ForCaptionCell:cell forIndexPath:indexPath];
-            
-            
-            
-            [cell.cameraIcon setTitle:[NSString fontAwesomeIconStringForEnum:FACamera] forState:UIControlStateNormal];
-            [cell.cameraIcon.titleLabel setFont:[UIFont fontWithName:kFontAwesomeFamilyName size:22]];
-            [cell.cameraIcon setTitleColor:COLOUR_ALERT_GREY forState:UIControlStateNormal];
-            [cell.cameraIcon setUserInteractionEnabled:NO];
-            
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCSegmentedControl: {
-            DDVCSegmentedControlCell *cell;// = [self.formTable dequeueReusableCellWithIdentifier:@"DDVCSegmentedControlCell"];
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCSegmentedControlCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCSegmentedControlCell class]]) {
-                    cell = (DDVCSegmentedControlCell*) currentObject;
-                    break;
-                }
-            }
-            
-            
-            NSArray *segments = [self titleArrayForSegmentedControl:formItem];
-            
-            [cell.segmentedControl removeAllSegments];
-            
-            for (int i = 0; i<[segments count]; i++) {
-                [cell.segmentedControl insertSegmentWithTitle:[segments objectAtIndex:i] atIndex:i animated:NO];
-            }
-            
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            
-            
-            NSNumber *initialValue = (NSNumber *)[self initialValueForFormItem:formItem];
-            if (initialValue) {
-                [cell.segmentedControl setSelectedSegmentIndex:[initialValue intValue]];
-            }
-            
-            returnCell = cell;
-            break;
-        }
-        case DDVCPopupPicker: {
-            
-            DDVCPopupPickerCell *cell;
-            
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DDVCPopupPickerCell" owner:self options:nil];
-            
-            for (id currentObject in topLevelObjects) {
-                if ([currentObject isKindOfClass:[DDVCPopupPickerCell class]]) {
-                    cell = (DDVCPopupPickerCell *) currentObject;
-                    break;
-                }
-            }
-            
-            [cell.textField setPlaceholder:[self titleForCellAtIndexPath:indexPath]];
-            [cell.textField setText:(NSString *)[self initialValueForFormItem:formItem]];
-            [cell.textField setUserInteractionEnabled:NO];
-            [formItem.data setObject:[self getItemsForPopupPickerFormItem:formItem] forKey:@"items"];
-            
-            returnCell = cell;
-            break;
-        }
-        default:
-            break;
-    }
-    [formItem setCell:returnCell];
-    
-    FAIcon icon = [self iconForFormItem:formItem];
-    if (icon == 0) {
-        [returnCell.icon setText:@""];
-    }else{
-        [returnCell.icon setText:[NSString fontAwesomeIconStringForEnum:icon]];
-        [returnCell.icon setFont:[UIFont fontWithName:kFontAwesomeFamilyName size:22]];
-        [returnCell.icon setTextColor:COLOUR_BLUE];
-    }
-    
-    
-    for(int i = 0;i<[self.formItems count];i++) {
-        FormItem *formItemI = [self.formItems objectAtIndex:i];
-        if ([formItemI.cell isEqual:formItem.cell] && ![formItem isEqual:formItemI]) {
-            NSLog(@"WTF");
-        }
-    }
-    
-    if (!IOS7) {
-     
-        UIView *backGroundView = [[UIView alloc]initWithFrame:CGRectZero];
-        [backGroundView setBackgroundColor:[UIColor whiteColor]];
-        [returnCell setBackgroundView:backGroundView];
-    }
-    
-    
-    
-    [returnCell setClipsToBounds:YES];
-    
-    return returnCell;
-    
-     */
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -984,7 +436,8 @@
     [self.rightButton addTarget:self action:@selector(rightButtonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.rightButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
     [self.rightButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [self.rightButton setTitleColor:self.editingButtonColorDisabled forState:UIControlStateDisabled];
+    [self.rightButton setTitleColor:self.editingButtonColorActive forState:UIControlStateNormal];
     
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc]initWithCustomView:self.rightButton];
     [self.navigationItem setRightBarButtonItem:saveBarButton animated:YES];
@@ -1004,7 +457,8 @@
                 
                 [cancelButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
                 [cancelButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
-                [cancelButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+                [cancelButton setTitleColor:self.editingButtonColorDisabled forState:UIControlStateDisabled];
+                [cancelButton setTitleColor:self.editingButtonColorActive forState:UIControlStateNormal];
                 
                 self.cancelButton = [[UIBarButtonItem alloc]initWithCustomView:cancelButton];
             }
@@ -1066,6 +520,8 @@
         [formItem saveValue];
     }
     
+    [self saveData];
+    
     self.editing = NO;
     [self reloadEntireForm];
     
@@ -1073,6 +529,12 @@
         self.saveSucceeded(self);
     }
     
+    return YES;
+}
+
+// This function is called after validation is called by the full form save function but before
+// refreshing the form
+- (BOOL)saveData {
     return YES;
 }
 
@@ -1110,7 +572,14 @@
 }
 
 -(void)reloadFormItem:(CBFormItem *)formItem {
-    [self.formTable reloadRowsAtIndexPaths:[self indexPathForFormItem:formItem] withRowAnimation:UITableViewRowAnimationNone];
+    
+    [formItem setCell:nil];
+    [formItem setEngaged:NO];
+    
+    NSArray *indexPaths = @[[self indexPathForFormItem:formItem]];
+    
+    [self.formTable reloadRowsAtIndexPaths:indexPaths
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 //this method exists so that a subclass can erase the cells of the formitems so that calling reloadData will actually reload the cell, which is useful in the case where we want to reload the cells from their original content like the cancel button on the profile
@@ -1150,11 +619,23 @@
 }
 
 -(NSIndexPath *)indexPathForFormItem:(CBFormItem *)formItem {
-    if (!formItem.cell) {
-        return nil;
+    for (int i = 0; i<[_sectionArray count]; i++) {
+        NSUInteger index = [[_sectionArray objectAtIndex:i] indexOfObject:formItem];
+        if (index != NSNotFound) {
+            return [NSIndexPath indexPathForRow:index inSection:i];
+        }
     }
-    return [self.formTable indexPathForCell:formItem.cell];
+    return  nil;
 }
 
+// Defaults to black
+- (UIColor *)editingButtonColorActive {
+    return  _editingButtonColorActive ? _editingButtonColorActive : [UIColor blackColor];
+}
+
+// Defaults to light gray
+- (UIColor *)editingButtonColorDisabled {
+    return  _editingButtonColorDisabled ? _editingButtonColorDisabled : [UIColor lightGrayColor];
+}
 
 @end

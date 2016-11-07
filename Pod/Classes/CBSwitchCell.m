@@ -25,8 +25,15 @@
     //Switch cells are not selectable
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    //If the form is not editing then the user should not be able to flip the switch
-    [self.theSwitch setUserInteractionEnabled:[formItem.formController editing]];
+    if (formItem.formController.editMode == CBFormEditModeEdit) {
+        //If the form is not editing then the user should not be able to flip the switch
+        [self.theSwitch setUserInteractionEnabled:[formItem.formController editing]];
+    }else{
+        //[self.theSwitch setUserInteractionEnabled:formItem.userInteractionEnabled];
+        [self.theSwitch setEnabled:formItem.userInteractionEnabled];
+        [self.yesLabel setEnabled:NO];
+        [self.noLabel setEnabled:NO];
+    }
     
     //Set initial value
     //This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
