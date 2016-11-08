@@ -8,6 +8,7 @@
 
 #import "CBSwitch.h"
 #import "CBSwitchCell.h"
+#import "CBFormController.h"
 
 @implementation CBSwitch
 @synthesize onString = _onString;
@@ -37,20 +38,10 @@
     }
 }
 
-////Ensures that this FormItem's value can only be set to a nsnumber
-//-(void)setValue:(NSObject *)value {
-//    if ([value isKindOfClass:[NSNumber class]]) {
-//        _value = value;
-//    }else{
-//        NSAssert(NO, @"The value of a CBSwitch must be a NSNUmber.");
-//    }
-//}
-
 //The value of the switch is always an nsnumber
 -(NSObject *)value {
     return [NSNumber numberWithBool:[(CBSwitchCell *)self.cell theSwitch].on];
 }
-
 
 //Ensures that initialValue is never nil so that isEdited functions properly.
 -(NSObject *)initialValue {
@@ -61,7 +52,13 @@
 }
 
 -(void)switchChanged {
-    if ([self isEdited]) {
+    
+    // If the form is in editing mode then only call valueChanged when it is edited
+    // compared to the initialValue
+    // Otherwise call it whenever the switch changes state
+    if (self.formController.editMode == CBFormEditModeEdit && [self isEdited]) {
+        [self valueChanged];
+    }else {
         [self valueChanged];
     }
 }
