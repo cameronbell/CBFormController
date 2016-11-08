@@ -17,6 +17,10 @@
     [self.titleLabel setTextAlignment:formItem.titleAlign];
     [self.titleLabel setTextColor:formItem.titleColor];
     
+    if (!formItem.userInteractionEnabled) {
+        [self.titleLabel setEnabled:NO];
+    }
+    
 }
 
 @end
