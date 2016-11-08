@@ -48,7 +48,10 @@
         
         [dateCell.datePicker setDate:_value];
         
-        if ([self isEdited]) {
+        // Always call valueChanged unless 
+        if (self.formController.editMode == CBFormEditModeEdit) {
+            if([self isEdited]) [self valueChanged];
+        } else {
             [self valueChanged];
         }
     
