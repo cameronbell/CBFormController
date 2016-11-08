@@ -66,8 +66,6 @@
     [commentCell.textView becomeFirstResponder];
     [commentCell.pencilIcon setHidden:YES];
     [commentCell.donelabel setHidden:NO];
-
-    
 }
 
 -(void)dismiss {
