@@ -38,6 +38,13 @@
     }
 }
 
+- (void)setValue:(NSObject *)value {
+    [super setValue:value];
+    
+    BOOL newState = [(NSNumber *)value boolValue];
+    [[(CBSwitchCell *)self.cell theSwitch] setOn:newState];
+}
+
 //The value of the switch is always an nsnumber
 -(NSObject *)value {
     return [NSNumber numberWithBool:[(CBSwitchCell *)self.cell theSwitch].on];
