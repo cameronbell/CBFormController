@@ -17,6 +17,7 @@
 #import "CBPicker.h"
 #import "CBAutoComplete.h"
 #import "CBFAQ.h"
+#import "CBView.h"
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
 #import "CBCellSet2.h"
