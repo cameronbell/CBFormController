@@ -40,9 +40,13 @@
     if ([value isKindOfClass:[NSDate class]]) {
         _value = value;
         
+        CBDateCell *dateCell = (CBDateCell *)self.cell;
+        
         NSString *dateString = [self.dateFormatter stringFromDate:_value];
-        UITextField *dateField = [(CBDateCell *)self.cell dateField];
+        UITextField *dateField = [dateCell dateField];
         [dateField setText:dateString];
+        
+        [dateCell.datePicker setDate:_value];
         
         if ([self isEdited]) {
             [self valueChanged];
