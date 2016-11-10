@@ -7,7 +7,6 @@
 //
 
 #import "CBFormItem.h"
-#import <FontAwesome/NSString+FontAwesome.h>
 
 @interface CBFormItem (CBCellSet1)
 -(void)setIcon:(FAIcon)icon;

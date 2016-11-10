@@ -7,7 +7,6 @@
 //
 
 #import "CBFormController.h"
-#import <FontAwesome/NSString+FontAwesome.h>
 
 @interface CBFormController () {
     

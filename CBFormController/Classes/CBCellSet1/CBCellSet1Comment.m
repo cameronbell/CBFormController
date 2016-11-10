@@ -10,7 +10,6 @@
 #import "UITextView+Placeholder.h"
 #import "CBCell+CBCellSet1.h"
 #import "CBFormItem+CBCellSet1.h"
-#import <FontAwesome/NSString+FontAwesome.h>
 
 @implementation CBCellSet1Comment
 

@@ -8,8 +8,6 @@
 
 #import "CBCell+CBCellSet1.h"
 #import "CBText.h"
-#import <FontAwesome/NSString+FontAwesome.h>
-
 
 //Using the address of this char as a key for the associated object created for the custom property
 static char iconKey;
