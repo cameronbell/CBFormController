@@ -21,10 +21,6 @@
 #import "CBCellSet.h"
 #import "CBCellSet1.h"
 #import "CBCellSet2.h"
-#import <FontAwesome/NSString+FontAwesome.h>
-
-
-
 
 //TODO: This should be changed
 #define APPLE_BLUE RGB(13., 122., 255.)
