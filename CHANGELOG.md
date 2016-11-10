@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.3 (2016-11-10)
+* Fixed the importing of FontAwesome
+
 ## Version 0.2.0 (2016-05-05)
 * New: Added support for validation and saving code
 * New: Added option to add items that are disabled to the user
