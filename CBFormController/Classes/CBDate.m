@@ -22,8 +22,8 @@
 }
 
 -(void)configureCell:(CBCell *)cell {
-    [super configureCell:cell];
     [cell configureForFormItem:self];
+    [super configureCell:cell];
 }
 
 //Ensures that this FormItem's initialValue can only be set to a date
