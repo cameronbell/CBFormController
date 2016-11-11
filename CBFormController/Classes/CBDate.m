@@ -143,13 +143,7 @@
 
 -(IBAction)dateChanged:(id)sender {
     UIDatePicker *datePicker = (UIDatePicker *)sender;
-    //[[(CBDateCell *)self.cell dateField] setText:[self.dateFormatter stringFromDate:datePicker.date]];
-    
     [self setValue:datePicker.date];
-    
-    if ([self isEdited]) {
-        [self valueChanged];
-    }
 }
 
 
