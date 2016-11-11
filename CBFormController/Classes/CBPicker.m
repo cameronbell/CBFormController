@@ -39,6 +39,15 @@
     
     if ([value isKindOfClass:[NSString class]] || [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         _value = value;
+        
+        // Set the picker to the value
+        int indexOfValue = [self.items indexOfObject:_value];
+        CBPickerCell *cell = (CBPickerCell *)self.cell;
+        [cell.picker selectRow:indexOfValue inComponent:0 animated:YES];
+        
+        // Set the value's string in the picker field
+        [cell.pickerField setText:[self getPickerStringForItem:_value]];
+        
     }else{
         NSAssert(NO, @"The value is not a string, or does not the selector with name stored in pickerSelectorString");
     }
