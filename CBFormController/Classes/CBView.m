@@ -23,7 +23,7 @@
 }
 
 - (CGFloat)height {
-    return 300;
+    return self.viewHeight;
 }
 
 @end

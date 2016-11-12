@@ -11,4 +11,6 @@
 
 @interface CBView : CBFormItem
 
+@property (nonatomic,assign) CGFloat viewHeight;
+
 @end
