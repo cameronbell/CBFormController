@@ -325,9 +325,9 @@
     int count = 0;
     for (int i = 0; i<[[_sectionArray objectAtIndex:section] count]; i++) {
         CBFormItem *formItem = [[_sectionArray objectAtIndex:section] objectAtIndex:i];
-        if (![formItem isHidden]) {
+        //if (![formItem isHidden]) {
             count++;
-        }
+        //}
     }
     return count;
 }

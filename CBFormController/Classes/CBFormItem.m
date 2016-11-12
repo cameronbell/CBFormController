@@ -95,6 +95,10 @@
 //Returns the appropriate height for the formitem based on the number of lines in the title (default = 1).
 -(CGFloat)height {
     
+    if (self.hidden) {
+        return 0.01;
+    }
+    
     int value = self.numberOfTitleLines;
     
     switch (value) {
