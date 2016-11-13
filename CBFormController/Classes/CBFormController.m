@@ -31,7 +31,7 @@
 @synthesize defaultDate = _defaultDate;
 @synthesize saveSucceeded = _saveSucceeded;
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         
         //Set defaults for ivars
@@ -61,13 +61,13 @@
     [self setupNavigationBar];
 }
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     
     //Captures the form table's original content insets
     _originalInsets = self.formTable.contentInset;
 }
 
--(void)setupTable {
+- (void)setupTable {
     
     //Create the form table and set its view to the size of the
     self.formTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
@@ -81,14 +81,14 @@
     
 }
 
--(void)viewDidLayoutSubviews {
+- (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
     [self.formTable setFrame:self.view.frame];
 }
 
 //This function calls getFormConfiguration and then sets the formitem's formcontroller property to this class
--(void)loadFormConfiguration {
+- (void)loadFormConfiguration {
     
     _sectionArray = [NSMutableArray arrayWithArray:[self getFormConfiguration]];
     
@@ -102,7 +102,7 @@
 }
 
 //This function is called to collect all the necessary information from the subclass about how to build the form
--(NSArray *)getFormConfiguration {
+- (NSArray *)getFormConfiguration {
     
     NSAssert(NO, @"This function must be overridden in the subclass.");
     
@@ -111,7 +111,7 @@
 
 // Returns the cellSet that should be used to load the cells. Defaults to CBCellSet1.
 // TODO: This should probably be done using something static unlike NSUserDefaults, perhaps a plist.
--(CBCellSet *)cellSet {
+- (CBCellSet *)cellSet {
     
     if (!_cellSet) {
         _cellSet = [[CBCellSet1 alloc]init];
@@ -120,12 +120,12 @@
 }
 
 //If nothing sets the editMode property it defaults to CBFormEditModeFree mode.
--(CBFormEditMode)editMode {
+- (CBFormEditMode)editMode {
     return _editMode ? _editMode : CBFormEditModeFree;
 }
 
 //This function returns whether the form is editing or not, meaning that the form is editable. The form is always either editing or not, regardless of the editMode.
--(BOOL)editing {
+- (BOOL)editing {
     
     switch ([self editMode]) {
         
@@ -149,7 +149,7 @@
 #pragma mark - FormItem Access Methods
 
 //Returns an array of only the formItems flattened from the sectionArray
--(NSMutableArray *)formItems {
+- (NSMutableArray *)formItems {
     NSMutableArray *formItems = [NSMutableArray array];
     for (int i = 0; i<[_sectionArray count]; i++) {
         NSMutableArray *itemArray = [_sectionArray objectAtIndex:i];
@@ -159,7 +159,7 @@
 }
 
 //Returns a formitem found by name
--(CBFormItem *)formItem:(NSString *)name {
+- (CBFormItem *)formItem:(NSString *)name {
     for (CBFormItem *formItem in [self formItems]) {
         if ([formItem.name isEqualToString:name]) {
             return formItem;
@@ -169,17 +169,17 @@
 }
 
 //Returns the formitem at a given indexPath as represented in the sectionArray
--(CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath {
+- (CBFormItem *)formItemForIndexPath:(NSIndexPath *)indexPath {
     return [[_sectionArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
 }
 
 //Returns the formitem at a given index in a linear list of the cells
--(CBFormItem *)formItemForRowIndex:(int)rowIndex {
+- (CBFormItem *)formItemForRowIndex:(int)rowIndex {
     return [self.formItems objectAtIndex:rowIndex];
 }
 
 //Returns the index in the formItems array of a given formItem matched by name
--(int)rowIndexForFormItem:(CBFormItem *)formItem {
+- (int)rowIndexForFormItem:(CBFormItem *)formItem {
     
     int rowIndex = 0;
     for (CBFormItem *formItem in [self formItems]) {
@@ -243,7 +243,7 @@
 }
 
 //Calls engage on a formItem and calls dismiss on all of the other ones
--(void)engageFormItem:(CBFormItem *)formItem {
+- (void)engageFormItem:(CBFormItem *)formItem {
     _engagedItem = formItem;
     
     [formItem engage];
@@ -259,7 +259,7 @@
 }
 
 //Dismisses a formItem
--(void)dismissFormItem:(CBFormItem*)formItem {
+- (void)dismissFormItem:(CBFormItem*)formItem {
     [formItem dismiss];
     if ([formItem equals:_engagedItem]) {
         _engagedItem = nil;
@@ -270,7 +270,7 @@
 
 //This function and the next are responsible for deciding which formitem to engage
 // next when the user taps the return key on the keyboard
--(BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem {
+- (BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem {
     CBFormItem *nextItem = [self getNextItemForReturnAfter:formItem];
     if (nextItem == nil) {
         [self dismissFormItem:formItem];
@@ -280,7 +280,7 @@
     return NO;
 }
 
--(CBFormItem *)getNextItemForReturnAfter:(CBFormItem *) formItem {
+- (CBFormItem *)getNextItemForReturnAfter:(CBFormItem *) formItem {
     NSInteger menuOffset = [self.formItems indexOfObject:formItem];
     if ((menuOffset+1)< [self.formItems count]) {
         return  [self.formItems objectAtIndex:(menuOffset+1)];
@@ -291,26 +291,26 @@
 
 #pragma mark - UITableView Delegate/Datasource Methods
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return [self tableView:tableView titleForHeaderInSection:section].length || section == 0 ? UITableViewAutomaticDimension : 10;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
 }
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return nil;
 }
--(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return nil;
 }
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return nil;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return [self tableView:tableView titleForFooterInSection:section].length ? UITableViewAutomaticDimension : 10;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
@@ -332,14 +332,14 @@
     return count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
     
     return [formItem cell];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CBFormItem *formItem = [self formItemForIndexPath:indexPath];
@@ -380,13 +380,13 @@
 
 #pragma mark - Navigation Bar Management Methods
 
--(void)setupNavigationBar {
+- (void)setupNavigationBar {
     [self installRightBarButton];
     
     [self updateNavigationBar];
 }
 
--(void)updateNavigationBar {
+- (void)updateNavigationBar {
     
     //The CBFormEditModeFrozen and CBFormEditModeFree Edit modes do not require any changes to the navigation bar buttons
     //The CBFormEditModeEdit and CBFormEditModeSave modes do.
@@ -407,7 +407,7 @@
 }
 
 
--(void)configureRightBarButton {
+- (void)configureRightBarButton {
     switch ([self editMode]) {
         case CBFormEditModeEdit:{
             if ([self editing]) {
@@ -430,7 +430,7 @@
     }
 }
 
--(void)installRightBarButton {
+- (void)installRightBarButton {
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightButton setFrame:CGRectMake(0, 12, 70, 22)];
     [self.rightButton addTarget:self action:@selector(rightButtonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -444,7 +444,7 @@
     
 }
 
--(void)configureLeftBarButton {
+- (void)configureLeftBarButton {
     
     if ([self editing]) {
         if ([self isFormEdited]){
@@ -478,7 +478,7 @@
     }
 }
 
--(IBAction)rightButtonWasPressed:(id)sender {
+- (IBAction)rightButtonWasPressed:(id)sender {
     switch ([self editMode]) {
         case CBFormEditModeEdit:{
             if ([self editing]) {
@@ -498,11 +498,11 @@
 
 #pragma mark - Data Methods (Save, etc...)
 
--(BOOL)validate {
+- (BOOL)validate {
     return YES;
 }
 
--(BOOL)save {
+- (BOOL)save {
     [self dismissAllFields];
     
     BOOL validationSuccess = YES;
@@ -538,24 +538,24 @@
     return YES;
 }
 
--(void)beginEdit {
+- (void)beginEdit {
     self.editing = YES;
     [self reloadEntireForm];
 }
 
--(void)cancel {
+- (void)cancel {
     self.editing = NO;
     [self dismissAllFields];
     [self reloadEntireForm];
 }
 
--(void)formWasEdited {
+- (void)formWasEdited {
     [self updateNavigationBar];
 }
 
 #pragma mark - Utility Methods
 
--(BOOL)isFormEdited {
+- (BOOL)isFormEdited {
     for (CBFormItem *formItem in [self formItems]) {
         if ([formItem isEdited]) {
             return YES;
@@ -564,14 +564,14 @@
     return NO;
 }
 
--(void)reloadEntireForm {
+- (void)reloadEntireForm {
     [self eraseCells];
     [self loadFormConfiguration];
     [self.formTable reloadData];
     [self updateNavigationBar];
 }
 
--(void)reloadFormItem:(CBFormItem *)formItem {
+- (void)reloadFormItem:(CBFormItem *)formItem {
     
     [formItem setCell:nil];
     [formItem setEngaged:NO];
@@ -583,7 +583,7 @@
 }
 
 //this method exists so that a subclass can erase the cells of the formitems so that calling reloadData will actually reload the cell, which is useful in the case where we want to reload the cells from their original content like the cancel button on the profile
--(void)eraseCells {
+- (void)eraseCells {
     
     for (int i = 0; i<[self.formItems count]; i++) {
         CBFormItem *formItem = [self.formItems objectAtIndex:i];
@@ -591,7 +591,7 @@
     }
 }
 
--(void)dismissAllFields {
+- (void)dismissAllFields {
     for (int i = 0; i<[self.formItems count]; i++) {
         CBFormItem *formItem = [self.formItems objectAtIndex:i];
         [formItem dismiss];
@@ -599,17 +599,17 @@
 }
 
 //Tells the formTable to update it's view properties. Mainly important for updating the height of the cells.
--(void)updates {
+- (void)updates {
     [self.formTable beginUpdates];
     [self.formTable endUpdates];
 }
 
 //Shows a alert view with the validation error message
--(void)showValidationErrorWithMessage:(NSString *)message {
+- (void)showValidationErrorWithMessage:(NSString *)message {
     [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 }
 
--(NSArray *)formItemsInSection:(NSInteger)section {
+- (NSArray *)formItemsInSection:(NSInteger)section {
     return [_sectionArray objectAtIndex:section];
 }
 
@@ -618,7 +618,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSIndexPath *)indexPathForFormItem:(CBFormItem *)formItem {
+- (NSIndexPath *)indexPathForFormItem:(CBFormItem *)formItem {
     for (int i = 0; i<[_sectionArray count]; i++) {
         NSUInteger index = [[_sectionArray objectAtIndex:i] indexOfObject:formItem];
         if (index != NSNotFound) {
