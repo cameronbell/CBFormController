@@ -6,6 +6,7 @@
 //
 //
 
+@import FontAwesome;
 #import <Foundation/Foundation.h>
 #import "CBCell.h"
 

@@ -8,9 +8,6 @@
 
 #import "CBFormController.h"
 
-
-
-
 @interface CBFormController () {
     
     //Holds the array of section arrays which hold the form items
