@@ -56,6 +56,10 @@
     
     //Configures the navigation bar buttons
     [self setupNavigationBar];
+    
+    // in viewDidLoad or somewhere similar
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableTapped:)];
+    [self.formTable addGestureRecognizer:tap];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -633,6 +637,23 @@
 // Defaults to light gray
 - (UIColor *)editingButtonColorDisabled {
     return  _editingButtonColorDisabled ? _editingButtonColorDisabled : [UIColor lightGrayColor];
+}
+
+- (void)tableTapped:(UITapGestureRecognizer *)tap
+{
+    CGPoint location = [tap locationInView:self.formTable];
+    NSIndexPath *path = [self.formTable indexPathForRowAtPoint:location];
+    
+    if(path)
+    {
+        // tap was on existing row, so pass it to the delegate method
+        [self tableView:self.formTable didSelectRowAtIndexPath:path];
+    }
+    else
+    {
+        // handle tap on empty space below existing rows however you want
+        [self dismissAllFields];
+    }
 }
 
 @end
