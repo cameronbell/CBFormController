@@ -114,5 +114,6 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 -(void)installRightBarButton;
 -(void)configureLeftBarButton;
 -(void)setupNavigationBar;
+- (void)dismissAllFields;
 
 @end
