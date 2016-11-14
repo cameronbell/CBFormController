@@ -1,4 +1,7 @@
 # Change Log
+## Version 0.3.6 (2016-11-14)
+* Added constraints to formTable to solve frame change bug when endUpdates was called
+
 ## Version 0.3.5 (2016-11-13)
 * Dismiss form on tap of header/footer
 
