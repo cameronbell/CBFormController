@@ -1,4 +1,6 @@
 # Change Log
+## Version 0.3.5 (2016-11-13)
+* Dismiss form on tap of header/footer
 
 ## Version 0.3.4 (2016-11-13)
 * dismissAllFields is now public
