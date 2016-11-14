@@ -57,7 +57,7 @@
     //Configures the navigation bar buttons
     [self setupNavigationBar];
     
-    // in viewDidLoad or somewhere similar
+    // Setup tap listener for tableview
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableTapped:)];
     [self.formTable addGestureRecognizer:tap];
 }
@@ -80,6 +80,13 @@
     //Add the table to this view controller's view
     [self.view addSubview:self.formTable];
     
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
+    
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
 }
 
 - (void)viewDidLayoutSubviews {
