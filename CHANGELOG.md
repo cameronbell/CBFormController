@@ -1,4 +1,7 @@
 # Change Log
+## Version 0.3.7 (2016-11-14)
+* Exposed formTable constraints
+* Fixed bug where formTable constraints were clashing with translated autoresizing mask constraints
 
 ## Version 0.3.7 (2016-11-14)
 * Fix for bug caused by layout code that shouldn't be used when using constraints
