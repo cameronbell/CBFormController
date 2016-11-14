@@ -78,6 +78,11 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 
 @property (nonatomic, copy) void (^saveSucceeded)(CBFormController *formController); //Block that gets called after the save function succeeds
 
+@property (nonatomic,retain) NSLayoutConstraint *topConstraint;
+@property (nonatomic,retain) NSLayoutConstraint *leadingConstraint;
+@property (nonatomic,retain) NSLayoutConstraint *bottomConstraint;
+@property (nonatomic,retain) NSLayoutConstraint *trailingConstraint;
+
 -(NSArray *)getFormConfiguration; //This function is called to collect all the necessary information from the subclass about how to build the form
 -(int)rowIndexForFormItem:(CBFormItem *)formItem;
 -(BOOL)textFieldShouldReturnForFormItem:(CBFormItem *)formItem;

@@ -73,6 +73,9 @@
     //Create the form table and set its view to the size of the
     self.formTable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     
+    // Important because of our use of constraints
+    [self.formTable setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     //Set the delegate and datasource for the formtable to this class
     [self.formTable setDelegate:self];
     [self.formTable setDataSource:self];
@@ -80,10 +83,18 @@
     //Add the table to this view controller's view
     [self.view addSubview:self.formTable];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
+    self.topConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+    [self.view addConstraint:self.topConstraint];
+    
+    self.bottomConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+    [self.view addConstraint:self.bottomConstraint];
+    
+    self.leadingConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+    [self.view addConstraint:self.leadingConstraint];
+    
+    self.trailingConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.formTable attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+    [self.view addConstraint:self.trailingConstraint];
+    
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
     [self setAutomaticallyAdjustsScrollViewInsets:NO];
