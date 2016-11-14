@@ -1,4 +1,8 @@
 # Change Log
+
+## Version 0.3.7 (2016-11-14)
+* Fix for bug caused by layout code that shouldn't be used when using constraints
+
 ## Version 0.3.6 (2016-11-14)
 * Added constraints to formTable to solve frame change bug when endUpdates was called
 
