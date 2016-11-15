@@ -79,20 +79,14 @@
     
     //If the formitem does not already have a value then set it to the value of the first one in the array
     if ([self.items count]) {
-        
-        NSObject *pickerItem = [self.items objectAtIndex:selectedIndex];
-        [pickerCell.pickerField setText:[self getPickerStringForItem:pickerItem]];
+        [self setValue:[self.items objectAtIndex:0]];
     }
 
     //Update the height of the cell
     [self.formController updates];
     
-    //Sets the picker to the selectedIndex
-    [pickerCell.picker selectRow:selectedIndex inComponent:0 animated:NO];
-    
     //Make the picker visible
     [pickerCell.picker setHidden:NO];
-    
 }
 
 -(void)dismiss {
