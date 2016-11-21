@@ -56,7 +56,11 @@
     //Get the class for the cell for this form item from the cellSet
     NSString *cellClass = [self.formController.cellSet cellClassStringForFormItemClass:[self class]];
  
-    NSAssert(cellClass, @"cellClass must exist");
+    //NSAssert(cellClass, @"cellClass must exist");
+    // If there is no cellClass yet then return nil
+    if (!cellClass) {
+        return nil;
+    }
     
     //All of the resources from the cocoapod are loaded into the same bundle (which is not the main bundle). So loading the bundle that contains this class will be the same one that contains the nib we want.
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
