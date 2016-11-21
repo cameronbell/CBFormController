@@ -534,16 +534,21 @@
         [formItem saveValue];
     }
     
-    [self saveData];
+    BOOL saveDataSuccess = [self saveData];
     
-    self.editing = NO;
-    [self reloadEntireForm];
-    
-    if (self.saveSucceeded) {
-        self.saveSucceeded(self);
+    if (saveDataSuccess) {
+        self.editing = NO;
+        [self reloadEntireForm];
+        
+        if (self.saveSucceeded) {
+            self.saveSucceeded(self);
+        }
+        
+        return YES;
+    } else {
+        return NO;
     }
     
-    return YES;
 }
 
 // This function is called after validation is called by the full form save function but before
