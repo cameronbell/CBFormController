@@ -103,6 +103,22 @@
     
 }
 
+- (void)setItems:(NSArray *)items {
+    _items = items;
+    
+    CBPickerCell *pickerCell = (CBPickerCell *)self.cell;
+    
+    // If this is called before the form has a cellSet then pickerCell will be nil
+    if (pickerCell) {
+        [pickerCell.picker reloadAllComponents];
+        
+        // Check for equality with the isEqual method
+        if(![_items containsObject:self.value]) {
+            [self clear];
+        }
+    }
+}
+
 //If the cell is engaged return it's engaged height, otherwise load the default
 -(CGFloat)height {
     if (self.engaged) {
@@ -174,6 +190,12 @@
 // Default pickerSelectorString to pickerString
 - (NSString *)pickerSelectorString {
     return  _pickerSelectorString ? _pickerSelectorString : @"pickerString";
+}
+
+- (void)clear {
+    _value = nil;
+    CBPickerCell *pickerCell = (CBPickerCell *)self.cell;
+    [pickerCell.pickerField setText:@""];
 }
 
 @end
