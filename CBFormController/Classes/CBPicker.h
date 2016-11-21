@@ -24,4 +24,6 @@
 @property (nonatomic,retain) NSString *pickerSelectorString;
 
 - (NSString *)getPickerStringForItem:(NSObject *)obj;
+
+- (void)clear;
 @end
