@@ -1,5 +1,10 @@
 # Change Log
-## Version 0.3.7 (2016-11-14)
+## Version 0.3.9 (2016-11-20)
+* CBPicker setItems now reloads picker values and clears value if no equivalent is found
+* Added clear function to CBPicker
+* CBFormItem - removed assertion that cellSet exists in order to get a cell
+
+## Version 0.3.8 (2016-11-14)
 * Exposed formTable constraints
 * Fixed bug where formTable constraints were clashing with translated autoresizing mask constraints
 
