@@ -1,4 +1,8 @@
 # Change Log
+
+## Version 0.3.10 (2016-12-27)
+* Added optional delegate pattern to get string for CBPicker items from the form controller object
+
 ## Version 0.3.9 (2016-11-20)
 * CBPicker setItems now reloads picker values and clears value if no equivalent is found
 * Added clear function to CBPicker
