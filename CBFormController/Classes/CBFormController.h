@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, CBFormEditMode) {
 };
 
 
-@interface CBFormController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface CBFormController : UIViewController <UITableViewDelegate,UITableViewDataSource,CBPickerDelegate>
 
 
 @property (nonatomic,retain) IBOutlet UITableView *formTable; //This is the tableview which contains the form cells

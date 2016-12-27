@@ -8,6 +8,11 @@
 
 #import "CBFormItem.h"
 
+@protocol CBPickerDelegate <NSObject>
+@optional
+- (NSString *)getPickerStringForFormItem:(CBFormItem *)formItem forItem:(NSObject *)item;
+@end
+
 @interface CBPicker : CBFormItem <UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic,retain) NSArray *items;
@@ -24,6 +29,8 @@
 @property (nonatomic,retain) NSString *pickerSelectorString;
 
 - (NSString *)getPickerStringForItem:(NSObject *)obj;
+
+@property (nonatomic,assign) BOOL getPickerStringFromDelegate;
 
 - (void)clear;
 @end
