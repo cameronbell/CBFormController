@@ -40,17 +40,23 @@
     if ([value isKindOfClass:[NSString class]] || [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         _value = value;
         
-        // Set the picker to the value
-        int indexOfValue = [self.items indexOfObject:_value];
-        CBPickerCell *cell = (CBPickerCell *)self.cell;
-        [cell.picker selectRow:indexOfValue inComponent:0 animated:YES];
-        
-        // Set the value's string in the picker field
-        [cell.pickerField setText:[self getPickerStringForItem:_value]];
+        [self configurePicker];
         
     }else{
         NSAssert(NO, @"The value is not a string, or does not the selector with name stored in pickerSelectorString");
     }
+}
+
+// Sets the picker to the right position and sets the value of the picker's textfield
+-(void)configurePicker {
+    
+    // Set the picker to the value
+    int indexOfValue = [self.items indexOfObject:self.value];
+    CBPickerCell *cell = (CBPickerCell *)self.cell;
+    [cell.picker selectRow:indexOfValue inComponent:0 animated:YES];
+    
+    // Set the value's string in the picker field
+    [cell.pickerField setText:[self getPickerStringForItem:self.value]];
 }
 
 -(NSObject *)value {
@@ -74,11 +80,10 @@
     
     CBPickerCell *pickerCell = (CBPickerCell *)self.cell;
     
-    //Default to the first value in the items array if no value already selected
-    int selectedIndex = self.value ? [self.items indexOfObject:self.value] : 0;
-    
     //If the formitem does not already have a value then set it to the value of the first one in the array
-    if ([self.items count]) {
+    if (self.value) {
+        [self configurePicker];
+    }else if([self.items count]) {
         [self setValue:[self.items objectAtIndex:0]];
     }
 
