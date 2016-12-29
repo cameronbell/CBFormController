@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 0.3.11 (2016-12-29)
+* Bug fix for CBPicker not properly configuring cell and picker
+* Converted the delegate pattern for picker strings to use a block based approach
+
 ## Version 0.3.10 (2016-12-27)
 * Added optional delegate pattern to get string for CBPicker items from the form controller object
 
