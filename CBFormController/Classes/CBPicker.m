@@ -181,11 +181,12 @@
 - (NSString *)getPickerStringForItem:(NSObject *)obj {
     
     // Get string from the formController instead of off the objects
-    if (self.getPickerStringFromDelegate) {
-        if ([self.formController respondsToSelector:@selector(getPickerStringForFormItem:forItem:)]) {
-            return [self.formController getPickerStringForFormItem:self forItem:obj];
-        }
-        return @"";
+    if (self.getPickerStringForItem) {
+        NSString *pickerString = self.getPickerStringForItem(obj);
+        
+        NSAssert(pickerString, @"getPickerStringForItem block must return string for item");
+        
+        return pickerString;
     }
     
     // Get the string off the object
