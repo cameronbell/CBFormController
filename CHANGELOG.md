@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.12 (2017-01-03)
+* Bug fixes for 0.3.11 changes
+
 ## Version 0.3.11 (2016-12-29)
 * Bug fix for CBPicker not properly configuring cell and picker
 * Converted the delegate pattern for picker strings to use a block based approach
