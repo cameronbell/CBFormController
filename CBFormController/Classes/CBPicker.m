@@ -85,6 +85,10 @@
         [self configurePicker];
     }else if([self.items count]) {
         [self setValue:[self.items objectAtIndex:0]];
+        
+        if ([self isEdited]) {
+            [self valueChanged];
+        }
     }
 
     //Update the height of the cell
@@ -187,7 +191,9 @@
     
     // Get string from the formController instead of off the objects
     if (self.getPickerStringForItem) {
-        NSString *pickerString = self.getPickerStringForItem(obj);
+        
+        // Ensure result is a string if obj doesn't exist
+        NSString *pickerString = obj ? self.getPickerStringForItem(obj) : @"";
         
         NSAssert(pickerString, @"getPickerStringForItem block must return string for item");
         
