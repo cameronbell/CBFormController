@@ -37,7 +37,7 @@
 //Ensures that this FormItem's value can only be set to a string or to an object that implements -(NSString *)pickerString
 -(void)setValue:(NSObject *)value {
     
-    if ([value isKindOfClass:[NSString class]] || [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
+    if (!value || [value isKindOfClass:[NSString class]] || [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
         _value = value;
         
         [self configurePicker];
@@ -60,7 +60,6 @@
 }
 
 -(NSObject *)value {
-    // TODO: If we do it this way, then setting the value to nil is not possible
     return _value ? _value : _initialValue;
     //return [(CBPickerCell *)self.cell pickerField].text;
 }

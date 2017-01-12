@@ -36,7 +36,7 @@
 
 //Ensures that this FormItem's value can only be set to a string
 -(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
+    if (!value || [value isKindOfClass:[NSString class]]) {
         _value = value;
     }else{
         NSAssert(NO, @"The value of a CBText must be a NSString.");
@@ -44,7 +44,7 @@
 }
 
 -(NSObject *)value {
-    return [(CBTextCell *)self.cell textField].text;
+    return _value;
 }
 
 //Ensuring that this never returns nil so that isEdited works properly.
