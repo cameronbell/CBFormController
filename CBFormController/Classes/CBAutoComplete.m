@@ -64,7 +64,7 @@
     [cell configureForFormItem:self];
 }
 
-//Ensures that this FormItem's initialValue can only be set to a string
+
 -(void)setInitialValue:(NSObject *)initialValue {
     
     if (!initialValue || [initialValue respondsToSelector:NSSelectorFromString(self.selectorString)]) {
