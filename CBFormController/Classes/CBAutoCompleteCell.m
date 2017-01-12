@@ -12,13 +12,18 @@
 @implementation CBAutoCompleteCell
 
 
--(void)configureForFormItem:(CBFormItem *)formItem {
+-(void)configureForFormItem:(CBAutoComplete *)formItem {
     [super configureForFormItem:formItem];
     
     //Cast the initialValue to an MLPAutoCompletionObject conforming NSObject and set the
     // textfield to the value of its autocompleteString
-    NSObject<MLPAutoCompletionObject> *obj = formItem.initialValue;
-    [self.textField setText:obj.autocompleteString];
+//    NSObject<MLPAutoCompletionObject> *obj = formItem.initialValue;
+//    [self.textField setText:obj.autocompleteString];
+    
+    if([formItem.value respondsToSelector:NSSelectorFromString(formItem.selectorString)]){
+        [self.textField setText:[formItem.value performSelector:NSSelectorFromString(formItem.selectorString)]];
+    }
+    
     
     //User interaction should start disabled
     [self.textField setUserInteractionEnabled:NO];
