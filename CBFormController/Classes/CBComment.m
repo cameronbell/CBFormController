@@ -36,8 +36,14 @@
 
 //Ensures that this FormItem's value can only be set to a string
 -(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
+    if ([value isKindOfClass:[NSString class]] || !value) {
         _value = value;
+        
+        CBCommentCell *commentCell = (CBCommentCell *)self.cell;
+        
+        // Set the text of the textview appropriately
+        [commentCell.textView setText:value ? (NSString *)value : @""];
+        
     }else{
         NSAssert(NO, @"The value of a CBComment must be a NSString.");
     }
