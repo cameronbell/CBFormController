@@ -34,6 +34,12 @@
     //This is a temporary fix for the iOS9 Datepicker bug.
     [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+    
+    // Enable the clear button if the formItem has a value/initial value
+    [self.clearButton setEnabled:formItem.value];
+    
+    // Add clear button listener on formitem
+    [self.clearButton addTarget:formItem action:@selector(clear:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 

@@ -13,5 +13,7 @@
 @property (nonatomic,retain) IBOutlet UITextField *dateField;
 @property (nonatomic,retain) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic,assign) CGFloat engagedHeight;
+@property (nonatomic,assign) CGFloat clearButtonHeight;
+@property (nonatomic,retain) IBOutlet UIButton *clearButton;
 
 @end

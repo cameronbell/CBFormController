@@ -11,12 +11,7 @@
 #import "CBDateCell.h"
 
 @implementation CBDate
-
-@synthesize save;
-@synthesize validation;
-@synthesize dateFormatter = _dateFormatter;
-
-
+@synthesize showClearButton = _showClearButton;
 -(CBFormItemType)type {
     return CBFormItemTypeDate;
 }
@@ -37,7 +32,9 @@
 
 //Ensures that this FormItem's value can only be set to a date
 -(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSDate class]]) {
+    
+    // If the value is a nsdate or is nil
+    if ([value isKindOfClass:[NSDate class]] || !value) {
         _value = value;
         
         CBDateCell *dateCell = (CBDateCell *)self.cell;
@@ -46,7 +43,13 @@
         UITextField *dateField = [dateCell dateField];
         [dateField setText:dateString];
         
-        [dateCell.datePicker setDate:_value];
+        // If value is not nil then set the date of the picker
+        if (_value) {
+            [dateCell.datePicker setDate:_value];
+            [dateCell.clearButton setEnabled:YES];
+        }else{
+            [dateCell.clearButton setEnabled:NO];
+        }
         
         // Always call valueChanged unless 
         if (self.formController.editMode == CBFormEditModeEdit) {
@@ -54,7 +57,6 @@
         } else {
             [self valueChanged];
         }
-    
     }else{
         NSAssert(NO, @"The value of a CBDate must be a NSDate.");
     }
@@ -134,9 +136,12 @@
 
 //If the CBDate is engaged then return the CBDateCell's engagedHeight, otherwise just fall back to the default.
 -(CGFloat)height {
-    if (self.engaged) {
+    if (self.engaged && self.showClearButton) {
+        return [(CBDateCell *)[self cell] engagedHeight]
+            + [(CBDateCell *)[self cell] clearButtonHeight];
+    } else if (self.engaged) {
         return [(CBDateCell *)[self cell] engagedHeight];
-    }else {
+    } else {
         return [super height];
     }
 }
@@ -146,6 +151,8 @@
     [self setValue:datePicker.date];
 }
 
-
+-(IBAction)clear:(id)sender {
+    [self setValue:nil];
+}
 
 @end

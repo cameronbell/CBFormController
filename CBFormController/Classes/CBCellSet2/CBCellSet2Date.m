@@ -26,5 +26,8 @@
     return 210.0f;
 }
 
+-(CGFloat)clearButtonHeight {
+    return 42.0f;
+}
 
 @end
