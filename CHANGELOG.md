@@ -1,4 +1,7 @@
 # Change Log
+## Version 0.3.13 (2017-01-12)
+* Fix for crash involving autocomplete selector string configuration
+* Added support for clearButton and nil dates on CBDate
 
 ## Version 0.3.12 (2017-01-03)
 * Bug fixes for 0.3.11 changes
