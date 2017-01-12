@@ -1,4 +1,9 @@
 # Change Log
+
+## Version 0.3.13 (2017-01-12)
+* Allowing CBComment, CBText, and CBPicker to accept nil values
+* Removed unnecessary call to super in CBSwitch setValue
+
 ## Version 0.3.13 (2017-01-12)
 * Fix for crash involving autocomplete selector string configuration
 * Added support for clearButton and nil dates on CBDate
