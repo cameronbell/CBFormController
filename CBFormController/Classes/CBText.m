@@ -26,7 +26,7 @@
 
 //Ensures that this FormItem's initialValue can only be set to a string
 -(void)setInitialValue:(NSObject *)initialValue {
-    
+
     if (!initialValue || [initialValue isKindOfClass:[NSString class]]) {
         _initialValue = initialValue;
     }else{
@@ -44,7 +44,7 @@
 }
 
 -(NSObject *)value {
-    return _value;
+    return [(CBTextCell *)self.cell textField].text;
 }
 
 //Ensuring that this never returns nil so that isEdited works properly.
@@ -58,17 +58,17 @@
 
 -(void)engage {
     [super engage];
-    
+
     CBTextCell *textCell = (CBTextCell *)self.cell;
-    
+
     [textCell.textField setUserInteractionEnabled:YES];
     [textCell.textField becomeFirstResponder];
-    
+
 }
 
 -(void)dismiss {
     [super dismiss];
-    
+
     CBTextCell *textCell = (CBTextCell *)self.cell;
     [textCell.textField resignFirstResponder];
     [textCell.textField setUserInteractionEnabled:NO];
@@ -76,7 +76,7 @@
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
+
     //Let the formController decide the actual return value of this function as it manages the selection of formitems in response to the return key.
     return [self.formController textFieldShouldReturnForFormItem:self];
 
