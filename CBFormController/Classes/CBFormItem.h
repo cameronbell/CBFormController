@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, CBFormItemType) {
 @property (nonatomic, copy) void (^change)(NSObject *initialValue, NSObject *newValue); //Called when the value of the formItem changes if applicable
 @property (nonatomic, copy) void (^save)(NSObject *value); //Called to ask the subclass to save the value to the data source
 @property (nonatomic, copy) BOOL (^validation)(NSObject *value); //Called to verify that the new value is acceptable to be saved to the data source.
-@property (nonatomic, copy) void (^select)(); //Called to verify that the new value is acceptable to be saved to the data source.
+@property (nonatomic, copy) void (^select)();
 @property (nonatomic,retain) NSMutableDictionary *addOns; //A dictionary that categories CBFormItem and CBFormItem cell can use to pass values
 @property (nonatomic,assign) UIKeyboardType keyboardType; //Used for formItems that have a keyboard. Determines which keyboard is shown.
 @property (nonatomic,assign) BOOL userInteractionEnabled;

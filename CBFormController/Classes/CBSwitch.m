@@ -59,6 +59,10 @@
 
 -(void)switchChanged {
     
+    if(self.switchedTo) {
+        self.switchedTo(self.value);
+    }
+    
     // If the form is in editing mode then only call valueChanged when it is edited
     // compared to the initialValue
     // Otherwise call it whenever the switch changes state
