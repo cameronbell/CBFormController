@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.14 (2017-01-15)
+* Added setValueWithoutChangeEvent function to CBSwitch
+
 ## Version 0.3.13 (2017-01-12)
 * Allowing CBComment, CBText, and CBPicker to accept nil values
 * Removed unnecessary call to super in CBSwitch setValue
