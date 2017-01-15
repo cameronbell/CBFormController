@@ -44,6 +44,23 @@
     [[(CBSwitchCell *)self.cell theSwitch] setOn:newState];
 }
 
+- (void)setValueWithoutChangeEvent:(NSObject *)value {
+    
+    [[(CBSwitchCell *)self.cell theSwitch] removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    BOOL newState = [(NSNumber *)value boolValue];
+    [[(CBSwitchCell *)self.cell theSwitch] setOn:newState animated:NO];
+    
+    // This is necessary because there is a async delay between when setOn is called, and when its
+    //value changes and consequently when the valueChanged message gets sent. Adding the
+    // eventHandler back to the object after a momentary delay solves this problem
+    [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [[(CBSwitchCell *)self.cell theSwitch] addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    }];
+    
+}
+
+
+
 //The value of the switch is always an nsnumber
 -(NSObject *)value {
     return [NSNumber numberWithBool:[(CBSwitchCell *)self.cell theSwitch].on];
@@ -57,11 +74,7 @@
     return ![(NSNumber *)self.initialValue isEqualToNumber:(NSNumber *)self.value];
 }
 
--(void)switchChanged {
-    
-    if(self.switchedTo) {
-        self.switchedTo(self.value);
-    }
+-(IBAction)switchChanged:(id)sender {
     
     // If the form is in editing mode then only call valueChanged when it is edited
     // compared to the initialValue

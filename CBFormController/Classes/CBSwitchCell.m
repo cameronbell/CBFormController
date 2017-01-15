@@ -40,7 +40,7 @@
     [self.theSwitch setOn:[(NSNumber *)formItem.initialValue boolValue]];
     
     //Calls the function switchChanged on the corresponding formItem when the switch is flipped
-    [self.theSwitch addTarget:formItem action:@selector(switchChanged) forControlEvents:UIControlEventValueChanged];
+    [self.theSwitch addTarget:formItem action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 
 }
 

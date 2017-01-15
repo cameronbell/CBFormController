@@ -19,5 +19,5 @@
 //This initialValue of a CBSwitch is stored as an NSNumber ( 0 or 1 )
 
 -(void)switchChanged;
-
+- (void)setValueWithoutChangeEvent:(NSObject *)value;
 @end
