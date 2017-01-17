@@ -120,6 +120,8 @@
         [self setValue:[NSDate date]];
     }
     
+    [self selected];
+    
     [self.formController updates];
 }
 -(void)dismiss {

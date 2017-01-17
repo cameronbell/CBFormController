@@ -1,9 +1,12 @@
 # Change Log
 
-## Version 0.3.14 (2017-01-15)
+## Version 0.3.17 (2017-01-17)
+* Added selected block call when CBDate is engaged
+
+## Version 0.3.15 (2017-01-15)
 * Added setValueWithoutChangeEvent function to CBSwitch
 
-## Version 0.3.13 (2017-01-12)
+## Version 0.3.14 (2017-01-12)
 * Allowing CBComment, CBText, and CBPicker to accept nil values
 * Removed unnecessary call to super in CBSwitch setValue
 
