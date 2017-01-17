@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.18 (2017-01-17)
+* Moved the selected block on the CBDate to be called before the default value is set
+
 ## Version 0.3.17 (2017-01-17)
 * Added selected block call when CBDate is engaged
 
