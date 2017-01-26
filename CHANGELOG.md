@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.25 (2017-01-26)
+* Fixed bug in CBSwitch where function not supported on iOS 9 was being used
+
 ## Version 0.3.24 (2017-01-26)
 * Removed pencil icon from comment cell
 * Fixed valueChanged not being called from CBAutoComplete
