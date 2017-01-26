@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 0.3.24 (2017-01-26)
+* Removed pencil icon from comment cell
+* Fixed valueChanged not being called from CBAutoComplete
+
 ## Version 0.3.23 (2017-01-26)
 * Fixed bug where edited would return true for 2 nil values in autocomplete
 
