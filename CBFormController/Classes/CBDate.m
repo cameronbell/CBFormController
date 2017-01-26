@@ -16,6 +16,14 @@
     return CBFormItemTypeDate;
 }
 
+- (id)initWithName:(NSString *)name {
+    if (self = [super initWithName:name]) {
+        _value = [NSNull null];
+        _initialValue = [NSNull null];
+    }
+    return self;
+}
+
 -(void)configureCell:(CBCell *)cell {
     [cell configureForFormItem:self];
     [super configureCell:cell];
@@ -71,27 +79,38 @@
     return _dateFormatter;
 }
 
-- (NSDate *)rawValue {
-    return (NSDate *)_value;
-}
-
 -(NSObject *)value {
-    return _value ? _value : _initialValue;
+    return [_value isEqual:[NSNull null]] ? _initialValue : _value;
 }
 
 -(NSObject *)initialValue {
-    return _initialValue ? _initialValue : self.formController.defaultDate;
+    return [_initialValue isEqual:[NSNull null]] ?  self.formController.defaultDate : _initialValue;
 }
 
 -(BOOL)isEdited {
 
-    //If both value and initialValue are nil then the formItem has not been edited
-    if (![self value] && ![self initialValue]) return NO;
+    // If both value and initialValue are NSNull then the formItem has not been edited
+    if ([_value isEqual:[NSNull null]] && [_initialValue isEqual:[NSNull null]]) {
+        return NO;
+    }
 
-    //If one is nil and the other is not then one of them has changed
-    if ((!self.initialValue)^(!self.rawValue)) return YES;
+    // If one is NSNull and the other is not then one of them has changed
+    if ([_value isEqual:[NSNull null]] || [_initialValue isEqual:[NSNull null]]) {
+        return true;
+    }
+    
+    // Check if they're both nil
+    if (!_value && !_initialValue) {
+        return false;
+    }
+    
+    // Check if one of them is nil
+    if (!_value || _initialValue) {
+        return true;
+    }
 
-    return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.rawValue];
+    // Compare the dates
+    return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.value];
 }
 
 + (BOOL)date:(NSDate *)date1 isSameDayAsDate:(NSDate *)date2 {
