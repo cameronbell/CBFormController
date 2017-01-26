@@ -53,13 +53,17 @@
     // This is necessary because there is a async delay between when setOn is called, and when its
     //value changes and consequently when the valueChanged message gets sent. Adding the
     // eventHandler back to the object after a momentary delay solves this problem
-    [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        [[(CBSwitchCell *)self.cell theSwitch] addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    }];
+    [NSTimer scheduledTimerWithTimeInterval:0.1
+                                     target:self
+                                   selector:@selector(resetTarget)
+                                   userInfo:nil repeats:NO];
+     
     
 }
 
-
+- (void)resetTarget {
+    [[(CBSwitchCell *)self.cell theSwitch] addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+}
 
 //The value of the switch is always an nsnumber
 -(NSObject *)value {
