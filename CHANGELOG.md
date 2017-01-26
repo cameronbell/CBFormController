@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.19 (2017-01-26)
+* Added method to get the raw value from a CBDate
+
 ## Version 0.3.18 (2017-01-17)
 * Moved the selected block on the CBDate to be called before the default value is set
 
