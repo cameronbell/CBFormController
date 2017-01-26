@@ -1,5 +1,27 @@
 # Change Log
 
+## Version 0.3.24 (2017-01-26)
+* Removed pencil icon from comment cell
+* Fixed valueChanged not being called from CBAutoComplete
+
+## Version 0.3.23 (2017-01-26)
+* Fixed bug where edited would return true for 2 nil values in autocomplete
+
+## Version 0.3.22 (2017-01-26)
+* More CBDate fixes
+
+## Version 0.3.21 (2017-01-26)
+* Trying to fix the problem with differentiating between a user-set nil value and no value on the CBDate
+
+## Version 0.3.20 (2017-01-26)
+* Added method to get the raw value from a CBDate
+
+## Version 0.3.19 (2017-01-23)
+* Allowing the initialValue and value to be set if the user has given a getPickerStringForItem block
+
+## Version 0.3.18 (2017-01-17)
+* Moved the selected block on the CBDate to be called before the default value is set
+
 ## Version 0.3.17 (2017-01-17)
 * Added selected block call when CBDate is engaged
 

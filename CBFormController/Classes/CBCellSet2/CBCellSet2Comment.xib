@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phP-b9-Hak">
-                        <rect key="frame" x="14" y="35" width="292" height="89"/>
+                        <rect key="frame" x="14" y="36" width="292" height="88"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -26,13 +26,6 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Comments"/>
                         </userDefinedRuntimeAttributes>
                     </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="penciliconwhite" translatesAutoresizingMaskIntoConstraints="NO" id="JI5-HF-ICC">
-                        <rect key="frame" x="284" y="14" width="16" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="Fa4-lL-v81"/>
-                            <constraint firstAttribute="width" constant="16" id="W7Q-c5-Q9p"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vq5-Mn-CPz">
                         <rect key="frame" x="265" y="10" width="42" height="21"/>
                         <constraints>
@@ -44,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv9-bn-Hvj">
-                        <rect key="frame" x="14" y="12" width="241" height="21"/>
+                        <rect key="frame" x="14" y="12" width="241" height="22"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,23 +50,17 @@
                     <constraint firstItem="phP-b9-Hak" firstAttribute="leading" secondItem="CgO-uJ-yR8" secondAttribute="leading" constant="14" id="HXE-wa-k9K"/>
                     <constraint firstAttribute="bottom" secondItem="phP-b9-Hak" secondAttribute="bottom" constant="12" id="MI1-iZ-ge8"/>
                     <constraint firstItem="Vq5-Mn-CPz" firstAttribute="top" secondItem="CgO-uJ-yR8" secondAttribute="top" constant="10" id="OHg-sc-gEf"/>
-                    <constraint firstItem="JI5-HF-ICC" firstAttribute="top" secondItem="CgO-uJ-yR8" secondAttribute="top" constant="14" id="S5R-X2-KMV"/>
                     <constraint firstItem="Vq5-Mn-CPz" firstAttribute="leading" secondItem="Tv9-bn-Hvj" secondAttribute="trailing" constant="10" id="T8g-et-lmO"/>
-                    <constraint firstAttribute="trailing" secondItem="JI5-HF-ICC" secondAttribute="trailing" constant="20" id="ZUD-3e-0b6"/>
                     <constraint firstItem="Tv9-bn-Hvj" firstAttribute="top" secondItem="CgO-uJ-yR8" secondAttribute="top" constant="12" id="biM-cL-AAW"/>
                     <constraint firstItem="phP-b9-Hak" firstAttribute="top" secondItem="Tv9-bn-Hvj" secondAttribute="bottom" constant="2" id="vAV-jU-OQw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="donelabel" destination="Vq5-Mn-CPz" id="gLR-GC-6Bx"/>
-                <outlet property="pencilIcon" destination="JI5-HF-ICC" id="JbL-Ah-BiI"/>
                 <outlet property="textView" destination="phP-b9-Hak" id="0NH-oX-fZ8"/>
                 <outlet property="titleLabel" destination="Tv9-bn-Hvj" id="dgu-Ko-giP"/>
             </connections>
             <point key="canvasLocation" x="74" y="50.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="penciliconwhite" width="16" height="16"/>
-    </resources>
 </document>

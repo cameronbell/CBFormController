@@ -80,6 +80,9 @@
     
     if (!value || [value respondsToSelector:NSSelectorFromString(self.selectorString)]) {
         _value = value;
+        
+        // Always call valueChanged unless
+        if([self isEdited]) [self valueChanged];
     }else{
         NSAssert(NO, @"The value does not implement the chosen selectorString.");
     }
@@ -92,6 +95,11 @@
 }
 
 -(BOOL)isEdited {
+    // If they are both nil, return no
+    if (!self.initialValue && !self.value) {
+        return false;
+    }
+    
     //isEqual should be overrided by the objects being passed in so that they are
     //compared by their properties values and not there references
     return ![self.initialValue isEqual:self.value];

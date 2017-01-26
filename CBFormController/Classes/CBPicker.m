@@ -26,7 +26,9 @@
 
 -(void)setInitialValue:(NSObject *)initialValue {
     
-    if (!initialValue || [initialValue isKindOfClass:[NSString class]] || [initialValue respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
+    if (!initialValue || [initialValue isKindOfClass:[NSString class]] ||
+        [initialValue respondsToSelector:NSSelectorFromString(self.pickerSelectorString)] ||
+        [self getPickerStringForItem]) {
         _initialValue = initialValue;
         //_value = [initialValue copy];
     }else{
@@ -37,7 +39,9 @@
 //Ensures that this FormItem's value can only be set to a string or to an object that implements -(NSString *)pickerString
 -(void)setValue:(NSObject *)value {
     
-    if (!value || [value isKindOfClass:[NSString class]] || [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)]) {
+    if (!value || [value isKindOfClass:[NSString class]] ||
+        [value respondsToSelector:NSSelectorFromString(self.pickerSelectorString)] ||
+        [self getPickerStringForItem]) {
         _value = value;
         
         [self configurePicker];
