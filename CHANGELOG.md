@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.21 (2017-01-26)
+* Trying to fix the problem with differentiating between a user-set nil value and no value on the CBDate
+
 ## Version 0.3.20 (2017-01-26)
 * Added method to get the raw value from a CBDate
 
