@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EEC0F031E3A8E1D00678642 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC0F021E3A8E1D00678642 /* CHANGELOG.md */; };
 		3F1DB0801D52662500C5B3F4 /* Pods_CBFormController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1DB07F1D52662500C5B3F4 /* Pods_CBFormController_Example.framework */; };
 		3FB6BE201D5247FF00CA79A3 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FB6BE1F1D5247FF00CA79A3 /* cities.json */; };
 		3FB6BE261D52516000CA79A3 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6BE251D52516000CA79A3 /* City.m */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EEC0F021E3A8E1D00678642 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		3F1DB07F1D52662500C5B3F4 /* Pods_CBFormController_Example.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_CBFormController_Example.framework; path = "Pods/../build/Debug-iphoneos/Pods_CBFormController_Example.framework"; sourceTree = "<group>"; };
 		3FB6BE1F1D5247FF00CA79A3 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		3FB6BE241D52516000CA79A3 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				68621C6612C164D3B1FBC1E9 /* CBFormController.podspec */,
 				D72890818DA5FCCFDAF0F56A /* README.md */,
+				3EEC0F021E3A8E1D00678642 /* CHANGELOG.md */,
 				B883B76D4FD21CA9B32A2FD7 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CBAppDelegate.m in Sources */,
+				3EEC0F031E3A8E1D00678642 /* CHANGELOG.md in Sources */,
 				6003F5A7195388D20070C39A /* CBViewController.m in Sources */,
 				3FB6BE261D52516000CA79A3 /* City.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
