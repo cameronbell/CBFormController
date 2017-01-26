@@ -89,9 +89,9 @@
     if (![self value] && ![self initialValue]) return NO;
 
     //If one is nil and the other is not then one of them has changed
-    if ((!self.initialValue)^(!self.value)) return YES;
+    if ((!self.initialValue)^(!self.rawValue)) return YES;
 
-    return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.value];
+    return ![CBDate date:(NSDate *)self.initialValue isSameDayAsDate:(NSDate *)self.rawValue];
 }
 
 + (BOOL)date:(NSDate *)date1 isSameDayAsDate:(NSDate *)date2 {
