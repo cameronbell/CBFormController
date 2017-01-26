@@ -1,7 +1,10 @@
 # Change Log
 
-## Version 0.3.19 (2017-01-26)
+## Version 0.3.20 (2017-01-26)
 * Added method to get the raw value from a CBDate
+
+## Version 0.3.19 (2017-01-23)
+* Allowing the initialValue and value to be set if the user has given a getPickerStringForItem block
 
 ## Version 0.3.18 (2017-01-17)
 * Moved the selected block on the CBDate to be called before the default value is set
