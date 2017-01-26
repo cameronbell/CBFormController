@@ -105,7 +105,7 @@
     }
     
     // Check if one of them is nil
-    if (!_value || _initialValue) {
+    if (!_value || !_initialValue) {
         return true;
     }
 
