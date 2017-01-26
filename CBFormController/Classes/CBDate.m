@@ -88,14 +88,13 @@
 }
 
 -(BOOL)isEdited {
-
-    // If both value and initialValue are NSNull then the formItem has not been edited
-    if ([_value isEqual:[NSNull null]] && [_initialValue isEqual:[NSNull null]]) {
-        return NO;
+    // If the _value is null, it hasn't been changed
+    if ([_value isEqual:[NSNull null]]) {
+        return false;
     }
-
-    // If one is NSNull and the other is not then one of them has changed
-    if ([_value isEqual:[NSNull null]] || [_initialValue isEqual:[NSNull null]]) {
+    
+    // If the initialvalue was NSNull and the new value isn't, something changed
+    if ([_initialValue isEqual:[NSNull null]]) {
         return true;
     }
     
