@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.22 (2017-01-26)
+* More CBDate fixes
+
 ## Version 0.3.21 (2017-01-26)
 * Trying to fix the problem with differentiating between a user-set nil value and no value on the CBDate
 
