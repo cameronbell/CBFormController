@@ -80,6 +80,9 @@
     
     if (!value || [value respondsToSelector:NSSelectorFromString(self.selectorString)]) {
         _value = value;
+        
+        // Always call valueChanged unless
+        if([self isEdited]) [self valueChanged];
     }else{
         NSAssert(NO, @"The value does not implement the chosen selectorString.");
     }
