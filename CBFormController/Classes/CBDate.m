@@ -71,6 +71,9 @@
     return _dateFormatter;
 }
 
+- (NSDate *)rawValue {
+    return (NSDate *)_value;
+}
 
 -(NSObject *)value {
     return _value ? _value : _initialValue;
