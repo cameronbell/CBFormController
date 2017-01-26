@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.23 (2017-01-26)
+* Fixed bug where edited would return true for 2 nil values in autocomplete
+
 ## Version 0.3.22 (2017-01-26)
 * More CBDate fixes
 
