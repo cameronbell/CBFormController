@@ -191,10 +191,14 @@
 }
 
 -(void)clear {
-   
     CBAutoCompleteCell *cell = (CBAutoCompleteCell *)self.cell;
     [cell.textField setText:@""];
     _value = nil;
+    [self valueChanged];
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    [self clear];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
