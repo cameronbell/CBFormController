@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 0.3.26 (0217-05-15)
+* Fixed bug where clearing an AutoCompleteField would not signal the change in value
+
 ## Version 0.3.25 (2017-01-26)
 * Fixed bug in CBSwitch where function not supported on iOS 9 was being used
 
