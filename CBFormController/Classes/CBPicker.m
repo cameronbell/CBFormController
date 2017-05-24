@@ -166,10 +166,7 @@
         [self setValue:selectedObj];
         
         [cell.pickerField setText:[self getPickerStringForItem:selectedObj]];
-        
-        if ([self isEdited]) {
-            [self valueChanged];
-        }
+        [self valueChanged];
     }
 }
 
