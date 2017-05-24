@@ -1,6 +1,9 @@
 # Change Log
 
-## Version 0.3.26 (0217-05-15)
+## Version 0.3.27 (2017-05-24) 
+* Fixed bug where change block would not be called if original value was selected within a CBPicker
+
+## Version 0.3.26 (2017-05-15)
 * Fixed bug where clearing an AutoCompleteField would not signal the change in value
 
 ## Version 0.3.25 (2017-01-26)
