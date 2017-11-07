@@ -199,6 +199,7 @@
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
     [self clear];
+    return true; 
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
