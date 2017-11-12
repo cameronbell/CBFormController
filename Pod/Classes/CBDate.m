@@ -37,10 +37,16 @@
 
 //Ensures that this FormItem's value can only be set to a date
 -(void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSDate class]]) {
+    if (!value || [value isKindOfClass:[NSDate class]]) {
         _value = value;
         
-        NSString *dateString = [self.dateFormatter stringFromDate:_value];
+        NSString *dateString;
+        if (value) {
+            dateString = [self.dateFormatter stringFromDate:_value];
+        } else {
+            dateString = nil; 
+        }
+        
         UITextField *dateField = [(CBDateCell *)self.cell dateField];
         [dateField setText:dateString];
         
